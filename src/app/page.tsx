@@ -262,463 +262,253 @@ export default async function Home() {
   <div className="section-divider" aria-hidden="true"><span className="divider-gem"></span></div>
 
   {/*  ===========================
-     ABOUT — Cinematic Premium Redesign v3
+     ABOUT — Premium Redesign
      ===========================  */}
-  
 
-  <section id="about-v3" className="py-12 sm:py-16 relative z-0">
-    <div className="mx-auto max-w-screen-2xl px-6 lg:px-10 relative z-10">
+  <section id="about-v3" className="py-12 sm:py-20 bg-white relative z-0">
+    <div className="mx-auto max-w-screen-xl px-6 lg:px-10 relative z-10">
 
-      {/*  ──────────────────────────────────────────
-           HEADER
-      ──────────────────────────────────────────  */}
-      <div className="max-w-4xl mx-auto text-center mb-20 scroll-reveal">
-
-        {/*  Badge  */}
-        <div className="mb-6 flex items-center justify-center gap-3">
-          <span
-            className="about-badge inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-indigo-600 bg-indigo-50 border border-indigo-200/70 rounded-full shadow-sm">
-            <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-            About Me
-          </span>
-        </div>
-
-        {/*  Headline  */}
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.02] mb-6">
-          Engineering the 
-          <span className="relative inline-block">
-            <span className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(120deg, #6366f1 0%, #7c3aed 40%, #14b8a6 100%)" }}>
-              full stack
-            </span>
-            {/*  Underline accent  */}
-            <span className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full opacity-40"
-              style={{ background: "linear-gradient(90deg, #6366f1, #14b8a6)" }}></span>
-          </span>
-          &nbsp;of trust.
+      {/* ── Section Header ── */}
+      <div className="max-w-3xl mx-auto text-center mb-16">
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">
+          <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" />
+          About Me
+        </span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.02] mb-5">
+          Engineering the{" "}
+          <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(120deg, #6366f1 0%, #7c3aed 40%, #14b8a6 100%)" }}>
+            full stack
+          </span>{" "}
+          of trust.
         </h2>
-
-        <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
           From silicon to smart contracts — I build systems that are fast, secure, and production-ready.
           Co-inventor of a <strong className="text-slate-700 font-extrabold">Government of India IoT Patent</strong>.
         </p>
       </div>
 
-      {/*  ──────────────────────────────────────────
-           STATS STRIP — 5 cards
-      ──────────────────────────────────────────  */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-20 scroll-reveal">
-
-        {/*  Projects  */}
-        <div className="about-stat-card stat-indigo">
-          <div className="about-stat-icon bg-indigo-50">
-            <svg className="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div className="about-stat-num">15<span className="text-indigo-500 text-2xl">+</span></div>
-          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Projects Built</div>
-        </div>
-
-        {/*  Experience  */}
-        <div className="about-stat-card stat-violet">
-          <div className="about-stat-icon bg-violet-50">
-            <svg className="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div className="about-stat-num">3<span className="text-violet-500 text-2xl">+</span></div>
-          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Years Engineering</div>
-        </div>
-
-        {/*  Patent  */}
-        <div className="about-stat-card stat-amber">
-          <div className="about-stat-icon bg-amber-50">
-            <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div className="about-stat-num">1<span className="text-amber-500 text-2xl">×</span></div>
-          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Govt. Patent</div>
-        </div>
-
-        {/*  Technologies  */}
-        <div className="about-stat-card stat-teal">
-          <div className="about-stat-icon bg-teal-50">
-            <svg className="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeWidth="1.8" strokeLinecap="round"
-                strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div className="about-stat-num">8<span className="text-teal-500 text-2xl">+</span></div>
-          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Technologies</div>
-        </div>
-
-        {/*  Certifications  */}
-        <div className="about-stat-card stat-primary sm:col-span-1 col-span-2">
-          <div className="about-stat-icon" style={{ background: "rgba(242,13,70,0.08)" }}>
-            <svg className="w-5 h-5" style={{ color: "#f20d46" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <div className="about-stat-num" style={{ color: "#f20d46" }}>5<span className="text-2xl">+</span></div>
-          <div className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Certifications</div>
-        </div>
-
+      {/* ── Stats Strip ── */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-14">
+        {([
+          { icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10", num: "15", sup: "+", label: "Projects Built",     color: "indigo" },
+          { icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",                                                                    num: "3",  sup: "+", label: "Years Engineering", color: "violet" },
+          { icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", num: "1",  sup: "×", label: "Govt. Patent",       color: "amber" },
+          { icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",                                                                                                                        num: "8",  sup: "+", label: "Technologies",      color: "teal"   },
+          { icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",                                                    num: "5",  sup: "+", label: "Certifications",   color: "rose"   },
+        ] as const).map((s, i) => {
+          const bg:   Record<string,string> = { indigo:"bg-indigo-50", violet:"bg-violet-50", amber:"bg-amber-50", teal:"bg-teal-50", rose:"bg-rose-50" };
+          const txt:  Record<string,string> = { indigo:"text-indigo-600", violet:"text-violet-600", amber:"text-amber-600", teal:"text-teal-600", rose:"text-rose-500" };
+          const num:  Record<string,string> = { indigo:"text-indigo-500", violet:"text-violet-500", amber:"text-amber-500", teal:"text-teal-500", rose:"text-rose-500" };
+          const bar:  Record<string,string> = { indigo:"from-indigo-400 to-sky-400", violet:"from-violet-400 to-purple-400", amber:"from-amber-400 to-orange-400", teal:"from-teal-400 to-emerald-400", rose:"from-rose-400 to-pink-400" };
+          return (
+            <div key={i} className={`group relative bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden ${i === 4 ? "sm:col-span-1 col-span-2" : ""}`}>
+              <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${bar[s.color]} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              <div className={`w-9 h-9 ${bg[s.color]} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                <svg className={`w-4 h-4 ${txt[s.color]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d={s.icon} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <div className={`text-3xl font-black text-slate-900 leading-none mb-1`}>
+                {s.num}<span className={`text-xl ${num[s.color]}`}>{s.sup}</span>
+              </div>
+              <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{s.label}</div>
+            </div>
+          );
+        })}
       </div>
 
-      {/*  ──────────────────────────────────────────
-           MAIN GRID — Narrative + Skills panel
-      ──────────────────────────────────────────  */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+      {/* ── Main Grid ── */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
 
-        {/*  ════════════════════════════════
-             LEFT: Narrative Card (7 cols)
-        ════════════════════════════════  */}
-        <div className="lg:col-span-7 scroll-reveal h-full">
-          <div className="about-narrative-card group h-full">
+        {/* LEFT: Narrative Card */}
+        <div className="lg:col-span-7">
+          <div className="relative bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden h-full">
+            {/* Top accent bar */}
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-teal-500" />
 
-            {/*  Animated accent bar  */}
-            <div className="about-accent-bar"></div>
-
-            {/*  Floating code decoration  */}
-            <div className="about-code-deco" style={{ top: "28px", right: "28px", fontSize: "13px" }}>
+            {/* Floating code decoration */}
+            <div className="absolute top-6 right-6 text-[11px] font-mono text-slate-300 select-none hidden sm:block">
               {'{ IoT ∩ Blockchain ∩ Security }'}
             </div>
 
-            <div className="relative z-10 p-8 sm:p-10 pl-10 sm:pl-12">
-
-              {/*  Micro label  */}
-              <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-6 flex items-center gap-2">
-                <span className="w-3 h-px bg-slate-300 inline-block"></span>
+            <div className="p-8 sm:p-10">
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-8 flex items-center gap-2">
+                <span className="w-3 h-px bg-slate-300 inline-block" />
                 Engineer&apos;s Narrative
               </p>
 
-              {/*  Journey timeline  */}
-              <div className="space-y-5 mb-8">
-
-                <div className="about-timeline-row flex items-start gap-4 group/row cursor-default">
-                  <div className="mt-1.5 flex flex-col items-center gap-1">
-                    <div className="about-timeline-dot bg-indigo-500" style={{ color: "#6366f1" }}></div>
-                    <div className="w-px flex-1 min-h-[36px] bg-gradient-to-b from-indigo-200 to-violet-200 mt-1"></div>
-                  </div>
-                  <div className="pb-2">
-                    <div className="text-xs font-black text-indigo-500 uppercase tracking-widest mb-1">Phase 01 — Hardware
+              {/* Journey timeline */}
+              <div className="space-y-6 mb-8">
+                {([
+                  { phase:"Phase 01 — Hardware",      color:"indigo", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">My journey started with <span className="text-slate-900 font-bold">hardware mechanics</span> — understanding the pulse of machines, programming microcontrollers and building IoT connectivity devices from scratch.</p> },
+                  { phase:"Phase 02 — Software Logic", color:"violet", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">It evolved into <span className="text-slate-900 font-bold">full-stack engineering</span> — React, Node, Python, REST APIs — building smart interfaces that communicate with the physical world.</p> },
+                  { phase:"Phase 03 — Security Layer", color:"teal",   content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Today I secure that bridge. Integrating <strong className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">IoT sensors</strong> with <strong className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent font-black">Blockchain ledgers</strong> to create systems that are verifiable, impenetrable, and production-grade.</p> },
+                  { phase:"Phase 04 — Founder",        color:"rose",   content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Now building <strong className="bg-gradient-to-r from-rose-500 to-primary bg-clip-text text-transparent font-black"><a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" className="hover:underline">Rishvin Labs</a></strong>. Delivering digital solutions, full-stack web development, cybersecurity-focused systems, IoT automation, and product engineering.</p> },
+                ] as const).map((item, i, arr) => {
+                  const dotColor: Record<string,string> = { indigo:"bg-indigo-500", violet:"bg-violet-500", teal:"bg-teal-500", rose:"bg-rose-500" };
+                  const labelColor: Record<string,string> = { indigo:"text-indigo-500", violet:"text-violet-500", teal:"text-teal-500", rose:"text-rose-500" };
+                  const lineGrad: Record<string,string> = { indigo:"from-indigo-200 to-violet-200", violet:"from-violet-200 to-teal-200", teal:"from-teal-200 to-rose-200", rose:"from-rose-200 to-rose-100" };
+                  return (
+                    <div key={i} className="flex items-start gap-4 group/row">
+                      <div className="mt-1.5 flex flex-col items-center shrink-0">
+                        <div className={`w-2.5 h-2.5 rounded-full ${dotColor[item.color]} shadow-sm`} />
+                        {i < arr.length - 1 && <div className={`w-px flex-1 min-h-[40px] bg-gradient-to-b ${lineGrad[item.color]} mt-1`} />}
+                      </div>
+                      <div className="pb-1">
+                        <div className={`text-[10px] font-black ${labelColor[item.color]} uppercase tracking-widest mb-1.5`}>{item.phase}</div>
+                        {item.content}
+                      </div>
                     </div>
-                    <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
-                      My journey started with <span className="text-slate-900 font-extrabold">hardware mechanics</span> —
-                      understanding the pulse of machines, programming microcontrollers and building IoT connectivity
-                      devices from scratch.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="about-timeline-row flex items-start gap-4 group/row cursor-default">
-                  <div className="mt-1.5 flex flex-col items-center gap-1">
-                    <div className="about-timeline-dot bg-violet-500" style={{ color: "#7c3aed" }}></div>
-                    <div className="w-px flex-1 min-h-[36px] bg-gradient-to-b from-violet-200 to-teal-200 mt-1"></div>
-                  </div>
-                  <div className="pb-2">
-                    <div className="text-xs font-black text-violet-500 uppercase tracking-widest mb-1">Phase 02 — Software
-                      Logic</div>
-                    <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
-                      It evolved into <span className="text-slate-900 font-extrabold">full-stack engineering</span> — React,
-                      Node, Python, REST APIs — building smart interfaces that communicate with the physical world.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="about-timeline-row flex items-start gap-4 group/row cursor-default">
-                  <div className="mt-1.5 flex flex-col items-center gap-1">
-                    <div className="about-timeline-dot" style={{ background: "#14b8a6", color: "#14b8a6" }}></div>
-                    <div className="w-px flex-1 min-h-[36px] bg-gradient-to-b from-teal-200 to-rose-200 mt-1"></div>
-                  </div>
-                  <div className="pb-2">
-                    <div className="text-xs font-black text-teal-500 uppercase tracking-widest mb-1">Phase 03 — Security
-                      Layer</div>
-                    <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
-                      Today I secure that bridge. Integrating
-                      <strong
-                        className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">IoT
-                        sensors</strong> with
-                      <strong
-                        className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent font-black">Blockchain
-                        ledgers</strong>
-                      to create systems that are verifiable, impenetrable, and production-grade.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="about-timeline-row flex items-start gap-4 group/row cursor-default">
-                  <div className="mt-1.5">
-                    <div className="about-timeline-dot" style={{ background: "#f20d46", color: "#f20d46" }}></div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-black text-primary uppercase tracking-widest mb-1">Phase 04 — Founder</div>
-                    <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
-                      Now building <strong className="bg-gradient-to-r from-primary to-rose-500 bg-clip-text text-transparent font-black"><a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" className="hover:underline">Rishvin Labs</a></strong>. Delivering digital solutions, full-stack web development, cybersecurity-focused systems, IoT automation, and product engineering.
-                    </p>
-                  </div>
-                </div>
-
+                  );
+                })}
               </div>
 
-              {/*  Animated skill pills  */}
+              {/* Skill pills */}
               <div className="flex flex-wrap gap-2 mb-8">
-                <span className="about-pill text-indigo-700 bg-indigo-50 border-indigo-200/70">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="5" />
-                    <path d="M12 2v2m0 16v2M2 12h2m16 0h2" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                  IoT Systems
-                </span>
-                <span className="about-pill text-violet-700 bg-violet-50 border-violet-200/70">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101" strokeWidth="2"
-                      strokeLinecap="round" />
-                    <path d="M14.828 10.828a4 4 0 015.656 0l1 1a4 4 0 010 5.656l-2.5 2.5a4 4 0 01-5.656 0"
-                      strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                  Blockchain
-                </span>
-                <span className="about-pill text-teal-700 bg-teal-50 border-teal-200/70">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <path d="M8 21h8M12 17v4" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                  Full-Stack
-                </span>
-                <span className="about-pill text-slate-600 bg-slate-50 border-slate-200/80">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-5M9 21H5a2 2 0 01-2-2v-5m0 0h18"
-                      strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                  Embedded C
-                </span>
-                <span className="about-pill text-slate-600 bg-slate-50 border-slate-200/80">
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-.5 14.5v-9l7 4.5-7 4.5z"
-                      opacity=".3" />
-                    <path
-                      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 13.93V8.07L17 12l-6 3.93z" />
-                  </svg>
-                  Python
-                </span>
-                <span className="about-pill text-rose-600 bg-rose-50 border-rose-200/70">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                  Cybersecurity
-                </span>
+                {([
+                  { label:"IoT Systems",    bg:"bg-indigo-50",  text:"text-indigo-700",  border:"border-indigo-200/70"  },
+                  { label:"Blockchain",     bg:"bg-violet-50",  text:"text-violet-700",  border:"border-violet-200/70"  },
+                  { label:"Full-Stack",     bg:"bg-teal-50",    text:"text-teal-700",    border:"border-teal-200/70"    },
+                  { label:"Embedded C",     bg:"bg-slate-50",   text:"text-slate-600",   border:"border-slate-200/80"   },
+                  { label:"Python",         bg:"bg-slate-50",   text:"text-slate-600",   border:"border-slate-200/80"   },
+                  { label:"Cybersecurity",  bg:"bg-rose-50",    text:"text-rose-600",    border:"border-rose-200/70"    },
+                ] as const).map((p, i) => (
+                  <span key={i} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border ${p.bg} ${p.text} ${p.border}`}>{p.label}</span>
+                ))}
               </div>
 
-              {/*  Footer: avatar + CTA  */}
-              <div
-                className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pt-6 border-t border-slate-100/80">
-                <div className="flex items-center gap-3.5">
+              {/* Footer */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-slate-100">
+                <div className="flex items-center gap-3">
                   <div className="relative shrink-0">
-                    <div className="w-12 h-12 rounded-full overflow-hidden shadow-md"
-                      style={{ border: "2.5px solid rgba(99,102,241,0.25)" }}>
-                      <img loading="lazy" src="icon.png" alt="Erolla Rishvin Reddy Software Developer and IoT Engineer"
-                        className="w-full h-full object-cover" />
+                    <div className="w-10 h-10 rounded-full overflow-hidden shadow-md border-2 border-indigo-200/40">
+                      <img loading="lazy" src="icon.png" alt="Rishvin Reddy" className="w-full h-full object-cover" />
                     </div>
-                    <span
-                      className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full shadow-sm"></span>
+                    <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full" />
                   </div>
                   <div>
-                    <div className="font-black text-slate-900 text-[15px]">Rishvin Reddy</div>
-                    <div className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">IoT · Blockchain ·
-                      Full-Stack</div>
+                    <div className="font-black text-slate-900 text-sm">Rishvin Reddy</div>
+                    <div className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">IoT · Blockchain · Full-Stack</div>
                   </div>
                 </div>
-
-                <a href="About_page.html"
-                  className="group/btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-white text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 relative overflow-hidden"
+                <a href="/about"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white text-sm font-bold hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 relative overflow-hidden"
                   style={{ background: "linear-gradient(135deg, #1e293b 0%, #6366f1 100%)" }}>
-                  {/*  Shimmer sweep  */}
-                  <span
-                    className="absolute inset-0 -translate-x-full skew-x-12 bg-white/15 group-hover/btn:translate-x-full transition-transform duration-600 pointer-events-none"></span>
+                  <span className="absolute inset-0 -translate-x-full skew-x-12 bg-white/15 hover:translate-x-full transition-transform duration-500 pointer-events-none" />
                   <span className="relative z-10 flex items-center gap-2">
                     Read Full Story
-                    <svg className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round"
-                        strokeLinejoin="round" />
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
                 </a>
               </div>
-
             </div>
           </div>
         </div>
 
-        {/*  ════════════════════════════════
-             RIGHT: GitHub Live Panel (5 cols)
-        ════════════════════════════════  */}
-        <div className="lg:col-span-5 scroll-reveal delay-2 h-full flex flex-col">
+        {/* RIGHT: GitHub Live Panel */}
+        <div className="lg:col-span-5 flex flex-col gap-4">
 
-          {/*  Header row  */}
-          <div className="flex items-center justify-between mb-5 px-1">
+          {/* Header */}
+          <div className="flex items-center justify-between px-1">
             <div>
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-1 flex items-center gap-2">
-                <span className="w-3 h-px bg-slate-300 inline-block"></span>
+                <span className="w-3 h-px bg-slate-300 inline-block" />
                 Live from GitHub
               </p>
-              <h3 className="text-2xl font-black text-slate-900 tracking-tight">Technical Arsenal</h3>
+              <h3 className="text-xl font-black text-slate-900 tracking-tight">Technical Arsenal</h3>
             </div>
             <a href="https://github.com/RishvinReddy" target="_blank" rel="noopener noreferrer"
               className="group/link inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors duration-200">
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
               </svg>
               @RishvinReddy
-              <svg className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5" fill="none"
-                stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
               </svg>
             </a>
           </div>
 
-          {/*  Live badge  */}
-          <div id="gh-live-badge" className="flex items-center gap-2 px-1 mb-4 hidden">
-            <span
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-[10px] font-black text-emerald-600 uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block"></span>
+          {/* Live/Fallback badges */}
+          <div id="gh-live-badge" className="flex items-center gap-2 hidden">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/70 text-[10px] font-black text-emerald-600 uppercase tracking-widest">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
               Live Data
             </span>
-            <span id="gh-updated-at" className="text-[10px] text-slate-400 font-medium"></span>
+            <span id="gh-updated-at" className="text-[10px] text-slate-400 font-medium" />
           </div>
-
-          {/*  Fallback badge  */}
-          <div id="gh-fallback-badge" className="flex items-center gap-2 px-1 mb-4 hidden">
-            <span
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200/70 text-[10px] font-black text-amber-600 uppercase tracking-widest">
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+          <div id="gh-fallback-badge" className="flex items-center gap-2 hidden">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200/70 text-[10px] font-black text-amber-600 uppercase tracking-widest">
               Cached Data
             </span>
-            <span className="text-[10px] text-slate-400 font-medium">GitHub API rate-limited</span>
           </div>
 
-          {/*  Main card  */}
-          <div className="about-skills-card p-6 sm:p-8 flex-1">
+          {/* Main card */}
+          <div className="about-skills-card bg-white border border-slate-200/80 rounded-2xl shadow-sm p-6 sm:p-8 flex-1">
 
-            {/*  GitHub Stats Strip  */}
+            {/* GitHub Stats Strip */}
             <div id="gh-stats-strip" className="grid grid-cols-4 gap-2 mb-6">
-              <div className="text-center p-2 rounded-xl bg-slate-50 animate-pulse">
-                <div className="h-5 bg-slate-200 rounded w-8 mx-auto mb-1"></div>
-                <div className="h-2.5 bg-slate-100 rounded w-12 mx-auto"></div>
-              </div>
-              <div className="text-center p-2 rounded-xl bg-slate-50 animate-pulse">
-                <div className="h-5 bg-slate-200 rounded w-8 mx-auto mb-1"></div>
-                <div className="h-2.5 bg-slate-100 rounded w-12 mx-auto"></div>
-              </div>
-              <div className="text-center p-2 rounded-xl bg-slate-50 animate-pulse">
-                <div className="h-5 bg-slate-200 rounded w-8 mx-auto mb-1"></div>
-                <div className="h-2.5 bg-slate-100 rounded w-12 mx-auto"></div>
-              </div>
-              <div className="text-center p-2 rounded-xl bg-slate-50 animate-pulse">
-                <div className="h-5 bg-slate-200 rounded w-8 mx-auto mb-1"></div>
-                <div className="h-2.5 bg-slate-100 rounded w-12 mx-auto"></div>
-              </div>
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="text-center p-2 rounded-xl bg-slate-50 animate-pulse">
+                  <div className="h-5 bg-slate-200 rounded w-8 mx-auto mb-1" />
+                  <div className="h-2.5 bg-slate-100 rounded w-12 mx-auto" />
+                </div>
+              ))}
             </div>
 
-            {/*  Language bars label  */}
+            {/* Language bars */}
             <div className="mb-2 flex items-center justify-between">
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em]">Language Distribution</p>
-              <span id="gh-lang-source" className="text-[10px] text-slate-400 font-medium hidden"></span>
+              <span id="gh-lang-source" className="text-[10px] text-slate-400 font-medium hidden" />
             </div>
-
-            {/*  Bars container with skeleton  */}
             <div className="space-y-4 mt-3" id="about-skill-bars">
-              <div className="skill-row-skeleton animate-pulse">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-                    <div className="h-3 bg-slate-200 rounded w-32"></div>
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="skill-row-skeleton animate-pulse">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-slate-200" />
+                      <div className={`h-3 bg-slate-200 rounded ${i === 0 ? "w-32" : i === 1 ? "w-24" : "w-28"}`} />
+                    </div>
+                    <div className="h-3 bg-slate-200 rounded w-8" />
                   </div>
-                  <div className="h-3 bg-slate-200 rounded w-8"></div>
+                  <div className="h-[7px] rounded-full bg-slate-100 w-full" />
                 </div>
-                <div className="h-[7px] rounded-full bg-slate-100 w-full"></div>
-              </div>
-              <div className="skill-row-skeleton animate-pulse">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-                    <div className="h-3 bg-slate-200 rounded w-24"></div>
-                  </div>
-                  <div className="h-3 bg-slate-200 rounded w-8"></div>
-                </div>
-                <div className="h-[7px] rounded-full bg-slate-100 w-full"></div>
-              </div>
-              <div className="skill-row-skeleton animate-pulse">
-                <div className="flex items-center justify-between mb-1.5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-slate-200"></div>
-                    <div className="h-3 bg-slate-200 rounded w-28"></div>
-                  </div>
-                  <div className="h-3 bg-slate-200 rounded w-8"></div>
-                </div>
-                <div className="h-[7px] rounded-full bg-slate-100 w-full"></div>
-              </div>
+              ))}
             </div>
 
-            {/*  Divider  */}
-            <div className="mt-7 mb-5 h-px bg-gradient-to-r from-slate-100 via-indigo-100/60 to-slate-100"></div>
+            <div className="mt-7 mb-5 h-px bg-gradient-to-r from-slate-100 via-indigo-100/60 to-slate-100" />
 
-            {/*  Top Repos  */}
+            {/* Top repos */}
             <div>
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">Top Repositories</p>
               <div id="gh-top-repos" className="space-y-2">
-                <div className="animate-pulse flex items-center gap-3 p-3 rounded-xl bg-slate-50">
-                  <div className="w-3 h-3 rounded-full bg-slate-200 shrink-0"></div>
-                  <div className="flex-1">
-                    <div className="h-3 bg-slate-200 rounded w-3/4 mb-1"></div>
-                    <div className="h-2.5 bg-slate-100 rounded w-1/2"></div>
+                {[...Array(2)].map((_, i) => (
+                  <div key={i} className="animate-pulse flex items-center gap-3 p-3 rounded-xl bg-slate-50">
+                    <div className="w-3 h-3 rounded-full bg-slate-200 shrink-0" />
+                    <div className="flex-1">
+                      <div className={`h-3 bg-slate-200 rounded ${i === 0 ? "w-3/4" : "w-2/3"} mb-1`} />
+                      <div className={`h-2.5 bg-slate-100 rounded ${i === 0 ? "w-1/2" : "w-1/3"}`} />
+                    </div>
+                    <div className="h-3 bg-slate-100 rounded w-8" />
                   </div>
-                  <div className="h-3 bg-slate-100 rounded w-8"></div>
-                </div>
-                <div className="animate-pulse flex items-center gap-3 p-3 rounded-xl bg-slate-50">
-                  <div className="w-3 h-3 rounded-full bg-slate-200 shrink-0"></div>
-                  <div className="flex-1">
-                    <div className="h-3 bg-slate-200 rounded w-2/3 mb-1"></div>
-                    <div className="h-2.5 bg-slate-100 rounded w-1/3"></div>
-                  </div>
-                  <div className="h-3 bg-slate-100 rounded w-8"></div>
-                </div>
+                ))}
               </div>
             </div>
 
           </div>
 
-          {/*  Hint  */}
-          <p className="text-center text-[11px] text-slate-400 mt-4 font-medium">
-            Live · <a href="https://github.com/RishvinReddy" target="_blank" rel="noopener"
-              className="text-indigo-500 hover:underline font-bold">GitHub API ↗</a>
+          <p className="text-center text-[11px] text-slate-400 font-medium">
+            Live · <a href="https://github.com/RishvinReddy" target="_blank" rel="noopener" className="text-indigo-500 hover:underline font-bold">GitHub API ↗</a>
           </p>
-
         </div>
-
-        {/*  GitHub Live Data Engine  */}
-        
 
       </div>
     </div>
   </section>
+
+
 
 
   {/*  ══════════════════════════════════════════════════════
