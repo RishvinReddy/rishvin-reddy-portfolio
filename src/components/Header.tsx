@@ -34,7 +34,7 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-[65] bg-slate-900 border-b border-white/5 text-xs font-medium tracking-wide transition-transform duration-300 ${scrolled ? '-translate-y-full' : ''}`}>
       <div className="container mx-auto flex items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
         {/*  Left: availability + contact  */}
-        <div className="flex items-center gap-3 text-slate-400">
+        <div className="flex items-center gap-3 text-white">
           {/*  Availability badge  */}
           <div
             className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shrink-0">
@@ -49,28 +49,20 @@ export function Header() {
 
           {/*  Email — glassy pill badge  */}
           <a href="mailto:rishvinreddy@gmail.com"
-            className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-slate-400 hover:text-white border border-transparent hover:border-primary/25 hover:bg-white/8 transition-all duration-200 group"
+            className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-white hover:text-white border border-transparent hover:border-primary/25 hover:bg-white/8 transition-all duration-200 group"
             aria-label="Email">
-            <svg
-              className="w-3.5 h-3.5 text-primary/70 group-hover:text-primary group-hover:scale-110 transition-all duration-200"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+            <svg className="w-3.5 h-3.5 text-white/90 group-hover:text-primary group-hover:scale-110 transition-all duration-200" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
             </svg>
             <span className="text-[11px] font-medium tracking-wide">rishvinreddy@gmail.com</span>
           </a>
 
           {/*  Phone — glassy pill badge  */}
           <Link href="tel:+919848723235"
-            className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-slate-400 hover:text-white border border-transparent hover:border-emerald-500/25 hover:bg-white/8 transition-all duration-200 group"
+            className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-white hover:text-white border border-transparent hover:border-emerald-500/25 hover:bg-white/8 transition-all duration-200 group"
             aria-label="Call">
-            <svg
-              className="w-3.5 h-3.5 text-emerald-500/70 group-hover:text-emerald-400 group-hover:scale-110 transition-all duration-200"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+            <svg className="w-3.5 h-3.5 text-white/90 group-hover:text-emerald-400 group-hover:scale-110 transition-all duration-200" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
             </svg>
             <span className="text-[11px] font-medium tracking-wide">+91 98487 23235</span>
           </Link>
@@ -80,7 +72,7 @@ export function Header() {
         <div className="flex items-center gap-0.5 ml-1">
 
           {/*  WhatsApp  */}
-          <a className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-slate-400 transition-all duration-200 hover:bg-[#25D366]/20 hover:text-[#25D366] hover:scale-105"
+          <a className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-white transition-all duration-200 hover:bg-[#25D366]/20 hover:text-[#25D366] hover:scale-105"
             href="https://wa.me/message/J4P3MRT5HOAZH1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -89,7 +81,7 @@ export function Header() {
           </a>
 
           {/*  Instagram  */}
-          <a className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-slate-400 transition-all duration-200 hover:bg-[#E1306C]/20 hover:text-[#E1306C] hover:scale-105"
+          <a className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-white transition-all duration-200 hover:bg-[#E1306C]/20 hover:text-[#E1306C] hover:scale-105"
             href="https://www.instagram.com/rishvin.reddy?igsh=Ym85aDhsOXpqeXdx&utm_source=qr" target="_blank"
             rel="noopener noreferrer" aria-label="Instagram">
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -99,7 +91,7 @@ export function Header() {
           </a>
 
           {/*  LinkedIn  */}
-          <a className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-slate-400 transition-all duration-200 hover:bg-[#0077b5]/20 hover:text-[#0077b5] hover:scale-105"
+          <a className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-white transition-all duration-200 hover:bg-[#0077b5]/20 hover:text-[#0077b5] hover:scale-105"
             href="https://www.linkedin.com/in/rishvinreddy" target="_blank" rel="noopener noreferrer"
             aria-label="LinkedIn">
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -109,7 +101,7 @@ export function Header() {
           </a>
 
           {/*  GitHub  */}
-          <a className="hidden sm:flex w-7 h-7 items-center justify-center rounded-full bg-white/5 text-slate-400 transition-all duration-200 hover:bg-white/20 hover:text-white hover:scale-105"
+          <a className="hidden sm:flex w-7 h-7 items-center justify-center rounded-full bg-white/5 text-white transition-all duration-200 hover:bg-white/20 hover:text-white hover:scale-105"
             href="https://github.com/RishvinReddy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -121,13 +113,11 @@ export function Header() {
           <span className="hidden xl:block w-px h-4 bg-white/10 mx-1.5"></span>
 
           {/*  Live Clock — Heroicons clock outline  */}
-          <span className="hidden xl:flex items-center gap-1.5 text-slate-500">
-            <svg className="w-3.5 h-3.5 text-primary/60" fill="none" stroke="currentColor" strokeWidth="1.75"
-              viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
+          <span className="hidden xl:flex items-center gap-1.5 text-white">
+            <svg className="w-3.5 h-3.5 text-white/90" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
             </svg>
-            <span id="liveClock" className="font-mono text-[11px] text-slate-400 tabular-nums">{time}</span>
+            <span id="liveClock" className="font-mono text-[11px] text-white tabular-nums">{time}</span>
           </span>
         </div>
       </div>
@@ -139,26 +129,26 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/*  The nav pill itself  */}
         <div id="mainNav"
-          className={`mx-auto max-w-[1100px] rounded-full px-4 py-2 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md border border-slate-200/60 shadow-md' : 'bg-transparent border border-transparent'}`}>
+          className={`mx-auto max-w-[1100px] rounded-full px-4 py-2 flex items-center justify-between transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur-md border border-slate-800/60 shadow-[0_10px_30px_rgba(0,0,0,0.3)]' : 'bg-slate-900 border border-slate-800 shadow-[0_10px_30px_rgba(0,0,0,0.15)]'}`}>
 
           {/*  ── Logo / Avatar (clean premium style) ──  */}
           <Link className="flex items-center gap-3 group shrink-0" href="/">
             {/*  Avatar: clean border + subtle glow on hover, no spinning  */}
             <div className="relative shrink-0">
               <div
-                className="w-9 h-9 rounded-full overflow-hidden border border-slate-200 transition-all duration-300 group-hover:border-slate-300 group-hover:shadow-sm">
+                className="w-9 h-9 rounded-full overflow-hidden border border-slate-700 transition-all duration-300 group-hover:border-slate-600 group-hover:shadow-sm">
                 <img src="icon.png" alt="Erolla Rishvin Reddy Software Developer and IoT Engineer"
                   className="w-full h-full object-cover" />
               </div>
               {/*  Tiny online indicator dot  */}
               <span
-                className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full shadow-md"></span>
+                className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-slate-900 rounded-full shadow-md"></span>
             </div>
             <div className="flex flex-col leading-none gap-0.5">
               <span
-                className="text-[15px] font-bold tracking-tight text-slate-900 group-hover:text-primary transition-all duration-300">Rishvin</span>
+                className="text-[15px] font-bold tracking-tight text-white group-hover:text-primary transition-all duration-300">Rishvin</span>
               <span
-                className="text-[9px] font-semibold tracking-[0.1em] uppercase text-slate-500 group-hover:text-primary/70 transition-colors duration-300">Portfolio
+                className="text-[9px] font-semibold tracking-[0.1em] uppercase text-white group-hover:text-primary/70 transition-colors duration-300">Portfolio
               </span>
             </div>
           </Link>
@@ -170,25 +160,25 @@ export function Header() {
               className="absolute inset-y-0 rounded-full bg-primary/8 transition-all duration-200 ease-out pointer-events-none opacity-0">
             </div>
 
-            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
+            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group"
               href="/" data-page="index">
               <span className="relative z-10">Home</span>
               <span
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </Link>
-            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
+            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group"
               href="/about" data-page="about">
               <span className="relative z-10">About</span>
               <span
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </Link>
-            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
+            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group"
               href="/portfolio" data-page="portfolio">
               <span className="relative z-10">Work</span>
               <span
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </Link>
-            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
+            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group"
               href="/ide" data-page="ide">
               <span className="relative z-10 flex items-center gap-1">
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,16 +190,16 @@ export function Header() {
               <span
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </Link>
-            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
+            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group"
               href="/services" data-page="services">
               <span className="relative z-10">Services</span>
               <span
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </Link>
-            <a className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group flex items-center gap-1.5"
+            <a className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group flex items-center gap-1.5"
               href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer">
-              <span className="relative z-10 font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent group-hover:from-primary group-hover:to-rose-500 transition-all duration-300">Rishvin Labs</span>
-              <svg className="w-3 h-3 text-slate-400 group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <span className="relative z-10 font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent group-hover:from-primary group-hover:to-rose-500 transition-all duration-300">Rishvin Labs</span>
+              <svg className="w-3 h-3 text-white group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               <span
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </a>
@@ -217,7 +207,7 @@ export function Header() {
             {/*  ── Mega Dropdown ──  */}
             <div className="relative group ml-1">
               <button
-                className="relative flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium text-slate-600 rounded-full hover:text-primary hover:bg-primary/5 transition-all duration-200">
+                className="relative flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium text-white rounded-full hover:text-primary hover:bg-primary/5 transition-all duration-200">
                 More
                 {/*  Notification dot  */}
                 <span className="absolute top-1.5 right-2 w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
@@ -231,7 +221,7 @@ export function Header() {
               <div
                 className="absolute right-0 top-full mt-3 w-64 origin-top-right bg-white/97 backdrop-blur-2xl rounded-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] shadow-slate-300/20 border border-slate-100/80 p-2 invisible opacity-0 translate-y-2 scale-95 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 transition-all duration-250">
                 {/*  Header label  */}
-                <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+                <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white mb-1">
                   Don&apos;t see what you need?</p>
 
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
@@ -247,7 +237,7 @@ export function Header() {
                   <div>
                     <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Resume</p>
-                    <p className="text-[11px] text-slate-400 leading-tight">Download CV & experience</p>
+                    <p className="text-[11px] text-white leading-tight">Download CV & experience</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
@@ -263,7 +253,7 @@ export function Header() {
                   <div>
                     <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Skills & Certs</p>
-                    <p className="text-[11px] text-slate-400 leading-tight">Tech stack & certifications</p>
+                    <p className="text-[11px] text-white leading-tight">Tech stack & certifications</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
@@ -279,7 +269,7 @@ export function Header() {
                   <div>
                     <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Awards</p>
-                    <p className="text-[11px] text-slate-400 leading-tight">Honours & achievements</p>
+                    <p className="text-[11px] text-white leading-tight">Honours & achievements</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
@@ -295,7 +285,7 @@ export function Header() {
                   <div>
                     <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Blog</p>
-                    <p className="text-[11px] text-slate-400 leading-tight">Articles & insights</p>
+                    <p className="text-[11px] text-white leading-tight">Articles & insights</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
@@ -311,7 +301,7 @@ export function Header() {
                   <div>
                     <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       FAQ</p>
-                    <p className="text-[11px] text-slate-400 leading-tight">Common questions answered</p>
+                    <p className="text-[11px] text-white leading-tight">Common questions answered</p>
                   </div>
                 </Link>
 
@@ -337,7 +327,7 @@ export function Header() {
 
             {/*  ── Refined "Let's Talk" CTA ──  */}
             <Link id="letsTalkBtn" href="/contact"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-1.5 text-[13px] font-semibold text-slate-900 border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 group">
+              className="hidden md:inline-flex items-center gap-2 px-4 py-1.5 text-[13px] font-semibold text-white border border-slate-700 rounded-full hover:bg-slate-800 hover:border-slate-600 transition-all duration-200 group">
               <span className="relative z-10 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 Let&apos;s Talk
@@ -347,7 +337,7 @@ export function Header() {
             {/*  Mobile hamburger toggle  */}
             <button id="mobileToggle"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-slate-100/50 text-slate-600 hover:bg-primary/10 hover:text-primary transition-colors duration-200"
+              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-slate-800/50 text-white hover:bg-primary/10 hover:text-primary transition-colors duration-200"
               aria-label="Open menu" aria-expanded="false">
               <svg id="menuIcon" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -359,16 +349,16 @@ export function Header() {
 
       {/*  ── Mobile Menu (staggered entrance) ──  */}
       <div id="mobileMenu"
-        className={`absolute top-full left-3 right-3 mt-2 p-4 bg-white/97 backdrop-blur-2xl rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] shadow-slate-300/20 border border-white/40 flex flex-col gap-1 origin-top transition-all duration-300 ${menuOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95'}`}>
+        className={`absolute top-full left-3 right-3 mt-2 p-4 bg-slate-900/95 backdrop-blur-2xl rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] shadow-slate-900/50 border border-slate-700 flex flex-col gap-1 origin-top transition-all duration-300 ${menuOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95'}`}>
 
-        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">
+        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white mb-0.5">
           Navigate</p>
 
         <Link href="/"
           className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
           data-page="index">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
@@ -381,7 +371,7 @@ export function Header() {
           className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
           data-page="about">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" strokeWidth="2"
                 strokeLinecap="round" strokeLinejoin="round" />
@@ -393,7 +383,7 @@ export function Header() {
           className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
           data-page="portfolio">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
@@ -406,7 +396,7 @@ export function Header() {
           className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
           data-page="ide">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeWidth="2" strokeLinecap="round"
                 strokeLinejoin="round" />
@@ -418,7 +408,7 @@ export function Header() {
           className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
           data-page="services">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
@@ -439,23 +429,23 @@ export function Header() {
           </span>
           <span className="flex items-center gap-1.5">
             Rishvin Labs
-            <svg className="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </span>
         </a>
 
         <div className="border-t border-slate-100 my-1.5"></div>
-        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">More</p>
+        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">More</p>
 
         <div className="grid grid-cols-2 gap-1.5">
           <Link href="/ide"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:text-primary transition-colors col-span-2">
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors col-span-2">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeWidth="2" strokeLinecap="round"
                 strokeLinejoin="round" />
             </svg> Projects IDE
           </Link>
           <Link href="/resume"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:text-primary transition-colors">
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
@@ -463,7 +453,7 @@ export function Header() {
             </svg> Resume
           </Link>
           <Link href="/skills"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:text-primary transition-colors">
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
@@ -471,7 +461,7 @@ export function Header() {
             </svg> Skills
           </Link>
           <Link href="/awards"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:text-primary transition-colors">
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
@@ -479,7 +469,7 @@ export function Header() {
             </svg> Awards
           </Link>
           <Link href="/blog"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:text-primary transition-colors">
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
@@ -487,7 +477,7 @@ export function Header() {
             </svg> Blog
           </Link>
           <Link href="/faq"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:text-primary transition-colors">
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
@@ -495,7 +485,7 @@ export function Header() {
             </svg> FAQ
           </Link>
           <Link href="Testimonials_page.html"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:text-primary transition-colors">
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

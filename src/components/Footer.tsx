@@ -101,7 +101,7 @@ export function Footer() {
           <div className="absolute -bottom-20 right-1/5 w-[500px] h-[400px] bg-indigo-500/4 rounded-full blur-[140px]"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 pt-16 pb-10">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10 pt-16 pb-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-4 flex flex-col space-y-6">
               <div>

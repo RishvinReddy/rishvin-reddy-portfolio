@@ -1,11 +1,13 @@
 import KnowledgeGraph from "@/components/KnowledgeGraph";
 import ProjectCard from "@/components/ProjectCard";
+import HomeProjectGallery from "@/components/HomeProjectGallery";
 import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
 import { TECH_STACK, SERVICES, FEATURED_PROJECTS } from '../data/portfolio';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProfileModalController from '@/components/ProfileModalController';
+import { VideoIntro } from "@/components/VideoIntro";
 
 export default async function Home() {
   const dynamicProjects = await getGithubProjects();
@@ -33,6 +35,7 @@ export default async function Home() {
 
   return (
     <>
+      <VideoIntro />
       <ProfileModalController />
       {/*  ── Header v2 Scripts ──  */}
     
@@ -50,11 +53,11 @@ export default async function Home() {
     <div className="noise-overlay pointer-events-none fixed inset-0 z-[9999] opacity-[0.03]"></div>
 
     {/*  ===== Hero / Home Section (Editorial Engineering Luxury) =====  */}
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 overflow-x-hidden flex-grow flex items-center min-h-[calc(100svh-100px)] pt-[clamp(20px,3vh,48px)] pb-[clamp(24px,4vh,60px)]">
+    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 overflow-x-hidden flex-grow flex items-center pt-8 pb-12">
       <section id="home" className="relative w-full">
 
         {/* ── Hero Card ── */}
-        <div className="relative w-full rounded-[2rem] border border-slate-200/80 bg-white shadow-xl shadow-slate-200/60 overflow-hidden px-8 sm:px-10 lg:px-14 py-10 lg:py-14">
+        <div className="relative w-full rounded-[2rem] border-2 border-slate-900 bg-white shadow-xl shadow-slate-200/60 overflow-hidden px-8 sm:px-10 lg:px-14 py-8 lg:py-10">
 
           {/* Subtle radial gradient inside card */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-stone-50/80 via-white to-slate-50/60 -z-0 rounded-[2rem]"></div>
@@ -133,7 +136,7 @@ export default async function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-[22px]">
               {/* Primary CTA */}
-              <a href="#projects" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-2xl">
+              <a href="#projects" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-bold text-white bg-slate-900 border border-slate-800/80 rounded-full hover:bg-slate-800 transition-all hover:scale-105 shadow-2xl">
                 View Projects
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -141,63 +144,29 @@ export default async function Home() {
               </a>
 
               {/* Secondary CTA (3D Universe) */}
-              <a href="/universe" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-2xl">
-                <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <a href="/universe" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-slate-900 border border-slate-800/80 rounded-full hover:bg-slate-800 transition-all hover:scale-105 shadow-2xl">
+                <svg className="w-5 h-5 mr-2 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
                 </svg>
                 3D Universe
               </a>
 
               {/* Supporting CTAs */}
-              <a href="/resume" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+              <a href="/resume" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-slate-900 border border-slate-800/80 rounded-full hover:bg-slate-800 transition-all hover:scale-105 shadow-2xl">
                 Resume
               </a>
-              <a href="/ide" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+              <a href="/ide" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-slate-900 border border-slate-800/80 rounded-full hover:bg-slate-800 transition-all hover:scale-105 shadow-2xl">
                 ProjectsIDE
               </a>
-              <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors group">
+              <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-white bg-slate-900 border border-slate-800/80 rounded-full hover:bg-slate-800 transition-all hover:scale-105 shadow-2xl group">
                 Rishvin Labs 
-                <svg className="w-4 h-4 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 ml-1.5 opacity-70 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
             </div>
 
-            {/* Tech Stack Dock */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="flex flex-wrap gap-2.5 items-center bg-white border border-slate-200/60 p-3.5 rounded-[1.5rem] shadow-2xl">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Python">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" className="w-6 h-6" alt="Python" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="TypeScript">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" className="w-6 h-6" alt="TypeScript" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="JavaScript">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" className="w-6 h-6" alt="JavaScript" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="React">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" className="w-6 h-6" alt="React" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Node.js">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" className="w-6 h-6" alt="Node.js" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="C++">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" className="w-6 h-6" alt="C++" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Arduino">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" className="w-6 h-6" alt="Arduino" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="MySQL">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" className="w-6 h-6" alt="MySQL" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Flask">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" className="w-6 h-6" alt="Flask" />
-                </div>
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Docker">
-                  <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" className="w-6 h-6" alt="Docker" />
-                </div>
-              </div>
-            </div>
+
 
           </div>
 
@@ -288,10 +257,10 @@ export default async function Home() {
      ===========================  */}
 
   <section id="about-v3" className="py-12 sm:py-20 bg-white relative z-0">
-    <div className="mx-auto max-w-screen-xl px-6 lg:px-10 relative z-10">
+    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10">
 
       {/* ── Section Header ── */}
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-5xl mx-auto text-center mb-16">
         <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">
           <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" />
           About Me
@@ -984,33 +953,8 @@ export default async function Home() {
         </p>
       </div>
 
-      {/*  Filter Buttons (Premium Pill Design)  */}
-      <div className="flex flex-wrap justify-center gap-4 mb-20 delay-1 scroll-reveal" id="projectFilters">
-        <button
-          className="filter-btn active px-7 py-3 rounded-2xl text-[13px] font-black tracking-wide uppercase transition-all duration-300 border border-transparent shadow-2xl"
-          data-filter="all">All Projects</button>
-        <button
-          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-2xl hover:-translate-y-0.5"
-          data-filter="iot">IoT & Embedded</button>
-        <button
-          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-2xl hover:-translate-y-0.5"
-          data-filter="security">Security</button>
-        <button
-          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-2xl hover:-translate-y-0.5"
-          data-filter="web">Web & AI</button>
-
-        
-      </div>
-
-      {/*  Projects Grid (GitHub-style Cards) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="projectsGrid">
-        {displayProjects.length > 0 ? (
-          displayProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))
-        ) : (
-          <p className="col-span-full text-center text-slate-500 py-10">Fetching projects securely...</p>
-        )}
+      <div className="delay-1 scroll-reveal w-full">
+        <HomeProjectGallery initialProjects={displayProjects} />
       </div>
     </div>
   </section>
@@ -1029,7 +973,7 @@ export default async function Home() {
       </div>
     </div>
 
-    <div className="container mx-auto px-6 lg:px-8 relative z-10">
+    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10">
       {/* Section Header */}
       <div className="mx-auto max-w-3xl flex flex-col items-center text-center mb-12 scroll-reveal">
         {/* Badge */}
@@ -1061,7 +1005,7 @@ export default async function Home() {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto scroll-reveal delay-2">
+      <div className="w-full mx-auto scroll-reveal delay-2">
 
         <KnowledgeGraph repos={rawRepos} />
 
@@ -1173,7 +1117,7 @@ export default async function Home() {
     {/* Subtle top border accent */}
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-    <div className="mx-auto max-w-screen-xl px-6 lg:px-12 relative z-10">
+    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10">
 
       {/* Two-Column Header */}
       <div className="grid lg:grid-cols-[1fr_1.8fr] gap-16 items-start mb-20">

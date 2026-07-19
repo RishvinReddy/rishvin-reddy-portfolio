@@ -1,16 +1,186 @@
 import React from 'react';
-import { getGithubProjects } from '@/lib/github';
+import { Metadata, Viewport } from "next";
+import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
 import ProjectCard from '@/components/ProjectCard';
+import PortfolioProjectGallery from "@/components/PortfolioProjectGallery";
 
-export const metadata = {
-  title: 'Portfolio | Rishvin Labs',
+export const metadata: Metadata = {
+  title: "Portfolio | Rishvin Labs",
+  description: "Explore my technical portfolio featuring full-stack development, IoT smart systems, blockchain integration, and cybersecurity projects.",
+  applicationName: "Rishvin Reddy Portfolio",
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "portfolio page", "Rishvin Reddy portfolio", "Erolla Rishvin Reddy portfolio", 
+    "Software Engineer portfolio", "Cybersecurity portfolio", "IoT portfolio", "Blockchain portfolio",
+    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
+  ],
+  authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.github.io" }],
+  creator: "Erolla Rishvin Reddy",
+  publisher: "Rishvin Labs",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "https://rishvinreddy.github.io/portfolio",
+    languages: {
+      "en-US": "https://rishvinreddy.github.io/portfolio",
+      "en-IN": "https://rishvinreddy.github.io/portfolio",
+    },
+  },
+  openGraph: {
+    title: "Portfolio | Rishvin Labs",
+    description: "Explore my technical portfolio featuring full-stack development, IoT smart systems, blockchain integration, and cybersecurity projects.",
+    url: "https://rishvinreddy.github.io/portfolio",
+    siteName: "Rishvin Reddy Engineering Portfolio",
+    images: [
+      {
+        url: "https://rishvinreddy.github.io/icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Portfolio | Rishvin Labs - Rishvin Reddy",
+      },
+      {
+        url: "https://rishvinreddy.github.io/icon.png",
+        width: 800,
+        height: 600,
+        alt: "Portfolio | Rishvin Labs Alternate - Rishvin Reddy",
+      }
+    ],
+    locale: "en_IN",
+    type: "website",
+    emails: ["rishvinreddy@gmail.com"],
+    countryName: "India",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | Rishvin Labs",
+    description: "Explore my technical portfolio featuring full-stack development, IoT smart systems, blockchain integration, and cybersecurity projects.",
+    siteId: "1467726470533754880",
+    creator: "@RishvinReddy",
+    creatorId: "1467726470533754880",
+    images: ["https://rishvinreddy.github.io/icon.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "/icon.png",
+    },
+  },
+  manifest: "/manifest.json",
+  category: "technology",
+  archives: ["https://rishvinreddy.github.io/archives"],
+  assets: ["https://rishvinreddy.github.io/assets"],
+  bookmarks: ["https://rishvinreddy.github.io/bookmarks"],
 };
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f172a" }
+  ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  colorScheme: "light dark",
+};
+
 
 export default async function Portfolio() {
   const projects = await getGithubProjects();
+  const rawRepos = await getRawGithubRepos();
+
+  let totalStars = 0;
+  let totalForks = 0;
+  let langs: Record<string, number> = {};
+
+  rawRepos.forEach(repo => {
+    totalStars += repo.stargazers_count || 0;
+    totalForks += repo.forks_count || 0;
+    if (repo.language) {
+      langs[repo.language] = (langs[repo.language] || 0) + 1;
+    }
+  });
+
+  const sortedLangs = Object.entries(langs).sort((a, b) => b[1] - a[1]);
+  const totalLangCount = sortedLangs.reduce((sum, [_, count]) => sum + count, 0);
 
   return (
     <>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": "https://rishvinreddy.github.io/#person",
+              "name": "Erolla Rishvin Reddy",
+              "url": "https://rishvinreddy.github.io/",
+              "image": "https://rishvinreddy.github.io/icon.png",
+              "sameAs": [
+                "https://github.com/RishvinReddy",
+                "https://www.linkedin.com/in/rishvin-reddy/"
+              ],
+              "jobTitle": "Software Engineer & Security Researcher",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Rishvin Labs"
+              },
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Woxsen University"
+              }
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://rishvinreddy.github.io/#website",
+              "url": "https://rishvinreddy.github.io/",
+              "name": "Rishvin Reddy Portfolio",
+              "description": "Software Engineering, Cybersecurity, IoT & Blockchain Portfolio",
+              "publisher": {
+                "@id": "https://rishvinreddy.github.io/#person"
+              },
+              "inLanguage": "en-US"
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://rishvinreddy.github.io/portfolio/#webpage",
+              "url": "https://rishvinreddy.github.io/portfolio",
+              "name": "Portfolio | Rishvin Labs",
+              "isPartOf": {
+                "@id": "https://rishvinreddy.github.io/#website"
+              },
+              "about": {
+                "@id": "https://rishvinreddy.github.io/#person"
+              }
+            }
+          ]
+        }
+) }}
+      />
+
       {/*  ── Header v2 Scripts ──  */}
     
 
@@ -45,7 +215,7 @@ export default async function Portfolio() {
               className="hero-blob-3 absolute -bottom-32 left-1/3 w-[400px] h-[400px] rounded-full bg-indigo-300/20 blur-[70px]">
             </div>
           </div>
-          <div className="container mx-auto px-6 lg:px-16 text-center reveal">
+          <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 text-center reveal">
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-6">
               <span className="relative flex h-2 w-2"><span
@@ -65,19 +235,19 @@ export default async function Portfolio() {
             {/*  Stats Bar  */}
             <div id="githubStatsBar" className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-5xl mx-auto stagger">
               <div className="gh-stat rounded-2xl px-5 py-4 text-center backdrop-blur-sm shadow-sm">
-                <p id="statRepos" className="text-4xl font-black text-slate-900 stat-num">—</p>
+                <p id="statRepos" className="text-4xl font-black text-slate-900 stat-num">{rawRepos.length || 0}</p>
                 <p className="text-sm font-semibold text-slate-500 mt-1 uppercase tracking-wider">Repositories</p>
               </div>
               <div className="gh-stat rounded-2xl px-5 py-4 text-center backdrop-blur-sm shadow-sm">
-                <p id="statStars" className="text-4xl font-black text-slate-900 stat-num">—</p>
+                <p id="statStars" className="text-4xl font-black text-slate-900 stat-num">{totalStars}</p>
                 <p className="text-sm font-semibold text-slate-500 mt-1 uppercase tracking-wider">Total Stars</p>
               </div>
               <div className="gh-stat rounded-2xl px-5 py-4 text-center backdrop-blur-sm shadow-sm">
-                <p id="statForks" className="text-4xl font-black text-slate-900 stat-num">—</p>
+                <p id="statForks" className="text-4xl font-black text-slate-900 stat-num">{totalForks}</p>
                 <p className="text-sm font-semibold text-slate-500 mt-1 uppercase tracking-wider">Forks</p>
               </div>
               <div className="gh-stat rounded-2xl px-5 py-4 text-center backdrop-blur-sm shadow-sm">
-                <p id="statLangs" className="text-4xl font-black text-slate-900 stat-num">—</p>
+                <p id="statLangs" className="text-4xl font-black text-slate-900 stat-num">{Object.keys(langs).length}</p>
                 <p className="text-sm font-semibold text-slate-500 mt-1 uppercase tracking-wider">Languages</p>
               </div>
             </div>
@@ -90,7 +260,7 @@ export default async function Portfolio() {
 
 
         {/*  ── Intellectual Property Spotlight ──  */}
-        <section className="container mx-auto px-6 lg:px-16 mt-2 mb-10 reveal">
+        <section className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 mt-2 mb-10 reveal">
           <div className="relative overflow-hidden rounded-3xl bg-white border border-yellow-400/40 p-8 shadow-2xl shadow-yellow-500/10 flex flex-col md:flex-row items-center justify-between gap-8 group">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent pointer-events-none"></div>
             <div className="absolute -right-10 -bottom-20 w-80 h-80 bg-yellow-400/15 rounded-full blur-[80px] pointer-events-none group-hover:bg-yellow-400/25 transition-all duration-700"></div>
@@ -125,127 +295,7 @@ export default async function Portfolio() {
 
 
 
-        {/*  ── Sticky Filter Bar ──  */}
-        <section className="sticky top-14 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 py-4 shadow-sm">
-          <div className="container mx-auto px-6 lg:px-16">
-            <div className="mb-3 flex justify-center">
-              <div className="relative w-full max-w-xl">
-                <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" strokeWidth="1.7" strokeLinecap="round"
-                    strokeLinejoin="round" />
-                </svg>
-                <input id="projectSearch" name="projectSearch" type="search"
-                  placeholder="Search projects, tech or keywords..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-full text-sm text-slate-700 placeholder-slate-400 outline-none transition-all focus:border-primary/50 focus:bg-white" />
-              </div>
-            </div>
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex flex-wrap gap-2" id="filterPills">
-                <button data-tag="all"
-                  className="filter-pill active px-4 py-1.5 text-xs font-bold rounded-full border border-transparent">All</button>
-                <button data-tag="iot"
-                  className="filter-pill px-4 py-1.5 text-xs font-bold rounded-full border border-slate-200 text-slate-600 hover:border-primary/40 hover:text-primary">IoT</button>
-                <button data-tag="blockchain"
-                  className="filter-pill px-4 py-1.5 text-xs font-bold rounded-full border border-slate-200 text-slate-600 hover:border-primary/40 hover:text-primary">Blockchain</button>
-                <button data-tag="security"
-                  className="filter-pill px-4 py-1.5 text-xs font-bold rounded-full border border-slate-200 text-slate-600 hover:border-primary/40 hover:text-primary">Security</button>
-                <button data-tag="web"
-                  className="filter-pill px-4 py-1.5 text-xs font-bold rounded-full border border-slate-200 text-slate-600 hover:border-primary/40 hover:text-primary">Web</button>
-                <button data-tag="mobile"
-                  className="filter-pill px-4 py-1.5 text-xs font-bold rounded-full border border-slate-200 text-slate-600 hover:border-primary/40 hover:text-primary">Mobile</button>
-                <button data-tag="ai"
-                  className="filter-pill px-4 py-1.5 text-xs font-bold rounded-full border border-slate-200 text-slate-600 hover:border-primary/40 hover:text-primary">AI
-                  / ML</button>
-                <button data-tag="dbms"
-                  className="filter-pill px-4 py-1.5 text-xs font-bold rounded-full border border-slate-200 text-slate-600 hover:border-primary/40 hover:text-primary">DBMS</button>
-              </div>
-              <select id="sortSelect"
-                className="appearance-none text-xs font-semibold bg-white border border-slate-200 rounded-full py-2 pl-4 pr-8 text-slate-600 outline-none focus:border-primary/50 transition">
-                <option value="date">Latest First</option>
-                <option value="title">A → Z</option>
-                <option value="impact">Most Stars</option>
-              </select>
-            </div>
-          </div>
-        </section>
-
-    {/*  ─ Section Divider ─  */}
-    <div className="section-divider" aria-hidden="true"><span className="divider-gem"></span></div>
-
-
-
-        {/*  ── Projects Grid (Premium Styled) ──  */}
-        <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
-          {/*  Dynamic Background Elements  */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
-              <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[120px] mix-blend-multiply opacity-50"></div>
-              <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[100px] animate-pulse delay-700 mix-blend-multiply"></div>
-            </div>
-          </div>
-
-          <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-16">
-            {/*  Section Header  */}
-            <div className="mx-auto max-w-3xl flex flex-col items-center text-center mb-16 reveal">
-              {/*  Badge  */}
-              <div className="mb-6 flex items-center justify-center gap-3 w-full">
-                <div className="flex-1 h-px bg-gradient-to-l from-slate-300/60 to-transparent max-w-[120px]"></div>
-                <span className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-slate-700 bg-slate-100 border border-slate-200/70 rounded-full shadow-sm">
-                  <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-pulse"></span>
-                  All Projects
-                </span>
-                <div className="flex-1 h-px bg-gradient-to-r from-slate-300/60 to-transparent max-w-[120px]"></div>
-              </div>
-              {/*  Headline  */}
-              <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-6 font-display leading-[1.05]">
-                Full
-                <span className="relative inline-block mt-2 sm:mt-0">
-                  <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(120deg, #334155 0%, #0f172a 100%)" }}>
-                    Repository
-                  </span>
-                  <span className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full opacity-30" style={{ background: "linear-gradient(90deg, #64748b, #334155)" }}></span>
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
-                A selection of engineering challenges solved with
-                <strong className="text-teal-600 font-black">IoT</strong>,
-                <strong className="text-indigo-600 font-black">Blockchain</strong>, and
-                <strong className="text-slate-800 font-black">Secure Systems</strong>.
-              </p>
-            </div>
-
-            {/*  Loading skeleton  */}
-            <div id="loadingProjects" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-              <div className="rounded-3xl animate-pulse bg-slate-100 h-80"></div>
-              <div className="rounded-3xl animate-pulse bg-slate-100 h-80"></div>
-              <div className="rounded-3xl animate-pulse bg-slate-100 h-80"></div>
-              <div className="rounded-3xl animate-pulse bg-slate-100 h-80"></div>
-              <div className="rounded-3xl animate-pulse bg-slate-100 h-80"></div>
-              <div className="rounded-3xl animate-pulse bg-slate-100 h-80"></div>
-            </div>
-
-            {/*  Dynamic grid  */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
-            ))}
-          </div>
-
-            {/*  Empty state  */}
-            <div id="emptyState" className="hidden py-24 text-center">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/8 flex items-center justify-center">
-                <svg className="w-10 h-10 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M9.172 16.172a4 4 0 015.656 0M9 12h.01M15 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-slate-700 mb-2">No projects found</h3>
-              <p className="text-slate-500 text-sm">Try a different search term or filter.</p>
-            </div>
-            <p id="resultCount" className="hidden mt-8 text-center text-sm text-slate-400 font-medium"></p>
-          </div>
-        </section>
+        <PortfolioProjectGallery initialProjects={projects} />
 
 
 
@@ -276,7 +326,7 @@ export default async function Portfolio() {
              bg-indigo-100/25 rounded-full blur-3xl"
     ></div>
   </div>
-  <div className="container mx-auto px-6 lg:px-8 relative z-10">
+  <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10">
     {/*  =====================================================
          SECTION HEADER
     ======================================================  */}
@@ -453,7 +503,7 @@ export default async function Portfolio() {
               data-fallback="0"
               aria-live="polite"
             >
-              —
+              {rawRepos.length}
             </p>
             <p
               className="mt-2 text-sm
@@ -518,7 +568,7 @@ export default async function Portfolio() {
               data-fallback="0"
               aria-live="polite"
             >
-              —
+              {totalStars}
             </p>
             <p className="mt-2 text-sm font-semibold text-slate-500">
               Community stars
@@ -583,7 +633,7 @@ export default async function Portfolio() {
               data-fallback="0"
               aria-live="polite"
             >
-              —
+              {totalForks}
             </p>
             <p className="mt-2 text-sm font-semibold text-slate-500">
               Repository forks
@@ -645,7 +695,7 @@ export default async function Portfolio() {
               data-fallback="0"
               aria-live="polite"
             >
-              —
+              {sortedLangs.length}
             </p>
             <p className="mt-2 text-sm font-semibold text-slate-500">
               Languages detected
@@ -969,7 +1019,7 @@ export default async function Portfolio() {
       </div>
     </div>
 
-    <div className="container mx-auto px-6 lg:px-8 relative z-10">
+    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10">
       {/*  Section Header  */}
       <div className="mx-auto max-w-3xl flex flex-col items-center text-center mb-16 scroll-reveal">
         {/*  Badge  */}
@@ -1000,7 +1050,7 @@ export default async function Portfolio() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto relative">
+      <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative">
         {/*  Continuous vertical line  */}
         <div
           className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-slate-200 to-transparent -translate-x-1/2">
@@ -1011,7 +1061,7 @@ export default async function Portfolio() {
         </div>
       </div>
 
-      <div className="mt-16 text-center max-w-6xl mx-auto scroll-reveal relative z-20">
+      <div className="mt-16 text-center mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 scroll-reveal relative z-20">
         <h3 className="text-xl font-bold text-slate-900 mb-6">GitHub Activity Chart</h3>
         <div
           className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-slate-200 premium-layered-shadow overflow-x-auto">
