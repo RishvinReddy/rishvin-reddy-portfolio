@@ -8,18 +8,7 @@ export const metadata = {
 
 export default function Contact() {
   return (
-    <main className="flex-grow pt-24 pb-16">
-      {/* Header Spacer */}
-      <div className="h-12"></div>
-      
-      {/*  ── Header v2 Scripts ──  */}
-    
-
-    {/*  ===== Header Spacer (since header is fixed) =====  */}
-    <div className="h-12 shrink-0"></div>
-
-
-    <main className="flex-grow">
+    <main className="flex-grow pt-24 pb-16 bg-background-light">
 
 
     
@@ -30,7 +19,7 @@ export default function Contact() {
      Assumes Tailwind CSS + your animation utilities are available.
      JS below handles client validation + UX (no backend).
      ===========================  */}
-      <section id="contact" className="py-20 sm:py-28 bg-background-light">
+      <section id="contact" className="pb-20 sm:pb-28">
         <div className="container mx-auto px-6 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
@@ -47,7 +36,7 @@ export default function Contact() {
               </div>
 
               {/*  Contact Information  */}
-              <div className="card-premium p-8 spotlight-card">
+              <div className="card-premium p-8 spotlight-card shadow-xl">
                 <h3 className="text-2xl font-semibold text-gray-900">Contact Information</h3>
                 <div className="mt-5 space-y-4 text-gray-700">
                   <p className="flex items-center gap-3">
@@ -88,7 +77,7 @@ export default function Contact() {
               </div>
 
               {/*  Map  */}
-              <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-sm">
+              <div className="rounded-3xl overflow-hidden border border-gray-100 shadow-md">
                 <h3 className="sr-only">My Location</h3>
                 <div className="w-full h-64 md:h-72">
                   <iframe className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade"
@@ -132,7 +121,7 @@ export default function Contact() {
 
             {/*  RIGHT COLUMN: Contact Form  */}
             <div className="lg:col-span-7 xl:col-span-8">
-              <div className="card-premium p-8 spotlight-card transition-all duration-500">
+              <div className="card-premium p-8 spotlight-card shadow-xl transition-all duration-500">
                 <form id="contact-form" className="space-y-8" noValidate>
                   <div className="mb-4">
                     <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight">Send a Detailed Inquiry</h3>
@@ -142,30 +131,30 @@ export default function Contact() {
                   {/*  Personal Details  */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="relative group">
-                      <input type="text" id="first_name" name="first_name" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-sm group-hover:border-gray-300" placeholder=" " required />
+                      <input type="text" id="first_name" name="first_name" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-md group-hover:border-gray-300" placeholder=" " required />
                       <label htmlFor="first_name" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary pointer-events-none font-medium">First Name <span className="text-primary">*</span></label>
                       <p className="mt-1 text-xs text-red-600 hidden" id="err-first_name" role="alert"></p>
                     </div>
                     <div className="relative group">
-                      <input type="text" id="last_name" name="last_name" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-sm group-hover:border-gray-300" placeholder=" " />
+                      <input type="text" id="last_name" name="last_name" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-md group-hover:border-gray-300" placeholder=" " />
                       <label htmlFor="last_name" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary pointer-events-none font-medium">Last Name</label>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div className="relative group">
-                      <input type="email" id="email" name="email" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-sm group-hover:border-gray-300" placeholder=" " required />
+                      <input type="email" id="email" name="email" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-md group-hover:border-gray-300" placeholder=" " required />
                       <label htmlFor="email" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary pointer-events-none font-medium">Email Address <span className="text-primary">*</span></label>
                       <p className="mt-1 text-xs text-red-600 hidden" id="err-email" role="alert"></p>
                     </div>
                     <div className="relative group">
-                      <input type="tel" id="phone" name="phone" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-sm group-hover:border-gray-300" placeholder=" " />
+                      <input type="tel" id="phone" name="phone" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-md group-hover:border-gray-300" placeholder=" " />
                       <label htmlFor="phone" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary pointer-events-none font-medium">Phone / WhatsApp</label>
                     </div>
                   </div>
 
                   <div className="relative group">
-                    <input type="text" id="company_input" name="company_input" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-sm group-hover:border-gray-300" placeholder=" " />
+                    <input type="text" id="company_input" name="company_input" className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-md group-hover:border-gray-300" placeholder=" " />
                     <label htmlFor="company_input" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary pointer-events-none font-medium">Company / Organization</label>
                   </div>
 
@@ -177,19 +166,19 @@ export default function Contact() {
                     <div className="grid grid-cols-2 xl:grid-cols-4 gap-3">
                       <label className="cursor-pointer">
                         <input type="radio" name="inquiry_type" value="Project" className="peer sr-only" required />
-                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-sm">Project</div>
+                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-md">Project</div>
                       </label>
                       <label className="cursor-pointer">
                         <input type="radio" name="inquiry_type" value="Job" className="peer sr-only" />
-                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-sm">Job Opportunity</div>
+                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-md">Job Opportunity</div>
                       </label>
                       <label className="cursor-pointer">
                         <input type="radio" name="inquiry_type" value="Collaboration" className="peer sr-only" />
-                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-sm">Collaboration</div>
+                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-md">Collaboration</div>
                       </label>
                       <label className="cursor-pointer">
                         <input type="radio" name="inquiry_type" value="General" className="peer sr-only" />
-                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-sm">General</div>
+                        <div className="rounded-xl border border-gray-200 px-4 py-3 text-center text-sm font-semibold text-gray-600 transition-all peer-checked:border-primary peer-checked:bg-primary/10 peer-checked:text-primary peer-checked:shadow-inner hover:bg-gray-50 shadow-md">General</div>
                       </label>
                     </div>
                     <p className="mt-2 text-xs text-red-600 hidden" id="err-inquiry_type" role="alert"></p>
@@ -199,27 +188,27 @@ export default function Contact() {
                   <div>
                     <label className="block text-sm font-bold text-gray-900 mb-3 tracking-wide uppercase text-xs">Services Needed <span className="text-gray-400 font-medium ml-1 normal-case">(Select all that apply)</span></label>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md">
                         <input type="checkbox" name="services" value="Web Dev" className="rounded text-primary focus:ring-primary focus:ring-2 focus:ring-offset-1 w-4 h-4 border-gray-300" />
                         <span className="text-sm text-gray-800 font-medium">Web Dev</span>
                       </label>
-                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md">
                         <input type="checkbox" name="services" value="Backend API" className="rounded text-primary focus:ring-primary focus:ring-2 focus:ring-offset-1 w-4 h-4 border-gray-300" />
                         <span className="text-sm text-gray-800 font-medium">Backend API</span>
                       </label>
-                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md">
                         <input type="checkbox" name="services" value="AI/ML" className="rounded text-primary focus:ring-primary focus:ring-2 focus:ring-offset-1 w-4 h-4 border-gray-300" />
                         <span className="text-sm text-gray-800 font-medium">AI / ML</span>
                       </label>
-                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md">
                         <input type="checkbox" name="services" value="IoT" className="rounded text-primary focus:ring-primary focus:ring-2 focus:ring-offset-1 w-4 h-4 border-gray-300" />
                         <span className="text-sm text-gray-800 font-medium">IoT / Hardware</span>
                       </label>
-                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md">
                         <input type="checkbox" name="services" value="UI/UX" className="rounded text-primary focus:ring-primary focus:ring-2 focus:ring-offset-1 w-4 h-4 border-gray-300" />
                         <span className="text-sm text-gray-800 font-medium">UI / UX Design</span>
                       </label>
-                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm">
+                      <label className="flex items-center gap-3 cursor-pointer p-3 rounded-xl border border-gray-200 bg-white/50 hover:bg-gray-50 hover:border-gray-300 transition-all shadow-md">
                         <input type="checkbox" name="services" value="Consulting" className="rounded text-primary focus:ring-primary focus:ring-2 focus:ring-offset-1 w-4 h-4 border-gray-300" />
                         <span className="text-sm text-gray-800 font-medium">Consulting</span>
                       </label>
@@ -230,7 +219,7 @@ export default function Contact() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                       <label htmlFor="currency" className="block text-xs font-bold text-gray-900 tracking-wide uppercase mb-1">Currency</label>
-                      <select id="currency" name="currency" className="block w-full rounded-xl border border-gray-200 px-4 py-3 bg-white/70 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700 shadow-sm font-medium">
+                      <select id="currency" name="currency" className="block w-full rounded-xl border border-gray-200 px-4 py-3 bg-white/70 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700 shadow-md font-medium">
                         <option value="USD ($)">USD ($)</option>
                         <option value="EUR (€)">EUR (€)</option>
                         <option value="GBP (£)">GBP (£)</option>
@@ -240,7 +229,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <label htmlFor="budget" className="block text-xs font-bold text-gray-900 tracking-wide uppercase mb-1">Budget</label>
-                      <select id="budget" name="budget" className="block w-full rounded-xl border border-gray-200 px-4 py-3 bg-white/70 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700 shadow-sm font-medium">
+                      <select id="budget" name="budget" className="block w-full rounded-xl border border-gray-200 px-4 py-3 bg-white/70 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700 shadow-md font-medium">
                         <option value="Not sure / N/A">Not sure / N/A</option>
                         <option value="< 1,000">&lt; 1,000</option>
                         <option value="1,000 - 5,000">1,000 - 5,000</option>
@@ -250,7 +239,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <label htmlFor="timeline" className="block text-xs font-bold text-gray-900 tracking-wide uppercase mb-1">Timeline</label>
-                      <select id="timeline" name="timeline" className="block w-full rounded-xl border border-gray-200 px-4 py-3 bg-white/70 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700 shadow-sm font-medium">
+                      <select id="timeline" name="timeline" className="block w-full rounded-xl border border-gray-200 px-4 py-3 bg-white/70 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary/20 text-gray-700 shadow-md font-medium">
                         <option value="Flexible">Flexible</option>
                         <option value="ASAP">ASAP (Urgent)</option>
                         <option value="1-3 Months">1 - 3 Months</option>
@@ -263,13 +252,13 @@ export default function Contact() {
 
                   {/*  Message Details  */}
                   <div className="relative group">
-                    <input type="text" id="subject" name="subject" required className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-sm group-hover:border-gray-300" placeholder=" " />
+                    <input type="text" id="subject" name="subject" required className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-md group-hover:border-gray-300" placeholder=" " />
                     <label htmlFor="subject" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary pointer-events-none font-medium">Subject / Project Name <span className="text-primary">*</span></label>
                     <p className="mt-1 text-xs text-red-600 hidden" id="err-subject" role="alert"></p>
                   </div>
 
                   <div className="relative group">
-                    <textarea id="message" name="message" rows={5} maxLength={2000} className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-sm group-hover:border-gray-300 resize-y min-h-[140px]" placeholder=" "></textarea>
+                    <textarea id="message" name="message" rows={5} maxLength={2000} className="peer block w-full px-4 pt-6 pb-2 text-sm text-gray-900 bg-white/70 rounded-xl border border-gray-200 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all backdrop-blur-md shadow-md group-hover:border-gray-300 resize-y min-h-[140px]" placeholder=" "></textarea>
                     <label htmlFor="message" className="absolute text-sm text-gray-500 duration-300 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-3 peer-focus:text-primary pointer-events-none font-medium">Message Details <span className="text-primary">*</span></label>
                     <span id="char-count" className="absolute right-3 bottom-3 text-xs text-gray-400 font-medium bg-white/80 px-2 py-1 rounded-md backdrop-blur-sm border border-gray-100">0 / 2000</span>
                     <p className="mt-1 text-xs text-red-600 hidden" id="err-message" role="alert"></p>
@@ -282,15 +271,15 @@ export default function Contact() {
                     <label className="block text-xs font-bold text-gray-900 tracking-wide uppercase mb-3">Preferred Contact Method</label>
                     <div className="flex flex-wrap gap-5">
                       <label className="flex items-center gap-2 cursor-pointer group">
-                        <input type="radio" name="preferred_contact" value="Email" className="text-primary focus:ring-primary border-gray-300 shadow-sm w-4 h-4 transition-all" checked />
+                        <input type="radio" name="preferred_contact" value="Email" className="text-primary focus:ring-primary border-gray-300 shadow-md w-4 h-4 transition-all" checked />
                         <span className="text-sm text-gray-700 font-medium group-hover:text-gray-900 transition-colors">Email</span>
                       </label>
                       <label className="flex items-center gap-2 cursor-pointer group">
-                        <input type="radio" name="preferred_contact" value="Phone" className="text-primary focus:ring-primary border-gray-300 shadow-sm w-4 h-4 transition-all" />
+                        <input type="radio" name="preferred_contact" value="Phone" className="text-primary focus:ring-primary border-gray-300 shadow-md w-4 h-4 transition-all" />
                         <span className="text-sm text-gray-700 font-medium group-hover:text-gray-900 transition-colors">Phone Call</span>
                       </label>
                       <label className="flex items-center gap-2 cursor-pointer group">
-                        <input type="radio" name="preferred_contact" value="WhatsApp" className="text-primary focus:ring-primary border-gray-300 shadow-sm w-4 h-4 transition-all" />
+                        <input type="radio" name="preferred_contact" value="WhatsApp" className="text-primary focus:ring-primary border-gray-300 shadow-md w-4 h-4 transition-all" />
                         <span className="text-sm text-gray-700 font-medium group-hover:text-gray-900 transition-colors">WhatsApp</span>
                       </label>
                     </div>
@@ -303,7 +292,7 @@ export default function Contact() {
                   </div>
 
                   {/*  Anti-spam CAPTCHA  */}
-                  <div className="rounded-2xl bg-white p-5 border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-5 shadow-sm">
+                  <div className="rounded-2xl bg-white p-5 border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-5 shadow-md">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600 shrink-0 shadow-inner">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
@@ -374,101 +363,6 @@ export default function Contact() {
      ===========================  */}
       
 
-    </main>
-      
-{/*  ============================================================
-     FOOTER v2 — Ultra-Premium Canonical Template
-     New features over v1:
-       • Full-width CTA pre-footer strip with animated gradient
-       • Animated tech/tool scrolling marquee tape
-       • Newsletter signup with shake validation
-       • "Currently building" live status block
-       • Footer social icons with brand-glow hover rings
-       • Shimmer divider between sections
-       • Staggered reveal columns (CSS transitions)
-       • Back-to-top button with progress-arc ring
-       • Location pin with time zone live clock
-     ============================================================  */}
-
-{/*  ── Back to Top button (with progress arc ring) ──  */}
-<button id="backToTop" aria-label="Back to top"
-  className="fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full bg-slate-900 text-white shadow-2xl shadow-slate-900/30 flex items-center justify-center opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:bg-primary hover:scale-110 hover:shadow-primary/40 group">
-  {/*  Progress ring SVG  */}
-  <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 56 56">
-    <circle cx="28" cy="28" r="26" fill="none" stroke="currentColor" strokeWidth="2"
-      className="text-white/10" />
-    <circle id="backToTopRing" cx="28" cy="28" r="26" fill="none" stroke="currentColor" strokeWidth="2"
-      strokeDasharray="163.4" strokeDashoffset="163.4"
-      className="text-primary group-hover:text-white transition-colors duration-300"
-      style={{ transition: "stroke-dashoffset 0.1s linear" }} />
-  </svg>
-  <svg className="w-5 h-5 relative z-10 group-hover:-translate-y-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path d="M5 10l7-7m0 0l7 7m-7-7v18" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-</button>
-
-  {/*  === ULTIMATE CTA & NEWSLETTER (Combined Premium Footer Capstone) ===  */}
-  <section className="bg-slate-900 relative pt-8 pb-8 overflow-hidden border-t border-slate-800/50">
-    
-
-    
-
-    {/*  Infinite Scrolling Tech Marquee  */}
-    <div className="mt-4 overflow-hidden relative w-full reveal"
-      style={{ animationDelay: "300ms" }}>
-      <div
-        className="absolute inset-y-0 left-0 w-24 sm:w-32 bg-gradient-to-r from-slate-950 to-transparent z-10 pointer-events-none">
-      </div>
-      <div
-        className="absolute inset-y-0 right-0 w-24 sm:w-32 bg-gradient-to-l from-slate-950 to-transparent z-10 pointer-events-none">
-      </div>
-
-      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] text-center mb-6">Expertise &
-        Technologies</p>
-
-      <div className="flex whitespace-nowrap overflow-hidden">
-        {/*  Marquee Track (Double for loop)  */}
-        <div className="flex items-center gap-12 sm:gap-20 min-w-max px-6" style={{ animation: "marquee 40s linear infinite" }}>
-          {/*  Set 1  */}
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Python</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">React.js</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Node.js</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">AWS</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Docker</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">TypeScript</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Solidity</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">MongoDB</span>
-          {/*  Set 2  */}
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Python</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">React.js</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Node.js</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">AWS</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Docker</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">TypeScript</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">Solidity</span>
-          <span
-            className="text-2xl sm:text-3xl font-bold text-slate-800 hover:text-slate-600 transition-colors cursor-default">MongoDB</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-{/*  ── Main Footer Body ──  */}
     </main>
   );
 }
