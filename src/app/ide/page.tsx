@@ -334,7 +334,7 @@ export default function IDE() {
             <span className="text-emerald-500 font-bold">➜</span>
             <input type="text"
               className="flex-1 bg-transparent outline-none border-none p-0 focus:ring-0 placeholder-slate-400 caret-emerald-500 text-slate-800"
-              placeholder="Type 'help' to see commands..." spellcheck="false" autocomplete="off" id="terminal-input" />
+              placeholder="Type 'help' to see commands..." spellCheck={false} autoComplete="off" id="terminal-input" />
           </div>
         </div>
       </div>
