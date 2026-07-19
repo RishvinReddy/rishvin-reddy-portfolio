@@ -1,9 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 export function Footer() {
+  const pathname = usePathname();
+  if (pathname === '/universe') return null;
   const [year, setYear] = useState("");
   const [time, setTime] = useState("");
   const [showBackToTop, setShowBackToTop] = useState(false);
