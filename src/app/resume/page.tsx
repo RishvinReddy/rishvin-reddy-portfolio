@@ -72,7 +72,7 @@ export default function Resume() {
 
           {/*  Action links  */}
           <div className="flex flex-row md:flex-col gap-3 shrink-0">
-            <a href="IDE.html" className="flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-primary text-white text-xs font-bold rounded-xl transition-all border border-white/10 hover:border-primary hover:shadow-lg hover:shadow-primary/30">
+            <a href="/ide" className="flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-primary text-white text-xs font-bold rounded-xl transition-all border border-white/10 hover:border-primary hover:shadow-lg hover:shadow-primary/30">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               Open IDE
             </a>

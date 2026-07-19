@@ -51,7 +51,7 @@ export default function About() {
         Explore My Work
         <i className="fa-solid fa-arrow-right text-xs"></i>
       </a>
-      <a href="Resume_page.html"
+      <a href="/resume"
         className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white border border-slate-200 text-slate-800 font-bold hover:border-primary/40 hover:text-primary hover:-translate-y-1 transition-all duration-300 shadow-sm">
         View Resume
       </a>

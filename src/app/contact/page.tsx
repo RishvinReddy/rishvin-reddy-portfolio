@@ -71,7 +71,7 @@ export default function Contact() {
                       <path d="M16 2v4M8 2v4"></path>
                       <path d="M3 10h18"></path>
                     </svg>
-                    <a href="index.html" className="hover:text-primary transition-colors">Book a meeting</a>
+                    <a href="/" className="hover:text-primary transition-colors">Book a meeting</a>
                   </p>
                 </div>
               </div>
@@ -321,7 +321,7 @@ export default function Contact() {
                     </button>
                   </div>
 
-                  <p className="text-xs text-center text-gray-500 font-medium">Estimated response time: 1–2 business days. By submitting you agree to our <a href="index.html" className="text-primary hover:underline font-bold">Privacy Policy</a>.</p>
+                  <p className="text-xs text-center text-gray-500 font-medium">Estimated response time: 1–2 business days. By submitting you agree to our <a href="/" className="text-primary hover:underline font-bold">Privacy Policy</a>.</p>
 
                   {/*  live region for status  */}
                   <div aria-live="polite" className="sr-only" id="formStatus" role="status"></div>
@@ -337,9 +337,9 @@ export default function Contact() {
                   <h4 className="mt-4 text-xl font-semibold text-gray-900">Message Sent!</h4>
                   <p className="mt-2 text-gray-600">Thanks for reaching out — I'll reply within 1–2 business days.</p>
                   <div className="mt-4">
-                    <a id="backToForm" href="#"
+                    <button id="backToForm" type="button"
                       className="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-gray-200 bg-white text-black hover:shadow">Send
-                      another message</a>
+                      another message</button>
                   </div>
                 </div>
               </div>

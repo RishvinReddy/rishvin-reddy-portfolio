@@ -23,7 +23,7 @@ export default function IDE() {
       </button>
 
       {/*  Back to Static Site Icon  */}
-      <a href="index.html"
+      <a href="/"
         className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 rounded-xl transition-all group"
         title="Return to Static Site">
         <svg className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor"

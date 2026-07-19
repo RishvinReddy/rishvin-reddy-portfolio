@@ -141,7 +141,7 @@ export default async function Home() {
               </a>
 
               {/* Secondary CTA (3D Universe) */}
-              <a href="universe.html" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-2xl">
+              <a href="/universe" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-2xl">
                 <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
                 </svg>
@@ -149,10 +149,10 @@ export default async function Home() {
               </a>
 
               {/* Supporting CTAs */}
-              <a href="Resume_page.html" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+              <a href="/resume" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
                 Resume
               </a>
-              <a href="IDE.html" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+              <a href="/ide" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
                 ProjectsIDE
               </a>
               <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors group">
@@ -248,8 +248,8 @@ export default async function Home() {
 
           <div className="flex items-center gap-3">
             <a id="downloadImageBtn"
-              className="inline-flex items-center gap-2 px-3 py-2 bg-primary text-white rounded-md text-sm shadow" href="#"
-              download>
+              className="inline-flex items-center gap-2 px-3 py-2 bg-primary text-white rounded-md text-sm shadow-xl" href="icon.png"
+              download="Rishvin_Profile.png">
               Download
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 xmlns="http://www.w3.org/2000/svg">

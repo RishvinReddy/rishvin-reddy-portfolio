@@ -1054,7 +1054,7 @@ export default async function Portfolio() {
                     className="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700"></span>
                   Get in Touch
                 </a>
-                <a href="Resume_page.html"
+                <a href="/resume"
                   className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 text-white font-medium rounded-full hover:bg-white/8 hover:border-white/40 transition-all duration-300">View
                   Resume</a>
               </div>
