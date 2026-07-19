@@ -12,6 +12,25 @@ export default async function Home() {
   const rawRepos = await getRawGithubRepos();
   const displayProjects = dynamicProjects.length > 0 ? dynamicProjects : FEATURED_PROJECTS;
 
+  // Compute GitHub Stats
+  let totalStars = 0;
+  let totalForks = 0;
+  let langs: Record<string, number> = {};
+
+  rawRepos.forEach(repo => {
+    totalStars += repo.stargazers_count || 0;
+    totalForks += repo.forks_count || 0;
+    if (repo.language) {
+      langs[repo.language] = (langs[repo.language] || 0) + 1;
+    }
+  });
+
+  const sortedLangs = Object.entries(langs).sort((a, b) => b[1] - a[1]);
+  const topLangs = sortedLangs.slice(0, 3);
+  const totalLangCount = sortedLangs.reduce((sum, [_, count]) => sum + count, 0);
+  const topRepos = [...rawRepos].sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0)).slice(0, 3);
+
+
   return (
     <>
       <ProfileModalController />
@@ -46,7 +65,7 @@ export default async function Home() {
           <div className="flex flex-col justify-center max-w-3xl mx-auto lg:mx-0 order-2 lg:order-1 text-center lg:text-left">
             
             {/* Availability Badge */}
-            <div className="hidden sm:inline-flex w-fit mx-auto lg:mx-0 items-center gap-2 px-3 py-1 rounded-full border border-emerald-200/50 bg-emerald-50 text-emerald-600 mb-6 shadow-sm">
+            <div className="hidden sm:inline-flex w-fit mx-auto lg:mx-0 items-center gap-2 px-3 py-1 rounded-full border border-emerald-200/50 bg-emerald-50 text-emerald-600 mb-6 shadow-xl">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
@@ -66,7 +85,7 @@ export default async function Home() {
             <div className="mb-[26px] flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
               
               {/* Patent Holder Badge */}
-              <a href="#patent-section" className="group flex items-center gap-4 w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-sm">
+              <a href="#patent-section" className="group flex items-center gap-4 w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-xl">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-yellow-50 text-yellow-600 text-lg">
                   🏅
                 </div>
@@ -80,7 +99,7 @@ export default async function Home() {
               </a>
 
               {/* Founder Badge */}
-              <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" className="group flex items-center gap-4 w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-sm">
+              <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" className="group flex items-center gap-4 w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-xl">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-red-50 text-red-500 text-lg">
                   🚀
                 </div>
@@ -114,7 +133,7 @@ export default async function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-[22px]">
               {/* Primary CTA */}
-              <a href="#projects" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-sm">
+              <a href="#projects" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-xl">
                 View Projects
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -122,7 +141,7 @@ export default async function Home() {
               </a>
 
               {/* Secondary CTA (3D Universe) */}
-              <a href="universe.html" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-sm">
+              <a href="universe.html" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-xl">
                 <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
                 </svg>
@@ -146,7 +165,7 @@ export default async function Home() {
 
             {/* Tech Stack Dock */}
             <div className="flex justify-center lg:justify-start">
-              <div className="flex flex-wrap gap-2.5 items-center bg-white border border-slate-200/60 p-3.5 rounded-[1.5rem] shadow-sm">
+              <div className="flex flex-wrap gap-2.5 items-center bg-white border border-slate-200/60 p-3.5 rounded-[1.5rem] shadow-xl">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Python">
                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" className="w-6 h-6" alt="Python" />
                 </div>
@@ -196,7 +215,7 @@ export default async function Home() {
               
               {/* Refined Hover Overlay */}
               <div className="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                <span className="flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full text-slate-900 text-sm font-semibold shadow-sm">
+                <span className="flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full text-slate-900 text-sm font-semibold shadow-xl">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -303,7 +322,7 @@ export default async function Home() {
           const num:  Record<string,string> = { indigo:"text-indigo-500", violet:"text-violet-500", amber:"text-amber-500", teal:"text-teal-500", rose:"text-rose-500" };
           const bar:  Record<string,string> = { indigo:"from-indigo-400 to-sky-400", violet:"from-violet-400 to-purple-400", amber:"from-amber-400 to-orange-400", teal:"from-teal-400 to-emerald-400", rose:"from-rose-400 to-pink-400" };
           return (
-            <div key={i} className={`group relative bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden ${i === 4 ? "sm:col-span-1 col-span-2" : ""}`}>
+            <div key={i} className={`group relative bg-white border border-slate-200/80 rounded-2xl p-5 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden ${i === 4 ? "sm:col-span-1 col-span-2" : ""}`}>
               <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${bar[s.color]} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               <div className={`w-9 h-9 ${bg[s.color]} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
                 <svg className={`w-4 h-4 ${txt[s.color]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +343,7 @@ export default async function Home() {
 
         {/* LEFT: Narrative Card */}
         <div className="lg:col-span-7">
-          <div className="relative bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden h-full">
+          <div className="relative bg-white border border-slate-200/80 rounded-2xl shadow-xl overflow-hidden h-full">
             {/* Top accent bar */}
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 via-violet-500 to-teal-500" />
 
@@ -353,7 +372,7 @@ export default async function Home() {
                   return (
                     <div key={i} className="flex items-start gap-4 group/row">
                       <div className="mt-1.5 flex flex-col items-center shrink-0">
-                        <div className={`w-2.5 h-2.5 rounded-full ${dotColor[item.color]} shadow-sm`} />
+                        <div className={`w-2.5 h-2.5 rounded-full ${dotColor[item.color]} shadow-xl`} />
                         {i < arr.length - 1 && <div className={`w-px flex-1 min-h-[40px] bg-gradient-to-b ${lineGrad[item.color]} mt-1`} />}
                       </div>
                       <div className="pb-1">
@@ -383,7 +402,7 @@ export default async function Home() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-slate-100">
                 <div className="flex items-center gap-3">
                   <div className="relative shrink-0">
-                    <div className="w-10 h-10 rounded-full overflow-hidden shadow-md border-2 border-indigo-200/40">
+                    <div className="w-10 h-10 rounded-full overflow-hidden shadow-2xl border-2 border-indigo-200/40">
                       <img loading="lazy" src="icon.png" alt="Rishvin Reddy" className="w-full h-full object-cover" />
                     </div>
                     <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full" />
@@ -448,34 +467,45 @@ export default async function Home() {
           </div>
 
           {/* Main card */}
-          <div className="about-skills-card bg-white border border-slate-200/80 rounded-2xl shadow-sm p-6 sm:p-8 flex-1">
+          <div className="about-skills-card bg-white border border-slate-200/80 rounded-2xl shadow-xl p-6 sm:p-8 flex-1">
 
             {/* GitHub Stats Strip */}
             <div id="gh-stats-strip" className="grid grid-cols-4 gap-2 mb-6">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="text-center p-2 rounded-xl bg-slate-50 animate-pulse">
-                  <div className="h-5 bg-slate-200 rounded w-8 mx-auto mb-1" />
-                  <div className="h-2.5 bg-slate-100 rounded w-12 mx-auto" />
-                </div>
-              ))}
+              <div className="text-center p-2 rounded-xl bg-slate-50">
+                <div className="text-lg font-black text-slate-800 leading-tight">{rawRepos.length}</div>
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Repos</div>
+              </div>
+              <div className="text-center p-2 rounded-xl bg-slate-50">
+                <div className="text-lg font-black text-slate-800 leading-tight">{totalStars}</div>
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Stars</div>
+              </div>
+              <div className="text-center p-2 rounded-xl bg-slate-50">
+                <div className="text-lg font-black text-slate-800 leading-tight">{totalForks}</div>
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Forks</div>
+              </div>
+              <div className="text-center p-2 rounded-xl bg-slate-50">
+                <div className="text-lg font-black text-slate-800 leading-tight">{sortedLangs.length}</div>
+                <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Langs</div>
+              </div>
             </div>
 
             {/* Language bars */}
             <div className="mb-2 flex items-center justify-between">
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em]">Language Distribution</p>
-              <span id="gh-lang-source" className="text-[10px] text-slate-400 font-medium hidden" />
             </div>
             <div className="space-y-4 mt-3" id="about-skill-bars">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="skill-row-skeleton animate-pulse">
+              {topLangs.map(([lang, count], i) => (
+                <div key={i} className="skill-row">
                   <div className="flex items-center justify-between mb-1.5">
                     <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-slate-200" />
-                      <div className={`h-3 bg-slate-200 rounded ${i === 0 ? "w-32" : i === 1 ? "w-24" : "w-28"}`} />
+                      <div className={`w-2 h-2 rounded-full ${i===0 ? 'bg-indigo-500' : i===1 ? 'bg-rose-500' : 'bg-amber-500'}`} />
+                      <div className="text-[11px] font-bold text-slate-700 uppercase tracking-widest">{lang}</div>
                     </div>
-                    <div className="h-3 bg-slate-200 rounded w-8" />
+                    <div className="text-[11px] font-bold text-slate-400">{Math.round((count / totalLangCount) * 100)}%</div>
                   </div>
-                  <div className="h-[7px] rounded-full bg-slate-100 w-full" />
+                  <div className="h-[7px] rounded-full bg-slate-100 w-full overflow-hidden">
+                    <div className={`h-full rounded-full ${i===0 ? 'bg-indigo-500' : i===1 ? 'bg-rose-500' : 'bg-amber-500'}`} style={{ width: `${(count / totalLangCount) * 100}%` }} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -486,15 +516,18 @@ export default async function Home() {
             <div>
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">Top Repositories</p>
               <div id="gh-top-repos" className="space-y-2">
-                {[...Array(2)].map((_, i) => (
-                  <div key={i} className="animate-pulse flex items-center gap-3 p-3 rounded-xl bg-slate-50">
-                    <div className="w-3 h-3 rounded-full bg-slate-200 shrink-0" />
-                    <div className="flex-1">
-                      <div className={`h-3 bg-slate-200 rounded ${i === 0 ? "w-3/4" : "w-2/3"} mb-1`} />
-                      <div className={`h-2.5 bg-slate-100 rounded ${i === 0 ? "w-1/2" : "w-1/3"}`} />
+                {topRepos.map((repo, i) => (
+                  <a key={i} href={repo.html_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 hover:-translate-y-0.5 transition-all group">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 shadow-[0_0_8px_rgba(52,211,153,0.5)]" />
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-bold text-slate-800 truncate group-hover:text-indigo-600 transition-colors">{repo.name}</div>
+                      <div className="text-[10px] font-medium text-slate-500 truncate mt-0.5">{repo.description || "No description"}</div>
                     </div>
-                    <div className="h-3 bg-slate-100 rounded w-8" />
-                  </div>
+                    <div className="text-[10px] font-bold text-slate-400 flex items-center gap-1">
+                      <svg className="w-3 h-3 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                      {repo.stargazers_count}
+                    </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -587,7 +620,7 @@ export default async function Home() {
         {/*  Badge  */}
         <div className="mb-5 flex items-center justify-center gap-3">
           <span
-            className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-amber-600 bg-amber-50 border border-amber-200/70 rounded-full shadow-sm">
+            className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-amber-600 bg-amber-50 border border-amber-200/70 rounded-full shadow-xl">
             <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span>
             Original Innovation
           </span>
@@ -663,7 +696,7 @@ export default async function Home() {
               {/*  Live status badge  */}
               <div className="flex-shrink-0">
                 <div
-                  className="flex flex-col items-center gap-2.5 px-5 py-5 rounded-2xl bg-gradient-to-b from-emerald-50 to-teal-50/80 border border-emerald-200/70 shadow-md shadow-emerald-100/50">
+                  className="flex flex-col items-center gap-2.5 px-5 py-5 rounded-2xl bg-gradient-to-b from-emerald-50 to-teal-50/80 border border-emerald-200/70 shadow-2xl shadow-emerald-100/50">
                   <span className="relative flex h-3.5 w-3.5">
                     <span
                       className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
@@ -687,7 +720,7 @@ export default async function Home() {
             {/*  Meta Tiles  */}
             <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 mb-10">
               <div
-                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-white border border-slate-100/80 shadow-sm hover:shadow-lg hover:border-amber-200/80 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
+                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-white border border-slate-100/80 shadow-xl hover:shadow-lg hover:border-amber-200/80 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
                 <div
                   className="absolute inset-0 bg-gradient-to-br from-amber-50/0 to-amber-50/80 opacity-0 group-hover/tile:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none">
                 </div>
@@ -698,7 +731,7 @@ export default async function Home() {
               </div>
 
               <div
-                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-white border border-slate-100/80 shadow-sm hover:shadow-lg hover:border-amber-200/80 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
+                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-white border border-slate-100/80 shadow-xl hover:shadow-lg hover:border-amber-200/80 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
                 <div
                   className="absolute inset-0 bg-gradient-to-br from-amber-50/0 to-amber-50/80 opacity-0 group-hover/tile:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none">
                 </div>
@@ -708,7 +741,7 @@ export default async function Home() {
               </div>
 
               <div
-                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-white border border-slate-100/80 shadow-sm hover:shadow-lg hover:border-amber-200/80 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
+                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-white border border-slate-100/80 shadow-xl hover:shadow-lg hover:border-amber-200/80 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
                 <div
                   className="absolute inset-0 bg-gradient-to-br from-amber-50/0 to-amber-50/80 opacity-0 group-hover/tile:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none">
                 </div>
@@ -718,7 +751,7 @@ export default async function Home() {
               </div>
 
               <div
-                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50/80 border border-amber-200/60 shadow-sm hover:shadow-lg hover:border-amber-300 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
+                className="group/tile relative flex flex-col gap-2 p-5 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50/80 border border-amber-200/60 shadow-xl hover:shadow-lg hover:border-amber-300 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-default">
                 <div
                   className="absolute bottom-0 right-0 w-16 h-16 bg-amber-300/15 rounded-full blur-lg pointer-events-none">
                 </div>
@@ -802,7 +835,7 @@ export default async function Home() {
 
               {/*  Mini stat strip  */}
               <div
-                className="flex items-stretch gap-px bg-amber-200/40 rounded-2xl overflow-hidden border border-amber-200/50 shadow-sm">
+                className="flex items-stretch gap-px bg-amber-200/40 rounded-2xl overflow-hidden border border-amber-200/50 shadow-xl">
                 <div className="flex flex-col items-center px-5 py-3 bg-white/90 gap-0.5">
                   <div className="text-[9px] font-black text-amber-500/70 uppercase tracking-widest">Filed</div>
                   <div className="text-base font-black text-slate-800">2025</div>
@@ -923,7 +956,7 @@ export default async function Home() {
         <div className="mb-6 flex items-center justify-center gap-3 w-full">
           <div className="flex-1 h-px bg-gradient-to-l from-slate-300/60 to-transparent max-w-[120px]"></div>
           <span
-            className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-slate-700 bg-slate-100 border border-slate-200/70 rounded-full shadow-sm">
+            className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-slate-700 bg-slate-100 border border-slate-200/70 rounded-full shadow-xl">
             <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-pulse"></span>
             Selected Works
           </span>
@@ -953,16 +986,16 @@ export default async function Home() {
       {/*  Filter Buttons (Premium Pill Design)  */}
       <div className="flex flex-wrap justify-center gap-4 mb-20 delay-1 scroll-reveal" id="projectFilters">
         <button
-          className="filter-btn active px-7 py-3 rounded-2xl text-[13px] font-black tracking-wide uppercase transition-all duration-300 border border-transparent shadow-sm"
+          className="filter-btn active px-7 py-3 rounded-2xl text-[13px] font-black tracking-wide uppercase transition-all duration-300 border border-transparent shadow-xl"
           data-filter="all">All Projects</button>
         <button
-          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5"
+          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-2xl hover:-translate-y-0.5"
           data-filter="iot">IoT & Embedded</button>
         <button
-          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5"
+          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-2xl hover:-translate-y-0.5"
           data-filter="security">Security</button>
         <button
-          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5"
+          className="filter-btn px-7 py-3 rounded-2xl bg-white/80 backdrop-blur text-slate-500 border border-slate-200 text-[13px] font-black tracking-wide uppercase transition-all duration-300 hover:border-slate-300 hover:shadow-2xl hover:-translate-y-0.5"
           data-filter="web">Web & AI</button>
 
         
@@ -1002,7 +1035,7 @@ export default async function Home() {
         <div className="mb-6 flex items-center justify-center gap-3 w-full">
           <div className="flex-1 h-px bg-gradient-to-l from-purple-200/60 to-transparent max-w-[120px]"></div>
           <span
-            className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-purple-700 bg-purple-50 border border-purple-200/70 rounded-full shadow-sm">
+            className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-purple-700 bg-purple-50 border border-purple-200/70 rounded-full shadow-xl">
             <span className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse"></span>
             Live Ecosystem Map
           </span>
@@ -1178,7 +1211,7 @@ export default async function Home() {
         {/* Right — 2x3 Feature Cards */}
         <div className="grid sm:grid-cols-2 gap-5">
 
-          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
+          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-400 to-sky-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="w-11 h-11 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1190,7 +1223,7 @@ export default async function Home() {
             <p className="text-slate-500 text-sm leading-relaxed">Research-led UX and accessibility-first components to ensure adoption and delight.</p>
           </div>
 
-          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
+          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-5 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1201,7 +1234,7 @@ export default async function Home() {
             <p className="text-slate-500 text-sm leading-relaxed">Secure authentication, encryption, and threat-aware architecture baked in from day one.</p>
           </div>
 
-          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
+          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-violet-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="w-11 h-11 bg-violet-50 rounded-xl flex items-center justify-center text-violet-600 mb-5 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1215,7 +1248,7 @@ export default async function Home() {
             <p className="text-slate-500 text-sm leading-relaxed">Buildable, observable, and cost-effective solutions engineered for real teams.</p>
           </div>
 
-          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
+          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 mb-5 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1227,7 +1260,7 @@ export default async function Home() {
             <p className="text-slate-500 text-sm leading-relaxed">KPIs, instrumentation, and user metrics continuously inform design decisions.</p>
           </div>
 
-          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
+          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="w-11 h-11 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600 mb-5 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1238,7 +1271,7 @@ export default async function Home() {
             <p className="text-slate-500 text-sm leading-relaxed">Frequent demos, clear documentation, and tight alignment to reduce surprises.</p>
           </div>
 
-          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
+          <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-rose-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="w-11 h-11 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform duration-300">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -1263,7 +1296,7 @@ export default async function Home() {
             { n: "03", label: "Validate",  color: "from-emerald-500 to-teal-500"  },
             { n: "04", label: "Deliver",   color: "from-amber-500 to-orange-500"  },
           ] as const).map((step, i) => (
-            <div key={i} className="group relative bg-white border border-slate-200/80 rounded-2xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center overflow-hidden">
+            <div key={i} className="group relative bg-white border border-slate-200/80 rounded-2xl p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center overflow-hidden">
               <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               <div className={`text-5xl font-black bg-clip-text text-transparent bg-gradient-to-br ${step.color} mb-2 opacity-[0.15] group-hover:opacity-70 transition-opacity duration-300`}>
                 {step.n}
