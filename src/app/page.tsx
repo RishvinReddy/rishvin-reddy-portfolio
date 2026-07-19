@@ -27,341 +27,182 @@ export default async function Home() {
     {/*  Noise Overlay  */}
     <div className="noise-overlay pointer-events-none fixed inset-0 z-[9999] opacity-[0.03]"></div>
 
-    {/*  ===== Hero / Home Section (Super Premium Upgrade) =====  */}
-    <div className="mx-auto max-w-[1450px] px-5 sm:px-6 lg:px-8 overflow-x-hidden flex-grow">
-      <section id="home" className="relative pt-4 pb-8 lg:pt-6 lg:pb-12">
-        {/*  Premium Glass Card Container (Apple Style)  */}
-        <div id="heroPrimaryCard"
-          className="card-premium relative rounded-[3rem] p-6 sm:p-8 lg:p-10 overflow-hidden my-4 lg:my-10">
+    {/*  ===== Hero / Home Section (Editorial Engineering Luxury) =====  */}
+    <div className="mx-auto max-w-[1450px] px-5 sm:px-6 lg:px-8 overflow-x-hidden flex-grow pt-24 lg:pt-32 pb-16 lg:pb-24">
+      <section id="home" className="relative">
+        
+        {/* Subtle Background Radial Gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-stone-50 via-white to-slate-50 opacity-60 -z-10 rounded-[3rem]"></div>
 
-          {/*  Inner white fill — blocks global ambient orb bleed-through  */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/88 via-white/80 to-white/70 pointer-events-none">
-          </div>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10 max-w-7xl mx-auto">
+          
+          {/*  Left: Hero Text (Cols 1-7) */}
+          <div className="lg:col-span-7 flex flex-col justify-center max-w-2xl mx-auto lg:mx-0 order-2 lg:order-1 text-center lg:text-left">
+            
+            {/* Availability Badge */}
+            <div className="hidden sm:inline-flex w-fit mx-auto lg:mx-0 items-center gap-2 px-3 py-1 rounded-full border border-emerald-200/50 bg-emerald-50 text-emerald-600 mb-6 shadow-sm">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+              </span>
+              <span id="heroAvailBadge" className="text-xs font-semibold tracking-wide">Open to full-time roles</span>
+            </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center relative z-10">
-            {/*  Left: Hero Text  */}
-            <div className="order-2 lg:order-1 text-center lg:text-left flex flex-col justify-center max-w-2xl mx-auto lg:mx-0">
-              <div
-                className="hidden sm:flex w-fit mx-auto lg:mx-0 items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-4">
-                <span className="relative flex h-2 w-2">
-                  <span
-                    className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span id="heroAvailBadge" className="text-[11px] font-semibold tracking-wide">Open to full-time roles</span>
-              </div>
-              
-
-              <h1
-                className="text-3xl sm:text-4xl lg:text-[3.6rem] font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-5 drop-shadow-sm">
-                <span className="block font-normal text-slate-700 text-2xl sm:text-3xl lg:text-[2.8rem] mb-2 lg:mb-3">Hi, I&apos;m</span>
-                <span
-                  className="animate-gradient text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-primary to-indigo-600">Erolla
-                  Rishvin
-                  Reddy</span>
+            {/* Typography Hierarchy */}
+            <div className="flex flex-col gap-2 mb-6">
+              <span className="text-xl sm:text-2xl font-medium text-slate-500 tracking-tight">Hi, I&apos;m</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-[4.8rem] font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+                Erolla Rishvin Reddy
               </h1>
-              <div className="mb-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-
-                {/*  Patent Holder Badge  */}
-                <a href="#patent-section"
-                  className="group relative overflow-hidden rounded-3xl border border-yellow-200/60 bg-white/70 backdrop-blur-xl px-4 py-2.5 shadow-lg shadow-yellow-100/50 transition-all duration-500 hover:-translate-y-1.5 hover:scale-[1.03] hover:shadow-2xl hover:shadow-yellow-200/50">
-
-                  {/*  Premium Glow  */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-r from-yellow-300/10 via-amber-200/20 to-yellow-300/10">
-                  </div>
-
-                  {/*  Shine Sweep  */}
-                  <div
-                    className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent">
-                  </div>
-
-                  <div className="relative flex items-center gap-3">
-
-                    {/*  Icon Box  */}
-                    <div
-                      className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 text-white shadow-md group-hover:rotate-6 transition-transform duration-500">
-                      🏅
-                    </div>
-
-                    {/*  Text  */}
-                    <div className="flex flex-col leading-tight">
-                      <span
-                        className="font-bold text-[14px] text-slate-900 tracking-wide">
-                        Patent Holder
-                      </span>
-
-                      <span className="text-xs text-slate-500">
-                        Innovation & Research
-                      </span>
-                    </div>
-
-                    {/*  Hover Arrow  */}
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4 text-yellow-700 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
-                      fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 5l7 7-7 7" />
-                    </svg>
-
-                  </div>
-                </a>
-
-
-
-                {/*  Founder Badge  */}
-                <a href="https://rishvinreddy.github.io/rishvin-labs/"
-                  target="_blank"
-                  className="group relative overflow-hidden rounded-3xl border border-red-200/60 bg-white/70 backdrop-blur-xl px-4 py-2.5 shadow-lg shadow-red-100/50 transition-all duration-500 hover:-translate-y-1.5 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-200/50">
-
-                  {/*  Glow  */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-r from-red-300/10 via-rose-300/20 to-orange-300/10">
-                  </div>
-
-                  {/*  Shine Sweep  */}
-                  <div
-                    className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent">
-                  </div>
-
-                  <div className="relative flex items-center gap-3">
-
-                    {/*  Rocket Icon  */}
-                    <div
-                      className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-red-500 via-rose-500 to-orange-500 text-white shadow-md group-hover:-rotate-6 transition-transform duration-500">
-                      🚀
-                    </div>
-
-                    {/*  Text  */}
-                    <div className="flex flex-col leading-tight">
-
-                      <span
-                        className="font-bold text-[14px] text-slate-900 tracking-wide">
-                        Founder & Builder
-                      </span>
-
-                      <span
-                        className="text-xs font-medium bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
-                        Rishvin Labs
-                      </span>
-                    </div>
-
-                    {/*  External Link  */}
-                    <div
-                      className="flex items-center justify-center h-8 w-8 rounded-xl bg-slate-100 group-hover:bg-red-50 transition duration-300">
-
-                      <svg xmlns="http://www.w3.org/2000/svg"
-                        className="w-4 h-4 text-slate-600 group-hover:text-red-600 group-hover:rotate-12 transition-all duration-300"
-                        fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-
-                        <path strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M14 3h7m0 0v7m0-7L10 14" />
-
-                        <path strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 5v14h14" />
-                      </svg>
-
-                    </div>
-
-                  </div>
-                </a>
-
-              </div>
-
-              <p
-                className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-6 delay-1 font-medium">
-                <span className="font-bold text-slate-900">Software Engineer</span> specializing in 
-                <span className="font-semibold text-slate-900 border-b-2 border-primary/30 pb-0.5">Cybersecurity</span>,
-                <span className="font-semibold text-slate-900 border-b-2 border-indigo-500/30 pb-0.5">IoT</span>,
-                <span className="font-semibold text-slate-900 border-b-2 border-green-500/30 pb-0.5">Full-Stack Development</span>, Blockchain, and scalable intelligent systems. Founder of <span className="font-bold text-slate-900">Rishvin Labs</span>.
-              </p>
-
-              {/*  Hidden SEO Clarification  */}
-              <div style={{ display: "none" }} className="identity-clarification-seo" aria-hidden="true">
-                This profile refers to Erolla Rishvin Reddy, a Computer Science Engineering student specializing in
-                IoT, Cybersecurity, and Blockchain technologies. Co-inventor of a design patent for an IoT
-                Connectivity Device. Not related to film industry individuals.
-              </div>
-
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
-                {/*  Primary CTA  */}
-                <a href="#projects"
-                  className="magnetic-btn inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-bold text-white bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full shadow-xl shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
-                  View Projects
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    </path>
-                  </svg>
-                </a>
-
-                {/*  3D Universe Button (New)  */}
-                <a href="universe.html"
-                  className="magnetic-btn inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-bold text-white bg-slate-900 rounded-full shadow-xl shadow-slate-900/30 hover:shadow-slate-900/50 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group">
-                  <span
-                    className="absolute inset-0 bg-gradient-to-r from-primary/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  <svg className="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                      d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5">
-                    </path>
-                  </svg>
-                  3D Universe
-                </a>
-
-                {/*  Resume Button  */}
-                <a href="Resume_page.html"
-                  className="magnetic-btn inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-semibold text-white bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full shadow-md hover:shadow-lg hover:from-yellow-500 hover:to-yellow-700 transition-all duration-300">
-                  Resume
-                </a>
-
-                {/*  Projects IDE  */}
-                <a href="IDE.html"
-                  className="magnetic-btn inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-semibold text-white bg-gradient-to-r from-red-500 to-red-700 rounded-full shadow-md hover:shadow-lg hover:from-red-600 hover:to-red-800 transition-all duration-300">
-                  ProjectsIDE
-                </a>
-
-                {/*  Visit Rishvin Labs  */}
-                <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer"
-                  className="magnetic-btn inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-bold text-white bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-md hover:shadow-lg hover:from-blue-600 hover:to-indigo-700 hover:-translate-y-1 transition-all duration-300 group">
-                  Rishvin Labs 
-                  <svg className="w-4 h-4 ml-2 text-white/80 group-hover:text-white transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-
-              {/*  Tech Stack Strip (moved from image area)  */}
-              <div className="mt-6 flex flex-wrap gap-2.5 justify-center lg:justify-start">
-                <div
-                  className="float-icon bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="Python">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                    className="w-7 h-7" alt="Python" />
-                </div>
-                <div
-                  className="float-icon-slow bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="TypeScript">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                    className="w-7 h-7" alt="TypeScript" />
-                </div>
-                <div
-                  className="float-icon-fast bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="JavaScript">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                    className="w-7 h-7" alt="JavaScript" />
-                </div>
-                <div
-                  className="float-icon bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="React">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" className="w-7 h-7"
-                    alt="React" />
-                </div>
-                <div
-                  className="float-icon-slow bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="Node.js">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                    className="w-7 h-7" alt="Node.js" />
-                </div>
-                <div
-                  className="float-icon bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="C++">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
-                    className="w-7 h-7" alt="C++" />
-                </div>
-                <div
-                  className="float-icon-fast bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="Arduino">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg"
-                    className="w-7 h-7" alt="Arduino" />
-                </div>
-                <div
-                  className="float-icon bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="MySQL">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" className="w-7 h-7"
-                    alt="MySQL" />
-                </div>
-                <div
-                  className="float-icon-slow bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="Flask">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" className="w-7 h-7"
-                    alt="Flask" />
-                </div>
-                <div
-                  className="float-icon-fast bg-white/80 backdrop-blur-md p-2.5 rounded-xl shadow-md border border-white/30 hover:scale-110 transition-transform cursor-default"
-                  title="Docker">
-                  <img loading="lazy"
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" className="w-7 h-7"
-                    alt="Docker" />
-                </div>
-              </div>
-
-              {/*  Removed Tech Stack Marquee in favor of Floating Icons  */}
             </div>
 
-            {/*  Right: Visual Profile with Floating Tech Icons  */}
-            <div className="relative order-1 lg:order-2 flex justify-center delay-1 mt-10 lg:mt-0">
-              {/*  Blobs (reduced)  */}
-              <div
-                className="absolute top-0 right-10 w-72 h-72 bg-purple-500/[0.06] rounded-full blur-3xl mix-blend-multiply filter animate-blob pointer-events-none">
-              </div>
-              <div
-                className="absolute top-0 left-10 w-72 h-72 bg-yellow-500/[0.06] rounded-full blur-3xl mix-blend-multiply filter animate-blob animation-delay-20 pointer-events-none">
-              </div>
-              <div
-                className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500/[0.06] rounded-full blur-3xl mix-blend-multiply filter animate-blob animation-delay-40 pointer-events-none">
-              </div>
-
-              {/*  Image Container  */}
-              {/*  3D Layered Lighting — profile photo  */}
-              <div className="relative z-20 w-full max-w-[350px] sm:max-w-[450px] lg:max-w-[550px] xl:max-w-[600px] 2xl:max-w-[650px] aspect-square tilt-card profile-3d-wrap">
-
-                {/*  Layer 2: Conic gradient border ring (bright at top-left light source)  */}
-                <div className="profile-border-ring" aria-hidden="true"></div>
-
-                {/*  Layer 3: Shadow base plate with directional shadows + inner rim shading  */}
-                <div
-                  className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white/80 rounded-full profile-shadow-base"
-                  aria-hidden="true"></div>
-
-                {/*  Layer 4: Photo  */}
-                <div className="absolute inset-[3px] bg-white rounded-full overflow-hidden group cursor-pointer z-10"
-                  id="profileThumb" data-src="icon.png">
-                  <img loading="lazy" src="icon.png"
-                    className="w-full h-full object-cover transition-transform duration-700"
-                    alt="Erolla Rishvin Reddy Software Developer and IoT Engineer" />
-                  <div
-                    className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                    <span className="text-white font-medium flex items-center gap-2">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round"
-                          strokeLinejoin="round"></path>
-                        <path
-                          d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
-                      </svg>
-                      View Profile
-                    </span>
-                  </div>
+            {/* Credential Cards (Standardized) */}
+            <div className="mb-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              
+              {/* Patent Holder Badge */}
+              <a href="#patent-section" className="group flex items-center gap-3 w-full sm:w-auto px-4 py-2.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-sm">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-50 text-yellow-600">
+                  🏅
                 </div>
+                <div className="flex flex-col leading-none text-left">
+                  <span className="font-bold text-sm text-slate-900">Patent Holder</span>
+                  <span className="text-[11px] font-medium text-slate-500 mt-0.5">Innovation & Research</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-slate-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
 
+              {/* Founder Badge */}
+              <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" className="group flex items-center gap-3 w-full sm:w-auto px-4 py-2.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-sm">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-500">
+                  🚀
+                </div>
+                <div className="flex flex-col leading-none text-left">
+                  <span className="font-bold text-sm text-slate-900">Founder & Builder</span>
+                  <span className="text-[11px] font-medium text-slate-500 mt-0.5">Rishvin Labs</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-slate-400 group-hover:text-red-500 transition-colors duration-300 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 3h7m0 0v7m0-7L10 14" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5v14h14" />
+                </svg>
+              </a>
 
+            </div>
+
+            {/* Description */}
+            <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-normal">
+              <span className="font-bold text-slate-900">Software Engineer</span> specializing in 
+              <span className="font-semibold text-slate-900 border-b border-slate-300 pb-0.5 mx-1">Cybersecurity</span>,
+              <span className="font-semibold text-slate-900 border-b border-slate-300 pb-0.5 mx-1">IoT</span>,
+              <span className="font-semibold text-slate-900 border-b border-slate-300 pb-0.5 mx-1">Full-Stack Development</span>, Blockchain, and scalable intelligent systems. Founder of <span className="font-bold text-slate-900">Rishvin Labs</span>.
+            </p>
+
+            {/*  Hidden SEO Clarification  */}
+            <div style={{ display: "none" }} className="identity-clarification-seo" aria-hidden="true">
+              This profile refers to Erolla Rishvin Reddy, a Computer Science Engineering student specializing in
+              IoT, Cybersecurity, and Blockchain technologies. Co-inventor of a design patent for an IoT
+              Connectivity Device. Not related to film industry individuals.
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
+              {/* Primary CTA */}
+              <a href="#projects" className="inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-sm">
+                View Projects
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+
+              {/* Secondary CTA (3D Universe) */}
+              <a href="universe.html" className="inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-sm">
+                <svg className="w-4 h-4 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                </svg>
+                3D Universe
+              </a>
+
+              {/* Supporting CTAs */}
+              <a href="Resume_page.html" className="inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+                Resume
+              </a>
+              <a href="IDE.html" className="inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+                ProjectsIDE
+              </a>
+              <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 text-[13px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors group">
+                Rishvin Labs 
+                <svg className="w-3.5 h-3.5 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Tech Stack Dock */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="flex flex-wrap gap-2 items-center bg-white border border-slate-200/60 p-2.5 rounded-[1.25rem] shadow-sm">
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Python">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" className="w-5 h-5" alt="Python" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="TypeScript">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" className="w-5 h-5" alt="TypeScript" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="JavaScript">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" className="w-5 h-5" alt="JavaScript" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="React">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" className="w-5 h-5" alt="React" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Node.js">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" className="w-5 h-5" alt="Node.js" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="C++">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" className="w-5 h-5" alt="C++" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Arduino">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" className="w-5 h-5" alt="Arduino" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="MySQL">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" className="w-5 h-5" alt="MySQL" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Flask">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" className="w-5 h-5" alt="Flask" />
+                </div>
+                <div className="flex items-center justify-center w-9 h-9 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Docker">
+                  <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" className="w-5 h-5" alt="Docker" />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/*  Right: Visual Profile (Cols 8-12)  */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end relative order-1 lg:order-2">
+            
+            {/* Highly Restrained Ambient Glow */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-[120%] aspect-square bg-slate-200/30 rounded-full blur-[100px] opacity-60"></div>
+            </div>
+
+            {/* Clean Editorial Portrait Oval */}
+            <div className="relative z-10 w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[480px] aspect-[4/5] rounded-[3rem] overflow-hidden border border-slate-200/60 shadow-lg bg-stone-50 group cursor-pointer" id="profileThumb" data-src="icon.png">
+              <img loading="lazy" src="icon.png" className="w-full h-full object-cover mix-blend-multiply scale-[1.02] group-hover:scale-[1.04] transition-transform duration-700 ease-out" alt="Erolla Rishvin Reddy Software Developer and IoT Engineer" />
+              
+              {/* Refined Hover Overlay */}
+              <div className="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                <span className="flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full text-slate-900 text-sm font-semibold shadow-sm">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  View Full Profile
+                </span>
               </div>
             </div>
           </div>
 
-          {/*  Right: Visual Profile  */}
-          <div className="relative order-1 lg:order-2 flex justify-center delay-1">
-
-          </div>
         </div>
-
-  </section>
+      </section>
 
   {/*  ===== Fullscreen image modal (accessible, focus-trap) =====  */}
   <div id="imageModal" className="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" aria-hidden="true"

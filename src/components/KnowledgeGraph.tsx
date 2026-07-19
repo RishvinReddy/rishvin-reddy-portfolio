@@ -91,10 +91,11 @@ export default function KnowledgeGraph({ repos }: { repos: any[] }) {
       }
       catObj.connections++;
 
+      const repoName = repo.name || 'Unknown Repo';
       nodesArray.push({
         id: repoNodeId,
-        label: repo.name.replace(/-/g, ' '),
-        title: `<div class="p-2 bg-slate-900 rounded"><span class="font-bold text-white text-sm">${repo.name.replace(/-/g, ' ')}</span><br><span class="text-emerald-400 text-[11px] font-mono">${repo.language || 'Code'}</span></div>`,
+        label: repoName.replace(/-/g, ' '),
+        title: `<div class="p-2 bg-slate-900 rounded"><span class="font-bold text-white text-sm">${repoName.replace(/-/g, ' ')}</span><br><span class="text-emerald-400 text-[11px] font-mono">${repo.language || 'Code'}</span></div>`,
         shape: isImportant ? 'hexagon' : 'dot',
         size: isImportant ? 16 : 10,
         font: {
