@@ -70,6 +70,26 @@
   // INIT
   // ────────────────────────────────────────────────────────────
   async function init() {
+  // Wait for THREE.js to be loaded if navigating via SPA
+  let attempts = 0;
+  while ((typeof THREE === 'undefined' || typeof THREE.EffectComposer === 'undefined') && attempts < 50) {
+    await new Promise(r => setTimeout(r, 100));
+    attempts++;
+  }
+  if (typeof THREE === 'undefined') {
+    console.error('Three.js failed to load.');
+    return;
+  }
+  while (!document.getElementById('universe-canvas') && attempts < 50) {
+    await new Promise(r => setTimeout(r, 100));
+    attempts++;
+  }
+  if (!document.getElementById('universe-canvas')) {
+    console.error('Canvas element not found.');
+    return;
+  }
+
+
     try {
       initAudio();
       STATE.repos = await ENGINE.getRepos();
