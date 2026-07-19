@@ -382,7 +382,7 @@ export default function IDE() {
           className="relative flex items-end border border-slate-300 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary mb-1 rounded-xl overflow-hidden transition-all shadow-sm bg-slate-50">
           <textarea
             className="w-full bg-transparent border-none py-3 px-4 pr-12 text-[13px] focus:outline-none focus:ring-0 resize-none font-sans text-slate-800 placeholder-slate-400 leading-normal"
-            rows="1" placeholder="Ask about the code..." id="ai-chat-input"
+            rows={1} placeholder="Ask about the code..." id="ai-chat-input"
             style={{ minHeight: "48px", maxHeight: "120px" }}></textarea>
           <button
             className="absolute bottom-2 right-2 p-1.5 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all rounded-lg"
