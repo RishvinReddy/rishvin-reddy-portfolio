@@ -64,11 +64,11 @@ export default function ContactFormClient() {
             Available for New Opportunities
           </div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 mb-6 font-display">
-            Let's build something <br className="hidden md:block"/>
+            Let&apos;s build something <br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600">extraordinary.</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium">
-            Whether you have a wild idea, an architectural challenge, or just want to say hi—I'm all ears.
+            Whether you have a wild idea, an architectural challenge, or just want to say hi—I&apos;m all ears.
           </p>
         </motion.div>
 
@@ -161,7 +161,7 @@ export default function ContactFormClient() {
                     <svg className="w-12 h-12 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
                   <h3 className="text-3xl font-black text-slate-900 mb-4">Transmission Received</h3>
-                  <p className="text-slate-500 max-w-md mx-auto mb-8 font-medium">I'll review your details and get back to you within 24-48 hours. Let's make something great.</p>
+                  <p className="text-slate-500 max-w-md mx-auto mb-8 font-medium">I&apos;ll review your details and get back to you within 24-48 hours. Let&apos;s make something great.</p>
                   <button onClick={() => setFormState('idle')} className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-colors">
                     Send Another
                   </button>

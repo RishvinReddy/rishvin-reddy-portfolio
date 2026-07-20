@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata, Viewport } from "next";
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "IDE | Rishvin Labs",
@@ -176,14 +177,14 @@ export default function IDE() {
       </button>
 
       {/*  Back to Static Site Icon  */}
-      <a href="/"
+      <Link href="/"
         className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-primary/10 rounded-xl transition-all group"
         title="Return to Static Site">
         <svg className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor"
           viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-      </a>
+      </Link>
 
       {/*  GitHub Link Icon  */}
       <a href="https://github.com/RishvinReddy" target="_blank"

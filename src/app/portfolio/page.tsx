@@ -111,7 +111,7 @@ export default async function Portfolio() {
 
   let totalStars = 0;
   let totalForks = 0;
-  let langs: Record<string, number> = {};
+  const langs: Record<string, number> = {};
 
   rawRepos.forEach(repo => {
     totalStars += repo.stargazers_count || 0;
