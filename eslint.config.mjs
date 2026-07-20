@@ -14,7 +14,7 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
   ]),
   {
-    ignores: ["legacy/"],
+    ignores: ["legacy/", "docs/"],
   },
 ]);
 
