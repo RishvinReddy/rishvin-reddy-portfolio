@@ -1,11 +1,8 @@
 import KnowledgeGraph from "@/components/KnowledgeGraph";
-import ProjectCard from "@/components/ProjectCard";
 import HomeProjectGallery from "@/components/HomeProjectGallery";
 import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
 import { TECH_STACK, SERVICES, FEATURED_PROJECTS } from '../data/portfolio';
 import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 import ProfileModalController from '@/components/ProfileModalController';
 import { VideoIntro } from "@/components/VideoIntro";
 
@@ -29,7 +26,7 @@ export default async function Home() {
 
   const sortedLangs = Object.entries(langs).sort((a, b) => b[1] - a[1]);
   const topLangs = sortedLangs.slice(0, 3);
-  const totalLangCount = sortedLangs.reduce((sum, [_, count]) => sum + count, 0);
+  const totalLangCount = sortedLangs.reduce((sum, [, count]) => sum + count, 0);
   const topRepos = [...rawRepos].sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0)).slice(0, 3);
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata, Viewport } from "next";
 import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
-import ProjectCard from '@/components/ProjectCard';
+
 import PortfolioProjectGallery from "@/components/PortfolioProjectGallery";
 
 export const metadata: Metadata = {
@@ -122,7 +122,6 @@ export default async function Portfolio() {
   });
 
   const sortedLangs = Object.entries(langs).sort((a, b) => b[1] - a[1]);
-  const totalLangCount = sortedLangs.reduce((sum, [_, count]) => sum + count, 0);
 
   return (
     <>

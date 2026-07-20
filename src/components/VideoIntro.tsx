@@ -9,6 +9,7 @@ export function VideoIntro() {
   useEffect(() => {
     const hasPlayed = sessionStorage.getItem("introPlayed");
     if (!hasPlayed) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowIntro(true);
     }
   }, []);

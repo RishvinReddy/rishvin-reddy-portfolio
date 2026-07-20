@@ -209,7 +209,7 @@ async function postProcessReadme(
   }
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   const [open, setOpen] = useState(false);
   const [readme, setReadme] = useState<string | null>(null);
   const [rawReadme, setRawReadme] = useState<string>("");
@@ -250,9 +250,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     }
   }, [project.repoName]);
 
-  // Fetch README when modal opens
   useEffect(() => {
     if (open && readme === null && !readmeLoading) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       fetchReadme();
     }
   }, [open, readme, readmeLoading, fetchReadme]);

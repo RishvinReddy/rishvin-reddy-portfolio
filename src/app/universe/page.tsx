@@ -1,5 +1,3 @@
-import React from "react";
-import Script from "next/script";
 import Link from "next/link";
 
 export default function UniversePage() {

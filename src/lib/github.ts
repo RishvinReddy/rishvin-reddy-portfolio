@@ -25,7 +25,7 @@ const LANG_SUMMARIES: Record<string, string> = {
   "Shell": "Automation shell script or DevOps utility.",
 };
 
-export async function getRawGithubRepos(): Promise<any[]> {
+export async function getRawGithubRepos(): Promise<Record<string, unknown>[]> {
   try {
     const res = await fetch(
       `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated&type=owner`,
