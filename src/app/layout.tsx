@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://rishvinreddy.github.io/",
+    url: "https://rishvinreddy.vercel.app/",
     siteName: "Rishvin Reddy Portfolio",
     title: "Rishvin Reddy | Software Engineering, Cybersecurity, IoT & Blockchain",
     description: "Official portfolio of Erolla Rishvin Reddy, a B.Tech CSE student at Woxsen University specializing in Blockchain, IoT and Cybersecurity. Explore software engineering, security, IoT, blockchain, full-stack development and automation projects.",
-    images: [{ url: "https://rishvinreddy.github.io/icon.png", width: 1200, height: 630, alt: "Rishvin Reddy Portfolio" }],
+    images: [{ url: "https://rishvinreddy.vercel.app/icon.png", width: 1200, height: 630, alt: "Rishvin Reddy Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     creator: "@RishvinReddy",
     title: "Rishvin Reddy | Software Engineering, Cybersecurity, IoT & Blockchain",
     description: "Official portfolio of Erolla Rishvin Reddy, a B.Tech CSE student at Woxsen University specializing in Blockchain, IoT and Cybersecurity. Explore software engineering, security, IoT, blockchain, full-stack development and automation projects.",
-    images: ["https://rishvinreddy.github.io/icon.png"],
+    images: ["https://rishvinreddy.vercel.app/icon.png"],
   },
   icons: {
     icon: "/icon.png",
