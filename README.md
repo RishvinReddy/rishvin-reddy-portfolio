@@ -1,15 +1,16 @@
 # Rishvin Reddy — Portfolio
 
-A personal engineering portfolio showcasing my work across Cybersecurity, Internet of Things, Blockchain, Full-Stack Development, Software Engineering, research, and technology projects.
+> A personal engineering portfolio showcasing my work across Cybersecurity, Internet of Things, Blockchain, Full-Stack Development, Software Engineering, research, and technology projects.
 
 <p align="center">
   <strong>Engineering ideas into secure, connected, and practical systems.</strong>
 </p>
+
 <p align="center">
   Portfolio • Projects • Engineering • Research • Achievements • Experience
 </p>
 
-⸻
+---
 
 ## Table of Contents
 
@@ -42,9 +43,9 @@ A personal engineering portfolio showcasing my work across Cybersecurity, Intern
 27. [License](#license)
 28. [Contact](#contact)
 
-⸻
+---
 
-## Overview
+# Overview
 
 This repository contains the source code and supporting documentation for my personal portfolio website.
 
@@ -54,181 +55,204 @@ Rather than functioning only as a personal landing page, the portfolio is design
 
 It presents my work across:
 
-* Cybersecurity
-* Internet of Things
-* Blockchain
-* Full-Stack Development
-* Software Engineering
-* Web Technologies
-* Digital Forensics
-* Distributed Systems
-* Automation
-* Technical Research
+- Cybersecurity
+- Internet of Things
+- Blockchain
+- Full-Stack Development
+- Software Engineering
+- Web Technologies
+- Digital Forensics
+- Distributed Systems
+- Automation
+- Technical Research
 
 The website is intentionally designed to remain lightweight, maintainable, responsive, and easy to deploy.
 
-The core implementation uses a modern web stack:
+The core implementation uses:
 
-* Next.js (App Router)
-* React & TypeScript
-* Tailwind CSS
-* Framer Motion
+- HTML5
+- CSS3
+- JavaScript
 
 The architecture avoids unnecessary frontend framework complexity while maintaining a modular project structure and modern engineering practices.
 
-⸻
+---
 
-## About Me
+# About Me
 
-I am Erolla Rishvin Reddy, a B.Tech Computer Science and Engineering student specializing in:
+I am **Erolla Rishvin Reddy**, a B.Tech Computer Science and Engineering student specializing in:
 
 **Blockchain, Internet of Things, and Cybersecurity**
 
-at Woxsen University.
+at **Woxsen University**.
 
 My technical interests are centered around building secure, connected, and reliable systems that combine software engineering with emerging technologies.
 
 My primary areas of interest include:
 
 | Domain | Focus |
-|--------|-------|
-| **Cybersecurity** | Application security, network security, secure system design |
-| **Internet of Things** | Connected devices, sensors, embedded systems, IoT architecture |
-| **Blockchain** | Distributed ledgers, smart contracts, decentralized systems |
-| **Full-Stack Development** | Web applications, APIs, frontend and backend systems |
-| **Digital Forensics** | Evidence integrity, forensic workflows, incident investigation |
-| **Software Engineering** | Architecture, modularity, maintainability, development workflows |
-| **Automation** | Workflow automation and engineering productivity |
+|---|---|
+| Cybersecurity | Application security, network security, secure system design |
+| Internet of Things | Connected devices, sensors, embedded systems, IoT architecture |
+| Blockchain | Distributed ledgers, smart contracts, decentralized systems |
+| Full-Stack Development | Web applications, APIs, frontend and backend systems |
+| Digital Forensics | Evidence integrity, forensic workflows, incident investigation |
+| Software Engineering | Architecture, modularity, maintainability, development workflows |
+| Automation | Workflow automation and engineering productivity |
 
 My long-term objective is to develop strong engineering expertise across security, connected systems, and distributed technologies while building practical projects that solve real-world problems.
 
-⸻
+---
 
-## Portfolio Vision
+# Portfolio Vision
 
 The objective of this portfolio is to create a professional digital platform that communicates four things clearly:
 
-1. **Who I Am**  
+### 1. Who I Am
+
 My academic background, engineering interests, technical direction, and professional identity.
 
-2. **What I Build**  
+### 2. What I Build
+
 A structured showcase of technical projects with clear descriptions of the problems, solutions, architectures, technologies, and outcomes.
 
-3. **What I Know**  
+### 3. What I Know
+
 My technical skills across programming languages, development tools, cybersecurity, blockchain, IoT, databases, and software engineering.
 
-4. **How I Think**  
+### 4. How I Think
+
 The architecture, documentation, project decisions, technical workflows, and engineering methodology behind my work.
 
 The portfolio therefore functions as both:
 
-**Personal Brand**  
-and  
+**Personal Brand**
+
+and
+
 **Engineering Documentation Platform**
 
-⸻
+---
 
-## Live Website
+# Live Website
 
-The latest production version of the portfolio is available through the project’s configured deployment environment.
+The latest production version of the portfolio is available through the project's configured deployment environment.
 
-**Production Portfolio URL:**  
-https://rishvinreddy.vercel.app/
+> Add the final production portfolio URL here after deployment.
 
-Primary deployment environment:  
-**Vercel**
+Example:
 
-⸻
+```text
+https://your-domain.com
+```
 
-## Repository Overview
+Alternative deployment environments may include:
+
+```text
+GitHub Pages
+Vercel
+Custom Domain
+```
+
+---
+
+# Repository Overview
 
 The repository follows a modular structure designed to separate:
 
-* Page structure (Next.js App Router)
-* Presentation (Tailwind CSS)
-* Application behavior (React)
-* Static assets
-* Structured portfolio data (TypeScript)
-* Engineering documentation
+- Page structure
+- Presentation
+- Application behavior
+- Static assets
+- Structured portfolio data
+- Engineering documentation
 
 This improves maintainability as the portfolio grows.
 
 ```mermaid
 flowchart TD
+
     A[Portfolio Repository]
-    A --> B[Next.js App Router]
-    A --> C[Tailwind CSS]
-    A --> D[React Components]
-    A --> E[Public Assets]
-    A --> F[TypeScript Data]
+
+    A --> B[HTML]
+    A --> C[CSS]
+    A --> D[JavaScript]
+    A --> E[Assets]
+    A --> F[Data]
     A --> G[Documentation]
     A --> H[GitHub Automation]
-    
+
     B --> B1[Page Structure]
-    B --> B2[Semantic Layouts]
-    C --> C1[Design Tokens]
-    C --> C2[Component Styling]
+    B --> B2[Semantic Content]
+
+    C --> C1[Design System]
+    C --> C2[Components]
     C --> C3[Responsive Layout]
-    C --> C4[Framer Motion Animations]
+    C --> C4[Animations]
+
     D --> D1[Navigation]
     D --> D2[Interactions]
     D --> D3[Project Rendering]
     D --> D4[UI Behavior]
+
     E --> E1[Images]
     E --> E2[Icons]
     E --> E3[Fonts]
-    E --> E4[Documents & Resumes]
-    F --> F1[Projects Data]
-    F --> F2[Skills Data]
-    F --> F3[Achievements Data]
-    F --> F4[Experience Data]
+    E --> E4[Documents]
+
+    F --> F1[Projects]
+    F --> F2[Skills]
+    F --> F3[Achievements]
+    F --> F4[Experience]
+
     G --> G1[Architecture]
     G --> G2[Design System]
     G --> G3[Development]
     G --> G4[Deployment]
-    H --> H1[CI / Linting]
-    H --> H2[Vercel Deployment]
+
+    H --> H1[CI]
+    H --> H2[Deployment]
     H --> H3[Quality Checks]
 ```
 
-⸻
+---
 
-## Technology Stack
+# Technology Stack
 
-### Core Technologies
+## Core Technologies
 
 | Technology | Purpose |
-|------------|---------|
-| Next.js 15 | Application structure, routing, and SSR |
-| React 19 | Component architecture and UI logic |
-| TypeScript | Static typing and robust data structures |
-| Tailwind CSS v4 | Utility-first styling and responsive layouts |
-| Framer Motion | Fluid animations and interactive elements |
-| GitHub | Repository management and version control |
-| Vercel | Automated CI/CD and edge hosting |
+|---|---|
+| HTML5 | Semantic website structure |
+| CSS3 | Styling and responsive layouts |
+| JavaScript | Interactivity and application behavior |
+| JSON | Structured portfolio content |
+| Git | Version control |
+| GitHub | Repository management |
+| GitHub Pages / Vercel | Deployment |
 
-⸻
+---
 
-### Frontend Architecture
+## Frontend Architecture
 
 | Layer | Responsibility |
-|-------|----------------|
-| Structure Layer | Semantic HTML within Next.js Layouts |
-| Presentation Layer | Tailwind CSS design system |
-| Interaction Layer | React Hooks and Framer Motion |
-| Content Layer | Static TypeScript data modules (`src/data`) |
-| Asset Layer | Images, icons, and documents (`public/`) |
-| Deployment Layer | Vercel Edge Network |
-| Documentation Layer | Markdown documentation (`docs/`) |
+|---|---|
+| Structure Layer | Semantic HTML |
+| Presentation Layer | CSS design system |
+| Interaction Layer | JavaScript |
+| Content Layer | JSON and static content |
+| Asset Layer | Images, icons, documents |
+| Deployment Layer | GitHub Pages or Vercel |
+| Documentation Layer | Markdown documentation |
 
-⸻
+---
 
-## Core Portfolio Sections
+# Core Portfolio Sections
 
 The portfolio is organized around several primary content areas.
 
 | Section | Purpose |
-|---------|---------|
+|---|---|
 | Hero | Introduces personal brand and engineering identity |
 | About | Provides academic and professional background |
 | Skills | Displays technical capabilities |
@@ -239,523 +263,600 @@ The portfolio is organized around several primary content areas.
 | Certifications | Presents verified learning milestones |
 | Contact | Provides professional communication channels |
 
-⸻
+---
 
-## Featured Engineering Domains
+# Featured Engineering Domains
 
-### Cybersecurity
+## Cybersecurity
+
 Projects and learning related to:
-* Application security
-* Web security
-* Network security
-* Authentication
-* Secure coding
-* Vulnerability analysis
-* Digital forensics
-* Incident investigation
 
-### Internet of Things
+- Application security
+- Web security
+- Network security
+- Authentication
+- Secure coding
+- Vulnerability analysis
+- Digital forensics
+- Incident investigation
+
+---
+
+## Internet of Things
+
 Engineering work involving:
-* ESP32
-* Arduino
-* Sensors
-* MQTT
-* Device communication
-* Embedded systems
-* IoT architecture
-* Device security
 
-### Blockchain
+- ESP32
+- Arduino
+- Sensors
+- MQTT
+- Device communication
+- Embedded systems
+- IoT architecture
+- Device security
+
+---
+
+## Blockchain
+
 Work involving:
-* Smart contracts
-* Ethereum
-* Distributed ledgers
-* Evidence integrity
-* Blockchain-backed systems
-* Decentralized architecture
 
-### Full-Stack Development
+- Smart contracts
+- Ethereum
+- Distributed ledgers
+- Evidence integrity
+- Blockchain-backed systems
+- Decentralized architecture
+
+---
+
+## Full-Stack Development
+
 Development experience involving:
-* Frontend engineering (React/Next.js)
-* Backend systems
-* APIs
-* Databases
-* Authentication
-* Deployment
-* Web application architecture
 
-⸻
+- Frontend engineering
+- Backend systems
+- APIs
+- Databases
+- Authentication
+- Deployment
+- Web application architecture
 
-## System Architecture
+---
 
-The portfolio uses a modern, React-based server-rendered architecture.
+# System Architecture
+
+The portfolio uses a lightweight static frontend architecture.
 
 ```mermaid
 flowchart LR
-    U[User Browser]
-    U --> CDN[Vercel Edge Network]
-    CDN --> NEXT[Next.js Server]
-    
-    NEXT --> COMP[React Components]
-    COMP --> LAY[Tailwind CSS Layer]
-    COMP --> DATA[TypeScript Data Layer]
-    COMP --> ASSETS[Public Static Assets]
+
+    U[User]
+
+    U --> B[Web Browser]
+
+    B --> H[index.html]
+
+    H --> C[CSS Layer]
+    H --> J[JavaScript Layer]
+    H --> A[Asset Layer]
+    H --> D[Data Layer]
+
+    C --> DS[Design System]
+    C --> R[Responsive Layout]
+    C --> AN[Animations]
+
+    J --> NAV[Navigation]
+    J --> INT[Interactions]
+    J --> PR[Project Rendering]
+
+    D --> PJ[Projects JSON]
+    D --> SK[Skills JSON]
+    D --> AC[Achievements JSON]
+
+    A --> IMG[Images]
+    A --> ICON[Icons]
+    A --> DOC[Documents]
 ```
 
-⸻
+---
 
-## Application Flow
+# Application Flow
 
 ```mermaid
 sequenceDiagram
+
     participant User
     participant Browser
-    participant Vercel
-    participant NextJS
+    participant HTML
+    participant CSS
+    participant JavaScript
     participant Data
-    
+
     User->>Browser: Open Portfolio
-    Browser->>Vercel: HTTP Request
-    Vercel->>NextJS: Handle Route Request
-    NextJS->>Data: Fetch Static Content
-    Data-->>NextJS: Return Structured Content
-    NextJS->>NextJS: Generate Optimized HTML
-    NextJS-->>Browser: Deliver Initial Page Payload
-    Browser->>Browser: Hydrate React Components
+
+    Browser->>HTML: Load Page Structure
+
+    HTML->>CSS: Load Stylesheets
+    HTML->>JavaScript: Load Scripts
+
+    JavaScript->>Data: Request Portfolio Data
+
+    Data-->>JavaScript: Return Structured Content
+
+    JavaScript->>HTML: Render Dynamic Components
+
+    CSS->>HTML: Apply Visual System
+
+    HTML-->>Browser: Render Complete Portfolio
+
     Browser-->>User: Display Interactive Experience
 ```
 
-⸻
+---
 
-## Content Architecture
+# Content Architecture
 
-Portfolio information is separated from presentation logic using typed data modules.
+Portfolio information should be separated from presentation logic whenever practical.
 
 ```mermaid
 flowchart TD
-    DATA[src/data/]
-    DATA --> PROJECTS[portfolio.ts (Projects)]
-    DATA --> SKILLS[portfolio.ts (Skills)]
-    DATA --> EDUCATION[portfolio.ts (Education)]
-    DATA --> EXPERIENCE[portfolio.ts (Experience)]
-    DATA --> ACHIEVEMENTS[portfolio.ts (Awards)]
-    
-    PROJECTS --> UI[React UI Components]
+
+    DATA[Portfolio Data]
+
+    DATA --> PROJECTS[Projects]
+    DATA --> SKILLS[Skills]
+    DATA --> EDUCATION[Education]
+    DATA --> EXPERIENCE[Experience]
+    DATA --> ACHIEVEMENTS[Achievements]
+    DATA --> CERTIFICATIONS[Certifications]
+
+    PROJECTS --> UI[UI Components]
     SKILLS --> UI
     EDUCATION --> UI
     EXPERIENCE --> UI
     ACHIEVEMENTS --> UI
-    
-    UI --> PORTFOLIO[Next.js App Router Pages]
+    CERTIFICATIONS --> UI
+
+    UI --> PORTFOLIO[Portfolio Website]
 ```
 
 This approach allows portfolio content to be updated without modifying the core layout logic.
 
-⸻
+---
 
-## Repository Structure
+# Repository Structure
 
 ```text
 rishvin-reddy-portfolio/
 │
-├── .github/
-│   ├── ISSUE_TEMPLATE/
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   └── workflows/
-│
-├── public/
-│   ├── assets/
-│   │   ├── certificates/
-│   │   └── ...
-│   ├── resumes/
-│   ├── favicon.ico
-│   └── next.svg
-│
-├── src/
-│   ├── app/                 # Next.js Routes
-│   │   ├── about/
-│   │   ├── portfolio/
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   ├── components/          # React Components
-│   │   ├── ui/
-│   │   ├── Header.tsx
-│   │   └── Footer.tsx
-│   ├── data/                # Content Modules
-│   │   └── portfolio.ts
-│   └── lib/                 # Utilities
-│       └── utils.ts
-│
-├── docs/
-│   ├── ARCHITECTURE.md
-│   ├── DESIGN_SYSTEM.md
-│   ├── DEVELOPMENT.md
-│   ├── DEPLOYMENT.md
-│   ├── CONTRIBUTING.md
-│   ├── SEO.md
-│   └── PERFORMANCE.md
-│
-├── next.config.ts
-├── tailwind.config.ts
-├── tsconfig.json
-├── package.json
-├── CHANGELOG.md
-├── SECURITY.md
-├── LICENSE
-└── README.md
+
 ```
 
-⸻
+---
 
-## Design System
+# Design System
 
-The portfolio follows an Editorial Engineering Luxury design direction.
+The portfolio follows an **Editorial Engineering Luxury** design direction.
 
 The objective is to combine:
-* Technical precision
-* Premium visual presentation
-* Editorial typography
-* Clean information hierarchy
-* Minimal visual noise
-* Strong spacing discipline
-* Professional engineering identity
 
-The design avoids unnecessary visual effects that reduce readability, powered by Tailwind CSS.
+- Technical precision
+- Premium visual presentation
+- Editorial typography
+- Clean information hierarchy
+- Minimal visual noise
+- Strong spacing discipline
+- Professional engineering identity
 
-⸻
+The design should avoid unnecessary visual effects that reduce readability.
 
-### Design Principles
+---
+
+## Design Principles
 
 | Principle | Implementation |
-|-----------|----------------|
-| **Clarity** | Clear visual hierarchy using semantic HTML |
-| **Precision** | Consistent spacing and alignment via Tailwind |
-| **Restraint** | Limited decorative elements |
-| **Readability** | Strong typography and contrast |
-| **Responsiveness** | Fluid layouts across screen sizes |
-| **Consistency** | Reusable Tailwind configuration tokens |
-| **Performance** | Lightweight assets and Framer animations |
+|---|---|
+| Clarity | Clear visual hierarchy |
+| Precision | Consistent spacing and alignment |
+| Restraint | Limited decorative elements |
+| Readability | Strong typography and contrast |
+| Responsiveness | Fluid layouts across screen sizes |
+| Consistency | Reusable design tokens |
+| Performance | Lightweight assets and animations |
 
-⸻
+---
 
-### Design Token Architecture
+## Design Token Architecture
 
 ```mermaid
 flowchart TD
-    DS[Tailwind Theme Config]
+
+    DS[Design System]
+
     DS --> C[Colors]
     DS --> T[Typography]
     DS --> S[Spacing]
     DS --> R[Radius]
     DS --> SH[Shadows]
-    DS --> M[Framer Motion]
-    
-    C --> UI[React Components]
+    DS --> M[Motion]
+
+    C --> UI[UI Components]
     T --> UI
     S --> UI
     R --> UI
     SH --> UI
     M --> UI
-    
-    UI --> PAGES[Next.js Pages]
+
+    UI --> PAGES[Portfolio Interface]
 ```
 
-⸻
+---
 
-## Responsive Design
+# Responsive Design
 
-The website is designed using a responsive-first approach utilizing Tailwind breakpoints.
+The website is designed using a responsive-first approach.
 
 Primary target categories include:
 
 | Device | Layout Strategy |
-|--------|-----------------|
-| **Mobile (`sm`)** | Single-column optimized layout |
-| **Tablet (`md`)** | Adaptive content grid |
-| **Laptop (`lg`)** | Full portfolio experience |
-| **Desktop (`xl`)** | Expanded layout and spacing |
-| **Large Desktop (`2xl`)** | Controlled maximum content width (`max-w-7xl`) |
+|---|---|
+| Mobile | Single-column optimized layout |
+| Tablet | Adaptive content grid |
+| Laptop | Full portfolio experience |
+| Desktop | Expanded layout and spacing |
+| Large Desktop | Controlled maximum content width |
 
-The responsive system ensures that:
-* Text remains readable.
-* Navigation remains accessible.
-* Project cards maintain visual hierarchy.
-* Images scale correctly (using `next/image`).
-* Horizontal overflow is prevented.
-* Interactive elements maintain adequate touch targets.
+The responsive system should ensure that:
 
-⸻
+- Text remains readable.
+- Navigation remains accessible.
+- Project cards maintain visual hierarchy.
+- Images scale correctly.
+- Horizontal overflow is prevented.
+- Interactive elements maintain adequate touch targets.
 
-## Performance Strategy
+---
+
+# Performance Strategy
 
 Performance is an important component of the portfolio architecture.
 
-The project prioritizes:
-* Optimized images (WebP/AVIF via `next/image`)
-* Next.js static generation (SSG)
-* Minimal client-side JavaScript payloads
-* Efficient CSS (Tailwind purging)
-* Reduced render-blocking resources
-* Vercel Edge caching
+The project should prioritize:
 
-⸻
+- Optimized images
+- Lazy loading
+- Minimal JavaScript
+- Efficient CSS
+- Reduced render-blocking resources
+- Modern image formats
+- Browser caching
+- Static deployment
 
-### Performance Pipeline
+---
+
+## Performance Pipeline
 
 ```mermaid
 flowchart LR
-    SRC[Next.js Source Code]
-    SRC --> OPT[Build Optimization]
-    OPT --> HTML[Static HTML Generation]
-    OPT --> CSS[Purged CSS Bundles]
-    OPT --> JS[Code-Split JavaScript]
-    OPT --> IMG[Image Optimization]
-    
-    HTML --> DEPLOY[Vercel Deployment]
+
+    SRC[Source Code]
+
+    SRC --> OPT[Optimization]
+
+    OPT --> HTML[Optimized HTML]
+    OPT --> CSS[Optimized CSS]
+    OPT --> JS[Optimized JavaScript]
+    OPT --> IMG[Optimized Images]
+
+    HTML --> DEPLOY[Deployment]
     CSS --> DEPLOY
     JS --> DEPLOY
     IMG --> DEPLOY
-    
-    DEPLOY --> CDN[Vercel CDN]
+
+    DEPLOY --> CDN[CDN / Static Hosting]
+
     CDN --> USER[User Browser]
 ```
 
-⸻
+---
 
-## Accessibility
+# Accessibility
 
-The portfolio follows modern accessibility practices.
+The portfolio should follow modern accessibility practices.
 
 Key considerations include:
-* Semantic HTML
-* Keyboard navigation
-* Accessible labels (`aria-label`)
-* Alternative image text (`alt`)
-* Sufficient color contrast
-* Visible focus states
-* Logical heading hierarchy
 
-Interactive elements use semantic elements whenever possible, leveraging Radix UI primitives where necessary for robust accessibility.
+- Semantic HTML
+- Keyboard navigation
+- Accessible labels
+- Alternative image text
+- Sufficient color contrast
+- Visible focus states
+- Reduced-motion support
+- Logical heading hierarchy
 
-⸻
+Example:
 
-## SEO Strategy
-
-The portfolio includes a structured SEO implementation powered by the Next.js Metadata API.
-
-### Core SEO Elements
-
-| Element | Purpose |
-|---------|---------|
-| **Page Title** | Search result identification |
-| **Meta Description** | Search result summary |
-| **Canonical URL** | Prevent duplicate indexing |
-| **Open Graph** | Social sharing previews |
-| **Twitter Cards** | Social media previews |
-| **Sitemap** | Search engine discovery (`sitemap.ts`) |
-| **Robots.txt** | Crawler configuration (`robots.ts`) |
-| **Google Verification** | Search Console ownership validation |
-
-⸻
-
-### Configured Metadata
-
-```typescript
-export const metadata: Metadata = {
-  title: "Rishvin Reddy | Software Engineering, Cybersecurity, IoT & Blockchain",
-  description: "Official portfolio of Erolla Rishvin Reddy, a B.Tech CSE student at Woxsen University specializing in Blockchain, IoT and Cybersecurity.",
-  verification: {
-    google: "gqSeJRumXVEo6URkxbldpICOXZ9OBRZ3gs-B-9Wu-4k",
-  },
-};
+```html
+<img
+  src="assets/images/projects/project-name.webp"
+  alt="Dashboard interface for Project Name"
+/>
 ```
 
-⸻
+Interactive elements should use semantic elements whenever possible.
 
-## Security Considerations
+```html
+<button type="button">
+  View Project
+</button>
+```
+
+instead of non-semantic clickable containers.
+
+---
+
+# SEO Strategy
+
+The portfolio should include a structured SEO implementation.
+
+## Core SEO Elements
+
+| Element | Purpose |
+|---|---|
+| Page Title | Search result identification |
+| Meta Description | Search result summary |
+| Canonical URL | Prevent duplicate indexing |
+| Open Graph | Social sharing previews |
+| Twitter Cards | Social media previews |
+| Sitemap | Search engine discovery |
+| Robots.txt | Crawler configuration |
+| Structured Data | Search engine context |
+
+---
+
+## Recommended Metadata
+
+```html
+<title>
+  Rishvin Reddy | Cybersecurity, IoT & Blockchain Engineer
+</title>
+
+<meta
+  name="description"
+  content="Portfolio of Rishvin Reddy, a Computer Science Engineering student specializing in Cybersecurity, IoT, Blockchain, and Full-Stack Development."
+/>
+```
+
+---
+
+# Security Considerations
 
 Although the portfolio is primarily a static website, security remains important.
 
 Security principles include:
-* No sensitive credentials in frontend code
-* No API secrets committed to Git
-* HTTPS-only production deployment
-* Dependency monitoring (`npm audit`)
-* Secure external links (`rel="noopener noreferrer"`)
-* No exposed environment variables
 
-Sensitive configuration should never be committed:
+- No sensitive credentials in frontend code
+- No API secrets committed to Git
+- HTTPS-only production deployment
+- Dependency monitoring where applicable
+- Secure external links
+- Appropriate Content Security Policy
+- Safe handling of contact forms
+- No exposed environment variables
+
+Sensitive configuration should never be committed.
+
+Example:
+
 ```text
 .env
 .env.local
 .env.production
 ```
-These files are included in `.gitignore`.
 
-⸻
+These files should be included in `.gitignore` when applicable.
 
-## Local Development
+---
 
-### Prerequisites
-A modern browser and **Node.js (v18+)** are recommended.
+# Local Development
+
+## Prerequisites
+
+A modern browser and a local HTTP server are recommended.
 
 Optional development tools include:
-* Visual Studio Code
-* Git
 
-⸻
+- Visual Studio Code
+- Git
+- Node.js
+- Live Server
 
-### Clone Repository
+---
+
+## Clone Repository
 
 ```bash
-git clone https://github.com/RishvinReddy/Vercel-Portfolio-Test.git
+git clone <repository-url>
 ```
 
 Navigate to the project:
+
 ```bash
-cd Vercel-Portfolio-Test
+cd rishvin-reddy-portfolio
 ```
 
-⸻
+---
 
-### Run Locally
+## Run Locally
 
-Install dependencies:
+If using Python:
+
 ```bash
-npm install
-```
-
-Start the Next.js development server:
-```bash
-npm run dev
+python3 -m http.server 8000
 ```
 
 Open:
-`http://localhost:3000`
 
-⸻
+```text
+localhost:8000
+```
 
-## Deployment
+Alternatively, use a local development server extension.
+
+---
+
+# Deployment
 
 The portfolio can be deployed using static hosting platforms.
 
 Recommended deployment options:
 
 | Platform | Use Case |
-|----------|----------|
-| **Vercel** | Modern Next.js deployment workflow (Primary) |
-| **GitHub Pages** | Static export alternative (`next export`) |
-| **Custom Domain** | Professional branding |
+|---|---|
+| GitHub Pages | Simple repository-based hosting |
+| Vercel | Modern deployment workflow |
+| Custom Domain | Professional branding |
 
-⸻
+---
 
-### Deployment Architecture
+## Deployment Architecture
 
 ```mermaid
 flowchart LR
+
     DEV[Developer]
+
     DEV --> GIT[Local Git Repository]
+
     GIT --> GH[GitHub Repository]
-    GH --> CI[Vercel CI/CD Pipeline]
-    CI --> BUILD[Next.js Build & Validate]
-    BUILD --> DEPLOY[Edge Deployment]
-    DEPLOY --> HOST[Vercel Static Hosting]
-    HOST --> DOMAIN[rishvinreddy.vercel.app]
+
+    GH --> CI[CI/CD Pipeline]
+
+    CI --> BUILD[Validation]
+
+    BUILD --> DEPLOY[Deployment]
+
+    DEPLOY --> HOST[Static Hosting]
+
+    HOST --> DOMAIN[Custom Domain]
+
     DOMAIN --> USER[Portfolio Visitor]
 ```
 
-⸻
+---
 
-## Development Workflow
+# Development Workflow
 
 The repository follows a structured Git workflow.
 
 ```mermaid
 gitGraph
-    commit id: "Initial Next.js Setup"
+
+    commit id: "Initial Setup"
+
     branch develop
+
     checkout develop
+
     commit id: "Portfolio Structure"
+
     branch feature/projects
+
     checkout feature/projects
+
     commit id: "Projects Section"
+
     checkout develop
+
     merge feature/projects
+
     branch feature/responsive
+
     checkout feature/responsive
-    commit id: "Responsive UI via Tailwind"
+
+    commit id: "Responsive UI"
+
     checkout develop
+
     merge feature/responsive
+
     checkout main
+
     merge develop
-    commit id: "Production Release on Vercel"
+
+    commit id: "Production Release"
 ```
 
-⸻
+---
 
-### Recommended Branches
+## Recommended Branches
 
 | Branch | Purpose |
-|--------|---------|
+|---|---|
 | `main` | Production-ready portfolio |
 | `develop` | Active development |
 | `feature/*` | Individual features |
 | `fix/*` | Bug fixes |
 | `docs/*` | Documentation updates |
 
-For a solo portfolio project, this workflow is simplified to direct `main` commits where appropriate.
+For a solo portfolio project, this workflow may be simplified when appropriate.
 
-⸻
+---
 
-## Quality Standards
+# Quality Standards
 
 Every significant update should be evaluated across five dimensions.
 
 | Area | Requirement |
-|------|-------------|
-| **Functionality** | Features work correctly (React state, routing) |
-| **Responsiveness** | Works seamlessly across all Tailwind screen sizes |
-| **Accessibility** | Core accessibility standards maintained |
-| **Performance** | Next.js build shows optimal bundle sizes |
-| **Maintainability** | TypeScript code remains organized and readable |
+|---|---|
+| Functionality | Features work correctly |
+| Responsiveness | Works across screen sizes |
+| Accessibility | Core accessibility standards maintained |
+| Performance | No unnecessary performance regression |
+| Maintainability | Code remains organized and readable |
 
-⸻
+---
 
 ## Pre-Deployment Checklist
 
-* All navigation links work
-* All project links work
-* Images load correctly via `next/image`
-* Images contain appropriate alt text
-* Mobile navigation works
-* No horizontal overflow
-* No browser console errors
-* Next.js Metadata is correct
-* Favicon is configured
-* Open Graph image is configured
-* Sitemap is updated
-* Robots.txt is valid
-* Resume link works
-* GitHub & LinkedIn links work
-* Vercel deployment completes successfully
+- [ ] All navigation links work
+- [ ] All project links work
+- [ ] Images load correctly
+- [ ] Images contain appropriate alt text
+- [ ] Mobile navigation works
+- [ ] No horizontal overflow
+- [ ] No browser console errors
+- [ ] Metadata is correct
+- [ ] Favicon is configured
+- [ ] Open Graph image is configured
+- [ ] Sitemap is updated
+- [ ] Robots.txt is valid
+- [ ] Resume link works
+- [ ] GitHub links work
+- [ ] LinkedIn links work
+- [ ] Contact links work
+- [ ] Production deployment is successful
 
-⸻
+---
 
-## Browser Compatibility
+# Browser Compatibility
 
 The portfolio targets modern versions of:
-* Google Chrome
-* Microsoft Edge
-* Mozilla Firefox
-* Safari
 
-Progressive enhancement is used where browser-specific features are implemented.
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
+- Safari
 
-⸻
+Progressive enhancement should be used where browser-specific features are implemented.
 
-## Documentation
+---
 
-Technical documentation is maintained separately from the primary README in the `docs/` directory.
+# Documentation
+
+Technical documentation is maintained separately from the primary README.
 
 ```text
 docs/
@@ -764,166 +865,370 @@ docs/
 ├── DESIGN_SYSTEM.md
 ├── DEVELOPMENT.md
 ├── DEPLOYMENT.md
-├── SEO.md
-├── PERFORMANCE.md
-└── CONTRIBUTING.md
+├── CONTRIBUTING.md
+└── CHANGELOG.md
 ```
 
-### ARCHITECTURE.md
-Documents System architecture, Next.js frontend architecture, Data flow, and Module responsibilities.
+## ARCHITECTURE.md
 
-### DESIGN_SYSTEM.md
-Documents Tailwind Colors, Typography, Spacing, Components, Breakpoints, and Framer Motion Animations.
+Documents:
 
-### DEVELOPMENT.md
-Documents Local setup, Development workflow, File organization, and TypeScript conventions.
+- System architecture
+- Frontend architecture
+- Data flow
+- Module responsibilities
+- Technical decisions
 
-### DEPLOYMENT.md
-Documents Deployment process, Vercel configuration, and Custom domain setup.
+## DESIGN_SYSTEM.md
 
-### CHANGELOG.md
-Tracks meaningful portfolio releases and improvements in the root directory.
+Documents:
 
-⸻
+- Colors
+- Typography
+- Spacing
+- Components
+- Breakpoints
+- Animations
+- Accessibility
 
-## Engineering Architecture Summary
+## DEVELOPMENT.md
+
+Documents:
+
+- Local setup
+- Development workflow
+- File organization
+- Coding conventions
+
+## DEPLOYMENT.md
+
+Documents:
+
+- Deployment process
+- GitHub Pages configuration
+- Vercel configuration
+- Custom domain setup
+
+## CHANGELOG.md
+
+Tracks meaningful portfolio releases and improvements.
+
+---
+
+# Lucidchart Architecture
+
+For formal presentations, academic submissions, portfolio case studies, or technical documentation, the following architecture can be recreated in Lucidchart.
+
+## Lucidchart Diagram 1 — Portfolio System Architecture
+
+Create six primary containers:
+
+```text
+USER LAYER
+    ↓
+PRESENTATION LAYER
+    ↓
+INTERACTION LAYER
+    ↓
+CONTENT / DATA LAYER
+    ↓
+ASSET LAYER
+    ↓
+DEPLOYMENT LAYER
+```
+
+### User Layer
+
+```text
+Portfolio Visitor
+Recruiter
+Developer
+Faculty / Academic Reviewer
+Collaborator
+```
+
+### Presentation Layer
+
+```text
+HTML5
+CSS3
+Responsive Layout
+Design System
+```
+
+### Interaction Layer
+
+```text
+JavaScript
+Navigation
+Animations
+Filtering
+Dynamic Rendering
+```
+
+### Content Layer
+
+```text
+Projects
+Skills
+Experience
+Education
+Achievements
+Certifications
+```
+
+### Asset Layer
+
+```text
+Images
+Icons
+Fonts
+Resume
+Project Screenshots
+```
+
+### Deployment Layer
+
+```text
+GitHub
+CI/CD
+Static Hosting
+Custom Domain
+CDN
+```
+
+Connect the layers using directional arrows from the user to the deployment-backed application architecture.
+
+---
+
+## Lucidchart Diagram 2 — Content Management Flow
+
+```text
+Developer
+    ↓
+Portfolio Data
+    ↓
+JSON Files
+    ↓
+JavaScript Modules
+    ↓
+UI Components
+    ↓
+HTML DOM
+    ↓
+Rendered Portfolio
+    ↓
+Visitor
+```
+
+This diagram represents the recommended separation between content and presentation.
+
+---
+
+## Lucidchart Diagram 3 — Deployment Workflow
+
+```text
+Local Development
+        ↓
+Git Commit
+        ↓
+GitHub Repository
+        ↓
+Automated Validation
+        ↓
+Deployment Pipeline
+        ↓
+Production Hosting
+        ↓
+Custom Domain
+        ↓
+End User
+```
+
+Optional validation branches:
+
+```text
+Automated Validation
+    ├── HTML Validation
+    ├── CSS Validation
+    ├── Link Checking
+    ├── Performance Check
+    └── Accessibility Check
+```
+
+---
+
+# Engineering Architecture Summary
 
 ```mermaid
 flowchart TB
+
     USER[Portfolio Visitor]
-    
+
     subgraph Frontend
-        HTML[Next.js Layouts]
-        CSS[Tailwind CSS]
-        JS[React Components]
+        HTML[Semantic HTML]
+        CSS[CSS Design System]
+        JS[JavaScript Modules]
     end
-    
+
     subgraph Content
-        PROJECTS[Projects Data]
-        SKILLS[Skills Data]
-        EXPERIENCE[Experience Data]
-        ACHIEVEMENTS[Achievements Data]
+        PROJECTS[Projects]
+        SKILLS[Skills]
+        EXPERIENCE[Experience]
+        ACHIEVEMENTS[Achievements]
     end
-    
+
     subgraph Assets
-        IMAGES[next/image]
-        ICONS[Lucide Icons]
-        DOCS[PDF Resumes]
+        IMAGES[Images]
+        ICONS[Icons]
+        DOCS[Documents]
     end
-    
+
     subgraph Infrastructure
         GITHUB[GitHub]
-        CICD[Vercel CI/CD]
-        HOSTING[Vercel Edge Network]
-        DOMAIN[rishvinreddy.vercel.app]
+        CICD[CI/CD]
+        HOSTING[Static Hosting]
+        DOMAIN[Custom Domain]
     end
-    
+
     USER --> HTML
+
     HTML --> CSS
     HTML --> JS
+
     JS --> PROJECTS
     JS --> SKILLS
     JS --> EXPERIENCE
     JS --> ACHIEVEMENTS
+
     HTML --> IMAGES
     HTML --> ICONS
     HTML --> DOCS
+
     GITHUB --> CICD
     CICD --> HOSTING
     HOSTING --> DOMAIN
+
     DOMAIN --> USER
 ```
 
-⸻
+---
 
-## Roadmap
+# Roadmap
 
-### Phase 1 — Foundation
-* [x] Repository creation & Next.js initialization
-* [x] Initial portfolio development
-* [x] Standardized directory architecture
-* [x] Documentation upgrade
+## Phase 1 — Foundation
 
-### Phase 2 — Portfolio Architecture
-* [x] Tailwind CSS architecture
-* [x] React Component architecture
-* [x] Structured project data in TypeScript
-* [x] Structured achievements & certifications data
+- [x] Repository creation
+- [x] Initial portfolio development
+- [ ] Repository cleanup
+- [ ] Standardized directory architecture
+- [ ] Documentation upgrade
 
-### Phase 3 — Design Optimization
-* [x] Finalize design system
-* [x] Improve responsive behavior
-* [x] Optimize whitespace
-* [x] Standardize project cards
-* [x] Integrate Framer Motion animations
+## Phase 2 — Portfolio Architecture
 
-### Phase 4 — Performance
-* [x] Convert images to modern formats (`next/image`)
-* [x] Implement lazy loading
-* [x] Reduce unused CSS (Tailwind purging)
-* [x] Optimize fonts (`next/font`)
-* [ ] Run Lighthouse audit
+- [ ] Modular CSS architecture
+- [ ] Modular JavaScript
+- [ ] Structured project data
+- [ ] Structured achievements data
+- [ ] Structured certifications data
 
-### Phase 5 — SEO
-* [x] Add Next.js structured metadata
-* [x] Configure Open Graph previews
-* [x] Generate sitemap (`sitemap.ts`)
-* [x] Configure `robots.ts`
-* [x] Google Search Console verification
+## Phase 3 — Design Optimization
 
-### Phase 6 — Deployment
-* [x] Configure Vercel production deployment
-* [x] Validate production build
-* [ ] Configure custom domain
+- [ ] Finalize design system
+- [ ] Improve responsive behavior
+- [ ] Optimize whitespace
+- [ ] Improve typography
+- [ ] Standardize project cards
+- [ ] Improve navigation
 
-### Phase 7 — Continuous Improvement
-* [ ] Add new projects
-* [ ] Add latest achievements
-* [ ] Maintain resume
-* [ ] Update technical skills
+## Phase 4 — Performance
 
-⸻
+- [ ] Convert images to modern formats
+- [ ] Implement lazy loading
+- [ ] Reduce unused CSS
+- [ ] Reduce unnecessary JavaScript
+- [ ] Optimize fonts
+- [ ] Improve Core Web Vitals
 
-## Project Philosophy
+## Phase 5 — SEO
+
+- [ ] Add structured metadata
+- [ ] Configure Open Graph
+- [ ] Configure social previews
+- [ ] Add sitemap
+- [ ] Configure robots.txt
+- [ ] Add structured data
+
+## Phase 6 — Deployment
+
+- [ ] Configure production deployment
+- [ ] Configure custom domain
+- [ ] Configure HTTPS
+- [ ] Validate production build
+- [ ] Run Lighthouse audit
+
+## Phase 7 — Continuous Improvement
+
+- [ ] Add new projects
+- [ ] Add achievements
+- [ ] Add certifications
+- [ ] Maintain resume
+- [ ] Update technical skills
+- [ ] Maintain documentation
+
+---
+
+# Project Philosophy
 
 This portfolio follows a simple engineering principle:
 
-**Build the simplest architecture that can remain professional, scalable, maintainable, and effective.**
+> Build the simplest architecture that can remain professional, scalable, maintainable, and effective.
 
 The portfolio intentionally prioritizes:
 
-`Clarity` + `Performance` + `Maintainability` + `Engineering Quality` + `Professional Presentation`
+```text
+Clarity
+    +
+Performance
+    +
+Maintainability
+    +
+Engineering Quality
+    +
+Professional Presentation
+```
 
 over unnecessary technical complexity.
 
-⸻
+---
 
-## Contributing
+# Contributing
 
 This is primarily a personal portfolio repository.
 
 However, suggestions, bug reports, and technical improvements may be submitted through GitHub Issues.
 
 When contributing:
+
 1. Create a dedicated branch.
 2. Keep changes focused.
-3. Follow the existing codebase conventions (Next.js/React).
+3. Follow the existing code structure.
 4. Test responsive behavior.
 5. Verify accessibility.
 6. Ensure no sensitive information is committed.
 7. Submit a clear pull request.
 
-⸻
+---
 
-## License
+# License
 
-The source code licensing terms for this project are defined in the repository’s `LICENSE` file.
+The source code licensing terms for this project are defined in the repository's `LICENSE` file.
 
-*Personal information, branding assets, photographs, project content, and portfolio-specific materials remain the intellectual property of Erolla Rishvin Reddy and are not automatically covered by the source code license.*
+Personal information, branding assets, photographs, project content, and portfolio-specific materials may remain the intellectual property of their respective owner and should not automatically be considered covered by the source code license.
 
-⸻
+---
 
-## Contact
+# Contact
 
 **Erolla Rishvin Reddy**
 
@@ -931,15 +1236,17 @@ B.Tech Computer Science and Engineering
 Blockchain • Internet of Things • Cybersecurity
 
 ### Professional Profiles
-* **Portfolio:** [rishvinreddy.vercel.app](https://rishvinreddy.vercel.app/)
-* **GitHub:** [github.com/RishvinReddy](https://github.com/RishvinReddy)
-* **LinkedIn:** [linkedin.com/in/rishvinreddy](https://www.linkedin.com/in/rishvinreddy)
 
-⸻
+- Portfolio: Add production portfolio URL
+- GitHub: Add GitHub profile URL
+- LinkedIn: Add LinkedIn profile URL
+
+---
 
 <p align="center">
   <strong>Designed and engineered by Rishvin Reddy.</strong>
 </p>
+
 <p align="center">
   Cybersecurity • IoT • Blockchain • Full-Stack Development
 </p>
