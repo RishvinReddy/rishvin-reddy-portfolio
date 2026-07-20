@@ -138,12 +138,10 @@ and
 
 The latest production version of the portfolio is available through the project's configured deployment environment.
 
-> Add the final production portfolio URL here after deployment.
-
-Example:
+> Production portfolio URL:
 
 ```text
-https://your-domain.com
+https://rishvinreddy.vercel.app/
 ```
 
 Alternative deployment environments may include:
@@ -429,8 +427,12 @@ This approach allows portfolio content to be updated without modifying the core 
 
 ```text
 rishvin-reddy-portfolio/
-│
-
+├── src/                # Next.js source code (app, components, lib)
+├── public/             # Static assets (images, icons)
+├── docs/               # Technical documentation
+├── .github/            # GitHub actions and workflows
+├── package.json        # Project dependencies and scripts
+└── README.md           # Project overview (this file)
 ```
 
 ---
@@ -678,7 +680,7 @@ Optional development tools include:
 ## Clone Repository
 
 ```bash
-git clone <repository-url>
+https://github.com/RishvinReddy/rishvin-reddy-portfolio.git
 ```
 
 Navigate to the project:
@@ -1237,9 +1239,9 @@ Blockchain • Internet of Things • Cybersecurity
 
 ### Professional Profiles
 
-- Portfolio: Add production portfolio URL
-- GitHub: Add GitHub profile URL
-- LinkedIn: Add LinkedIn profile URL
+- Portfolio: [https://rishvinreddy.vercel.app](https://rishvinreddy.vercel.app)
+- GitHub: [https://github.com/RishvinReddy/rishvin-reddy-portfolio.git](https://github.com/RishvinReddy/rishvin-reddy-portfolio.git)
+- LinkedIn: [https://linkedin.com/in/rishvinreddy](https://linkedin.com/in/rishvinreddy)
 
 ---
 
