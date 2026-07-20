@@ -39,7 +39,7 @@ sequenceDiagram
     participant Vercel
     participant NextJS
     
-    User->>Browser: Request rishvin-reddy-portfolio.vercel.app
+    User->>Browser: Request rishvinreddy.vercel.app
     Browser->>Vercel: HTTP GET Request
     Vercel->>NextJS: Route Request
     NextJS->>NextJS: Generate/Serve HTML

@@ -133,7 +133,7 @@ and
 The latest production version of the portfolio is available through the project’s configured deployment environment.
 
 **Production Portfolio URL:**  
-https://rishvin-reddy-portfolio.vercel.app/
+https://rishvinreddy.vercel.app/
 
 Primary deployment environment:  
 **Vercel**
@@ -660,7 +660,7 @@ flowchart LR
     CI --> BUILD[Next.js Build & Validate]
     BUILD --> DEPLOY[Edge Deployment]
     DEPLOY --> HOST[Vercel Static Hosting]
-    HOST --> DOMAIN[rishvin-reddy-portfolio.vercel.app]
+    HOST --> DOMAIN[rishvinreddy.vercel.app]
     DOMAIN --> USER[Portfolio Visitor]
 ```
 
@@ -815,7 +815,7 @@ flowchart TB
         GITHUB[GitHub]
         CICD[Vercel CI/CD]
         HOSTING[Vercel Edge Network]
-        DOMAIN[rishvin-reddy-portfolio.vercel.app]
+        DOMAIN[rishvinreddy.vercel.app]
     end
     
     USER --> HTML
@@ -931,7 +931,7 @@ B.Tech Computer Science and Engineering
 Blockchain • Internet of Things • Cybersecurity
 
 ### Professional Profiles
-* **Portfolio:** [rishvin-reddy-portfolio.vercel.app](https://rishvin-reddy-portfolio.vercel.app/)
+* **Portfolio:** [rishvinreddy.vercel.app](https://rishvinreddy.vercel.app/)
 * **GitHub:** [github.com/RishvinReddy](https://github.com/RishvinReddy)
 * **LinkedIn:** [linkedin.com/in/rishvinreddy](https://www.linkedin.com/in/rishvinreddy)
 

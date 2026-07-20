@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rishvin-reddy-portfolio.vercel.app';
+  const baseUrl = 'https://rishvinreddy.vercel.app';
   const lastModified = new Date();
 
   // All the primary routes in the application
