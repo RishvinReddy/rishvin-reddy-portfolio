@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Project } from '../data/portfolio';
 
 const USERNAME = 'RishvinReddy';
@@ -25,7 +26,7 @@ const LANG_SUMMARIES: Record<string, string> = {
   "Shell": "Automation shell script or DevOps utility.",
 };
 
-export async function getRawGithubRepos(): Promise<Record<string, unknown>[]> {
+export async function getRawGithubRepos(): Promise<any[]> {
   try {
     const res = await fetch(
       `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated&type=owner`,
