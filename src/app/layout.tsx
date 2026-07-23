@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Rishvin Reddy | Software Engineering, Cybersecurity, IoT & Blockchain",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
