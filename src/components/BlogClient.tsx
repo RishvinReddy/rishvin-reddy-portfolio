@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ArrowRight, BookOpen, Clock, User, ChevronLeft, ChevronRight, MessageSquare } from "lucide-react";
+import { Search, ArrowRight, BookOpen, Clock, ChevronLeft, ChevronRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import blogData from "../../public/data/blog.json";
 
@@ -202,7 +202,7 @@ export default function BlogClient() {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Have a topic idea or project?</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mb-8 leading-relaxed">
-            If you'd like a walkthrough, a case study or collaboration on a specific topic — let's talk. I'm available for guest posts, open-source work, and technical consulting.
+            If you&apos;d like a walkthrough, a case study or collaboration on a specific topic — let&apos;s talk. I&apos;m available for guest posts, open-source work, and technical consulting.
           </p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold shadow-lg shadow-blue-500/30 hover:scale-105 transition-all duration-300">
             Get in touch

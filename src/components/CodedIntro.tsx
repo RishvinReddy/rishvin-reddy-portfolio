@@ -32,7 +32,6 @@ export function CodedIntro() {
     setIsClient(true);
     const hasPlayed = sessionStorage.getItem("introPlayed");
     if (hasPlayed) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShowIntro(false);
     } else {
       // Lock scroll while intro is playing

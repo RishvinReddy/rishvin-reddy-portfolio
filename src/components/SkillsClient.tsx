@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Code2, Cpu, Shield, Database, Layout, Box, Globe, ShieldCheck, Download } from "lucide-react";
+import { ExternalLink, Code2, Cpu, Shield, Database, Layout, Box, ShieldCheck, Download } from "lucide-react";
 import certificationsData from "../../public/data/certifications.json";
 import skillsData from "../../public/data/skills.json";
 
