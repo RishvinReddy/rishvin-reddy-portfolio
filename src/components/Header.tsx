@@ -195,7 +195,7 @@ export function Header() {
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </Link>
             <a className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group flex items-center gap-1.5"
-              href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer">
+              href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer">
               <span className="relative z-10 font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent group-hover:from-primary group-hover:to-rose-500 transition-all duration-300">Rishvin Labs</span>
               <svg className="w-3 h-3 text-white group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
               <span
@@ -417,7 +417,7 @@ export function Header() {
           </span>
           Services
         </Link>
-        <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer"
+        <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer"
           className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group">
           <span
             className="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center text-white group-hover:bg-primary group-hover:shadow-lg transition-all">

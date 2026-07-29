@@ -99,7 +99,7 @@ export default async function Home() {
                   </a>
 
                   {/* Founder Badge */}
-                  <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" className="group flex items-center gap-4 w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-2xl">
+                  <a href="https://rishvin-labs.vercel.app" target="_blank" className="group flex items-center gap-4 w-full sm:w-auto px-5 py-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-2xl">
                     <div className="flex items-center justify-center w-10 h-10 rounded-full bg-red-50 text-red-500 text-lg">
                       🚀
                     </div>
@@ -155,7 +155,7 @@ export default async function Home() {
                   <a href="/ide" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
                     ProjectsIDE
                   </a>
-                  <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors group">
+                  <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors group">
                     Rishvin Labs
                     <svg className="w-4 h-4 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -365,7 +365,7 @@ export default async function Home() {
                       { phase: "Phase 01 — Hardware", color: "indigo", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">My journey started with <span className="text-slate-900 font-bold">hardware mechanics</span> — understanding the pulse of machines, programming microcontrollers and building IoT connectivity devices from scratch.</p> },
                       { phase: "Phase 02 — Software Logic", color: "violet", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">It evolved into <span className="text-slate-900 font-bold">full-stack engineering</span> — React, Node, Python, REST APIs — building smart interfaces that communicate with the physical world.</p> },
                       { phase: "Phase 03 — Security Layer", color: "teal", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Today I secure that bridge. Integrating <strong className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">IoT sensors</strong> with <strong className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent font-black">Blockchain ledgers</strong> to create systems that are verifiable, impenetrable, and production-grade.</p> },
-                      { phase: "Phase 04 — Founder", color: "rose", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Now building <strong className="bg-gradient-to-r from-rose-500 to-primary bg-clip-text text-transparent font-black"><a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" className="hover:underline">Rishvin Labs</a></strong>. Delivering digital solutions, full-stack web development, cybersecurity-focused systems, IoT automation, and product engineering.</p> },
+                      { phase: "Phase 04 — Founder", color: "rose", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Now building <strong className="bg-gradient-to-r from-rose-500 to-primary bg-clip-text text-transparent font-black"><a href="https://rishvin-labs.vercel.app" target="_blank" className="hover:underline">Rishvin Labs</a></strong>. Delivering digital solutions, full-stack web development, cybersecurity-focused systems, IoT automation, and product engineering.</p> },
                     ] as const).map((item, i, arr) => {
                       const dotColor: Record<string, string> = { indigo: "bg-indigo-500", violet: "bg-violet-500", teal: "bg-teal-500", rose: "bg-rose-500" };
                       const labelColor: Record<string, string> = { indigo: "text-indigo-500", violet: "text-violet-500", teal: "text-teal-500", rose: "text-rose-500" };
@@ -894,11 +894,11 @@ export default async function Home() {
               Building modern software systems, websites, automation tools, cybersecurity solutions, IoT systems, and digital products.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href="https://rishvinreddy.github.io/rishvin-labs/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-rose-500 text-white font-bold shadow-[0_0_20px_rgba(242,13,70,0.4)] hover:shadow-[0_0_30px_rgba(242,13,70,0.6)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group">
+              <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-rose-500 text-white font-bold shadow-[0_0_20px_rgba(242,13,70,0.4)] hover:shadow-[0_0_30px_rgba(242,13,70,0.6)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group">
                 Visit Rishvin Labs
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
-              <a href="https://rishvinreddy.github.io/rishvin-labs/#services" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-white/10 text-white font-bold border border-white/10 hover:bg-white/20 hover:scale-105 transition-all duration-300 backdrop-blur-md">
+              <a href="https://rishvin-labs.vercel.app#services" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-white/10 text-white font-bold border border-white/10 hover:bg-white/20 hover:scale-105 transition-all duration-300 backdrop-blur-md">
                 View Services
               </a>
             </div>
@@ -923,7 +923,7 @@ export default async function Home() {
 
           {/*  Bottom CTA row  */}
           <div className="mt-12 text-center">
-            <a href="https://rishvinreddy.github.io/rishvin-labs/#projects" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white group transition-colors">
+            <a href="https://rishvin-labs.vercel.app#projects" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white group transition-colors">
               Explore All Technical Services
               <svg className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </a>

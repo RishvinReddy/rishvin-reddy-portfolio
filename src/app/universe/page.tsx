@@ -1,6 +1,20 @@
+'use client';
 import Link from "next/link";
+import { useEffect } from "react";
 
 export default function UniversePage() {
+  useEffect(() => {
+    const loader = document.getElementById("pageLoader");
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 500);
+      }, 800);
+    }
+  }, []);
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
@@ -25,6 +39,50 @@ export default function UniversePage() {
         body { font-family: "Times New Roman", serif !important; }
         h1, h2, h3 { font-family: Georgia, serif !important; }
         .code, .tech-stack { font-family: "Courier New", monospace !important; }
+
+        .glass-panel {
+          background-color: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(40px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 0 24px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.06);
+        }
+        .hud-border {
+          position: relative;
+        }
+        .hud-border::before, .hud-border::after {
+          content: '';
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          border: 2px solid #ff2a5f;
+          transition: all 0.3s ease;
+        }
+        .hud-border::before { top: 0; left: 0; border-right: none; border-bottom: none; }
+        .hud-border::after { bottom: 0; right: 0; border-left: none; border-top: none; }
+        .hud-border:hover::before, .hud-border:hover::after { width: 30px; height: 30px; }
+        .text-glow {
+          text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+        }
+        .scanline {
+          background: linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.02) 51%);
+          background-size: 100% 4px;
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 20;
+        }
+        .sys-log-container {
+          mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+          -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+        .sys-log-entry {
+          animation: slideInLeft 0.3s ease-out forwards;
+        }
+        @keyframes slideInLeft {
+          from { opacity: 0; transform: translateX(-10px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+    
       ` }} />
       <div className="bg-[#05080f] text-[#e2e8f0] h-screen w-screen overflow-hidden m-0">
         
