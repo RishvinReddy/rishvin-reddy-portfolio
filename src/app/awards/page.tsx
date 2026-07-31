@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Software Engineer awards", "Cybersecurity awards", "IoT awards", "Blockchain awards",
     "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
   ],
-  authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.github.io" }],
+  authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
   publisher: "Rishvin Labs",
   formatDetection: {
@@ -22,26 +22,26 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://rishvinreddy.github.io/awards",
+    canonical: "https://rishvinreddy.vercel.app/awards",
     languages: {
-      "en-US": "https://rishvinreddy.github.io/awards",
-      "en-IN": "https://rishvinreddy.github.io/awards",
+      "en-US": "https://rishvinreddy.vercel.app/awards",
+      "en-IN": "https://rishvinreddy.vercel.app/awards",
     },
   },
   openGraph: {
     title: "Awards | Rishvin Labs",
     description: "Awards, hackathon wins, and recognitions earned by Rishvin Reddy in software engineering and technology.",
-    url: "https://rishvinreddy.github.io/awards",
+    url: "https://rishvinreddy.vercel.app/awards",
     siteName: "Rishvin Reddy Engineering Portfolio",
     images: [
       {
-        url: "https://rishvinreddy.github.io/icon.png",
+        url: "https://rishvinreddy.vercel.app/icon.png",
         width: 1200,
         height: 630,
         alt: "Awards | Rishvin Labs - Rishvin Reddy",
       },
       {
-        url: "https://rishvinreddy.github.io/icon.png",
+        url: "https://rishvinreddy.vercel.app/icon.png",
         width: 800,
         height: 600,
         alt: "Awards | Rishvin Labs Alternate - Rishvin Reddy",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     siteId: "1467726470533754880",
     creator: "@RishvinReddy",
     creatorId: "1467726470533754880",
-    images: ["https://rishvinreddy.github.io/icon.png"],
+    images: ["https://rishvinreddy.vercel.app/icon.png"],
   },
   robots: {
     index: true,
@@ -85,9 +85,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   category: "technology",
-  archives: ["https://rishvinreddy.github.io/archives"],
-  assets: ["https://rishvinreddy.github.io/assets"],
-  bookmarks: ["https://rishvinreddy.github.io/bookmarks"],
+  archives: ["https://rishvinreddy.vercel.app/archives"],
+  assets: ["https://rishvinreddy.vercel.app/assets"],
+  bookmarks: ["https://rishvinreddy.vercel.app/bookmarks"],
 };
 
 export const viewport: Viewport = {
@@ -113,10 +113,10 @@ export default function Awards() {
           "@graph": [
             {
               "@type": "Person",
-              "@id": "https://rishvinreddy.github.io/#person",
+              "@id": "https://rishvinreddy.vercel.app/#person",
               "name": "Erolla Rishvin Reddy",
-              "url": "https://rishvinreddy.github.io/",
-              "image": "https://rishvinreddy.github.io/icon.png",
+              "url": "https://rishvinreddy.vercel.app/",
+              "image": "https://rishvinreddy.vercel.app/icon.png",
               "sameAs": [
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
@@ -133,25 +133,25 @@ export default function Awards() {
             },
             {
               "@type": "WebSite",
-              "@id": "https://rishvinreddy.github.io/#website",
-              "url": "https://rishvinreddy.github.io/",
+              "@id": "https://rishvinreddy.vercel.app/#website",
+              "url": "https://rishvinreddy.vercel.app/",
               "name": "Rishvin Reddy Portfolio",
               "description": "Software Engineering, Cybersecurity, IoT & Blockchain Portfolio",
               "publisher": {
-                "@id": "https://rishvinreddy.github.io/#person"
+                "@id": "https://rishvinreddy.vercel.app/#person"
               },
               "inLanguage": "en-US"
             },
             {
               "@type": "WebPage",
-              "@id": "https://rishvinreddy.github.io/awards/#webpage",
-              "url": "https://rishvinreddy.github.io/awards",
+              "@id": "https://rishvinreddy.vercel.app/awards/#webpage",
+              "url": "https://rishvinreddy.vercel.app/awards",
               "name": "Awards | Rishvin Labs",
               "isPartOf": {
-                "@id": "https://rishvinreddy.github.io/#website"
+                "@id": "https://rishvinreddy.vercel.app/#website"
               },
               "about": {
-                "@id": "https://rishvinreddy.github.io/#person"
+                "@id": "https://rishvinreddy.vercel.app/#person"
               }
             }
           ]

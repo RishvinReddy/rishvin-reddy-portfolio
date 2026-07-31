@@ -33,6 +33,22 @@ export default async function Home() {
   return (
     <>
       <CodedIntro />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Rishvin Reddy Portfolio",
+            "url": "https://rishvinreddy.vercel.app/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://rishvinreddy.vercel.app/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
       <ProfileModalController />
       {/*  ── Header v2 Scripts ──  */}
 

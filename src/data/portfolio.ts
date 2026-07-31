@@ -49,6 +49,7 @@ export interface Project {
   repoName?: string;
   ownerAvatar?: string;
   contributors?: number;
+  slug?: string;
 }
 
 // ----------------------------------------------------------------------

@@ -187,8 +187,7 @@ export default function KnowledgeGraph({ repos }: { repos: any[] }) {
         dragView: true,
         tooltipDelay: 50,
         hideEdgesOnDrag: true
-      },
-      background: { color: 'transparent' }
+      }
     };
 
     const network = new Network(containerRef.current, graphData, graphOptions);

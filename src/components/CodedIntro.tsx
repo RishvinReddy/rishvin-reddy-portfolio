@@ -45,8 +45,8 @@ export function CodedIntro() {
 
     if (currentIndex < greetings.length) {
       const isLast = currentIndex === greetings.length - 1;
-      const duration = isLast ? 800 : 250; 
-      
+      const duration = isLast ? 800 : 250;
+
       const timer = setTimeout(() => {
         if (!isLast) {
           setCurrentIndex(prev => prev + 1);
@@ -54,7 +54,7 @@ export function CodedIntro() {
           finishIntro();
         }
       }, duration);
-      
+
       return () => clearTimeout(timer);
     }
   }, [currentIndex, showIntro, isClient, finishIntro]);
@@ -70,10 +70,10 @@ export function CodedIntro() {
         <motion.div
           key="intro-container"
           initial={{ opacity: 1 }}
-          exit={{ 
+          exit={{
             opacity: 0,
             y: "-100%",
-            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } 
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
           }}
           className="fixed inset-0 z-[99999] bg-[#0f172a] flex items-center justify-center overflow-hidden"
         >

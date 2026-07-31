@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/'],
     },
-    sitemap: 'https://rishvinreddy.github.io/sitemap.xml',
+    sitemap: 'https://rishvinreddy.vercel.app/sitemap.xml',
   };
 }

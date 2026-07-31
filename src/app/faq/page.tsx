@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Software Engineer faq", "Cybersecurity faq", "IoT faq", "Blockchain faq",
     "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
   ],
-  authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.github.io" }],
+  authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
   publisher: "Rishvin Labs",
   formatDetection: {
@@ -22,26 +22,26 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://rishvinreddy.github.io/faq",
+    canonical: "https://rishvinreddy.vercel.app/faq",
     languages: {
-      "en-US": "https://rishvinreddy.github.io/faq",
-      "en-IN": "https://rishvinreddy.github.io/faq",
+      "en-US": "https://rishvinreddy.vercel.app/faq",
+      "en-IN": "https://rishvinreddy.vercel.app/faq",
     },
   },
   openGraph: {
     title: "FAQ | Rishvin Labs",
     description: "Frequently asked questions about my work, availability, and technical background.",
-    url: "https://rishvinreddy.github.io/faq",
+    url: "https://rishvinreddy.vercel.app/faq",
     siteName: "Rishvin Reddy Engineering Portfolio",
     images: [
       {
-        url: "https://rishvinreddy.github.io/icon.png",
+        url: "https://rishvinreddy.vercel.app/icon.png",
         width: 1200,
         height: 630,
         alt: "FAQ | Rishvin Labs - Rishvin Reddy",
       },
       {
-        url: "https://rishvinreddy.github.io/icon.png",
+        url: "https://rishvinreddy.vercel.app/icon.png",
         width: 800,
         height: 600,
         alt: "FAQ | Rishvin Labs Alternate - Rishvin Reddy",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     siteId: "1467726470533754880",
     creator: "@RishvinReddy",
     creatorId: "1467726470533754880",
-    images: ["https://rishvinreddy.github.io/icon.png"],
+    images: ["https://rishvinreddy.vercel.app/icon.png"],
   },
   robots: {
     index: true,
@@ -85,9 +85,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   category: "technology",
-  archives: ["https://rishvinreddy.github.io/archives"],
-  assets: ["https://rishvinreddy.github.io/assets"],
-  bookmarks: ["https://rishvinreddy.github.io/bookmarks"],
+  archives: ["https://rishvinreddy.vercel.app/archives"],
+  assets: ["https://rishvinreddy.vercel.app/assets"],
+  bookmarks: ["https://rishvinreddy.vercel.app/bookmarks"],
 };
 
 export const viewport: Viewport = {
@@ -113,10 +113,10 @@ export default function Faq() {
           "@graph": [
             {
               "@type": "Person",
-              "@id": "https://rishvinreddy.github.io/#person",
+              "@id": "https://rishvinreddy.vercel.app/#person",
               "name": "Erolla Rishvin Reddy",
-              "url": "https://rishvinreddy.github.io/",
-              "image": "https://rishvinreddy.github.io/icon.png",
+              "url": "https://rishvinreddy.vercel.app/",
+              "image": "https://rishvinreddy.vercel.app/icon.png",
               "sameAs": [
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
@@ -133,25 +133,25 @@ export default function Faq() {
             },
             {
               "@type": "WebSite",
-              "@id": "https://rishvinreddy.github.io/#website",
-              "url": "https://rishvinreddy.github.io/",
+              "@id": "https://rishvinreddy.vercel.app/#website",
+              "url": "https://rishvinreddy.vercel.app/",
               "name": "Rishvin Reddy Portfolio",
               "description": "Software Engineering, Cybersecurity, IoT & Blockchain Portfolio",
               "publisher": {
-                "@id": "https://rishvinreddy.github.io/#person"
+                "@id": "https://rishvinreddy.vercel.app/#person"
               },
               "inLanguage": "en-US"
             },
             {
               "@type": "WebPage",
-              "@id": "https://rishvinreddy.github.io/faq/#webpage",
-              "url": "https://rishvinreddy.github.io/faq",
+              "@id": "https://rishvinreddy.vercel.app/faq/#webpage",
+              "url": "https://rishvinreddy.vercel.app/faq",
               "name": "Faq | Rishvin Labs",
               "isPartOf": {
-                "@id": "https://rishvinreddy.github.io/#website"
+                "@id": "https://rishvinreddy.vercel.app/#website"
               },
               "about": {
-                "@id": "https://rishvinreddy.github.io/#person"
+                "@id": "https://rishvinreddy.vercel.app/#person"
               }
             }
           ]

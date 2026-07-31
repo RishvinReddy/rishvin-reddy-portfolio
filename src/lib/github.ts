@@ -87,8 +87,21 @@ export async function getGithubProjects(): Promise<Project[]> {
         };
       });
 
+    // Merge static slugs into the dynamically fetched projects
+    const { projects: staticProjects } = await import('../data/projects');
+    const projectsWithSlugs = projects.map(p => {
+      const match = staticProjects.find(sp => 
+        sp.github.toLowerCase() === p.repoName?.toLowerCase() ||
+        sp.title.toLowerCase() === p.title.toLowerCase()
+      );
+      if (match) {
+        return { ...p, slug: match.slug };
+      }
+      return p;
+    });
+
     // The user requested ALL repos to be shown in the featured projects sections
-    return projects;
+    return projectsWithSlugs;
   } catch (error) {
     console.error("Failed to fetch GitHub projects:", error);
     return [];

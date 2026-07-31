@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Software Engineer resume", "Cybersecurity resume", "IoT resume", "Blockchain resume",
     "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
   ],
-  authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.github.io" }],
+  authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
   publisher: "Rishvin Labs",
   formatDetection: {
@@ -22,26 +22,26 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://rishvinreddy.github.io/resume",
+    canonical: "https://rishvinreddy.vercel.app/resume",
     languages: {
-      "en-US": "https://rishvinreddy.github.io/resume",
-      "en-IN": "https://rishvinreddy.github.io/resume",
+      "en-US": "https://rishvinreddy.vercel.app/resume",
+      "en-IN": "https://rishvinreddy.vercel.app/resume",
     },
   },
   openGraph: {
     title: "Resume | Rishvin Labs",
     description: "View Rishvin Reddy's resume, detailing experience in software development, cybersecurity, and educational background at Woxsen University.",
-    url: "https://rishvinreddy.github.io/resume",
+    url: "https://rishvinreddy.vercel.app/resume",
     siteName: "Rishvin Reddy Engineering Portfolio",
     images: [
       {
-        url: "https://rishvinreddy.github.io/icon.png",
+        url: "https://rishvinreddy.vercel.app/icon.png",
         width: 1200,
         height: 630,
         alt: "Resume | Rishvin Labs - Rishvin Reddy",
       },
       {
-        url: "https://rishvinreddy.github.io/icon.png",
+        url: "https://rishvinreddy.vercel.app/icon.png",
         width: 800,
         height: 600,
         alt: "Resume | Rishvin Labs Alternate - Rishvin Reddy",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     siteId: "1467726470533754880",
     creator: "@RishvinReddy",
     creatorId: "1467726470533754880",
-    images: ["https://rishvinreddy.github.io/icon.png"],
+    images: ["https://rishvinreddy.vercel.app/icon.png"],
   },
   robots: {
     index: true,
@@ -85,9 +85,9 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   category: "technology",
-  archives: ["https://rishvinreddy.github.io/archives"],
-  assets: ["https://rishvinreddy.github.io/assets"],
-  bookmarks: ["https://rishvinreddy.github.io/bookmarks"],
+  archives: ["https://rishvinreddy.vercel.app/archives"],
+  assets: ["https://rishvinreddy.vercel.app/assets"],
+  bookmarks: ["https://rishvinreddy.vercel.app/bookmarks"],
 };
 
 export const viewport: Viewport = {
@@ -115,10 +115,10 @@ export default function Resume() {
           "@graph": [
             {
               "@type": "Person",
-              "@id": "https://rishvinreddy.github.io/#person",
+              "@id": "https://rishvinreddy.vercel.app/#person",
               "name": "Erolla Rishvin Reddy",
-              "url": "https://rishvinreddy.github.io/",
-              "image": "https://rishvinreddy.github.io/icon.png",
+              "url": "https://rishvinreddy.vercel.app/",
+              "image": "https://rishvinreddy.vercel.app/icon.png",
               "sameAs": [
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
@@ -135,25 +135,25 @@ export default function Resume() {
             },
             {
               "@type": "WebSite",
-              "@id": "https://rishvinreddy.github.io/#website",
-              "url": "https://rishvinreddy.github.io/",
+              "@id": "https://rishvinreddy.vercel.app/#website",
+              "url": "https://rishvinreddy.vercel.app/",
               "name": "Rishvin Reddy Portfolio",
               "description": "Software Engineering, Cybersecurity, IoT & Blockchain Portfolio",
               "publisher": {
-                "@id": "https://rishvinreddy.github.io/#person"
+                "@id": "https://rishvinreddy.vercel.app/#person"
               },
               "inLanguage": "en-US"
             },
             {
               "@type": "WebPage",
-              "@id": "https://rishvinreddy.github.io/resume/#webpage",
-              "url": "https://rishvinreddy.github.io/resume",
+              "@id": "https://rishvinreddy.vercel.app/resume/#webpage",
+              "url": "https://rishvinreddy.vercel.app/resume",
               "name": "Resume | Rishvin Labs",
               "isPartOf": {
-                "@id": "https://rishvinreddy.github.io/#website"
+                "@id": "https://rishvinreddy.vercel.app/#website"
               },
               "about": {
-                "@id": "https://rishvinreddy.github.io/#person"
+                "@id": "https://rishvinreddy.vercel.app/#person"
               }
             }
           ]

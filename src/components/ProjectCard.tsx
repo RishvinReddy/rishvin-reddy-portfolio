@@ -209,7 +209,10 @@ async function postProcessReadme(
   }
 }
 
+import { useRouter } from "next/navigation";
+
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [readme, setReadme] = useState<string | null>(null);
   const [rawReadme, setRawReadme] = useState<string>("");
@@ -278,15 +281,23 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  const handleCardClick = () => {
+    if (project.slug) {
+      router.push(`/portfolio/${project.slug}`);
+    } else {
+      setOpen(true);
+    }
+  };
+
   return (
     <>
       {/* ─── Card ─── */}
       <div
         className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-        onClick={() => setOpen(true)}
+        onClick={handleCardClick}
         role="button"
         tabIndex={0}
-        onKeyDown={(e) => e.key === "Enter" && setOpen(true)}
+        onKeyDown={(e) => e.key === "Enter" && handleCardClick()}
         aria-label={`Open preview for ${project.title}`}
       >
         {/* Dark GitHub-style header */}
