@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects, getProjectBySlug } from "@/data/projects";
@@ -150,9 +151,9 @@ export default function ProjectPage({ params }: Props) {
       <div className="container mx-auto px-6 lg:px-16 max-w-4xl">
         {/* Breadcrumb Visual */}
         <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8 font-mono">
-          <a href="/" className="hover:text-primary transition-colors">Home</a>
+          <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           <span>/</span>
-          <a href="/portfolio" className="hover:text-primary transition-colors">Portfolio</a>
+          <Link href="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link>
           <span>/</span>
           <span className="text-slate-900 font-bold">{project.title}</span>
         </nav>
