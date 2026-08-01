@@ -10,10 +10,6 @@ const resumes: ResumeOption[] = [
   {
     name: "Software Engineering (Full Stack)",
     url: "/resumes/SoftwareEngineering _ FullStack Resume/Software_Engineering_Full_Stack_Resume.pdf"
-  },
-  {
-    name: "Database Master",
-    url: "/resumes/Master_Resume/DataBase_Master_Resume.pdf"
   }
 ];
 
