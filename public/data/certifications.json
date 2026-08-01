@@ -1,5 +1,41 @@
 [
   {
+    "title": "Website Design and Development Internship - Completion",
+    "issuer": "Internship",
+    "date": "2024",
+    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
+    "description": "Completion certificate for the Website Design and Development Internship.",
+    "tags": [
+      "Internship",
+      "Web Development"
+    ],
+    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Internship.pdf"
+  },
+  {
+    "title": "Website Design and Development Internship - Training",
+    "issuer": "Internship",
+    "date": "2024",
+    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
+    "description": "Training certificate for the Website Design and Development Internship.",
+    "tags": [
+      "Internship",
+      "Web Development"
+    ],
+    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Training.pdf"
+  },
+  {
+    "title": "Website Design and Development Internship - Offer Letter",
+    "issuer": "Internship",
+    "date": "2024",
+    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
+    "description": "Offer letter for the Website Design and Development Internship.",
+    "tags": [
+      "Internship",
+      "Web Development"
+    ],
+    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Offer Letter.pdf"
+  },
+  {
     "title": "Understanding and Optimizing Campus Building Energy Consumption",
     "issuer": "Woxsen University",
     "date": "2025",
