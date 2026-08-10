@@ -3,27 +3,64 @@ import { Project } from '../data/portfolio';
 
 const USERNAME = 'RishvinReddy';
 
-const TAG_RULES = [
-  { tag: "IoT", words: ["iot", "arduino", "esp32", "esp8266", "sensor", "embedded", "nodemcu"] },
-  { tag: "AI / ML", words: ["ai", "ml", "machine learning", "deep learning", "tensorflow", "pytorch", "opencv", "neural"] },
-  { tag: "Web3", words: ["blockchain", "solidity", "ethereum", "web3", "nft", "smart contract", "crypto"] },
-  { tag: "Cybersecurity", words: ["security", "cyber", "pentest", "encryption", "ctf", "firewall", "intrusion"] },
-  { tag: "Web", words: ["web", "html", "css", "react", "next", "frontend", "backend", "fullstack", "api"] },
-  { tag: "Python", words: ["python", "django", "flask", "fastapi", "automation", "script"] },
-  { tag: "Systems", words: ["c++", "cpp", "os", "kernel", "memory", "process", "scheduling", "operating system"] },
-  { tag: "Data", words: ["data", "sql", "database", "analytics", "visualization", "pandas", "numpy"] },
-];
+// Instead of Partial<Project>, we can just use a type that matches what we want to override
+interface ProjectOverride {
+  theme?: "violet" | "blue" | "emerald" | "teal";
+  categoryLabel?: string;
+  bgIcon?: string;
+  manualTags?: string[];
+  customStats?: { label: string; value: string | number }[];
+}
 
-const LANG_SUMMARIES: Record<string, string> = {
-  "Python": "Python-based automation, data processing, or machine learning system.",
-  "C++": "High-performance systems-level or embedded hardware project.",
-  "JavaScript": "Web application or interactive frontend experience.",
-  "TypeScript": "Type-safe web application or fullstack project.",
-  "HTML": "Web-based interactive UI or static site project.",
-  "Solidity": "Smart contract or decentralized blockchain application.",
-  "C": "Low-level systems or embedded systems project.",
-  "Java": "Object-oriented application or Android-native project.",
-  "Shell": "Automation shell script or DevOps utility.",
+const PROJECT_OVERRIDES: Record<string, ProjectOverride> = {
+  "Prism-Transfer": {
+    theme: "blue",
+    categoryLabel: "FILE TRANSFER",
+    bgIcon: "file-transfer",
+    manualTags: ["P2P", "QR"]
+  },
+  "EcoBin-Smart-Waste-Management-System": {
+    theme: "emerald",
+    categoryLabel: "IoT PROJECT",
+    bgIcon: "recycle",
+    manualTags: ["IoT", "Hardware"],
+    customStats: [
+      { label: "Sensors", value: 4 },
+      { label: "Models", value: 3 },
+      { label: "Routes", value: 2 },
+      { label: "Accuracy", value: "94%" }
+    ]
+  },
+  "TechSphere-2026-WBOS-Presentation": {
+    theme: "emerald",
+    categoryLabel: "PRESENTATION",
+    bgIcon: "presentation",
+    customStats: [
+      { label: "Views", value: 450 },
+      { label: "Likes", value: 32 },
+      { label: "Downloads", value: 12 }
+    ]
+  },
+  "Rishvin-Labs": {
+    theme: "violet",
+    categoryLabel: "TECH STUDIO",
+    bgIcon: "code",
+    customStats: [
+      { label: "Projects", value: 15 },
+      { label: "Clients", value: 4 },
+      { label: "Deploys", value: 120 }
+    ]
+  },
+  "RishvinReddy": {
+    theme: "violet",
+    categoryLabel: "PROFILE / PORTFOLIO",
+    bgIcon: "github"
+  },
+  "rishvin-reddy-portfolio": {
+    theme: "blue",
+    categoryLabel: "PORTFOLIO",
+    bgIcon: "code"
+  }
 };
 
 export async function getRawGithubRepos(): Promise<any[]> {
@@ -53,37 +90,68 @@ export async function getGithubProjects(): Promise<Project[]> {
     const projects: Project[] = repos
       .filter(repo => !repo.fork)
       .map(repo => {
-        const searchText = [
-          repo.name,
-          repo.description || "",
-          repo.language || "",
-          ...(repo.topics || []),
-        ].join(" ").toLowerCase();
+        const overrides = PROJECT_OVERRIDES[repo.name] || {};
 
-        const tags = TAG_RULES
-          .filter(rule => rule.words.some(w => searchText.includes(w)))
-          .map(rule => rule.tag);
+        // Merge tags from GitHub Topics, Primary Language, and Manual Overrides
+        const rawTopics = repo.topics || [];
+        if (repo.language) rawTopics.push(repo.language);
+        if (overrides.manualTags) rawTopics.push(...overrides.manualTags);
+        
+        // Clean up and deduplicate topics
+        const topics = Array.from(new Set(rawTopics.map((t: string) => 
+          // Format basic tags (e.g. "machine-learning" -> "Machine Learning")
+          t.replace(/-/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+        )));
 
+        // Use repo description or fallback
         const description = (repo.description && repo.description.trim())
           ? repo.description
-          : (repo.language ? LANG_SUMMARIES[repo.language] || "Software development project." : "Software development project.");
+          : "No repository description available.";
 
-        // Clean up project name to be display-friendly
         const title = repo.name.replace(/-/g, " ").replace(/_/g, " ");
+
+        // Determine default theme based on basic inference
+        let defaultTheme: "violet" | "blue" | "emerald" | "teal" = "blue";
+        const searchText = (repo.name + " " + description + " " + topics.join(" ")).toLowerCase();
+        if (searchText.includes("iot") || searchText.includes("system") || searchText.includes("ai") || searchText.includes("machine learning")) {
+          defaultTheme = "emerald";
+        } else if (searchText.includes("security") || searchText.includes("cyber") || searchText.includes("blockchain")) {
+          defaultTheme = "violet";
+        }
 
         return {
           title: title.charAt(0).toUpperCase() + title.slice(1),
+          name: repo.name,
+          fullName: repo.full_name || `${USERNAME}/${repo.name}`,
+          owner: repo.owner?.login || USERNAME,
+          ownerAvatar: repo.owner?.avatar_url,
           description,
-          tags: Array.from(new Set(tags)),
+          htmlUrl: repo.html_url,
           repoUrl: repo.html_url,
-          liveUrl: repo.homepage || undefined,
+          
           stars: repo.stargazers_count || 0,
           forks: repo.forks_count || 0,
+          issues: repo.open_issues_count || 0,
+          watchers: repo.watchers_count || 0,
+          
           language: repo.language || undefined,
-          openIssues: repo.open_issues_count || 0,
-          repoName: repo.name || '',
-          ownerAvatar: repo.owner?.avatar_url || `https://github.com/${USERNAME}.png`,
-          contributors: 1,
+          topics,
+          tags: topics,
+          
+          visibility: repo.visibility || (repo.private ? "private" : "public"),
+          defaultBranch: repo.default_branch || "main",
+          createdAt: repo.created_at,
+          updatedAt: repo.updated_at,
+          
+          homepage: repo.homepage || undefined,
+          liveUrl: repo.homepage || undefined,
+          
+          theme: overrides.theme || defaultTheme,
+          categoryLabel: overrides.categoryLabel || "PROJECT",
+          bgIcon: overrides.bgIcon || "code",
+          customStats: overrides.customStats,
+          
+          repoName: repo.name, // alias for older usage
         };
       });
 
@@ -91,7 +159,7 @@ export async function getGithubProjects(): Promise<Project[]> {
     const { projects: staticProjects } = await import('../data/projects');
     const projectsWithSlugs = projects.map(p => {
       const match = staticProjects.find(sp => 
-        sp.github.toLowerCase() === p.repoName?.toLowerCase() ||
+        sp.github.toLowerCase() === p.name.toLowerCase() ||
         sp.title.toLowerCase() === p.title.toLowerCase()
       );
       if (match) {
@@ -100,7 +168,6 @@ export async function getGithubProjects(): Promise<Project[]> {
       return p;
     });
 
-    // The user requested ALL repos to be shown in the featured projects sections
     return projectsWithSlugs;
   } catch (error) {
     console.error("Failed to fetch GitHub projects:", error);

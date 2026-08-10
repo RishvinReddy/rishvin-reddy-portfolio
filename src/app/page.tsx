@@ -1,5 +1,6 @@
 import KnowledgeGraph from "@/components/KnowledgeGraph";
 import HomeProjectGallery from "@/components/HomeProjectGallery";
+import ExperienceSection from "@/components/ExperienceSection";
 import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
 import { TECH_STACK, SERVICES, FEATURED_PROJECTS } from '../data/portfolio';
 import React from 'react';
@@ -329,7 +330,7 @@ export default async function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-14">
             {([
               { icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10", num: "15", sup: "+", label: "Projects Built", color: "indigo" },
-              { icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z", num: "3", sup: "+", label: "Years Engineering", color: "violet" },
+              { icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z", num: "3", sup: "+", label: "Core Domains", color: "violet" },
               { icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", num: "1", sup: "×", label: "Govt. Patent", color: "amber" },
               { icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4", num: "8", sup: "+", label: "Technologies", color: "teal" },
               { icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z", num: "5", sup: "+", label: "Certifications", color: "rose" },
@@ -950,6 +951,9 @@ export default async function Home() {
       {/*  ─ Section Divider ─  */}
       <div className="section-divider" aria-hidden="true"><span className="divider-gem"></span></div>
 
+      {/*  Experience Section  */}
+      <ExperienceSection />
+
 
 
       {/*  Featured Projects (Premium UI Upgrade)  */}
@@ -967,38 +971,6 @@ export default async function Home() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-          {/*  Section Header  */}
-          <div className="mx-auto max-w-3xl flex flex-col items-center text-center mb-16 scroll-reveal">
-            {/*  Badge  */}
-            <div className="mb-6 flex items-center justify-center gap-3 w-full">
-              <div className="flex-1 h-px bg-gradient-to-l from-slate-300/60 to-transparent max-w-[120px]"></div>
-              <span
-                className="inline-flex items-center gap-2 px-4 py-2 text-[11px] font-black uppercase tracking-widest text-slate-700 bg-slate-100 border border-slate-200/70 rounded-full shadow-2xl">
-                <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-pulse"></span>
-                Selected Works
-              </span>
-              <div className="flex-1 h-px bg-gradient-to-r from-slate-300/60 to-transparent max-w-[120px]"></div>
-            </div>
-            {/*  Headline  */}
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-6 font-display leading-[1.05]">
-              Featured<br className="sm:hidden" />
-              <span className="relative inline-block mt-2 sm:mt-0">
-                <span className="text-transparent bg-clip-text"
-                  style={{ backgroundImage: "linear-gradient(120deg, #334155 0%, #0f172a 100%)" }}>
-                  Projects
-                </span>
-                {/*  Underline accent  */}
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full opacity-30"
-                  style={{ background: "linear-gradient(90deg, #64748b, #334155)" }}></span>
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
-              A selection of engineering challenges solved with
-              <strong className="text-teal-600 font-black">IoT</strong>,
-              <strong className="text-indigo-600 font-black">Blockchain</strong>, and
-              <strong className="text-slate-800 font-black">Secure Systems</strong>.
-            </p>
-          </div>
 
           <div className="delay-1 scroll-reveal w-full">
             <HomeProjectGallery initialProjects={displayProjects} />

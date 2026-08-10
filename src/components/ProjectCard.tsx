@@ -211,7 +211,7 @@ async function postProcessReadme(
 
 import { useRouter } from "next/navigation";
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, index }: ProjectCardProps & { index?: number }) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [readme, setReadme] = useState<string | null>(null);
@@ -289,113 +289,177 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     }
   };
 
+  const getThemePillClasses = (themeStr?: string) => {
+    switch (themeStr) {
+      case 'emerald': return 'bg-emerald-50 text-emerald-700 border-emerald-200/60 shadow-[0_2px_10px_-3px_rgba(16,185,129,0.2)]';
+      case 'violet': return 'bg-violet-50 text-violet-700 border-violet-200/60 shadow-[0_2px_10px_-3px_rgba(139,92,246,0.2)]';
+      case 'blue': return 'bg-blue-50 text-blue-700 border-blue-200/60 shadow-[0_2px_10px_-3px_rgba(59,130,246,0.2)]';
+      case 'teal': return 'bg-teal-50 text-teal-700 border-teal-200/60 shadow-[0_2px_10px_-3px_rgba(20,184,166,0.2)]';
+      case 'rose': return 'bg-rose-50 text-rose-700 border-rose-200/60 shadow-[0_2px_10px_-3px_rgba(244,63,94,0.2)]';
+      case 'amber': return 'bg-amber-50 text-amber-700 border-amber-200/60 shadow-[0_2px_10px_-3px_rgba(245,158,11,0.2)]';
+      default: return 'bg-indigo-50 text-indigo-700 border-indigo-200/60 shadow-[0_2px_10px_-3px_rgba(99,102,241,0.2)]';
+    }
+  };
+
+  const themeClasses = getThemePillClasses(project.theme);
+
   return (
     <>
       {/* ─── Card ─── */}
       <div
-        className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+        className="group flex flex-col w-full bg-gradient-to-br from-white to-slate-50/80 rounded-3xl overflow-hidden border border-slate-200/60 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-slate-300/60 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer relative"
         onClick={handleCardClick}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => e.key === "Enter" && handleCardClick()}
         aria-label={`Open preview for ${project.title}`}
       >
-        {/* Dark GitHub-style header */}
-        <div className="bg-[#0d1117] px-5 py-4 flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-slate-400 text-xs font-mono mb-0.5">RishvinReddy/</p>
-            <p className="text-white font-bold text-lg leading-tight truncate font-mono">
-              {project.repoName || project.title}
-            </p>
+        <div className="flex-1 flex flex-col p-6 sm:p-7 relative z-10">
+          
+          {/* Top Row: Category Label & Bookmark */}
+          <div className="flex items-start justify-between gap-4 mb-5">
+            <span className="text-[10px] font-black tracking-widest text-slate-500 uppercase">
+              {project.categoryLabel || "PROJECT"}
+            </span>
+            <button 
+              className="w-8 h-8 -mt-2 -mr-2 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors text-slate-400 hover:text-slate-600" 
+              onClick={(e) => { e.stopPropagation(); /* bookmark logic */ }}
+              title="Bookmark"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+            </button>
           </div>
-          <img
-            src={project.ownerAvatar || "https://github.com/RishvinReddy.png"}
-            alt="Rishvin Reddy"
-            className="w-10 h-10 rounded-full border-2 border-slate-700 flex-shrink-0 mt-0.5"
-          />
-        </div>
 
-        {/* Description */}
-        <div className="px-5 py-4 flex-1 flex flex-col">
-          <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
+          {/* Identity: Title & Full Name */}
+          <div className="mb-4">
+            <h3 className="text-xl font-bold text-slate-900 leading-tight font-display mb-1.5 line-clamp-1">
+              {project.title}
+            </h3>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono font-medium text-slate-500 truncate">
+                {project.fullName || `RishvinReddy / ${project.name}`}
+              </span>
+              <span className="shrink-0 flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-white text-slate-600 border border-slate-200 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span>
+                Public
+              </span>
+            </div>
+          </div>
+
+          {/* Description */}
+          <p className="text-slate-600 text-[13px] leading-relaxed line-clamp-3 mb-6 min-h-[3.75rem]">
             {project.description}
           </p>
 
-          {/* Stats Row */}
-          <div className="flex items-center gap-4 text-xs text-slate-500 mb-4">
-            <span className="flex items-center gap-1.5" title="Contributors">
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              {project.contributors ?? 1}
-            </span>
-            <span className="flex items-center gap-1.5" title="Open Issues">
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9" strokeWidth="2" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4M12 16h.01" />
-              </svg>
-              {project.openIssues ?? 0}
-            </span>
-            <span className="flex items-center gap-1.5" title="Stars">
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-              {project.stars ?? 0}
-            </span>
-            <span className="flex items-center gap-1.5" title="Forks">
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-              </svg>
-              {project.forks ?? 0}
-            </span>
-          </div>
+          <div className="h-px w-full bg-slate-100 mb-5"></div>
 
-          {/* Tags + Language */}
-          <div className="flex items-center justify-between gap-2">
-            <div className="flex flex-wrap gap-1.5">
-              {project.tags.slice(0, 2).map((tag, i) => (
-                <span key={i} className="px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-wider">
+          {/* Technologies */}
+          <div className="mb-6">
+            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Technologies</h4>
+            <div className="flex flex-wrap gap-2">
+              {project.topics.slice(0, 5).map((tag, i) => (
+                <span key={i} className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wide border ${themeClasses}`}>
                   {tag}
                 </span>
               ))}
+              {project.topics.length > 5 && (
+                <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide bg-white text-slate-400 border border-slate-200 shadow-sm">
+                  +{project.topics.length - 5}
+                </span>
+              )}
             </div>
-            {project.language && (
-              <span className="flex items-center gap-1 text-[10px] font-bold text-slate-500 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-full shrink-0">
-                <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: langColor }}></span>
-                {project.language}
-              </span>
-            )}
           </div>
-        </div>
 
-        {/* Footer */}
-        <div className="px-5 py-3 border-t border-slate-100 bg-slate-50 flex items-center justify-between gap-2">
-          <span className="text-[11px] text-slate-400 font-mono truncate max-w-[120px]">
-            {project.repoName || project.title}
-          </span>
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="h-px w-full bg-slate-100 mb-5"></div>
+
+          {/* Repository Stats Grid */}
+          <div className="mb-6">
+            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Repository</h4>
+            <div className="grid grid-cols-4 gap-2">
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5 text-slate-700 mb-1">
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                  <span className="text-xs font-black">{project.stars}</span>
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 uppercase">Stars</span>
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5 text-slate-700 mb-1">
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+                  <span className="text-xs font-black">{project.forks}</span>
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 uppercase">Forks</span>
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5 text-slate-700 mb-1">
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" strokeWidth="2" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4M12 16h.01" /></svg>
+                  <span className="text-xs font-black">{project.issues}</span>
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 uppercase">Issues</span>
+              </div>
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1.5 text-slate-700 mb-1 truncate pr-1">
+                  {project.language ? (
+                    <>
+                      <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: langColor }}></span>
+                      <span className="text-xs font-black truncate">{project.language}</span>
+                    </>
+                  ) : (
+                    <span className="text-xs font-black text-slate-400">-</span>
+                  )}
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 uppercase">Language</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-grow"></div>
+
+          {/* Last Updated */}
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+            <span className="text-[10px] font-bold text-slate-400 tracking-wide uppercase">
+              Updated {new Date(project.updatedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+            </span>
+          </div>
+
+          {/* Action Footer */}
+          <div className="flex items-center gap-2">
+            {project.htmlUrl && (
+              <a
+                href={project.htmlUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-50 text-slate-700 border border-slate-200 text-xs font-bold rounded-lg hover:bg-slate-100 hover:text-slate-900 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+                title="View on GitHub"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                GitHub
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500 text-white text-[11px] font-bold rounded-full hover:bg-emerald-400 transition-colors"
+                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold rounded-lg hover:bg-emerald-100 hover:text-emerald-800 transition-colors"
                 onClick={(e) => e.stopPropagation()}
-                aria-label="Launch live demo"
+                title="Live Demo"
               >
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-                Launch Live
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                Live Demo
               </a>
             )}
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 text-white text-[11px] font-bold rounded-full group-hover:bg-slate-700 transition-colors">
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
+            <button 
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-slate-900 text-white text-xs font-bold rounded-lg hover:bg-slate-800 transition-colors"
+              onClick={(e) => { e.stopPropagation(); setOpen(true); }}
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
               Preview
-            </span>
+            </button>
           </div>
         </div>
       </div>

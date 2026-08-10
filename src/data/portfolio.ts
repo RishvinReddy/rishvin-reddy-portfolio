@@ -17,6 +17,19 @@ export interface Education {
   relevantCoursework: string[];
 }
 
+export interface Experience {
+  company: string;
+  role: string;
+  location: string;
+  type: string;
+  duration: string;
+  description: string;
+  bullets?: string[];
+  skills?: string[];
+  theme: string;
+  icon: string;
+}
+
 export interface SkillItem {
   name: string;
   color: string;
@@ -36,20 +49,47 @@ export interface Service {
 }
 
 export interface Project {
+  // Identity
   title: string;
-  description: string;
-  tags: string[];
-  repoUrl: string;
-  liveUrl?: string;
-  image?: string;
-  stars?: number;
-  forks?: number;
-  language?: string;
-  openIssues?: number;
-  repoName?: string;
+  name: string;
+  fullName: string;
+  owner: string;
   ownerAvatar?: string;
-  contributors?: number;
+  description?: string;
+  htmlUrl: string;
+  repoUrl: string; // alias for htmlUrl
+  // GitHub metadata
+  stars: number;
+  forks: number;
+  issues: number;
+  watchers: number;
+  // Technical metadata
+  language?: string;
+  languages?: Record<string, number>;
+  topics: string[];
+  tags: string[]; // alias for topics
+  // Repository state
+  visibility: "public" | "private";
+  defaultBranch: string;
+  createdAt: string;
+  updatedAt: string;
+  // Documentation
+  readme?: string;
+  readmeSummary?: string;
   slug?: string;
+  // Deployment
+  homepage?: string;
+  liveUrl?: string;
+  previewUrl?: string;
+  // Presentation
+  theme?: "violet" | "blue" | "emerald" | "teal";
+  categoryLabel?: string;
+  bgIcon?: string;
+  // Verified project-specific metrics only
+  customStats?: {
+    label: string;
+    value: string | number;
+  }[];
 }
 
 // ----------------------------------------------------------------------
@@ -84,6 +124,77 @@ export const EDUCATION: Education[] = [
       "Computer Networks",
       "Web Development"
     ]
+  }
+];
+
+export const EXPERIENCE: Experience[] = [
+  {
+    company: "Rishvin Labs",
+    role: "FOUNDER & SOFTWARE ENGINEER",
+    location: "Hyderabad, India",
+    type: "Hybrid",
+    duration: "Apr 2026 – Present",
+    description: "Building and operating a technology studio focused on software engineering, cybersecurity, IoT, automation, and digital product development.",
+    bullets: [
+      "Build full-stack web applications, APIs & automation systems.",
+      "Develop cybersecurity tools and automated vulnerability scanners.",
+      "Engineer solutions across modern stacks and cloud platforms.",
+      "Architect IoT prototypes with scalable web backends."
+    ],
+    skills: ["Next.js", "TypeScript", "Node.js", "Python", "IoT", "Cybersecurity", "+ more"],
+    theme: "violet",
+    icon: ">_"
+  },
+  {
+    company: "Pegasystems",
+    role: "PEGA PLATFORM INTERN",
+    location: "Remote",
+    type: "Internship",
+    duration: "May 2026 – Jul 2026",
+    description: "Selected for the Pegasystems National Internship Program 2026 in collaboration with SmartBridge. Working on enterprise-grade workflow automation and low-code solutions.",
+    bullets: [
+      "Learn and build on Pega Platform for BPM and workflow automation.",
+      "Explore AI and automation capabilities within business processes.",
+      "Work with low-code development and enterprise integrations.",
+      "Contribute to internship capstone project solving real-world problems."
+    ],
+    skills: ["Pega Platform", "BPM", "Workflow Automation", "Low-Code", "Integration", "AI"],
+    theme: "blue",
+    icon: "P"
+  },
+  {
+    company: "Fiverr",
+    role: "FREELANCE FULL-STACK DEVELOPER",
+    location: "Remote",
+    type: "Freelance",
+    duration: "Jul 2026 – Present",
+    description: "Helping clients build, debug, and scale web applications and automation solutions across diverse domains.",
+    bullets: [
+      "Develop full-stack web applications and RESTful APIs.",
+      "Build automation workflows and integrate third-party services.",
+      "Debug issues and deliver optimized and scalable solutions.",
+      "Deliver client-focused solutions with quality and reliability."
+    ],
+    skills: ["React", "Node.js", "Express.js", "TypeScript", "MongoDB", "APIs", "+ more"],
+    theme: "emerald",
+    icon: "fi"
+  },
+  {
+    company: "IoT Connectivity Device",
+    role: "CO-INVENTOR",
+    location: "Government of India",
+    type: "Design Patent Office",
+    duration: "PATENT NO. 470097-001",
+    description: "Co-inventor of an IoT connectivity device. Design officially registered with the Government of India Design Patent Office.",
+    bullets: [
+      "Contributed to the design and development of IoT hardware interfaces.",
+      "Worked on practical innovation to solve real-world connectivity challenges.",
+      "Focused on connectivity, embedded systems, and device-to-cloud communication.",
+      "Design granted and officially registered in India."
+    ],
+    skills: ["IoT", "Embedded Systems", "Hardware Design", "Connectivity", "Patent"],
+    theme: "indigo",
+    icon: "💡"
   }
 ];
 
@@ -190,14 +301,40 @@ export const FEATURED_PROJECTS: Project[] = [
   // Populated statically for SSR. Can be filled in with real projects later.
   {
     title: "Project Alpha (Static Data Placeholder)",
+    name: "project-alpha",
+    fullName: "RishvinReddy/project-alpha",
+    owner: "RishvinReddy",
     description: "This is a placeholder for a statically rendered project, boosting SEO and load speeds.",
+    htmlUrl: "https://github.com/RishvinReddy/project-alpha",
+    repoUrl: "https://github.com/RishvinReddy/project-alpha",
+    stars: 0,
+    forks: 0,
+    issues: 0,
+    watchers: 0,
+    topics: ["React", "IoT", "Firebase"],
     tags: ["React", "IoT", "Firebase"],
-    repoUrl: "https://github.com/RishvinReddy/project-alpha"
+    visibility: "public",
+    defaultBranch: "main",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   },
   {
     title: "Cyber Defense Matrix",
+    name: "cyber-matrix",
+    fullName: "RishvinReddy/cyber-matrix",
+    owner: "RishvinReddy",
     description: "An open-source intelligence gathering and automated penetration testing toolkit.",
+    htmlUrl: "https://github.com/RishvinReddy/cyber-matrix",
+    repoUrl: "https://github.com/RishvinReddy/cyber-matrix",
+    stars: 0,
+    forks: 0,
+    issues: 0,
+    watchers: 0,
+    topics: ["Python", "Security", "Docker"],
     tags: ["Python", "Security", "Docker"],
-    repoUrl: "https://github.com/RishvinReddy/cyber-matrix"
+    visibility: "public",
+    defaultBranch: "main",
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
   }
 ];
