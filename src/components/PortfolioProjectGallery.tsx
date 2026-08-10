@@ -17,7 +17,7 @@ export default function PortfolioProjectGallery({ initialProjects }: { initialPr
       const q = searchQuery.toLowerCase();
       result = result.filter(p => 
         p.title.toLowerCase().includes(q) || 
-        p.description.toLowerCase().includes(q) ||
+        (p.description && p.description.toLowerCase().includes(q)) ||
         p.tags.some(t => t.toLowerCase().includes(q)) ||
         (p.language && p.language.toLowerCase().includes(q))
       );

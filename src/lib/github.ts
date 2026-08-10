@@ -93,12 +93,12 @@ export async function getGithubProjects(): Promise<Project[]> {
         const overrides = PROJECT_OVERRIDES[repo.name] || {};
 
         // Merge tags from GitHub Topics, Primary Language, and Manual Overrides
-        const rawTopics = repo.topics || [];
+        const rawTopics: string[] = (repo.topics || []) as string[];
         if (repo.language) rawTopics.push(repo.language);
         if (overrides.manualTags) rawTopics.push(...overrides.manualTags);
         
         // Clean up and deduplicate topics
-        const topics = Array.from(new Set(rawTopics.map((t: string) => 
+        const topics: string[] = Array.from(new Set(rawTopics.map((t: string) => 
           // Format basic tags (e.g. "machine-learning" -> "Machine Learning")
           t.replace(/-/g, ' ').split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
         )));

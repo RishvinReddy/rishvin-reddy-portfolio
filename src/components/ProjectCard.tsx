@@ -223,18 +223,18 @@ export default function ProjectCard({ project, index }: ProjectCardProps & { ind
   const langColor = project.language ? (LANGUAGE_COLORS[project.language] ?? "#64748b") : "#64748b";
 
   const fetchReadme = useCallback(async () => {
-    if (!project.repoName) return;
+    if (!project.name) return;
     setReadmeLoading(true);
     setReadmeError(false);
     try {
       // Fetch both rendered HTML and raw markdown in parallel
       const [htmlRes, rawRes] = await Promise.all([
         fetch(
-          `https://api.github.com/repos/RishvinReddy/${project.repoName}/readme`,
+          `https://api.github.com/repos/RishvinReddy/${project.name}/readme`,
           { headers: { Accept: "application/vnd.github.html" } }
         ),
         fetch(
-          `https://api.github.com/repos/RishvinReddy/${project.repoName}/readme`,
+          `https://api.github.com/repos/RishvinReddy/${project.name}/readme`,
           { headers: { Accept: "application/vnd.github.raw" } }
         ),
       ]);
@@ -251,7 +251,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps & { ind
     } finally {
       setReadmeLoading(false);
     }
-  }, [project.repoName]);
+  }, [project.name]);
 
   useEffect(() => {
     if (open && readme === null && !readmeLoading) {
@@ -488,7 +488,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps & { ind
               <div className="flex-1 min-w-0">
                 <p className="text-slate-400 text-xs font-mono">RishvinReddy /</p>
                 <h2 className="text-white font-bold text-2xl font-mono leading-tight truncate">
-                  {project.repoName || project.title}
+                  {project.name || project.title}
                 </h2>
               </div>
               <div className="flex items-center gap-2 shrink-0">
@@ -544,7 +544,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps & { ind
                     <circle cx="12" cy="12" r="9" strokeWidth="2" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4M12 16h.01" />
                   </svg>
-                  <strong>{project.openIssues ?? 0}</strong> Open Issues
+                  <strong>{project.issues ?? 0}</strong> Open Issues
                 </span>
                 {project.language && (
                   <span className="flex items-center gap-1.5 text-sm text-slate-600">
@@ -621,7 +621,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps & { ind
 
             {/* Footer */}
             <div className="shrink-0 px-6 sm:px-8 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-              <span className="text-xs text-slate-400 font-mono">github.com/RishvinReddy/{project.repoName}</span>
+              <span className="text-xs text-slate-400 font-mono">github.com/RishvinReddy/{project.name}</span>
               <div className="flex gap-2">
                 {project.repoUrl && (
                   <a href={project.repoUrl} target="_blank" rel="noopener noreferrer"
