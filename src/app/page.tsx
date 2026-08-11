@@ -7,6 +7,50 @@ import React from 'react';
 import ProfileModalController from '@/components/ProfileModalController';
 import { CodedIntro } from "@/components/CodedIntro";
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Erolla Rishvin Reddy | Software Engineer & Founder of Rishvin Labs",
+  description: "Official portfolio of Erolla Rishvin Reddy, a B.Tech Computer Science student at Woxsen University. Founder of Rishvin Labs, Pegasystems Intern, and Co-Inventor of a Government of India IoT Design Patent. Expertise in Cybersecurity, IoT, Blockchain, and Full-Stack Engineering.",
+  keywords: [
+    "Rishvin Reddy", "Erolla Rishvin Reddy", "Rishvin Reddy Portfolio",
+    "Founder Rishvin Labs", "Rishvin Labs Founder",
+    "Pega Platform Intern", "Pegasystems Internship", "BPM", "Workflow Automation", "Low-Code Development",
+    "IoT Connectivity Device Patent", "Government of India Design Patent", "Co-Inventor IoT Patent",
+    "Freelance Full-Stack Developer", "Fiverr Developer",
+    "Software Engineer", "Cybersecurity Analyst", "IoT Engineer", "Blockchain Developer",
+    "Woxsen University", "B.Tech CSE Student India",
+    "Smart Irrigation System IoT", "VoteSafe Biometric Voting System",
+    "AI Security Guardian", "Cyber Defense Matrix",
+    "Next.js Developer", "React.js", "Node.js", "Python", "Embedded Systems",
+    "Solidity", "Smart Contracts", "Web3",
+    "Student Founder India", "Engineering Innovator", "Technical Portfolio"
+  ],
+  openGraph: {
+    title: "Erolla Rishvin Reddy | Software Engineer & Founder of Rishvin Labs",
+    description: "Official portfolio of Erolla Rishvin Reddy, a B.Tech Computer Science student at Woxsen University. Founder of Rishvin Labs, Pegasystems Intern, and Co-Inventor of a Government of India IoT Design Patent.",
+    url: "https://rishvinreddy.vercel.app/",
+    siteName: "Rishvin Reddy Engineering Portfolio",
+    images: [
+      {
+        url: "https://rishvinreddy.vercel.app/icon.png",
+        width: 1200,
+        height: 630,
+        alt: "Rishvin Reddy Portfolio",
+      }
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Erolla Rishvin Reddy | Software Engineer & Founder of Rishvin Labs",
+    description: "Official portfolio of Erolla Rishvin Reddy, Founder of Rishvin Labs, Pegasystems Intern, and IoT Patent Co-Inventor.",
+    creator: "@RishvinReddy",
+    images: ["https://rishvinreddy.vercel.app/icon.png"],
+  }
+};
+
 export default async function Home() {
   const dynamicProjects = await getGithubProjects();
   const rawRepos = await getRawGithubRepos();
@@ -37,17 +81,59 @@ export default async function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "Rishvin Reddy Portfolio",
-            "url": "https://rishvinreddy.vercel.app/",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://rishvinreddy.vercel.app/search?q={search_term_string}",
-              "query-input": "required name=search_term_string"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": "https://rishvinreddy.vercel.app/#person",
+              "name": "Erolla Rishvin Reddy",
+              "url": "https://rishvinreddy.vercel.app/",
+              "image": "https://rishvinreddy.vercel.app/icon.png",
+              "sameAs": [
+                "https://github.com/RishvinReddy",
+                "https://www.linkedin.com/in/rishvin-reddy/"
+              ],
+              "jobTitle": "Software Engineer, Cybersecurity Analyst, IoT Developer",
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Rishvin Labs",
+                  "description": "Founder & Software Engineer"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Pegasystems",
+                  "description": "Pega Platform Intern"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Fiverr",
+                  "description": "Freelance Full-Stack Developer"
+                }
+              ],
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Woxsen University",
+                "department": "Computer Science and Engineering"
+              },
+              "knowsAbout": [
+                "Cybersecurity", "Internet of Things (IoT)", "Blockchain", "Full-Stack Development",
+                "BPM", "Workflow Automation", "Low-Code Development", "Embedded Systems", "Hardware Design",
+                "React.js", "Node.js", "Python", "Solidity"
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Rishvin Reddy Portfolio",
+              "url": "https://rishvinreddy.vercel.app/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://rishvinreddy.vercel.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
             }
-          })
+          ])
         }}
       />
       <ProfileModalController />

@@ -3,15 +3,24 @@ import { Metadata, Viewport } from "next";
 import SkillsClient from "@/components/SkillsClient";
 
 export const metadata: Metadata = {
-  title: "Skills | Rishvin Labs",
-  description: "A comprehensive list of technical skills, tools, and certifications in Full-Stack, IoT, and Cybersecurity by Rishvin Reddy.",
+  title: "Skills & Tech Stack | Erolla Rishvin Reddy | Rishvin Labs",
+  description: "Explore the comprehensive technical skills of Erolla Rishvin Reddy. Expert in IoT, Cybersecurity, Full-Stack Web Development, and Blockchain. Proficient in Next.js, Node.js, Python, Arduino, ESP32, and Solidity.",
   applicationName: "Rishvin Reddy Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   keywords: [
     "skills page", "Rishvin Reddy skills", "Erolla Rishvin Reddy skills", 
     "Software Engineer skills", "Cybersecurity skills", "IoT skills", "Blockchain skills",
-    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
+    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering",
+    "Founder Rishvin Labs Skills", "Pegasystems Intern Skills", "Pega Platform",
+    "IoT Connectivity Device Patent", "Government of India Design Patent",
+    "Freelance Full-Stack Developer", "Fiverr Developer",
+    "React.js", "Next.js", "Node.js", "TypeScript", "JavaScript", "Python",
+    "Embedded C", "C++", "Arduino", "ESP32", "ESP8266", "MQTT", "Node-RED",
+    "Cybersecurity Tools", "Vulnerability Assessment", "Penetration Testing", "Security Automation",
+    "MongoDB", "SQL", "Database Design", "Web3 Developer", "Solidity", "Smart Contracts",
+    "Docker", "Linux CLI", "AWS", "BPM", "Workflow Automation", "Low-Code Development",
+    "Data Structures and Algorithms", "DSA", "Algorithm Design", "Software Architecture"
   ],
   authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
@@ -29,8 +38,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Skills | Rishvin Labs",
-    description: "A comprehensive list of technical skills, tools, and certifications in Full-Stack, IoT, and Cybersecurity by Rishvin Reddy.",
+    title: "Skills & Tech Stack | Erolla Rishvin Reddy | Rishvin Labs",
+    description: "Explore the comprehensive technical skills of Erolla Rishvin Reddy. Expert in IoT, Cybersecurity, Full-Stack Web Development, and Blockchain.",
     url: "https://rishvinreddy.vercel.app/skills",
     siteName: "Rishvin Reddy Engineering Portfolio",
     images: [
@@ -54,8 +63,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Skills | Rishvin Labs",
-    description: "A comprehensive list of technical skills, tools, and certifications in Full-Stack, IoT, and Cybersecurity by Rishvin Reddy.",
+    title: "Skills & Tech Stack | Erolla Rishvin Reddy",
+    description: "Explore the comprehensive technical skills of Erolla Rishvin Reddy. Expert in IoT, Cybersecurity, Full-Stack Web Development, and Blockchain.",
     siteId: "1467726470533754880",
     creator: "@RishvinReddy",
     creatorId: "1467726470533754880",
@@ -121,15 +130,34 @@ export default function Skills() {
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
               ],
-              "jobTitle": "Software Engineer & Security Researcher",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Rishvin Labs"
-              },
+              "jobTitle": "Software Engineer, Cybersecurity Analyst, IoT Developer",
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Rishvin Labs",
+                  "description": "Founder & Software Engineer"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Pegasystems",
+                  "description": "Pega Platform Intern"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Fiverr",
+                  "description": "Freelance Full-Stack Developer"
+                }
+              ],
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
-                "name": "Woxsen University"
-              }
+                "name": "Woxsen University",
+                "department": "Computer Science and Engineering"
+              },
+              "knowsAbout": [
+                "Cybersecurity", "Internet of Things (IoT)", "Blockchain", "Full-Stack Development",
+                "React.js", "Node.js", "Python", "Embedded C", "Solidity", "MongoDB", "Express.js",
+                "Pega Platform", "BPM", "Workflow Automation", "Low-Code Development"
+              ]
             },
             {
               "@type": "WebSite",
@@ -143,16 +171,17 @@ export default function Skills() {
               "inLanguage": "en-US"
             },
             {
-              "@type": "WebPage",
+              "@type": "CollectionPage",
               "@id": "https://rishvinreddy.vercel.app/skills/#webpage",
               "url": "https://rishvinreddy.vercel.app/skills",
-              "name": "Skills | Rishvin Labs",
+              "name": "Skills & Tech Stack | Erolla Rishvin Reddy",
               "isPartOf": {
                 "@id": "https://rishvinreddy.vercel.app/#website"
               },
               "about": {
                 "@id": "https://rishvinreddy.vercel.app/#person"
-              }
+              },
+              "description": "Comprehensive list of technical skills and tools mastered by Erolla Rishvin Reddy across Software Engineering, IoT, Cybersecurity, and Blockchain."
             }
           ]
         }

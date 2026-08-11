@@ -2,15 +2,24 @@ import React from 'react';
 import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "About | Rishvin Labs",
-  description: "Meet Rishvin Reddy, a B.Tech Computer Science and Engineering student at Woxsen University building across cybersecurity, IoT, blockchain, full-stack systems, and engineering automation. Founder of Rishvin Labs.",
+  title: "About | Erolla Rishvin Reddy | Founder, Rishvin Labs",
+  description: "Meet Rishvin Reddy, a B.Tech Computer Science student at Woxsen University, Founder of Rishvin Labs, Pegasystems Intern, and IoT Patent Co-Inventor. Specialized in Cybersecurity, IoT, Blockchain, and Full-Stack Systems Engineering.",
   applicationName: "Rishvin Reddy Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   keywords: [
     "about page", "Rishvin Reddy about", "Erolla Rishvin Reddy about", 
     "Software Engineer about", "Cybersecurity about", "IoT about", "Blockchain about",
-    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
+    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering",
+    "Founder Rishvin Labs", "Pegasystems Intern", "Pega Platform",
+    "IoT Connectivity Device Patent", "Government of India Design Patent",
+    "Freelance Full-Stack Developer", "Fiverr Developer",
+    "Computer Science and Engineering Student", "B.Tech CSE", 
+    "Systems Architecture", "Security Automation", "Threat Intelligence",
+    "Smart Irrigation", "Biometric Voting System", "Decentralized Systems",
+    "Next.js Developer", "TypeScript Expert", "Node.js Developer", "Python Developer",
+    "Embedded Systems Developer", "Arduino", "ESP32", "Web3 Developer", "Solidity",
+    "Full Stack Engineering", "Engineering Leadership", "Student Founder India"
   ],
   authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
@@ -28,8 +37,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "About | Rishvin Labs",
-    description: "Meet Rishvin Reddy, a B.Tech Computer Science and Engineering student at Woxsen University building across cybersecurity, IoT, blockchain, full-stack systems, and engineering automation. Founder of Rishvin Labs.",
+    title: "About | Erolla Rishvin Reddy | Founder, Rishvin Labs",
+    description: "Meet Rishvin Reddy, a B.Tech Computer Science student at Woxsen University, Founder of Rishvin Labs, Pegasystems Intern, and IoT Patent Co-Inventor. Specialized in Cybersecurity, IoT, Blockchain, and Full-Stack Systems Engineering.",
     url: "https://rishvinreddy.vercel.app/about",
     siteName: "Rishvin Reddy Engineering Portfolio",
     images: [
@@ -47,14 +56,14 @@ export const metadata: Metadata = {
       }
     ],
     locale: "en_IN",
-    type: "website",
+    type: "profile",
     emails: ["rishvinreddy@gmail.com"],
     countryName: "India",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About | Rishvin Labs",
-    description: "Meet Rishvin Reddy, a B.Tech Computer Science and Engineering student at Woxsen University building across cybersecurity, IoT, blockchain, full-stack systems, and engineering automation. Founder of Rishvin Labs.",
+    title: "About | Erolla Rishvin Reddy | Founder, Rishvin Labs",
+    description: "Meet Rishvin Reddy, a B.Tech Computer Science student at Woxsen University, Founder of Rishvin Labs, Pegasystems Intern, and IoT Patent Co-Inventor.",
     siteId: "1467726470533754880",
     creator: "@RishvinReddy",
     creatorId: "1467726470533754880",
@@ -122,15 +131,34 @@ export default function About() {
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
               ],
-              "jobTitle": "Software Engineer & Security Researcher",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Rishvin Labs"
-              },
+              "jobTitle": "Software Engineer, Founder, Cybersecurity & IoT Specialist",
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Rishvin Labs",
+                  "description": "Founder & Software Engineer"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Pegasystems",
+                  "description": "Pega Platform Intern"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Fiverr",
+                  "description": "Freelance Full-Stack Developer"
+                }
+              ],
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
-                "name": "Woxsen University"
-              }
+                "name": "Woxsen University",
+                "department": "Computer Science and Engineering"
+              },
+              "knowsAbout": [
+                "Cybersecurity", "Internet of Things (IoT)", "Blockchain", "Full-Stack Development",
+                "BPM", "Workflow Automation", "Low-Code Development", "Embedded Systems", "Hardware Design",
+                "Next.js", "Python", "Solidity"
+              ]
             },
             {
               "@type": "WebSite",
@@ -144,14 +172,18 @@ export default function About() {
               "inLanguage": "en-US"
             },
             {
-              "@type": "WebPage",
+              "@type": "AboutPage",
               "@id": "https://rishvinreddy.vercel.app/about/#webpage",
               "url": "https://rishvinreddy.vercel.app/about",
-              "name": "About | Rishvin Labs",
+              "name": "About | Erolla Rishvin Reddy | Founder, Rishvin Labs",
               "isPartOf": {
                 "@id": "https://rishvinreddy.vercel.app/#website"
               },
               "about": {
+                "@id": "https://rishvinreddy.vercel.app/#person"
+              },
+              "description": "Detailed engineering background of Erolla Rishvin Reddy, covering Rishvin Labs, Pegasystems, and IoT patent achievements.",
+              "mainEntity": {
                 "@id": "https://rishvinreddy.vercel.app/#person"
               }
             }

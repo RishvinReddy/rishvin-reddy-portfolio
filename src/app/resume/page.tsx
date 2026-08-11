@@ -3,15 +3,27 @@ import { Metadata, Viewport } from "next";
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: "Resume | Rishvin Labs",
-  description: "View Rishvin Reddy's resume, detailing experience in software development, cybersecurity, and educational background at Woxsen University.",
+  title: "Resume & Experience | Erolla Rishvin Reddy | Rishvin Labs",
+  description: "View the complete professional resume of Erolla Rishvin Reddy. Explore deep engineering experience as Founder of Rishvin Labs, Pega Platform Intern at Pegasystems, Freelance Full-Stack Developer, and Co-Inventor of a Government of India Design Patent for an IoT Connectivity Device. Specializing in Cybersecurity, IoT, Blockchain, and Full-Stack Engineering.",
   applicationName: "Rishvin Reddy Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   keywords: [
     "resume page", "Rishvin Reddy resume", "Erolla Rishvin Reddy resume", 
     "Software Engineer resume", "Cybersecurity resume", "IoT resume", "Blockchain resume",
-    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
+    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering",
+    "Rishvin Labs Founder", "Founder and Software Engineer Rishvin Labs",
+    "Pega Platform Intern", "Pegasystems Internship", "BPM", "Workflow Automation", "Low-Code Development",
+    "Freelance Full-Stack Developer", "Fiverr Freelance Developer", "React Developer", "Node.js Developer",
+    "IoT Connectivity Device Patent", "Co-Inventor IoT Patent", "Government of India Design Patent",
+    "Embedded Systems Experience", "Hardware Design", "Web Application Development",
+    "B.Tech CSE Student", "Woxsen University Computer Science", "Cybersecurity Analyst", "Security Engineering",
+    "Software Engineering Internship", "Full Stack Development Experience", "API Integration", "Database Architecture",
+    "AI Security Guardian", "Smart Irrigation IoT", "Biometric Voting System",
+    "Next.js", "TypeScript", "Python", "Solidity", "MongoDB", "Express.js", "REST APIs",
+    "Vulnerability Assessment", "Penetration Testing", "Security Operations", "Threat Detection",
+    "Network Security", "Cloud Security", "DevSecOps", "Smart Contracts", "Decentralized Applications",
+    "Student Developer India", "Engineering Student India", "Software Developer Hyderabad", "IoT Engineer India"
   ],
   authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
@@ -29,8 +41,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Resume | Rishvin Labs",
-    description: "View Rishvin Reddy's resume, detailing experience in software development, cybersecurity, and educational background at Woxsen University.",
+    title: "Resume & Experience | Erolla Rishvin Reddy | Rishvin Labs",
+    description: "Explore Rishvin Reddy's professional engineering journey: Founder of Rishvin Labs, Pegasystems Intern (Pega Platform), Freelance Developer, and Co-Inventor of a Govt. of India IoT Patent.",
     url: "https://rishvinreddy.vercel.app/resume",
     siteName: "Rishvin Reddy Engineering Portfolio",
     images: [
@@ -48,14 +60,14 @@ export const metadata: Metadata = {
       }
     ],
     locale: "en_IN",
-    type: "website",
+    type: "profile",
     emails: ["rishvinreddy@gmail.com"],
     countryName: "India",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Resume | Rishvin Labs",
-    description: "View Rishvin Reddy's resume, detailing experience in software development, cybersecurity, and educational background at Woxsen University.",
+    title: "Resume & Experience | Erolla Rishvin Reddy | Rishvin Labs",
+    description: "Explore Rishvin Reddy's professional engineering journey: Founder of Rishvin Labs, Pegasystems Intern (Pega Platform), Freelance Developer, and Co-Inventor of a Govt. of India IoT Patent.",
     siteId: "1467726470533754880",
     creator: "@RishvinReddy",
     creatorId: "1467726470533754880",
@@ -123,15 +135,33 @@ export default function Resume() {
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
               ],
-              "jobTitle": "Software Engineer & Security Researcher",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Rishvin Labs"
-              },
+              "jobTitle": "Software Engineer, Cybersecurity Analyst, IoT Developer, Full-Stack Developer",
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Rishvin Labs",
+                  "description": "Founder & Software Engineer"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Pegasystems",
+                  "description": "Pega Platform Intern"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Fiverr",
+                  "description": "Freelance Full-Stack Developer"
+                }
+              ],
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
-                "name": "Woxsen University"
-              }
+                "name": "Woxsen University",
+                "department": "Computer Science and Engineering"
+              },
+              "knowsAbout": [
+                "Cybersecurity", "Internet of Things (IoT)", "Blockchain", "Full-Stack Development",
+                "BPM", "Workflow Automation", "Low-Code Development", "Embedded Systems", "Hardware Design"
+              ]
             },
             {
               "@type": "WebSite",
@@ -145,14 +175,18 @@ export default function Resume() {
               "inLanguage": "en-US"
             },
             {
-              "@type": "WebPage",
+              "@type": "ProfilePage",
               "@id": "https://rishvinreddy.vercel.app/resume/#webpage",
               "url": "https://rishvinreddy.vercel.app/resume",
-              "name": "Resume | Rishvin Labs",
+              "name": "Resume & Experience | Erolla Rishvin Reddy",
               "isPartOf": {
                 "@id": "https://rishvinreddy.vercel.app/#website"
               },
               "about": {
+                "@id": "https://rishvinreddy.vercel.app/#person"
+              },
+              "description": "Professional engineering resume of Erolla Rishvin Reddy, highlighting experience at Rishvin Labs, Pegasystems, and IoT innovations.",
+              "mainEntity": {
                 "@id": "https://rishvinreddy.vercel.app/#person"
               }
             }

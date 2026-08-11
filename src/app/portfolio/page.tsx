@@ -5,15 +5,24 @@ import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
 import PortfolioProjectGallery from "@/components/PortfolioProjectGallery";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Rishvin Labs",
-  description: "Explore my technical portfolio featuring full-stack development, IoT smart systems, blockchain integration, and cybersecurity projects.",
+  title: "Projects & Portfolio | Erolla Rishvin Reddy | Rishvin Labs",
+  description: "Explore the technical engineering portfolio of Erolla Rishvin Reddy. Featuring real-world projects in Cybersecurity, Full-Stack Development, IoT Smart Systems (Smart Irrigation, Biometric Voting), and Blockchain Integration.",
   applicationName: "Rishvin Reddy Portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   keywords: [
     "portfolio page", "Rishvin Reddy portfolio", "Erolla Rishvin Reddy portfolio", 
     "Software Engineer portfolio", "Cybersecurity portfolio", "IoT portfolio", "Blockchain portfolio",
-    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering"
+    "Woxsen University", "Rishvin Labs", "Tech Portfolio", "Engineering",
+    "Founder Rishvin Labs Projects", "Pegasystems Intern Projects",
+    "IoT Connectivity Device Patent", "Government of India Design Patent",
+    "Smart Irrigation System IoT", "VoteSafe Biometric Voting System",
+    "AI Security Guardian", "Automated Vulnerability Scanning", "Attack Surface Discovery",
+    "Cyber Defense Matrix", "Penetration Testing Toolkit",
+    "Full-Stack Web Development Projects", "Next.js Portfolio", "React.js Projects",
+    "Node.js Backend Systems", "Python Automation Projects", "Embedded Systems Prototypes",
+    "Web3 Decentralized Applications", "Solidity Smart Contracts",
+    "Student Developer India Portfolio", "Engineering Student Projects India"
   ],
   authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
@@ -31,8 +40,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Portfolio | Rishvin Labs",
-    description: "Explore my technical portfolio featuring full-stack development, IoT smart systems, blockchain integration, and cybersecurity projects.",
+    title: "Projects & Portfolio | Erolla Rishvin Reddy | Rishvin Labs",
+    description: "Explore the technical engineering portfolio of Erolla Rishvin Reddy. Featuring real-world projects in Cybersecurity, Full-Stack Development, IoT Smart Systems, and Blockchain.",
     url: "https://rishvinreddy.vercel.app/portfolio",
     siteName: "Rishvin Reddy Engineering Portfolio",
     images: [
@@ -56,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio | Rishvin Labs",
-    description: "Explore my technical portfolio featuring full-stack development, IoT smart systems, blockchain integration, and cybersecurity projects.",
+    title: "Projects & Portfolio | Erolla Rishvin Reddy",
+    description: "Explore the technical engineering portfolio of Erolla Rishvin Reddy. Featuring real-world projects in Cybersecurity, Full-Stack Development, IoT Smart Systems, and Blockchain.",
     siteId: "1467726470533754880",
     creator: "@RishvinReddy",
     creatorId: "1467726470533754880",
@@ -142,14 +151,28 @@ export default async function Portfolio() {
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
               ],
-              "jobTitle": "Software Engineer & Security Researcher",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Rishvin Labs"
-              },
+              "jobTitle": "Software Engineer, Cybersecurity Analyst, IoT Developer",
+              "worksFor": [
+                {
+                  "@type": "Organization",
+                  "name": "Rishvin Labs",
+                  "description": "Founder & Software Engineer"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Pegasystems",
+                  "description": "Pega Platform Intern"
+                },
+                {
+                  "@type": "Organization",
+                  "name": "Fiverr",
+                  "description": "Freelance Full-Stack Developer"
+                }
+              ],
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
-                "name": "Woxsen University"
+                "name": "Woxsen University",
+                "department": "Computer Science and Engineering"
               }
             },
             {
@@ -164,16 +187,17 @@ export default async function Portfolio() {
               "inLanguage": "en-US"
             },
             {
-              "@type": "WebPage",
+              "@type": "CollectionPage",
               "@id": "https://rishvinreddy.vercel.app/portfolio/#webpage",
               "url": "https://rishvinreddy.vercel.app/portfolio",
-              "name": "Portfolio | Rishvin Labs",
+              "name": "Projects & Portfolio | Erolla Rishvin Reddy",
               "isPartOf": {
                 "@id": "https://rishvinreddy.vercel.app/#website"
               },
               "about": {
                 "@id": "https://rishvinreddy.vercel.app/#person"
-              }
+              },
+              "description": "Showcase of Erolla Rishvin Reddy's technical projects covering Full-Stack Web Development, Cybersecurity, IoT Prototypes, and Blockchain integrations."
             }
           ]
         }
