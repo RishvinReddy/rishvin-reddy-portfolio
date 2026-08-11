@@ -153,14 +153,15 @@ export default async function Home() {
       <div className="noise-overlay pointer-events-none fixed inset-0 z-[9999] opacity-[0.03]"></div>
 
       {/*  ===== Hero / Home Section (Editorial Engineering Luxury) =====  */}
-      <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 overflow-x-hidden flex-grow flex items-center pt-8 pb-12">
-        <section id="home" className="relative w-full">
+      <div className="relative w-full bg-gradient-to-br from-blue-50/80 via-indigo-50/30 to-purple-50/80">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 flex-grow flex items-center pt-8 pb-12">
+          <section id="home" className="relative w-full">
 
-          {/* ── Hero Card ── */}
-          <div className="relative w-full rounded-[2rem] border-2 border-slate-900 bg-white shadow-xl shadow-slate-200/60 overflow-hidden px-8 sm:px-10 lg:px-14 py-8 lg:py-10">
+            {/* ── Hero Card ── */}
+            <div className="relative w-full rounded-[2rem] border-2 border-slate-900 bg-white shadow-xl shadow-slate-200/60 overflow-hidden px-8 sm:px-10 lg:px-14 py-8 lg:py-10">
 
-            {/* Subtle radial gradient inside card */}
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-stone-50/80 via-white to-slate-50/60 -z-0 rounded-[2rem]"></div>
+              {/* Subtle radial gradient inside card */}
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-stone-50/80 via-white to-slate-50/60 -z-0 rounded-[2rem]"></div>
 
             <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-[clamp(30px,4vw,60px)] items-center relative z-10 w-full">
 
@@ -236,31 +237,31 @@ export default async function Home() {
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-[22px]">
                   {/* Primary CTA */}
-                  <a href="#projects" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-2xl">
+                  <a href="#projects" className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-xl hover:shadow-2xl">
                     View Projects
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </a>
 
                   {/* Secondary CTA (3D Universe) */}
-                  <a href="/universe" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-2xl">
-                    <svg className="w-5 h-5 mr-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <a href="/universe" className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-semibold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-colors shadow-xl hover:shadow-2xl">
+                    <svg className="w-4 h-4 mr-2 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
                     </svg>
                     3D Universe
                   </a>
 
                   {/* Supporting CTAs */}
-                  <a href="/resume" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+                  <a href="/resume" className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-full transition-colors shadow-xl hover:shadow-2xl">
                     Resume
                   </a>
-                  <a href="/ide" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors">
+                  <a href="/ide" className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-full transition-colors shadow-xl hover:shadow-2xl">
                     ProjectsIDE
                   </a>
-                  <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 text-[15px] font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-colors group">
+                  <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 text-[14px] font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-full transition-colors shadow-xl hover:shadow-2xl group">
                     Rishvin Labs
-                    <svg className="w-4 h-4 ml-1.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 ml-1.5 opacity-70 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </a>
@@ -269,35 +270,35 @@ export default async function Home() {
                 {/* Tech Stack Dock */}
                 <div className="flex justify-center lg:justify-start">
                   <div className="flex flex-wrap gap-2.5 items-center bg-white border border-slate-200/60 p-3.5 rounded-[1.5rem] shadow-2xl">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Python">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" className="w-6 h-6" alt="Python" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="Python">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="Python" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="TypeScript">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" className="w-6 h-6" alt="TypeScript" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="TypeScript">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="TypeScript" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="JavaScript">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" className="w-6 h-6" alt="JavaScript" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="JavaScript">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="JavaScript" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="React">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" className="w-6 h-6" alt="React" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="React">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="React" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Node.js">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" className="w-6 h-6" alt="Node.js" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="Node.js">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="Node.js" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="C++">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" className="w-6 h-6" alt="C++" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="C++">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="C++" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Arduino">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" className="w-6 h-6" alt="Arduino" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="Arduino">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="Arduino" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="MySQL">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" className="w-6 h-6" alt="MySQL" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="MySQL">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="MySQL" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Flask">
-                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" className="w-6 h-6" alt="Flask" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="Flask">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="Flask" />
                     </div>
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default" title="Docker">
-                      <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" className="w-6 h-6" alt="Docker" />
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl hover:bg-slate-50 transition-colors cursor-default group" title="Docker">
+                      <img loading="lazy" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" className="w-6 h-6 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" alt="Docker" />
                     </div>
                   </div>
                 </div>
@@ -382,7 +383,8 @@ export default async function Home() {
 
 
         {/*  End of upgraded header / hero / modal  */}
-      </div> {/* End of max-w-[1450px] container */}
+        </div> {/* End of max-w-[1450px] container */}
+      </div> {/* End of hero background gradient */}
 
       <div className="section-divider" aria-hidden="true"><span className="divider-gem"></span></div>
 
