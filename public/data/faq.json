@@ -1,34 +1,34 @@
 [
   {
     "question": "What services do you provide?",
-    "answer": "I deliver end-to-end product work across design and engineering: user research, UX/UI design, interaction & visual design, prototyping, usability testing, and production handoff. I also build full-stack proofs-of-concept for IoT and embedded systems, implement secure authentication flows (biometric, OTP, TOTP) and design blockchain-backed transaction flows where needed. Projects are scoped to combine product thinking with engineering feasibility."
+    "answer": "I offer a comprehensive range of engineering services including Full-Stack Web Development, IoT & Embedded Systems design, Blockchain/Smart Contract development, and Cybersecurity consulting. I build scalable applications, secure authentication systems (biometric, OTP), hardware-software integrations, and automated workflows. Projects are scoped to combine technical excellence with robust security."
   },
   {
     "question": "How does your process work?",
-    "answer": "My approach is collaborative and measurable:<ul class='mt-3 ml-4 list-disc space-y-2'><li><strong>Discover:</strong> Stakeholder alignment, problem framing and user research.</li><li><strong>Prototype:</strong> Wireframes → interactive prototypes (Figma / HTML) to validate flows.</li><li><strong>Validate:</strong> Usability tests, analytics tracking & iteration.</li><li><strong>Deliver:</strong> Developer-ready assets, documentation, handoff & post-launch checks.</li></ul>"
+    "answer": "My approach is structured and engineering-focused:<ul class='mt-3 ml-4 list-disc space-y-2'><li><strong>Discovery & Architecture:</strong> Understanding requirements, system design, and threat modeling.</li><li><strong>Development & Integration:</strong> Building the core application, smart contracts, or IoT firmware.</li><li><strong>Testing & Security:</strong> Vulnerability assessments, performance testing, and QA.</li><li><strong>Deployment & Handoff:</strong> Delivering clean code, documentation, and production deployment.</li></ul>"
   },
   {
     "question": "What does a typical engagement cost?",
-    "answer": "Pricing depends on scope and deliverables. I offer:<ul class='mt-3 ml-4 list-disc space-y-2'><li>Small product work / audit — fixed fee.</li><li>Feature / redesign work — milestone-based or fixed scope.</li><li>Long-term collaborations — monthly retainer.</li></ul>I’ll propose the best model after an initial discovery call and a brief scoping conversation."
+    "answer": "Pricing depends on the scope and technical complexity of the project. I typically offer:<ul class='mt-3 ml-4 list-disc space-y-2'><li>Small modules / Security audits — fixed fee.</li><li>Full-stack applications / IoT systems — milestone-based.</li><li>Ongoing maintenance & automation — monthly retainer.</li></ul>I’ll propose the best model after an initial discovery call and a brief scoping conversation."
   },
   {
     "question": "How long will the project take?",
-    "answer": "Timelines vary by complexity:<ul class='mt-3 ml-4 list-disc space-y-2'><li>Micro tasks (audit, small UI updates): 1–3 weeks.</li><li>Feature designs & prototype validation: 4–8 weeks.</li><li>End-to-end product design with research & testing: 2–4+ months.</li></ul>Every proposal includes a timeline with milestones and review points."
+    "answer": "Timelines vary depending on the system's complexity:<ul class='mt-3 ml-4 list-disc space-y-2'><li>Security audits & small scripts: 1–2 weeks.</li><li>Web applications & Smart Contracts: 4–8 weeks.</li><li>End-to-end IoT systems & complex architectures: 2–4+ months.</li></ul>Every proposal includes a timeline with milestones and review points."
   },
   {
     "question": "What deliverables will I receive?",
-    "answer": "Deliverables are tailored to the engagement and commonly include:<ul class='mt-3 ml-4 list-disc space-y-2'><li>Research summaries & personas</li><li>Wireframes, interactive prototypes (Figma/HTML) and design specs</li><li>Accessibility checklist & usability test reports</li><li>Developer handoff assets (components, tokens, documentation)</li><li>Optional: Proof-of-concept code for IoT/embedded or blockchain flows</li></ul>"
+    "answer": "Deliverables are tailored to the project and commonly include:<ul class='mt-3 ml-4 list-disc space-y-2'><li>Production-ready source code (GitHub/GitLab)</li><li>System architecture & API documentation</li><li>Security audit reports & vulnerability assessments</li><li>Hardware schematics & IoT firmware (if applicable)</li><li>Smart contract code & test coverage reports</li></ul>"
   },
   {
     "question": "How do you handle security & privacy?",
-    "answer": "Security is integral to my work. Depending on the project I follow secure-by-design principles, threat modeling, and best-practice authentication (e.g., AES/SHA, TOTP, secure biometric flows). I also advise on data minimization, encryption (in transit & at rest) and safe cloud configuration. For sensitive work we can sign an NDA prior to any data exchange."
+    "answer": "Security is integral to my work. Depending on the project, I follow secure-by-design principles, OWASP guidelines, threat modeling, and best-practice authentication (e.g., AES/SHA, TOTP, secure biometric flows). I also advise on data minimization, encryption (in transit & at rest) and safe cloud configuration. For sensitive work, we can sign an NDA prior to any data exchange."
   },
   {
-    "question": "Can you build prototypes or hardware proofs-of-concept?",
-    "answer": "Yes. I build interactive prototypes and simple embedded proofs-of-concept (e.g., Arduino / ESP8266/ESP32, RFID, load-cells, sensors) and integrate them with cloud backends for demos. For production hardware I collaborate with manufacturing/embedded partners and provide the system architecture and firmware handoff."
+    "question": "Can you build hardware proofs-of-concept?",
+    "answer": "Yes. I build functional embedded proofs-of-concept (e.g., Arduino / ESP8266 / ESP32, RFID, sensors) and integrate them with cloud backends for demos. For production hardware, I collaborate with manufacturing/embedded partners and provide the system architecture and firmware handoff."
   },
   {
     "question": "What are the next steps to start a project?",
-    "answer": "Send a short brief via the <a href='/contact' class='text-blue-500 hover:underline'>Contact page</a> (project goals, timeline, budget range). I’ll review and propose a 15–30 minute discovery call to align expectations and scope. After that you’ll receive a written proposal with milestones and costs."
+    "answer": "Send a short brief via the <a href='/contact' class='text-blue-500 hover:underline'>Contact page</a> (project goals, timeline, budget range). I’ll review and propose a 15–30 minute discovery call to align expectations and scope. After that, you’ll receive a written proposal with milestones and costs."
   }
 ]

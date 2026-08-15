@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     siteName: "Rishvin Reddy Portfolio",
     title: "Rishvin Reddy | Software Engineer, IoT, Blockchain & Cybersecurity",
     description: "Official portfolio of Erolla Rishvin Reddy, B.Tech CSE student at Woxsen University specializing in Software Engineering, IoT, Blockchain, Cybersecurity, Full Stack Development, and innovative engineering projects.",
-    images: [{ url: "https://rishvinreddy.vercel.app/icon.png", width: 1200, height: 630, alt: "Rishvin Reddy Portfolio" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -28,10 +27,6 @@ export const metadata: Metadata = {
     creator: "@RishvinReddy",
     title: "Rishvin Reddy | Software Engineer, IoT, Blockchain & Cybersecurity",
     description: "Official portfolio of Erolla Rishvin Reddy, B.Tech CSE student at Woxsen University specializing in Software Engineering, IoT, Blockchain, Cybersecurity, Full Stack Development, and innovative engineering projects.",
-    images: ["https://rishvinreddy.vercel.app/icon.png"],
-  },
-  icons: {
-    icon: "/icon.png",
   },
   verification: {
     google: "gqSeJRumXVEo6URkxbldpICOXZ9OBRZ3gs-B-9Wu-4k",

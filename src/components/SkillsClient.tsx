@@ -69,8 +69,8 @@ export default function SkillsClient() {
           transition={{ duration: 0.6 }}
           className="mb-24 w-full"
         >
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-500/10 dark:to-orange-500/10 border border-yellow-200 dark:border-yellow-500/20 p-8 md:p-12 shadow-xl shadow-yellow-500/5 group flex flex-col md:flex-row items-center justify-between gap-12">
-            <div className="absolute -right-20 -bottom-20 w-[500px] h-[500px] bg-yellow-400/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-yellow-400/30 transition-all duration-700" />
+          <div className="relative overflow-hidden isolate transform-gpu rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-500/10 dark:to-orange-500/10 border border-yellow-200 dark:border-yellow-500/20 p-8 md:p-12 shadow-xl shadow-yellow-500/5 group flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="absolute -right-20 -bottom-20 w-[500px] h-[500px] bg-yellow-400/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-yellow-400/30 transition-all duration-700 transform-gpu" />
             
             <div className="relative z-10 max-w-4xl">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-100 dark:bg-yellow-500/20 border border-yellow-300 dark:border-yellow-500/30 text-yellow-800 dark:text-yellow-300 text-xs font-black uppercase tracking-widest rounded-full mb-6">
