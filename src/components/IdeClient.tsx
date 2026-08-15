@@ -116,10 +116,17 @@ export default function IdeClient() {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
+        const cached = sessionStorage.getItem('github_repos');
+        if (cached) {
+          setRepos(JSON.parse(cached));
+          setLoadingRepos(false);
+          return;
+        }
         const res = await fetch('https://api.github.com/users/RishvinReddy/repos?sort=updated&per_page=100');
         if (res.ok) {
           const data = await res.json();
           setRepos(data);
+          sessionStorage.setItem('github_repos', JSON.stringify(data));
         }
       } catch (e) {
         console.error("Failed to fetch repos", e);
@@ -138,13 +145,22 @@ export default function IdeClient() {
     setSelectedFile(null);
     setFileContent('');
     try {
+      const cacheKey = `github_tree_${repo.name}`;
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) {
+        setFileTree(JSON.parse(cached));
+        setLoadingTree(false);
+        return;
+      }
       let res = await fetch(`https://api.github.com/repos/RishvinReddy/${repo.name}/git/trees/main?recursive=1`);
       if (res.status === 404) {
         res = await fetch(`https://api.github.com/repos/RishvinReddy/${repo.name}/git/trees/master?recursive=1`);
       }
       if (res.ok) {
         const data = await res.json();
-        setFileTree(data.tree || []);
+        const tree = data.tree || [];
+        setFileTree(tree);
+        sessionStorage.setItem(cacheKey, JSON.stringify(tree));
       }
     } catch (e) {
       console.error("Failed to fetch tree", e);
@@ -160,6 +176,13 @@ export default function IdeClient() {
     setFileContent('');
     try {
       if (!selectedRepo) return;
+      const cacheKey = `github_file_${selectedRepo.name}_${node.path}`;
+      const cached = sessionStorage.getItem(cacheKey);
+      if (cached) {
+        setFileContent(cached);
+        setLoadingFile(false);
+        return;
+      }
       let res = await fetch(`https://raw.githubusercontent.com/RishvinReddy/${selectedRepo.name}/main/${node.path}`);
       if (res.status === 404) {
         res = await fetch(`https://raw.githubusercontent.com/RishvinReddy/${selectedRepo.name}/master/${node.path}`);
@@ -167,6 +190,7 @@ export default function IdeClient() {
       if (res.ok) {
         const text = await res.text();
         setFileContent(text);
+        sessionStorage.setItem(cacheKey, text);
       } else {
         setFileContent('// Failed to load file content or file is binary.');
       }
