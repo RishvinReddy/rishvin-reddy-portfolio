@@ -172,7 +172,7 @@ export default function ContactFormClient() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24">
+      <div className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-24">
         
         {/* HERO */}
         <div className="text-center max-w-4xl mx-auto mb-20">
@@ -482,7 +482,7 @@ export default function ContactFormClient() {
         </div>
 
         {/* Book a Meeting & FAQs (Now Full Width) */}
-        <div className="mt-20 space-y-8 max-w-5xl mx-auto">
+        <div className="mt-20 space-y-8 max-w-7xl mx-auto">
           
           <div className="bg-gradient-to-r from-indigo-50 to-slate-50 border border-indigo-100 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div>

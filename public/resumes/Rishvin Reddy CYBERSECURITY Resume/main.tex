@@ -1,0 +1,507 @@
+\documentclass[a4paper,11pt]{article}
+
+% =========================================================
+% PACKAGES
+% =========================================================
+
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{fontawesome5}
+
+% =========================================================
+% PAGE STYLE
+% =========================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% =========================================================
+% PAGE MARGINS
+% =========================================================
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+% =========================================================
+% GENERAL FORMATTING
+% =========================================================
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% =========================================================
+% SECTION FORMATTING
+% =========================================================
+
+\titleformat{\section}
+{
+    \vspace{-3pt}
+    \scshape
+    \raggedright
+    \large
+    \bfseries
+}
+{}{0em}{}
+[\color{black}\titlerule \vspace{-6pt}]
+
+% =========================================================
+% LIST SPACING
+% =========================================================
+
+\setlist[itemize]{
+    noitemsep,
+    topsep=2pt
+}
+
+% =========================================================
+% RESUME COMMANDS
+% =========================================================
+
+\newcommand{\resumeItem}[1]{
+    \item \small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}
+    \item
+    \begin{tabular*}{1.0\textwidth}[t]{
+        l@{\extracolsep{\fill}}r
+    }
+        \textbf{#1} & #2 \\
+        \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}
+    \vspace{-5pt}
+}
+
+\newcommand{\resumeProject}[2]{
+    \vspace{2pt}
+    \textbf{#1} \hfill {\small #2}
+    \vspace{2pt}
+}
+
+% =========================================================
+% DOCUMENT
+% =========================================================
+
+\begin{document}
+
+% =========================================================
+% HEADER
+% =========================================================
+
+\begin{center}
+
+{\Huge \textbf{EROLLA RISHVIN REDDY}}
+
+\vspace{4pt}
+
+{\large Cybersecurity Engineer • Digital Forensics • IoT Security}
+
+\vspace{5pt}
+
+{\small
+Network Security • Digital Forensics • Python • Linux • OWASP • PCAP Analysis • MQTT • Security Automation
+}
+
+\vspace{8pt}
+
+\small
+\faPhone\ +91 98487 23235
+\hspace{12pt}
+\faEnvelope\ \href{mailto:rishvinreddy@gmail.com}{rishvinreddy@gmail.com}
+\hspace{12pt}
+\faMapMarker*\ Hyderabad, India
+
+\vspace{6pt}
+
+\faGithub\
+\href{https://github.com/RishvinReddy}{GitHub}
+\hspace{14pt}
+\faGlobe\
+\href{https://rishvinreddy.vercel.app}{Portfolio}
+\hspace{14pt}
+\faLinkedin\
+\href{https://www.linkedin.com/in/rishvinreddy/}{LinkedIn}
+
+\end{center}
+
+\vspace{-8pt}
+% =========================================================
+% PROFESSIONAL SUMMARY
+% =========================================================
+
+\section{Professional Summary}
+
+Computer Science Engineering student specializing in \textbf{Blockchain, IoT \& Cybersecurity (BIC)} with a focused interest in \textbf{Cybersecurity, Security Engineering, Digital Forensics, Network Security, IoT Security, and Security Operations}. Experienced in developing security-focused systems for \textbf{network traffic analysis, PCAP investigation, digital evidence preservation, vulnerability assessment, security automation, biometric authentication, and secure IoT architectures} using \textbf{Python, TypeScript, Linux, MQTT, Docker, PostgreSQL, OWASP principles, cryptographic hashing, and REST APIs}. Founder of \textbf{Rishvin Labs}, developing practical security tools and platforms including network forensics workbenches, IoT forensic evidence systems, browser-native email forensics, and AI-assisted security operations. Hands-on experience with \textbf{threat modeling, security monitoring, vulnerability analysis, authentication, evidence integrity, incident investigation, and secure software development}, supported by a strong foundation in \textbf{computer networks, operating systems, data structures, database systems, and cybersecurity}.
+
+% =========================================================
+% EDUCATION
+% =========================================================
+
+\section{Education}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+        \textbf{Woxsen University} & Hyderabad, India \\
+        \textit{B.Tech in Computer Science and Engineering} & 2024 -- 2028 \\
+        \textit{Specialization: Blockchain, IoT \& Cybersecurity (BIC)} &
+        CGPA: \textbf{9.01/10}
+    \end{tabular*}
+
+\end{itemize}
+
+\vspace{-10pt}
+% =========================================================
+% CYBERSECURITY & SECURITY ENGINEERING SKILLS
+% =========================================================
+
+\section{Cybersecurity \& Security Engineering Skills}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{Cybersecurity:} Cybersecurity, Information Security, Security Engineering, Application Security, Network Security, IoT Security, Secure Software Development, Security Architecture, Threat Modeling
+}
+
+\item{
+\textbf{Digital Forensics:} Digital Forensics, Network Forensics, Email Forensics, PCAP Analysis, Packet Analysis, Evidence Preservation, Chain of Custody, Timeline Reconstruction, Evidence Integrity, Cryptographic Hashing, SHA-256
+}
+
+\item{
+\textbf{Network Security:} TCP/IP, HTTP/HTTPS, DNS, MQTT, Network Traffic Analysis, Protocol Analysis, Packet Inspection, Network Monitoring, Traffic Filtering, Wireless Security
+}
+
+\item{
+\textbf{Web Application Security:} OWASP, Web Security Testing, Vulnerability Assessment, Cross-Site Scripting (XSS), Authentication Security, Authorization, Input Validation, Session Security, Burp Suite, PortSwigger
+}
+
+\item{
+\textbf{Security Operations:} Security Operations Center (SOC), Security Monitoring, Threat Intelligence, Vulnerability Management, Risk Assessment, Risk Scoring, Incident Analysis, Security Automation, Automated Security Reporting
+}
+
+\item{
+\textbf{Identity \& Access Security:} Biometric Authentication, Identity Verification, Access Control, Authentication Workflows, Secure Credential Handling, Duplicate Identity Detection, Auditability
+}
+
+\item{
+\textbf{Cryptography \& Security Protocols:} SHA-256, AES-256-GCM, Cryptographic Hashing, Data Integrity, Secure Communication, Encryption, Integrity Verification, Blockchain-Based Evidence Integrity
+}
+
+\item{
+\textbf{Security Development:} Python, TypeScript, JavaScript, Node.js, FastAPI, PostgreSQL, REST APIs, Docker, Linux, Git, GitHub
+}
+
+\item{
+\textbf{Security Tools \& Platforms:} Burp Suite, PortSwigger Web Security Academy, Wireshark, OWASP, Postman, Docker, Linux, GitHub, n8n
+}
+
+\item{
+\textbf{Security Engineering Fundamentals:} Secure System Design, Incident Response Concepts, Vulnerability Analysis, Risk Management, Computer Networks, Operating Systems, Database Security, Software Engineering, Problem Solving
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+
+% =========================================================
+% TECHNICAL EXPERIENCE
+% =========================================================
+
+\section{Technical Experience}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\item
+\textbf{Founder \& Security Engineer -- Rishvin Labs}
+\hfill \textit{2025 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Founded and lead \textbf{Rishvin Labs}, developing security-focused software across \textbf{cybersecurity, digital forensics, network security, IoT security, security automation, secure authentication, and blockchain-based evidence integrity}.}
+
+\resumeItem{Architected and developed security platforms for \textbf{network traffic analysis, PCAP investigation, email forensics, IoT security monitoring, vulnerability assessment, biometric authentication, and forensic evidence preservation}.}
+
+\resumeItem{Implemented security-oriented systems using \textbf{Python, TypeScript, Node.js, PostgreSQL, Docker, MQTT, REST APIs, cryptographic hashing, and blockchain technologies}.}
+
+\resumeItem{Applied \textbf{threat modeling, secure system design, authentication, authorization, data integrity, vulnerability analysis, security monitoring, and forensic investigation} across independent engineering projects.}
+
+\resumeItem{Built security automation workflows integrating \textbf{n8n, vulnerability analysis, threat intelligence, AI-assisted security analysis, risk scoring, automated reporting, and event-driven security operations}.}
+
+\end{itemize}
+
+\vspace{4pt}
+
+\item
+\textbf{Pega Platform Intern -- Pegasystems}
+\hfill \textit{Aug 2026 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Selected for the \textbf{National Internship Program 2026 with SmartBridge}, gaining hands-on exposure to enterprise application development and workflow automation using the \textbf{Pega Platform}.}
+
+\resumeItem{Developing practical knowledge of \textbf{Business Process Management (BPM), Case Management, Digital Process Automation (DPA), enterprise workflows, application configuration, and data integration}.}
+
+\resumeItem{Applying structured enterprise software practices involving \textbf{application lifecycle management, business process modeling, case lifecycle design, workflow orchestration, and secure enterprise application development}.}
+
+\end{itemize}
+
+\vspace{4pt}
+
+\item
+\textbf{Cybersecurity \& Security Engineering -- Academic \& Independent Projects}
+\hfill \textit{2024 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Designed and implemented security systems spanning \textbf{network forensics, digital evidence analysis, IoT security, web application security, biometric authentication, vulnerability assessment, and security operations automation}.}
+
+\resumeItem{Performed practical security analysis involving \textbf{network traffic inspection, PCAP analysis, HTTP/HTTPS traffic, vulnerability testing, XSS labs, authentication workflows, cryptographic verification, and forensic investigation}.}
+
+\resumeItem{Applied \textbf{secure software development, threat modeling, cryptographic hashing, access control, evidence integrity, incident analysis, and security monitoring} to real-world-inspired engineering problems.}
+
+\resumeItem{Integrated cybersecurity with \textbf{IoT, blockchain, AI, digital forensics, and full-stack engineering} to develop multidisciplinary security solutions and investigation platforms.}
+
+\end{itemize}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+% =========================================================
+% FEATURED SECURITY PROJECTS
+% =========================================================
+
+\section{Featured Security Projects}
+
+\resumeProject
+{NetInspect -- Network Traffic Analysis \& Digital Forensics Workbench}
+{Python, JavaScript, PCAP, Browser APIs, Network Security}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Built a \textbf{browser-based network forensics workbench} for local PCAP inspection, packet analysis, protocol investigation, and security-focused network traffic analysis.}
+
+\resumeItem{Implemented \textbf{packet inspection, protocol analysis, traffic filtering, search, HTTP/DNS analysis, and investigation workflows} for analyzing network communications and suspicious traffic.}
+
+\resumeItem{Designed a \textbf{privacy-first local processing architecture} that enables forensic analysis without requiring sensitive packet captures to be uploaded to a remote server.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{ChainForensics -- IoT Security \& Digital Forensic Evidence Platform}
+{TypeScript, Node.js, MQTT, Ethereum, Solidity, IPFS, SHA-256}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Engineered an \textbf{IoT security and digital forensics platform} for collecting, verifying, preserving, and investigating security events generated by connected devices.}
+
+\resumeItem{Implemented an evidence pipeline using \textbf{MQTT telemetry, deterministic JSON serialization, SHA-256 hashing, Ethereum smart contracts, and IPFS} to establish verifiable evidence integrity.}
+
+\resumeItem{Designed mechanisms for \textbf{tamper detection, immutable evidence registration, chain-of-custody verification, and forensic timeline reconstruction} across distributed IoT environments.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{AI Security Guardian -- AI-Powered Security Operations Platform}
+{Python, n8n, PostgreSQL, Docker, OWASP, LLM APIs}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Architected an \textbf{AI-assisted Security Operations Center (SOC)} platform for automated attack surface management, vulnerability assessment, threat intelligence, security analysis, and reporting.}
+
+\resumeItem{Integrated \textbf{vulnerability scanning, deterministic risk scoring, AI-assisted security analysis, threat intelligence enrichment, monitoring, and automated security workflows} using n8n.}
+
+\resumeItem{Designed a containerized security architecture using \textbf{Python, PostgreSQL, Docker, and event-driven automation} for repeatable vulnerability analysis and security operations.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{MBOX Viewer -- Browser-Native Email Forensics Tool}
+{TypeScript, JavaScript, HTML5, CSS3, Browser APIs, Digital Forensics}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Developed a \textbf{zero-backend email forensics application} for locally parsing, searching, filtering, and investigating large MBOX email archives.}
+
+\resumeItem{Implemented \textbf{email metadata extraction, attachment analysis, advanced search, filtering, and forensic investigation workflows} for structured examination of email evidence.}
+
+\resumeItem{Designed a privacy-preserving architecture that keeps sensitive email archives \textbf{client-side}, eliminating the need for server-side forensic processing.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{Biometric Voting System -- Secure Identity \& Authentication Platform}
+{TypeScript, React, Node.js, ESP32, Fingerprint Biometrics}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Developing a \textbf{secure biometric authentication platform} using fingerprint-based identity verification for controlled and auditable voter authentication.}
+
+\resumeItem{Upgraded the prototype from an \textbf{R307 fingerprint sensor to a Mantra fingerprint device}, strengthening hardware integration and real-world biometric verification workflows.}
+
+\resumeItem{Designed security controls for \textbf{identity verification, duplicate-vote prevention, access control, auditability, and secure hardware-software integration}.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{Web Application Security Testing -- PortSwigger Web Security Academy}
+{Burp Suite, HTTP, Web Security, OWASP, XSS}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Performed hands-on \textbf{web application security testing} through PortSwigger Web Security Academy labs, analyzing HTTP requests, responses, application behavior, and security vulnerabilities.}
+
+\resumeItem{Practiced identifying and exploiting controlled \textbf{Cross-Site Scripting (XSS)} vulnerabilities using \textbf{Burp Suite} and structured web-security testing methodologies.}
+
+\resumeItem{Applied foundational \textbf{OWASP web security principles, request manipulation, input analysis, and vulnerability assessment} in controlled security-training environments.}
+
+\end{itemize}
+
+\vspace{-8pt}
+
+% =========================================================
+% CERTIFICATIONS
+% =========================================================
+
+\section{Certifications}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{Introduction to Cyber Attacks} -- New York University (Coursera)
+}
+
+\item{
+\textbf{Career Essentials in GitHub Professional Certificate} -- GitHub \& LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Actions} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Code Search} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Project Management and Collaboration} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Programming for Everybody (Getting Started with Python)} -- University of Michigan (Coursera)
+}
+
+\item{
+\textbf{Data Structures Using Python: An Introduction} -- Coursera
+}
+
+\item{
+\textbf{Object-Oriented Design} -- University of Alberta (Coursera)
+}
+
+\item{
+\textbf{Java Programming} -- Coursera
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+
+% =========================================================
+% RELEVANT COURSEWORK
+% =========================================================
+
+\section{Relevant Coursework}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{Cybersecurity \& Networking:} Cybersecurity, Computer Networks, Network Security, Internet Technologies, IoT Security, Secure Communication, Digital Forensics
+}
+
+\item{
+\textbf{Computer Science:} Data Structures \& Algorithms, Operating Systems, Database Management Systems, Object-Oriented Programming, Software Engineering
+}
+
+\item{
+\textbf{Security Engineering:} Information Security, Secure Software Development, Authentication, System Design, Database Security, Threat Modeling
+}
+
+\item{
+\textbf{Supporting Foundations:} Probability \& Statistics, Blockchain Technology, Internet of Things, Technical Writing, Problem Solving
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+% =========================================================
+% PATENT & INNOVATION
+% =========================================================
+
+\section{Patent \& Innovation}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\item
+\textbf{Government of India Registered Design Patent -- IoT Connectivity Device}
+\hfill \textit{Co-Inventor | Design No: 470097-001}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Co-inventor of a \textbf{Government of India registered design patent} for an IoT connectivity device, demonstrating applied innovation across \textbf{IoT security, connected-device engineering, secure communication, and smart infrastructure}.}
+
+\resumeItem{Contributed to an engineering solution involving \textbf{device connectivity, communication workflows, and connected-system integration}, translating an engineering concept into a formally registered intellectual property asset.}
+
+\end{itemize}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+
+\end{document}

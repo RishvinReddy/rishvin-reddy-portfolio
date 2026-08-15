@@ -1,0 +1,499 @@
+\documentclass[a4paper,11pt]{article}
+
+% =========================================================
+% PACKAGES
+% =========================================================
+
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{fontawesome5}
+
+% =========================================================
+% PAGE STYLE
+% =========================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% =========================================================
+% PAGE MARGINS
+% =========================================================
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+% =========================================================
+% GENERAL FORMATTING
+% =========================================================
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% =========================================================
+% SECTION FORMATTING
+% =========================================================
+
+\titleformat{\section}
+{
+    \vspace{-3pt}
+    \scshape
+    \raggedright
+    \large
+    \bfseries
+}
+{}{0em}{}
+[\color{black}\titlerule \vspace{-6pt}]
+
+% =========================================================
+% LIST SPACING
+% =========================================================
+
+\setlist[itemize]{
+    noitemsep,
+    topsep=2pt
+}
+
+% =========================================================
+% RESUME COMMANDS
+% =========================================================
+
+\newcommand{\resumeItem}[1]{
+    \item \small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}
+    \item
+    \begin{tabular*}{1.0\textwidth}[t]{
+        l@{\extracolsep{\fill}}r
+    }
+        \textbf{#1} & #2 \\
+        \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}
+    \vspace{-5pt}
+}
+
+\newcommand{\resumeProject}[2]{
+    \vspace{2pt}
+    \textbf{#1} \hfill {\small #2}
+    \vspace{2pt}
+}
+
+% =========================================================
+% DOCUMENT
+% =========================================================
+
+\begin{document}
+
+% =========================================================
+% HEADER
+% =========================================================
+
+\begin{center}
+
+{\Huge \textbf{EROLLA RISHVIN REDDY}}
+
+\vspace{4pt}
+
+{\large Applied AI Engineer • AI Automation • Intelligent Systems}
+
+\vspace{5pt}
+
+{\small
+Python • Machine Learning • LLM APIs • n8n • Computer Vision • FastAPI • PostgreSQL • AI Agents
+}
+
+\vspace{8pt}
+
+\small
+\faPhone\ +91 98487 23235
+\hspace{12pt}
+\faEnvelope\ \href{mailto:rishvinreddy@gmail.com}{rishvinreddy@gmail.com}
+\hspace{12pt}
+\faMapMarker*\ Hyderabad, India
+
+\vspace{6pt}
+
+\faGithub\
+\href{https://github.com/RishvinReddy}{GitHub}
+\hspace{14pt}
+\faGlobe\
+\href{https://rishvinreddy.vercel.app}{Portfolio}
+\hspace{14pt}
+\faLinkedin\
+\href{https://www.linkedin.com/in/rishvinreddy/}{LinkedIn}
+
+\end{center}
+
+\vspace{-8pt}
+
+% =========================================================
+% PROFESSIONAL SUMMARY
+% =========================================================
+
+\section{Professional Summary}
+
+Computer Science Engineering student specializing in \textbf{Blockchain, IoT \& Cybersecurity (BIC)} with a focused interest in \textbf{Applied Artificial Intelligence, AI Automation, Machine Learning, Generative AI, Computer Vision, and Intelligent Systems}. Experienced in engineering \textbf{AI-powered applications, LLM-integrated workflows, predictive analytics systems, computer vision pipelines, AI agents, and event-driven automation} using \textbf{Python, Google Gemini, OpenRouter, n8n, FastAPI, XGBoost, OpenCV, MediaPipe, PostgreSQL, REST APIs, and Docker}. Founder of \textbf{Rishvin Labs}, developing practical AI solutions across \textbf{cybersecurity, business process automation, IoT, intelligent retail, developer productivity, and real-time decision systems}. Hands-on experience designing end-to-end AI workflows spanning \textbf{data ingestion, API orchestration, AI inference, structured outputs, decision logic, database persistence, automation, and monitoring}. Strong foundation in \textbf{machine learning, data structures, algorithms, statistics, software engineering, system design, and secure application development}.
+
+% =========================================================
+% EDUCATION
+% =========================================================
+
+\section{Education}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+        \textbf{Woxsen University} & Hyderabad, India \\
+        \textit{B.Tech in Computer Science and Engineering} & 2024 -- 2028 \\
+        \textit{Specialization: Blockchain, IoT \& Cybersecurity (BIC)} &
+        CGPA: \textbf{9.01/10}
+    \end{tabular*}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+% =========================================================
+% AI / ML & AUTOMATION SKILLS
+% =========================================================
+
+\section{AI / ML \& Automation Skills}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{Artificial Intelligence \& Machine Learning:} Applied AI, Machine Learning, Predictive Analytics, AI-Assisted Decision Systems, Classification, Risk Scoring, Feature Engineering, Model Integration
+}
+
+\item{
+\textbf{Generative AI \& LLMs:} Large Language Models (LLMs), Generative AI, Google Gemini API, OpenRouter, LLM API Integration, Prompt Engineering, Structured Outputs, Conversational AI, AI Agents
+}
+
+\item{
+\textbf{AI Automation \& Agents:} n8n, Workflow Automation, AI Agent Workflows, Event-Driven Automation, API Orchestration, Webhooks, Lead Qualification, CRM Automation, Content Automation, Human-in-the-Loop Workflows
+}
+
+\item{
+\textbf{Computer Vision:} OpenCV, MediaPipe, Face Mesh, Facial Landmark Detection, Liveness Detection, Gesture Recognition, Computer Vision Pipelines, Image Processing, Product Recognition
+}
+
+\item{
+\textbf{AI Engineering \& Backend:} Python, FastAPI, Node.js, TypeScript, REST APIs, PostgreSQL, MongoDB, Docker, Linux, JSON, API Integration, Backend Services
+}
+
+\item{
+\textbf{Data \& Analytics:} SQL, Pandas, Data Processing, Data Analysis, Feature Engineering, Predictive Analytics, Real-Time Analytics, KPI Monitoring, Data Visualization
+}
+
+\item{
+\textbf{Intelligent Systems:} Recommendation Systems, Intelligent Automation, Decision Support Systems, Route Optimization, AI-Powered Security Analysis, AI + IoT Systems, Real-Time Intelligent Applications
+}
+
+\item{
+\textbf{Developer Tools \& Platforms:} Git, GitHub, GitHub Actions, Postman, Docker, Vercel, Arduino IDE, Antigravity IDE, Overleaf
+}
+
+\item{
+\textbf{Software Engineering Fundamentals:} Data Structures \& Algorithms, Object-Oriented Programming, Database Management Systems, Computer Networks, Operating Systems, System Design, Software Engineering, Secure Application Development
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+% =========================================================
+% TECHNICAL EXPERIENCE
+% =========================================================
+
+\section{Technical Experience}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\item
+\textbf{Founder \& Applied AI / Automation Engineer -- Rishvin Labs}
+\hfill \textit{2025 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Founded and lead \textbf{Rishvin Labs}, developing applied AI systems and automation solutions across \textbf{Generative AI, machine learning, intelligent workflows, cybersecurity, computer vision, IoT, and full-stack engineering}.}
+
+\resumeItem{Architected and developed AI-powered applications integrating \textbf{LLM APIs, Google Gemini, OpenRouter, n8n, machine learning models, computer vision pipelines, REST APIs, webhooks, databases, and event-driven workflows}.}
+
+\resumeItem{Built automated systems for \textbf{lead qualification, conversational AI, security analysis, content generation, developer productivity, intelligent decision support, and real-time operational workflows}.}
+
+\resumeItem{Engineered production-oriented AI workflows with \textbf{API orchestration, structured AI outputs, idempotent processing, database persistence, error handling, automation triggers, notifications, and external service integrations}.}
+
+\resumeItem{Applied AI engineering across \textbf{cybersecurity, IoT, business automation, computer vision, and developer tooling}, focusing on reliable, scalable, and practical intelligent systems rather than standalone model experimentation.}
+
+\end{itemize}
+
+\vspace{4pt}
+
+\item
+\textbf{Pega Platform Intern -- Pegasystems}
+\hfill \textit{Aug 2026 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Selected for the \textbf{National Internship Program 2026 with SmartBridge}, gaining hands-on experience with enterprise application development and workflow automation using the \textbf{Pega Platform}.}
+
+\resumeItem{Developing practical knowledge of \textbf{Business Process Management (BPM), Case Management, Digital Process Automation (DPA), workflow orchestration, and low-code application development}.}
+
+\resumeItem{Applying structured enterprise development practices involving \textbf{business process modeling, case lifecycle management, application configuration, data integration, and automated business workflows}.}
+
+\end{itemize}
+
+\vspace{4pt}
+
+\item
+\textbf{Applied AI \& Intelligent Systems Engineering}
+\hfill \textit{Academic \& Independent Engineering}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Designed and implemented AI-powered systems combining \textbf{machine learning, LLMs, computer vision, workflow automation, IoT data, and backend services} to solve practical engineering and business problems.}
+
+\resumeItem{Developed intelligent pipelines following the \textbf{event $\rightarrow$ data processing $\rightarrow$ AI inference $\rightarrow$ decision $\rightarrow$ automation} architecture across multiple independent projects.}
+
+\resumeItem{Integrated \textbf{predictive models, AI APIs, computer vision algorithms, webhooks, databases, and third-party APIs} into end-to-end applications and automated workflows.}
+
+\resumeItem{Applied software engineering principles including \textbf{system architecture, API design, database engineering, testing, debugging, observability, security, and deployment} to AI-enabled applications.}
+
+\end{itemize}
+
+\end{itemize}
+
+\vspace{-10pt}
+% =========================================================
+% FEATURED AI PROJECTS
+% =========================================================
+
+\section{Featured AI Projects}
+
+\resumeProject
+{AI Security Guardian -- AI-Powered Security Operations Platform}
+{Python, n8n, PostgreSQL, Docker, LLM APIs, OWASP}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Architected an \textbf{AI-powered Security Operations Center (SOC)} automating attack surface management, vulnerability assessment, threat intelligence, security analysis, and incident workflows.}
+
+\resumeItem{Integrated \textbf{LLM-powered security analysis, deterministic risk scoring, automated vulnerability workflows, threat intelligence enrichment, and AI-assisted reporting} through n8n orchestration.}
+
+\resumeItem{Designed a containerized architecture using \textbf{Python, PostgreSQL, Docker, and event-driven automation} for repeatable security analysis and scalable AI-assisted operations.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{AI Speed-to-Lead -- Intelligent Lead Qualification \& Voice Automation}
+{n8n, LLM APIs, Voice AI, Webhooks, PostgreSQL, CRM Automation}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Engineered an \textbf{AI-powered lead qualification and voice automation system} for real-time lead capture, identity resolution, automated outreach, and CRM lifecycle management.}
+
+\resumeItem{Implemented \textbf{AI voice interactions, secure webhooks, transcript intelligence, lead scoring, qualification logic, opt-out enforcement, and high-intent notifications}.}
+
+\resumeItem{Designed an event-driven architecture with \textbf{idempotent processing, API orchestration, database persistence, automated decision workflows, and real-time business notifications}.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{EcoBin -- AI-Powered Smart Waste Management System}
+{Python, FastAPI, React, TypeScript, XGBoost, Google OR-Tools}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Developed an \textbf{AI-powered intelligent waste management platform} combining IoT telemetry, predictive analytics, machine learning, and automated collection planning.}
+
+\resumeItem{Built predictive services using \textbf{XGBoost and FastAPI} for container fill-level prediction and overflow-risk analysis, with a React-based operational dashboard.}
+
+\resumeItem{Applied \textbf{Google OR-Tools} for route optimization, connecting machine-learning predictions with automated operational decision-making.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{Smart Cart OS -- AI-Powered Intelligent Shopping System}
+{Python, TypeScript, React, RFID, Computer Vision, Gemini AI}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Designed an \textbf{AI-enabled smart shopping system} combining RFID-based product identification, real-time analytics, computer vision, and conversational AI capabilities.}
+
+\resumeItem{Integrated \textbf{Google Gemini AI and computer vision} for automated product recognition and intelligent shopping workflows.}
+
+\resumeItem{Developed a connected application architecture supporting \textbf{real-time data processing, AI inference, product intelligence, and interactive user experiences}.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{Face-Mesh Verification -- Real-Time Computer Vision System}
+{Python, OpenCV, MediaPipe, Flask, Computer Vision}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Built a \textbf{real-time computer vision platform} using MediaPipe Face Mesh for facial landmark detection, liveness verification, and human-computer interaction.}
+
+\resumeItem{Implemented \textbf{468-point facial landmark tracking, blink-gated liveness detection, Eye Aspect Ratio (EAR), Mouth Aspect Ratio (MAR), and facial feature analysis}.}
+
+\resumeItem{Extended the vision pipeline with \textbf{nose-tip cursor control and real-time interaction}, demonstrating practical computer vision and AI-assisted interface engineering.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{GitHub-to-LinkedIn AI Publisher -- Automated Developer Content Pipeline}
+{n8n, OpenRouter, GitHub API, LinkedIn API, Python}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Built an \textbf{AI-powered content automation pipeline} that transforms GitHub activity into structured, professional LinkedIn content with minimal manual intervention.}
+
+\resumeItem{Integrated \textbf{GitHub events, OpenRouter LLM APIs, content generation, workflow orchestration, and LinkedIn publishing} into an end-to-end automated pipeline.}
+
+\resumeItem{Implemented event-driven processing to \textbf{detect development activity, generate context-aware content, validate outputs, and automate social publishing workflows}.}
+
+\end{itemize}
+
+\vspace{-8pt}
+
+% =========================================================
+% CERTIFICATIONS
+% =========================================================
+
+\section{Certifications}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{Programming for Everybody (Getting Started with Python)} -- University of Michigan (Coursera)
+}
+
+\item{
+\textbf{Data Structures Using Python: An Introduction} -- Coursera
+}
+
+\item{
+\textbf{Career Essentials in GitHub Professional Certificate} -- GitHub \& LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Actions} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Code Search} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Project Management and Collaboration} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Introduction to Cyber Attacks} -- New York University (Coursera)
+}
+
+\item{
+\textbf{Object-Oriented Design} -- University of Alberta (Coursera)
+}
+
+\item{
+\textbf{Java Programming} -- Coursera
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+% =========================================================
+% RELEVANT COURSEWORK
+% =========================================================
+
+\section{Relevant Coursework}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{AI \& Data Foundations:} Probability \& Statistics, Data Structures \& Algorithms, Database Management Systems, Data Processing, Problem Solving
+}
+
+\item{
+\textbf{Software Engineering:} Object-Oriented Programming, Software Engineering, System Design, Application Development, Database Design
+}
+
+\item{
+\textbf{Computing Foundations:} Computer Networks, Operating Systems, Internet Technologies, Computer Architecture
+}
+
+\item{
+\textbf{Supporting Domains:} Cybersecurity, Internet of Things, Blockchain, Technical Writing
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+% =========================================================
+% PATENT & INNOVATION
+% =========================================================
+
+\section{Patent \& Innovation}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\item
+\textbf{Government of India Registered Design Patent -- IoT Connectivity Device}
+\hfill \textit{Co-Inventor | Design No: 470097-001}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Co-inventor of a \textbf{Government of India registered design patent} for an IoT connectivity device, demonstrating applied innovation across \textbf{connected systems, intelligent infrastructure, and device communication}.}
+
+\resumeItem{Contributed to an engineering solution focused on \textbf{IoT connectivity and device integration}, demonstrating the ability to translate an engineering concept into a formally registered intellectual property asset.}
+
+\end{itemize}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+\end{document}

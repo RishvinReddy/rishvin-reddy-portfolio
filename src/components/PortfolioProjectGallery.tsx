@@ -66,7 +66,7 @@ export default function PortfolioProjectGallery({ initialProjects }: { initialPr
     <>
       {/* Search & Filters Section */}
       <section className="py-12 border-b border-slate-200/60 bg-white/50 backdrop-blur-md relative z-20">
-        <div className="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div className="container mx-auto px-6 lg:px-16 max-w-[95rem]">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
             <div className="w-full md:max-w-md">
               <label htmlFor="projectSearch" className="sr-only">Search Projects</label>
@@ -116,13 +116,13 @@ export default function PortfolioProjectGallery({ initialProjects }: { initialPr
       <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
         {/* Dynamic Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-[95rem]">
             <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[120px] mix-blend-multiply opacity-50"></div>
             <div className="absolute bottom-20 right-10 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[100px] animate-pulse delay-700 mix-blend-multiply"></div>
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-16">
+        <div className="relative z-10 mx-auto max-w-[105rem] px-6 lg:px-16">
           {/* Section Header */}
           <div className="mx-auto max-w-3xl flex flex-col items-center text-center mb-16">
             <div className="mb-6 flex items-center justify-center gap-3 w-full">

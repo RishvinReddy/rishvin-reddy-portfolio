@@ -21,7 +21,7 @@ export default function FaqClient() {
         <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-purple-500/10 dark:bg-purple-500/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[120px] opacity-70" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 sm:py-32">
+      <div className="relative z-10 max-w-[95rem] mx-auto px-6 py-24 sm:py-32">
         {/* Header Section */}
         <div className="text-center mb-20">
           <motion.h1 
@@ -78,7 +78,7 @@ export default function FaqClient() {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="space-y-4 max-w-5xl mx-auto">
+        <div className="space-y-4 max-w-7xl mx-auto">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}

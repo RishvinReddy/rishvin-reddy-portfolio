@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from 'next/navigation';
 
 export function Footer() {
+  const pathname = usePathname();
   const [year, setYear] = useState("");
   const [time, setTime] = useState("");
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -11,6 +13,8 @@ export function Footer() {
   const [repo, setRepo] = useState<{ name: string; url: string; lang: string } | null>(null);
 
   const circumference = 163.4;
+
+  if (pathname === '/ide') return null;
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -99,7 +103,7 @@ export function Footer() {
           <div className="absolute -bottom-20 right-1/5 w-[500px] h-[400px] bg-indigo-500/4 rounded-full blur-[140px]"></div>
         </div>
 
-        <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10 pt-16 pb-10">
+        <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 relative z-10 pt-16 pb-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-4 flex flex-col space-y-6">
               <div>

@@ -154,7 +154,7 @@ export default async function Home() {
 
       {/*  ===== Hero / Home Section (Editorial Engineering Luxury) =====  */}
       <div className="relative w-full bg-gradient-to-br from-blue-50/80 via-indigo-50/30 to-purple-50/80">
-        <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 flex-grow flex items-center pt-8 pb-12">
+        <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 flex-grow flex items-center pt-8 pb-12">
           <section id="home" className="relative w-full">
 
             {/* ── Hero Card ── */}
@@ -393,10 +393,10 @@ export default async function Home() {
      ===========================  */}
 
       <section id="about-v3" className="py-12 sm:py-20 bg-white relative z-0">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-10 relative z-10">
+        <div className="mx-auto max-w-[105rem] px-6 lg:px-10 relative z-10">
 
           {/* ── Section Header ── */}
-          <div className="max-w-5xl mx-auto text-center mb-16">
+          <div className="max-w-7xl mx-auto text-center mb-16">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">
               <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" />
               About Me
@@ -718,7 +718,7 @@ export default async function Home() {
      PATENT HIGHLIGHT SECTION — Elite Full-Width Certificate
      ===========================  */}
       <section id="patent-section"
-        className="w-full max-w-screen-2xl mx-auto px-6 lg:px-12 mt-16 mb-28 relative z-20 scroll-mt-32">
+        className="w-full max-w-[105rem] mx-auto px-6 lg:px-12 mt-16 mb-28 relative z-20 scroll-mt-32">
 
         {/*  Section Label + Heading  */}
         <div className="scroll-reveal mb-14 flex flex-col items-center text-center gap-6">
@@ -985,7 +985,7 @@ export default async function Home() {
           <div className="absolute inset-0 bg-[url(&apos;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=&apos;)] opacity-20 mask-image:linear-gradient(to_bottom,white,transparent)"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-[105rem]">
           {/*  Header  */}
           <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary font-bold text-sm tracking-wide mb-6 shadow-inner backdrop-blur-md">
@@ -1048,7 +1048,7 @@ export default async function Home() {
       <section className="py-24 sm:py-32 bg-[#F8FAFC] relative overflow-hidden" id="projects">
         {/*  Dynamic Background Elements  */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-screen-2xl">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-[105rem]">
             <div
               className="absolute top-0 left-0 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[120px] mix-blend-multiply opacity-50">
             </div>
@@ -1058,7 +1058,7 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
+        <div className="relative z-10 mx-auto max-w-[105rem] px-6 lg:px-12">
 
           <div className="delay-1 scroll-reveal w-full">
             <HomeProjectGallery initialProjects={displayProjects} />
@@ -1112,7 +1112,7 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="max-w-screen-2xl mx-auto scroll-reveal delay-2">
+          <div className="max-w-[105rem] mx-auto scroll-reveal delay-2">
 
             <KnowledgeGraph repos={rawRepos} />
 
@@ -1138,7 +1138,7 @@ export default async function Home() {
         role="dialog" aria-modal="true">
         <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-md" data-onclick="closeProjectModal()"></div>
         <div
-          className="relative w-full max-w-5xl flex flex-col bg-white rounded-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] m-3 md:m-6 border border-slate-200"
+          className="relative w-full max-w-7xl flex flex-col bg-white rounded-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] m-3 md:m-6 border border-slate-200"
           style={{ height: "92vh", maxHeight: "92vh" }}>
 
           {/*  Modal Hero Banner  */}
@@ -1224,7 +1224,7 @@ export default async function Home() {
         {/* Subtle top border accent */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12 relative z-10">
+        <div className="mx-auto max-w-[105rem] px-6 lg:px-12 relative z-10">
 
           {/* Two-Column Header */}
           <div className="grid lg:grid-cols-[1fr_1.8fr] gap-16 items-start mb-20">

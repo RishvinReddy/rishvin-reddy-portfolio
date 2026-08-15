@@ -245,7 +245,7 @@ export default function About() {
 
   {/*  3. At a Glance  */}
   <section className="px-6 pb-24">
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 rounded-[2rem] overflow-hidden border border-slate-200 shadow-xl shadow-slate-200/30">
         <div className="bg-white p-8 text-center">
           <p className="text-3xl md:text-4xl font-black text-slate-900">9.01</p>
@@ -276,7 +276,7 @@ export default function About() {
   </section>
 
   {/*  4. The Story  */}
-  <section className="py-32 mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative scroll-reveal">
+  <section className="py-32 mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 relative scroll-reveal">
     <div className="sticky top-32 mb-16 md:mb-0 md:absolute md:w-[40%] z-10">
       <span className="text-primary font-extrabold tracking-widest uppercase text-sm mb-3 block">
         My Journey
@@ -361,7 +361,7 @@ export default function About() {
 
   {/*  5. Education  */}
   <section className="py-24 px-6">
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="scroll-reveal">
           <span className="text-primary font-extrabold tracking-widest uppercase text-sm">
@@ -417,7 +417,7 @@ export default function About() {
     </div>
     <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-600/20 blur-[120px] rounded-full pointer-events-none">
     </div>
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-4xl mb-20 scroll-reveal">
         <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-xs mb-6">
           Engineering Domains
@@ -505,7 +505,7 @@ export default function About() {
 
   {/*  7. Selected Systems  */}
   <section className="py-32 px-6">
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-16">
         <div className="scroll-reveal">
           <span className="text-primary font-extrabold tracking-widest uppercase text-sm">
@@ -603,7 +603,7 @@ export default function About() {
 
   {/*  8. How I Engineer  */}
   <section className="py-32 px-6 bg-slate-50">
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-4xl mx-auto mb-20">
         <span className="inline-block px-3 py-1 bg-white text-slate-600 font-extrabold tracking-widest uppercase text-xs rounded-full mb-6 border border-slate-200">
           Engineering Principles
@@ -683,7 +683,7 @@ export default function About() {
 
   {/*  14. Rishvin Labs  */}
   <section className="py-32 px-6">
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-14 items-center bg-white border border-slate-200 rounded-[3rem] p-8 md:p-14 shadow-xl shadow-slate-200/30">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
@@ -745,7 +745,7 @@ export default function About() {
 
   {/*  9. Currently Exploring  */}
   <section className="py-32 px-6">
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8">
       <div className="rounded-[3rem] bg-slate-900 text-white p-10 md:p-16 relative overflow-hidden">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/20 rounded-full blur-[120px]">
         </div>
@@ -807,7 +807,7 @@ export default function About() {
 
   {/*  10. Long-Term Direction  */}
   <section className="py-32 px-6 relative overflow-hidden">
-    <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 lg:px-8 text-center scroll-reveal">
+    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 text-center scroll-reveal">
       <span className="inline-block text-xs font-bold uppercase tracking-[0.25em] text-indigo-500 mb-8">
         Long-Term Direction
       </span>
@@ -833,7 +833,7 @@ export default function About() {
 
   {/*  11. Opportunity CTA  */}
   <section className="py-24 px-6 text-center scroll-reveal mb-20">
-    <div className="bg-slate-900 rounded-[3rem] p-10 md:p-16 w-full max-w-screen-2xl mx-auto shadow-2xl relative overflow-hidden">
+    <div className="bg-slate-900 rounded-[3rem] p-10 md:p-16 w-full max-w-[105rem] mx-auto shadow-2xl relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-indigo-600/30">
       </div>
       <div className="relative z-10">

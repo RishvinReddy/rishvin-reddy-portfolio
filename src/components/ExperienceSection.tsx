@@ -35,7 +35,7 @@ const getThemeClasses = (theme: string) => {
 export default function ExperienceSection() {
   return (
     <section id="experience" className="py-24 sm:py-32 bg-[#F8FAFC] relative overflow-hidden border-t border-slate-200">
-      <div className="mx-auto w-full max-w-screen-2xl px-6 lg:px-12 relative z-10">
+      <div className="mx-auto w-full max-w-[105rem] px-6 lg:px-12 relative z-10">
         
         {/* TOP HEADER CARD */}
         <div className="bg-white/80 backdrop-blur-sm border border-slate-200/60 rounded-[2.5rem] p-8 lg:p-12 shadow-xl shadow-slate-200/40 mb-8 sm:mb-12">

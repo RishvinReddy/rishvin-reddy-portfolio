@@ -21,9 +21,9 @@ export default function AwardsClient() {
         <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-purple-500/10 dark:bg-purple-500/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[120px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[90rem] mx-auto px-6 py-24 sm:py-32">
+      <div className="relative z-10 w-full max-w-[105rem] mx-auto px-6 py-24 sm:py-32">
         {/* Header Section */}
-        <div className="text-center mb-24 max-w-5xl mx-auto">
+        <div className="text-center mb-24 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -150,7 +150,7 @@ export default function AwardsClient() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-5xl mx-auto bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-xl backdrop-blur-xl"
+          className="w-full max-w-7xl mx-auto bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-xl backdrop-blur-xl"
         >
           <div className="flex items-center gap-4 mb-10">
             <div className="p-3 bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded-xl">

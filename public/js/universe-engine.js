@@ -913,6 +913,18 @@
       planet.position.z = Math.sin(data.orbitAngle) * data.orbitRadius;
       planet.rotation.y += 0.008;
 
+      if (data.label) {
+        const dist = camera.position.distanceTo(planet.position);
+        let op = 1.0;
+        if (dist > 280) op = 0.0;
+        else if (dist > 120) op = 1.0 - ((dist - 120) / 160);
+        
+        if (STATE.hoveredPlanet === planet || STATE.selectedPlanet === planet) op = 1.0;
+        
+        data.label.style.opacity = op;
+        data.label.style.pointerEvents = op > 0.3 ? 'auto' : 'none';
+      }
+
       // Trail positions shift
       const max = data.trailPositions.length / 3;
       for (let j = max - 1; j > 0; j--) {

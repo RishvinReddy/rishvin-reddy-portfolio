@@ -1,44 +1,69 @@
 'use client';
 import Link from "next/link";
 import { useEffect } from "react";
+import Script from "next/script";
 
 export default function UniversePage() {
   useEffect(() => {
-    const loader = document.getElementById("pageLoader");
-    if (loader) {
-      setTimeout(() => {
-        loader.style.opacity = "0";
-        setTimeout(() => {
-          loader.style.display = "none";
-        }, 500);
-      }, 800);
+    const scripts = [
+      "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js",
+      "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js",
+      "https://cdn.jsdelivr.net/npm/marked/marked.min.js",
+      "/js/portfolio-engine.js",
+      "/js/universe-engine.js"
+    ];
+
+    const loadNext = (index: number) => {
+      if (index >= scripts.length) return;
+      const script = document.createElement("script");
+      script.src = scripts[index];
+      script.onload = () => loadNext(index + 1);
+      document.body.appendChild(script);
+    };
+
+    if (!document.querySelector('script[src*="three.min.js"]')) {
+      loadNext(0);
     }
   }, []);
 
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
-    /* GLOBAL FONT OVERRIDES */
-    body {
-      font-family: "Times New Roman", serif !important;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: Georgia, serif !important;
-    }
-
-    .code,
-    .tech-stack {
-      font-family: "Courier New", monospace !important;
-    }
-  ` }} />
-      <style dangerouslySetInnerHTML={{ __html: `
-        /* GLOBAL FONT OVERRIDES */
-        body { font-family: "Times New Roman", serif !important; }
-        h1, h2, h3 { font-family: Georgia, serif !important; }
-        .code, .tech-stack { font-family: "Courier New", monospace !important; }
+        /* PLANET HUD LABELS */
+        .planet-label {
+          background-color: rgba(5, 8, 15, 0.7);
+          backdrop-filter: blur(8px);
+          border: 1px solid rgba(255, 42, 95, 0.3);
+          border-left: 3px solid rgba(255, 42, 95, 0.8);
+          padding: 4px 8px;
+          border-radius: 2px;
+          color: rgba(226, 232, 240, 0.9);
+          font-family: "Courier New", monospace !important;
+          font-size: 10px;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          pointer-events: auto;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+          white-space: nowrap;
+          text-shadow: 0 0 5px rgba(255, 42, 95, 0.5);
+        }
+        .planet-label:hover {
+          background-color: rgba(5, 8, 15, 0.9);
+          border-color: rgba(255, 42, 95, 0.8);
+          transform: scale(1.05);
+          z-index: 1000 !important;
+        }
 
         .glass-panel {
           background-color: rgba(255, 255, 255, 0.05);
@@ -87,31 +112,13 @@ export default function UniversePage() {
       <div className="bg-[#05080f] text-[#e2e8f0] h-screen w-screen overflow-hidden m-0">
         
   {/* Full Screen Loader */}
-  <div id="pageLoader"
-    className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-background-light transition-opacity duration-500">
-    <div className="loader-container">
-      <div className="ball">
-        <div className="inner">
-          <div className="line"></div>
-          <div className="line line--two"></div>
-          <div className="oval"></div>
-          <div className="oval oval--two"></div>
-        </div>
-      </div>
-      <div className="shadow"></div>
-    </div>
-  </div>
-
-  
-
-  <h1 className="sr-only">Developer Universe 3D</h1>
 
 
   {/* Global CRT Scanline Effect */}
   <div className="scanline"></div>
 
   {/* Loading Screen */}
-  <div id="loading-screen">
+  <div id="loading-screen" className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#05080f] transition-opacity duration-1000">
     <div className="relative w-32 h-32 mb-8">
       {/* Outer Ring */}
       <div className="absolute inset-0 rounded-full border border-white/10 border-t-primary animate-spin"
@@ -155,7 +162,7 @@ export default function UniversePage() {
   <div className="absolute top-0 left-0 w-full p-6 flex justify-between items-start pointer-events-none z-30">
     <div className="flex flex-col gap-4">
       <div className="pointer-events-auto group">
-        <Link href="/"
+        <a href="/"
           className="inline-flex items-center gap-3 px-5 py-3 rounded-none glass-panel hud-border hover:bg-white/10 transition-all text-sm font-bold tracking-widest uppercase text-white overflow-hidden">
           <div
             className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent -translate-x-full group-hover:translate-x-0 transition-transform duration-500">
@@ -165,7 +172,7 @@ export default function UniversePage() {
             </path>
           </svg>
           <span className="relative z-10 text-glow">Disengage</span>
-        </Link>
+        </a>
       </div>
 
       {/* Audio Toggle */}
@@ -397,20 +404,7 @@ export default function UniversePage() {
 
       </div>
 
-      {/* Scripts */}
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
-      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-      <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-      <script defer src="/js/portfolio-engine.js"></script>
-      <script defer src="/js/universe-engine.js"></script>
+
     </>
   );
 }

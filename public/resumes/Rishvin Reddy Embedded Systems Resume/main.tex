@@ -1,0 +1,535 @@
+\documentclass[a4paper,11pt]{article}
+
+% =========================================================
+% PACKAGES
+% =========================================================
+
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{fontawesome5}
+
+% =========================================================
+% PAGE STYLE
+% =========================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% =========================================================
+% PAGE MARGINS
+% =========================================================
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+% =========================================================
+% GENERAL FORMATTING
+% =========================================================
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% =========================================================
+% SECTION FORMATTING
+% =========================================================
+
+\titleformat{\section}
+{
+    \vspace{-3pt}
+    \scshape
+    \raggedright
+    \large
+    \bfseries
+}
+{}{0em}{}
+[\color{black}\titlerule \vspace{-6pt}]
+
+% =========================================================
+% LIST SPACING
+% =========================================================
+
+\setlist[itemize]{
+    noitemsep,
+    topsep=2pt
+}
+
+% =========================================================
+% RESUME COMMANDS
+% =========================================================
+
+\newcommand{\resumeItem}[1]{
+    \item \small{#1 \vspace{-2pt}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}
+    \item
+    \begin{tabular*}{1.0\textwidth}[t]{
+        l@{\extracolsep{\fill}}r
+    }
+        \textbf{#1} & #2 \\
+        \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}
+    \vspace{-5pt}
+}
+
+\newcommand{\resumeProject}[2]{
+    \vspace{2pt}
+    \textbf{#1} \hfill {\small #2}
+    \vspace{2pt}
+}
+
+% =========================================================
+% DOCUMENT
+% =========================================================
+
+\begin{document}
+
+% =========================================================
+% HEADER
+% =========================================================
+
+\begin{center}
+
+{\Huge \textbf{EROLLA RISHVIN REDDY}}
+
+\vspace{4pt}
+
+{\large IoT \& Embedded Systems Engineer • IoT Security • Smart Systems}
+
+\vspace{5pt}
+
+{\small
+ESP32 • Arduino • Embedded C/C++ • MQTT • Python • IoT • Sensors • Edge Computing • IoT Security
+}
+
+\vspace{8pt}
+
+\small
+\faPhone\ +91 98487 23235
+\hspace{12pt}
+\faEnvelope\ \href{mailto:rishvinreddy@gmail.com}{rishvinreddy@gmail.com}
+\hspace{12pt}
+\faMapMarker*\ Hyderabad, India
+
+\vspace{6pt}
+
+\faGithub\
+\href{https://github.com/RishvinReddy}{GitHub}
+\hspace{14pt}
+\faGlobe\
+\href{https://rishvinreddy.vercel.app}{Portfolio}
+\hspace{14pt}
+\faLinkedin\
+\href{https://www.linkedin.com/in/rishvinreddy/}{LinkedIn}
+
+\end{center}
+
+\vspace{-8pt}
+% =========================================================
+% PROFESSIONAL SUMMARY
+% =========================================================
+
+\section{Professional Summary}
+
+Computer Science Engineering student specializing in \textbf{Blockchain, IoT \& Cybersecurity (BIC)} with a focused interest in \textbf{IoT Engineering, Embedded Systems, IoT Security, Edge Computing, and Smart Connected Systems}. Experienced in designing and prototyping \textbf{hardware-software integrated IoT solutions} using \textbf{ESP32, Arduino, Embedded C/C++, Python, MQTT, sensors, actuators, wireless communication, REST APIs, and real-time telemetry}. Hands-on experience across the complete IoT lifecycle including \textbf{sensor integration, microcontroller programming, device communication, data acquisition, edge processing, cloud connectivity, automation, monitoring, and cybersecurity}. Co-inventor of a \textbf{Government of India registered IoT design patent} and developer of IoT systems spanning \textbf{smart irrigation, smart waste management, smart city infrastructure, biometric systems, and blockchain-based IoT forensics}. Strong foundation in \textbf{IoT architecture, embedded programming, computer networks, secure communication, database systems, system design, and problem solving}.
+
+
+% =========================================================
+% EDUCATION
+% =========================================================
+
+\section{Education}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+        \textbf{Woxsen University} & Hyderabad, India \\
+        \textit{B.Tech in Computer Science and Engineering} & 2024 -- 2028 \\
+        \textit{Specialization: Blockchain, IoT \& Cybersecurity (BIC)} &
+        CGPA: \textbf{9.01/10}
+    \end{tabular*}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+% =========================================================
+% TECHNICAL SKILLS
+% =========================================================
+
+\section{Technical Skills}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{IoT \& Embedded Systems:} Internet of Things (IoT), Embedded Systems, ESP32, Arduino Uno, Embedded C/C++, Microcontroller Programming, Hardware--Software Integration, Sensor Integration, Actuator Control, IoT Prototyping, Real-Time Monitoring
+}
+
+\item{
+\textbf{Sensors \& Hardware:} Soil Moisture Sensors, Temperature Sensors, Phototransistors, Ultrasonic Sensors, Gas Sensors, Weight Sensors, RFID, Fingerprint Sensors, DC Motors, Water Pumps, Servos, LCD/I2C Displays
+}
+
+\item{
+\textbf{IoT Communication:} MQTT, Wi-Fi, Bluetooth/BLE, HTTP/HTTPS, REST APIs, Device-to-Device Communication, Device-to-Cloud Communication, Telemetry, Real-Time Data Transmission
+}
+
+\item{
+\textbf{Embedded \& Programming:} Embedded C/C++, Python, TypeScript, JavaScript, Java, SQL, Microcontroller Programming, Serial Communication, Hardware Control, Data Acquisition
+}
+
+\item{
+\textbf{IoT Security:} IoT Security, Embedded Security, Secure Device Communication, Authentication, Encryption, Cryptographic Hashing, Network Security, Threat Modeling, Digital Forensics, Evidence Integrity
+}
+
+\item{
+\textbf{Backend \& Cloud:} Node.js, FastAPI, PostgreSQL, MySQL, MongoDB, Firebase, AWS, RESTful APIs, Backend Development, Database Integration, Real-Time Data Processing
+}
+
+\item{
+\textbf{Edge AI \& Intelligent Systems:} Edge Computing, Machine Learning, Predictive Analytics, XGBoost, Computer Vision, AI Integration, Intelligent Automation, Route Optimization
+}
+
+\item{
+\textbf{IoT Development Tools:} Arduino IDE, Tinkercad, Git, GitHub, GitHub Actions, Docker, Linux, Postman, Antigravity IDE
+}
+
+\item{
+\textbf{Engineering Fundamentals:} IoT Architecture, System Design, Data Structures \& Algorithms, Computer Networks, Operating Systems, Database Management Systems, Object-Oriented Programming, Software Engineering, Problem Solving
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+% =========================================================
+% PATENT & INNOVATION
+% =========================================================
+
+\section{Patent \& Innovation}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\item
+\textbf{Government of India Registered Design Patent -- IoT Connectivity Device}
+\hfill \textit{Co-Inventor | Design No: 470097-001}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Co-inventor of a \textbf{Government of India registered design patent} for an IoT connectivity device, demonstrating applied innovation in \textbf{Internet of Things, connected-device engineering, and smart infrastructure}.}
+
+\resumeItem{Contributed to the design of a \textbf{compact IoT connectivity solution} supporting device communication, connectivity, and integration within connected-device ecosystems.}
+
+\resumeItem{Recognized through \textbf{Design Registration No. 470097-001}, demonstrating experience translating an engineering concept into a formally registered \textbf{intellectual property (IP) asset}.}
+
+\end{itemize}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+
+% =========================================================
+% TECHNICAL EXPERIENCE
+% =========================================================
+
+\section{Technical Experience}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\item
+\textbf{Pega Platform Intern -- Pegasystems}
+\hfill \textit{Aug 2026 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Selected for the \textbf{National Internship Program 2026 with SmartBridge}, gaining hands-on exposure to enterprise application development using the \textbf{Pega Platform}.}
+
+\resumeItem{Developing practical knowledge of \textbf{Business Process Management (BPM), Case Management, workflow automation, Digital Process Automation (DPA), and low-code application development}.}
+
+\resumeItem{Applying structured application-development practices covering \textbf{business process modeling, case lifecycle management, data integration, application configuration, and enterprise workflow design}.}
+
+\end{itemize}
+
+\vspace{4pt}
+
+\item
+\textbf{Founder \& IoT Systems Engineer -- Rishvin Labs}
+\hfill \textit{2025 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Founded and lead \textbf{Rishvin Labs}, an independent engineering initiative developing systems across \textbf{IoT, embedded systems, cybersecurity, digital forensics, blockchain, automation, and smart connected technologies}.}
+
+\resumeItem{Designed and prototyped \textbf{IoT and embedded systems} integrating microcontrollers, sensors, actuators, wireless communication, real-time telemetry, backend services, and security controls.}
+
+\resumeItem{Worked with \textbf{ESP32, Arduino, Embedded C/C++, Python, MQTT, TypeScript, Node.js, FastAPI, PostgreSQL, REST APIs, and Docker} across hardware-software integrated engineering projects.}
+
+\resumeItem{Developed systems spanning \textbf{smart agriculture, smart waste management, smart city infrastructure, biometric IoT, IoT security, and blockchain-backed forensic evidence preservation}.}
+
+\resumeItem{Applied the complete IoT development lifecycle including \textbf{system architecture, hardware integration, sensor data acquisition, device communication, edge processing, API development, database integration, testing, debugging, and deployment}.}
+
+\end{itemize}
+
+\vspace{4pt}
+
+\item
+\textbf{IoT Systems Engineering -- Academic \& Independent Projects}
+\hfill \textit{2024 -- Present}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Designed and implemented \textbf{hardware-software integrated IoT prototypes} involving microcontrollers, sensors, actuators, communication protocols, monitoring systems, and automated control workflows.}
+
+\resumeItem{Developed practical solutions involving \textbf{soil health monitoring, automated irrigation, smart waste collection, smart-city infrastructure, RFID-based systems, biometric authentication, and connected-device telemetry}.}
+
+\resumeItem{Applied \textbf{MQTT, Wi-Fi, Bluetooth/BLE, REST APIs, embedded programming, real-time data processing, cloud connectivity, and database integration} to connect physical devices with software platforms.}
+
+\resumeItem{Integrated cybersecurity principles including \textbf{secure communication, authentication, cryptographic hashing, network security, threat modeling, and evidence integrity} into IoT and connected-system architectures.}
+
+\end{itemize}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+
+% =========================================================
+% FEATURED IoT PROJECTS
+% =========================================================
+% =========================================================
+% FEATURED IoT PROJECTS
+% =========================================================
+
+\section{Featured IoT Projects}
+
+\resumeProject
+{Smart City IoT Street Light \& Traffic Management System}
+{ESP32, Embedded C/C++, MQTT, Sensors, Edge Computing, IoT Security}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Designed a \textbf{secure Smart City IoT platform} integrating intelligent street lighting and dynamic traffic management using \textbf{ESP32, sensor-driven edge logic, and real-time telemetry}.}
+
+\resumeItem{Implemented \textbf{MQTT-based device communication with encrypted data transmission}, enabling reliable connectivity between distributed IoT devices and centralized monitoring services.}
+
+\resumeItem{Applied \textbf{edge computing, IoT security, threat modeling, and real-time monitoring} to support responsive and scalable smart-city infrastructure.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{EcoBin -- AI-Powered Smart Waste Management System}
+{ESP32, IoT Sensors, Python, FastAPI, React, TypeScript, XGBoost, OR-Tools}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Developed an \textbf{IoT-enabled smart waste management system} for real-time container monitoring, fill-level prediction, overflow detection, and intelligent collection planning.}
+
+\resumeItem{Integrated \textbf{ultrasonic, weight, gas, and RFID sensing technologies} with wireless connectivity to collect operational telemetry and support automated waste-management workflows.}
+
+\resumeItem{Built predictive services using \textbf{XGBoost and FastAPI} and applied \textbf{Google OR-Tools} for optimized collection routing.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{Smart Irrigation System -- IoT Soil Health \& Automated Irrigation}
+{Arduino Uno, ESP32, Embedded C/C++, Soil Moisture, TMP36, Servo, DC Pump}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Engineered an \textbf{IoT-based smart irrigation prototype} for continuous soil and environmental monitoring with automated water-delivery control.}
+
+\resumeItem{Integrated \textbf{soil moisture, temperature, and light sensors} with Arduino, DC pump, servo actuator, LCD/I2C display, and optional ESP32 connectivity.}
+
+\resumeItem{Implemented \textbf{sensor data acquisition, threshold-based automation, actuator control, and real-time monitoring} to optimize irrigation and reduce unnecessary water consumption.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{Smart Cart OS -- AI-Powered Connected Shopping Cart}
+{ESP32, RFID, IoT, TypeScript, React, Computer Vision, Gemini AI}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Designed an \textbf{AI-enabled smart shopping cart system} combining IoT hardware concepts, RFID-based product identification, real-time analytics, and computer vision.}
+
+\resumeItem{Developed a connected-system architecture supporting \textbf{RFID simulation, real-time cart analytics, product identification, and intelligent shopping workflows}.}
+
+\resumeItem{Integrated \textbf{computer vision and Gemini AI} for automated product recognition, demonstrating the convergence of IoT, edge intelligence, and AI-powered systems.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{ChainForensics -- IoT Security \& Forensic Evidence Platform}
+{ESP32, MQTT, Node.js, TypeScript, Ethereum, Solidity, IPFS, SHA-256}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Engineered an \textbf{IoT security and digital forensics platform} for collecting, verifying, and preserving security events generated by connected devices.}
+
+\resumeItem{Implemented an evidence pipeline using \textbf{IoT telemetry, MQTT event collection, deterministic serialization, SHA-256 hashing, blockchain smart contracts, and IPFS}.}
+
+\resumeItem{Designed mechanisms for \textbf{tamper detection, immutable evidence registration, chain-of-custody verification, and forensic timeline reconstruction} across distributed IoT environments.}
+
+\end{itemize}
+
+\vspace{1mm}
+
+\resumeProject
+{Biometric Voting System -- Secure IoT Authentication Platform}
+{ESP32, Mantra Fingerprint Device, TypeScript, React, Node.js, IoT Security}
+
+\begin{itemize}[leftmargin=*]
+
+\resumeItem{Developing a \textbf{hardware-integrated biometric voting platform} using fingerprint authentication for secure and reliable voter identity verification.}
+
+\resumeItem{Upgraded the prototype from an \textbf{R307 fingerprint sensor to a Mantra fingerprint device}, strengthening hardware integration and real-world authentication workflows.}
+
+\resumeItem{Designed the system around \textbf{secure biometric verification, duplicate-vote prevention, auditability, device integration, and cybersecurity controls}.}
+
+\end{itemize}
+
+\vspace{-4pt}
+
+
+
+
+
+
+
+
+
+
+
+\section{Certifications}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{The Arduino Platform and C Programming} -- University of California, Irvine (Coursera)
+}
+
+\item{
+\textbf{Interfacing with the Arduino} -- University of California, Irvine (Coursera)
+}
+
+\item{
+\textbf{Introduction to Cyber Attacks} -- New York University (Coursera)
+}
+
+\item{
+\textbf{Data Structures Using Python: An Introduction} -- Coursera
+}
+
+\item{
+\textbf{Programming for Everybody (Getting Started with Python)} -- University of Michigan (Coursera)
+}
+
+\item{
+\textbf{Career Essentials in GitHub Professional Certificate} -- GitHub \& LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Actions} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Code Search} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Practical GitHub Project Management and Collaboration} -- LinkedIn Learning
+}
+
+\item{
+\textbf{Object-Oriented Design} -- University of Alberta (Coursera)
+}
+
+\item{
+\textbf{Java Programming} -- Coursera
+}
+
+\item{
+\textbf{Quantum Computing for Everyone} -- Coursera
+}
+
+\item{
+\textbf{Nanotechnology and Nanosensors, Part 1} -- Technion (Coursera)
+}
+
+\item{
+\textbf{Write Professional Emails in English} -- Georgia Institute of Technology (Coursera)
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+% =========================================================
+% RELEVANT COURSEWORK
+% =========================================================
+
+\section{Relevant Coursework}
+
+\begin{itemize}[leftmargin=0in, label={}]
+
+\small{
+
+\item{
+\textbf{IoT \& Embedded Systems:} Internet of Things, Embedded Systems, Microcontroller Programming, Sensor Networks, IoT Architecture, Hardware--Software Integration
+}
+
+\item{
+\textbf{Cybersecurity \& Networking:} Cybersecurity, Computer Networks, Network Security, Digital Forensics, Secure Communication, Information Security
+}
+
+\item{
+\textbf{Computer Science:} Data Structures \& Algorithms, Database Management Systems, Operating Systems, Object-Oriented Programming, Software Engineering
+}
+
+\item{
+\textbf{Engineering \& Analytics:} Probability \& Statistics, System Design, Problem Solving, Technical Writing
+}
+
+}
+
+\end{itemize}
+
+\vspace{-10pt}
+
+\end{document}
