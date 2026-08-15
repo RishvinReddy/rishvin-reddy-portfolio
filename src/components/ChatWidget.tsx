@@ -142,10 +142,10 @@ export function ChatWidget() {
       {/* FAB */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] border ${
+        className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 border ${
           isOpen 
             ? 'bg-white/10 border-white/20 rotate-90 scale-0 opacity-0 pointer-events-none' 
-            : 'bg-primary/20 hover:bg-primary/30 border-primary/50 backdrop-blur-md hover:scale-110 hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.4)]'
+            : 'bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 border-white/20 shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:scale-110 hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] backdrop-blur-md'
         }`}
       >
         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
