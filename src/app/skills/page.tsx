@@ -1,6 +1,7 @@
 import React from 'react';
 import { Metadata, Viewport } from "next";
 import SkillsClient from "@/components/SkillsClient";
+import certificationsData from "../../../public/data/certifications.json";
 
 export const metadata: Metadata = {
   title: "Skills & Tech Stack | Erolla Rishvin Reddy | Rishvin Labs",
@@ -182,6 +183,43 @@ export default function Skills() {
                 "@id": "https://rishvinreddy.vercel.app/#person"
               },
               "description": "Comprehensive list of technical skills and tools mastered by Erolla Rishvin Reddy across Software Engineering, IoT, Cybersecurity, and Blockchain."
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://rishvinreddy.vercel.app/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Skills & Certifications",
+                  "item": "https://rishvinreddy.vercel.app/skills"
+                }
+              ]
+            },
+            {
+              "@type": "ItemList",
+              "name": "Certifications of Erolla Rishvin Reddy",
+              "itemListElement": certificationsData.map((cert, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "Certificate",
+                  "name": cert.title,
+                  "description": cert.seo.description,
+                  "recognizedBy": {
+                    "@type": "Organization",
+                    "name": cert.issuer
+                  },
+                  "image": cert.image.startsWith('http') ? cert.image : `https://rishvinreddy.vercel.app/${cert.image}`,
+                  "url": cert.pdf.startsWith('http') ? cert.pdf : `https://rishvinreddy.vercel.app/${cert.pdf}`
+                }
+              }))
             }
           ]
         }

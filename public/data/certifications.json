@@ -1,174 +1,772 @@
 [
   {
-    "title": "Website Design and Development Internship - Completion",
-    "issuer": "Internship",
-    "date": "2026",
-    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
-    "description": "Completion certificate for the Website Design and Development Internship.",
+    "title": "Career Essentials in GitHub Professional Certificate",
+    "issuer": "LinkedIn Learning",
+    "date": "2024",
+    "image": "https://cdn-icons-png.flaticon.com/512/733/733609.png",
+    "description": "Completed the Career Essentials in GitHub Professional Certificate, developing practical knowledge of GitHub, version control, software development workflows, collaboration, repositories, and modern developer tools.",
     "tags": [
-      "Internship",
-      "Web Development"
+      "GitHub",
+      "Version Control",
+      "Software Development",
+      "Developer Tools",
+      "Git",
+      "Collaboration"
     ],
-    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Internship.pdf"
-  },
-  {
-    "title": "Website Design and Development Internship - Training",
-    "issuer": "Internship",
-    "date": "2026",
-    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
-    "description": "Training certificate for the Website Design and Development Internship.",
-    "tags": [
-      "Internship",
-      "Web Development"
-    ],
-    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Training.pdf"
-  },
-  {
-    "title": "Website Design and Development Internship - Offer Letter",
-    "issuer": "Internship",
-    "date": "2026",
-    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
-    "description": "Offer letter for the Website Design and Development Internship.",
-    "tags": [
-      "Internship",
-      "Web Development"
-    ],
-    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Offer Letter.pdf"
-  },
-  {
-    "title": "Understanding and Optimizing Campus Building Energy Consumption",
-    "issuer": "Woxsen University",
-    "date": "2025",
-    "image": "data/Data for the certificates/campus-energy-workshop.png",
-    "description": "Participated in a hands-on workshop focused on analyzing and optimizing energy consumption in campus buildings using practical approaches.",
-    "tags": [
-      "Energy Optimization",
-      "Sustainability",
-      "Workshop"
-    ],
-    "pdf": "data/Data for the certificates/campus-energy-workshop.png"
-  },
-  {
-    "title": "Programming for Everybody (Getting Started with Python)",
-    "issuer": "Coursera / University of Michigan",
-    "date": "2023",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
-    "description": "Foundational Python programming course covering variables, expressions, conditionals, functions, and loops.",
-    "tags": [
-      "Python",
-      "Coursera"
-    ],
-    "pdf": "data/Data for the certificates/Programming for Everybody (Getting Started with Python).pdf"
-  },
-  {
-    "title": "Data Structures Using Python — An Introduction",
-    "issuer": "Coursera",
-    "date": "2023",
-    "image": "https://cdn-icons-png.flaticon.com/512/2103/2103658.png",
-    "description": "Core data structures including lists, stacks, queues, trees, and graphs implemented in Python.",
-    "tags": [
-      "Python",
-      "Data Structures"
-    ],
-    "pdf": "data/Data for the certificates/Data Structures Using Python - An Introduction.pdf"
-  },
-  {
-    "title": "Interfacing with the Arduino",
-    "issuer": "Coursera / UC Irvine",
-    "date": "2023",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg",
-    "description": "Hands-on interfacing of sensors, actuators and modules with Arduino microcontrollers.",
-    "tags": [
-      "Arduino",
-      "IoT",
-      "C"
-    ],
-    "pdf": "data/Data for the certificates/Interfacing with the Arduino.pdf"
-  },
-  {
-    "title": "The Arduino Platform and C Programming",
-    "issuer": "Coursera / UC Irvine",
-    "date": "2023",
-    "image": "https://cdn-icons-png.flaticon.com/512/6132/6132222.png",
-    "description": "Introduction to the Arduino hardware platform and C-based firmware development.",
-    "tags": [
-      "Arduino",
-      "C Programming"
-    ],
-    "pdf": "data/Data for the certificates/The Arduino Platform and C Programming.pdf"
+    "pdf": "data/Data for the certificates/CertificateOfCompletion_Career Essentials in GitHub Professional Certificate.pdf",
+    "seo": {
+      "title": "Career Essentials in GitHub Professional Certificate | Rishvin Reddy",
+      "description": "Career Essentials in GitHub Professional Certificate completed by Rishvin Reddy, a Computer Science Engineering student at Woxsen University. Covers GitHub, version control, software development, collaboration, repositories, and developer tools.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Career Essentials in GitHub",
+        "GitHub Professional Certificate",
+        "GitHub certificate",
+        "GitHub certification",
+        "GitHub skills",
+        "GitHub version control",
+        "Git version control",
+        "software development certificate",
+        "developer tools",
+        "software engineering skills",
+        "GitHub collaboration",
+        "GitHub repositories",
+        "LinkedIn Learning certificate",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy certificates"
+      ],
+      "alt": "Rishvin Reddy Career Essentials in GitHub Professional Certificate",
+      "slug": "career-essentials-github-professional-certificate"
+    }
   },
   {
     "title": "Introduction to Cyber Attacks",
     "issuer": "Coursera / NYU",
     "date": "2024",
     "image": "https://cdn-icons-png.flaticon.com/512/3064/3064197.png",
-    "description": "Threat modelling, common attack vectors, vulnerability analysis and foundational cybersecurity concepts.",
+    "description": "Completed an introductory cybersecurity course covering cyber attacks, threat modeling, attack vectors, vulnerability analysis, network security concepts, and foundational information security principles.",
     "tags": [
       "Cybersecurity",
-      "Threat Modelling"
+      "Threat Modelling",
+      "Cyber Attacks",
+      "Information Security",
+      "Network Security"
     ],
-    "pdf": "data/Data for the certificates/Introduction to Cyber Attacks.pdf"
+    "pdf": "data/Data for the certificates/Introduction to Cyber Attacks.pdf",
+    "seo": {
+      "title": "Introduction to Cyber Attacks Certificate | Rishvin Reddy",
+      "description": "Introduction to Cyber Attacks certificate completed by Rishvin Reddy through Coursera and NYU. Covers cybersecurity fundamentals, threat modeling, attack vectors, vulnerabilities, and information security.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Introduction to Cyber Attacks",
+        "cybersecurity certificate",
+        "cyber attack certificate",
+        "cybersecurity certification",
+        "cyber attacks",
+        "cyber attack vectors",
+        "threat modeling",
+        "threat modelling",
+        "vulnerability analysis",
+        "information security",
+        "network security",
+        "cybersecurity fundamentals",
+        "ethical hacking fundamentals",
+        "security fundamentals",
+        "Coursera cybersecurity",
+        "NYU cybersecurity",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy cybersecurity"
+      ],
+      "alt": "Rishvin Reddy Introduction to Cyber Attacks certificate",
+      "slug": "introduction-to-cyber-attacks-certificate"
+    }
   },
   {
-    "title": "Java Programming",
+    "title": "Website Design and Development Internship - Completion",
+    "issuer": "Internship",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
+    "description": "Successfully completed a Website Design and Development Internship, gaining practical exposure to website development, frontend technologies, responsive design, web development workflows, and professional project execution.",
+    "tags": [
+      "Internship",
+      "Web Development",
+      "Website Design",
+      "Frontend Development",
+      "Web Technologies"
+    ],
+    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Internship.pdf",
+    "seo": {
+      "title": "Website Design and Development Internship Completion Certificate | Rishvin Reddy",
+      "description": "Website Design and Development Internship completion certificate for Rishvin Reddy. Demonstrates practical internship experience in website design, web development, frontend development, responsive design, and modern web technologies.",
+      "keywords": [
+        "Rishvin Reddy",
+        "website development internship",
+        "web development internship",
+        "website design internship",
+        "web development certificate",
+        "website design certificate",
+        "frontend development internship",
+        "frontend development",
+        "web technologies",
+        "responsive web design",
+        "website development experience",
+        "software development internship",
+        "technology internship",
+        "developer internship",
+        "internship certificate",
+        "internship completion certificate",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy internship"
+      ],
+      "alt": "Rishvin Reddy Website Design and Development Internship Completion Certificate",
+      "slug": "website-design-development-internship-completion"
+    }
+  },
+  {
+    "title": "Practical GitHub Actions",
+    "issuer": "LinkedIn Learning",
+    "date": "2024",
+    "image": "https://cdn-icons-png.flaticon.com/512/733/733609.png",
+    "description": "Completed Practical GitHub Actions, developing knowledge of GitHub Actions workflows, CI/CD automation, continuous integration, continuous delivery, development automation, and DevOps practices.",
+    "tags": [
+      "GitHub Actions",
+      "CI/CD",
+      "Automation",
+      "DevOps",
+      "GitHub",
+      "Continuous Integration",
+      "Continuous Delivery"
+    ],
+    "pdf": "data/Data for the certificates/CertificateOfCompletion_Practical GitHub Actions.pdf",
+    "seo": {
+      "title": "Practical GitHub Actions Certificate | CI/CD & DevOps | Rishvin Reddy",
+      "description": "Practical GitHub Actions certificate completed by Rishvin Reddy through LinkedIn Learning. Covers GitHub Actions, CI/CD automation, continuous integration, continuous delivery, workflows, and DevOps practices.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Practical GitHub Actions",
+        "GitHub Actions certificate",
+        "GitHub Actions certification",
+        "GitHub Actions",
+        "CI/CD",
+        "CI CD automation",
+        "continuous integration",
+        "continuous delivery",
+        "DevOps",
+        "DevOps certificate",
+        "GitHub automation",
+        "GitHub workflows",
+        "software development automation",
+        "developer automation",
+        "LinkedIn Learning",
+        "GitHub skills",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy DevOps"
+      ],
+      "alt": "Rishvin Reddy Practical GitHub Actions certificate",
+      "slug": "practical-github-actions-certificate"
+    }
+  },
+  {
+    "title": "Data Structures Using Python — An Introduction",
     "issuer": "Coursera",
     "date": "2023",
-    "image": "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
-    "description": "Object-oriented Java programming covering classes, inheritance, interfaces, and collections.",
+    "image": "https://cdn-icons-png.flaticon.com/512/2103/2103658.png",
+    "description": "Completed an introductory course on data structures using Python, covering lists, stacks, queues, trees, graphs, and fundamental techniques for organizing and processing data efficiently.",
     "tags": [
-      "Java",
-      "OOP"
+      "Python",
+      "Data Structures",
+      "Algorithms",
+      "Programming",
+      "Computer Science"
     ],
-    "pdf": "data/Data for the certificates/Java Programming.pdf"
+    "pdf": "data/Data for the certificates/Data Structures Using Python - An Introduction.pdf",
+    "seo": {
+      "title": "Data Structures Using Python Certificate | Rishvin Reddy",
+      "description": "Data Structures Using Python certificate completed by Rishvin Reddy through Coursera. Covers Python programming, lists, stacks, queues, trees, graphs, data organization, and fundamental computer science concepts.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Data Structures Using Python",
+        "data structures certificate",
+        "Python data structures",
+        "Python certificate",
+        "Python programming",
+        "data structures and algorithms",
+        "DSA Python",
+        "Python DSA",
+        "lists Python",
+        "stacks Python",
+        "queues Python",
+        "trees Python",
+        "graphs Python",
+        "computer science certificate",
+        "programming certificate",
+        "Coursera Python",
+        "algorithm fundamentals",
+        "Woxsen University",
+        "Rishvin Reddy Python"
+      ],
+      "alt": "Rishvin Reddy Data Structures Using Python certificate",
+      "slug": "data-structures-using-python-certificate"
+    }
+  },
+  {
+    "title": "Programming for Everybody (Getting Started with Python)",
+    "issuer": "Coursera / University of Michigan",
+    "date": "2023",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+    "description": "Completed Programming for Everybody (Getting Started with Python), covering Python fundamentals including variables, expressions, conditionals, functions, loops, and basic programming concepts.",
+    "tags": [
+      "Python",
+      "Programming",
+      "Python Fundamentals",
+      "Computer Science"
+    ],
+    "pdf": "data/Data for the certificates/Programming for Everybody (Getting Started with Python).pdf",
+    "seo": {
+      "title": "Programming for Everybody Getting Started with Python | Rishvin Reddy",
+      "description": "Programming for Everybody (Getting Started with Python) certificate completed by Rishvin Reddy through Coursera and the University of Michigan. Covers Python fundamentals, variables, expressions, conditionals, functions, and loops.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Programming for Everybody",
+        "Getting Started with Python",
+        "Python certificate",
+        "Python programming certificate",
+        "Python fundamentals",
+        "learn Python",
+        "Python programming",
+        "Python variables",
+        "Python functions",
+        "Python loops",
+        "Python conditionals",
+        "Python expressions",
+        "programming fundamentals",
+        "computer programming certificate",
+        "Coursera Python",
+        "University of Michigan Python",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy Python certificate"
+      ],
+      "alt": "Rishvin Reddy Programming for Everybody Getting Started with Python certificate",
+      "slug": "programming-for-everybody-getting-started-with-python"
+    }
   },
   {
     "title": "Object-Oriented Design",
     "issuer": "Coursera / University of Alberta",
     "date": "2023",
     "image": "https://cdn-icons-png.flaticon.com/512/1055/1055687.png",
-    "description": "Design principles including SOLID, UML diagrams, design patterns and software architecture.",
+    "description": "Completed Object-Oriented Design covering object-oriented design principles, SOLID principles, UML diagrams, design patterns, software architecture, and maintainable software design.",
     "tags": [
       "OOP",
+      "Object-Oriented Design",
       "Design Patterns",
-      "UML"
+      "UML",
+      "SOLID",
+      "Software Architecture"
     ],
-    "pdf": "data/Data for the certificates/Object-Oriented Design.pdf"
+    "pdf": "data/Data for the certificates/Object-Oriented Design.pdf",
+    "seo": {
+      "title": "Object-Oriented Design Certificate | SOLID & Design Patterns | Rishvin Reddy",
+      "description": "Object-Oriented Design certificate completed by Rishvin Reddy through Coursera and the University of Alberta. Covers object-oriented programming design, SOLID principles, UML, design patterns, and software architecture.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Object-Oriented Design",
+        "OOP certificate",
+        "object oriented design certificate",
+        "SOLID principles",
+        "SOLID design",
+        "design patterns",
+        "software design",
+        "software architecture",
+        "UML diagrams",
+        "UML design",
+        "object oriented programming",
+        "OOP principles",
+        "software engineering",
+        "software architecture certificate",
+        "Coursera software engineering",
+        "University of Alberta",
+        "computer science certificate",
+        "Woxsen University",
+        "Rishvin Reddy software engineering"
+      ],
+      "alt": "Rishvin Reddy Object-Oriented Design certificate",
+      "slug": "object-oriented-design-certificate"
+    }
   },
   {
-    "title": "Quantum Computing For Everyone — An Introduction",
+    "title": "Java Programming",
+    "issuer": "Coursera",
+    "date": "2023",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
+    "description": "Completed Java Programming, developing foundational knowledge of object-oriented Java development including classes, inheritance, interfaces, collections, and core programming concepts.",
+    "tags": [
+      "Java",
+      "OOP",
+      "Object-Oriented Programming",
+      "Programming",
+      "Software Development"
+    ],
+    "pdf": "data/Data for the certificates/Java Programming.pdf",
+    "seo": {
+      "title": "Java Programming Certificate | Object-Oriented Programming | Rishvin Reddy",
+      "description": "Java Programming certificate completed by Rishvin Reddy through Coursera. Covers Java programming, object-oriented programming, classes, inheritance, interfaces, collections, and software development fundamentals.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Java Programming",
+        "Java certificate",
+        "Java programming certificate",
+        "Java programming skills",
+        "Java OOP",
+        "object oriented programming Java",
+        "Java classes",
+        "Java inheritance",
+        "Java interfaces",
+        "Java collections",
+        "software development",
+        "programming certificate",
+        "computer science programming",
+        "Coursera Java",
+        "Java developer skills",
+        "OOP programming",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy Java"
+      ],
+      "alt": "Rishvin Reddy Java Programming certificate",
+      "slug": "java-programming-certificate"
+    }
+  },
+  {
+    "title": "Interfacing with the Arduino",
+    "issuer": "Coursera / UC Irvine",
+    "date": "2023",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg",
+    "description": "Completed Interfacing with the Arduino, gaining practical knowledge of connecting sensors, actuators, electronic modules, and peripheral components with Arduino microcontrollers.",
+    "tags": [
+      "Arduino",
+      "IoT",
+      "C",
+      "Microcontrollers",
+      "Embedded Systems",
+      "Sensors"
+    ],
+    "pdf": "data/Data for the certificates/Interfacing with the Arduino.pdf",
+    "seo": {
+      "title": "Interfacing with the Arduino Certificate | IoT & Embedded Systems | Rishvin Reddy",
+      "description": "Interfacing with the Arduino certificate completed by Rishvin Reddy through Coursera and UC Irvine. Covers Arduino, sensors, actuators, microcontrollers, embedded systems, C programming, and IoT hardware interfacing.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Interfacing with the Arduino",
+        "Arduino certificate",
+        "Arduino certification",
+        "Arduino programming",
+        "Arduino IoT",
+        "Arduino sensors",
+        "Arduino actuators",
+        "microcontroller programming",
+        "embedded systems",
+        "IoT certificate",
+        "IoT hardware",
+        "C programming Arduino",
+        "Arduino projects",
+        "electronics and Arduino",
+        "Coursera Arduino",
+        "UC Irvine Arduino",
+        "Internet of Things",
+        "Woxsen University",
+        "Rishvin Reddy IoT"
+      ],
+      "alt": "Rishvin Reddy Interfacing with the Arduino certificate",
+      "slug": "interfacing-with-the-arduino-certificate"
+    }
+  },
+  {
+    "title": "The Arduino Platform and C Programming",
+    "issuer": "Coursera / UC Irvine",
+    "date": "2023",
+    "image": "https://cdn-icons-png.flaticon.com/512/6132/6132222.png",
+    "description": "Completed The Arduino Platform and C Programming, covering Arduino hardware, microcontroller fundamentals, C-based firmware development, embedded programming, and basic electronics interfacing.",
+    "tags": [
+      "Arduino",
+      "C Programming",
+      "IoT",
+      "Embedded Systems",
+      "Microcontrollers"
+    ],
+    "pdf": "data/Data for the certificates/The Arduino Platform and C Programming.pdf",
+    "seo": {
+      "title": "The Arduino Platform and C Programming Certificate | Rishvin Reddy",
+      "description": "The Arduino Platform and C Programming certificate completed by Rishvin Reddy through Coursera and UC Irvine. Covers Arduino hardware, C programming, embedded systems, microcontrollers, firmware, and IoT development.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Arduino Platform and C Programming",
+        "Arduino certificate",
+        "Arduino C programming",
+        "C programming certificate",
+        "Arduino programming",
+        "Arduino development",
+        "embedded C",
+        "embedded systems",
+        "microcontroller programming",
+        "firmware development",
+        "IoT programming",
+        "Arduino hardware",
+        "Internet of Things",
+        "embedded programming",
+        "Coursera Arduino",
+        "UC Irvine Arduino",
+        "C programming Arduino",
+        "Woxsen University",
+        "Rishvin Reddy embedded systems"
+      ],
+      "alt": "Rishvin Reddy The Arduino Platform and C Programming certificate",
+      "slug": "arduino-platform-c-programming-certificate"
+    }
+  },
+  {
+    "title": "Practical GitHub Project Management and Collaboration",
+    "issuer": "LinkedIn Learning",
+    "date": "2024",
+    "image": "https://cdn-icons-png.flaticon.com/512/733/733609.png",
+    "description": "Completed Practical GitHub Project Management and Collaboration, covering GitHub-based project organization, collaboration workflows, issue tracking, project management, team coordination, and software development practices.",
+    "tags": [
+      "GitHub",
+      "Project Management",
+      "Collaboration",
+      "PMI",
+      "Software Development",
+      "Teamwork"
+    ],
+    "pdf": "data/Data for the certificates/CertificateOfCompletion_Practical GitHub Project Management and Collaboration (1).pdf",
+    "seo": {
+      "title": "Practical GitHub Project Management and Collaboration | Rishvin Reddy",
+      "description": "Practical GitHub Project Management and Collaboration certificate completed by Rishvin Reddy through LinkedIn Learning. Covers GitHub project management, collaboration, issue tracking, team workflows, and software development practices.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Practical GitHub Project Management",
+        "GitHub project management",
+        "GitHub collaboration",
+        "GitHub certificate",
+        "GitHub project management certificate",
+        "software project management",
+        "software development collaboration",
+        "team collaboration",
+        "GitHub issues",
+        "GitHub project workflows",
+        "developer collaboration",
+        "software engineering teamwork",
+        "project management certificate",
+        "PMI project management",
+        "LinkedIn Learning",
+        "GitHub skills",
+        "software development",
+        "Woxsen University",
+        "Rishvin Reddy GitHub"
+      ],
+      "alt": "Rishvin Reddy Practical GitHub Project Management and Collaboration certificate",
+      "slug": "practical-github-project-management-collaboration"
+    }
+  },
+  {
+    "title": "Practical GitHub Code Search",
+    "issuer": "LinkedIn Learning",
+    "date": "2024",
+    "image": "https://cdn-icons-png.flaticon.com/512/733/733609.png",
+    "description": "Completed Practical GitHub Code Search, developing practical knowledge of searching repositories, finding code efficiently, exploring GitHub projects, and improving developer workflows.",
+    "tags": [
+      "GitHub",
+      "Code Search",
+      "Software Development",
+      "Developer Tools",
+      "Repository Search"
+    ],
+    "pdf": "data/Data for the certificates/CertificateOfCompletion_Practical GitHub Code Search.pdf",
+    "seo": {
+      "title": "Practical GitHub Code Search Certificate | Rishvin Reddy",
+      "description": "Practical GitHub Code Search certificate completed by Rishvin Reddy through LinkedIn Learning. Covers GitHub code search, repository exploration, developer tools, code discovery, and efficient software development workflows.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Practical GitHub Code Search",
+        "GitHub Code Search certificate",
+        "GitHub code search",
+        "GitHub search",
+        "GitHub repository search",
+        "GitHub developer tools",
+        "code discovery",
+        "source code search",
+        "software development tools",
+        "developer productivity",
+        "GitHub repositories",
+        "GitHub skills",
+        "software engineering tools",
+        "LinkedIn Learning GitHub",
+        "GitHub certificate",
+        "software development",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy GitHub certificate"
+      ],
+      "alt": "Rishvin Reddy Practical GitHub Code Search certificate",
+      "slug": "practical-github-code-search-certificate"
+    }
+  },
+  {
+    "title": "Quantum Computing For Everyone \u2014 An Introduction",
     "issuer": "Coursera",
     "date": "2024",
     "image": "https://cdn-icons-png.flaticon.com/512/4221/4221419.png",
-    "description": "Qubits, quantum gates, superposition, entanglement and the basics of quantum algorithms.",
+    "description": "Completed an introductory course in quantum computing covering qubits, quantum gates, superposition, entanglement, quantum circuits, and foundational quantum algorithms.",
     "tags": [
       "Quantum Computing",
-      "Qubits"
+      "Qubits",
+      "Quantum Algorithms",
+      "Quantum Technology"
     ],
-    "pdf": "data/Data for the certificates/Quantum Computing For Everyone - An Introduction.pdf"
+    "pdf": "data/Data for the certificates/Quantum Computing For Everyone - An Introduction.pdf",
+    "seo": {
+      "title": "Quantum Computing For Everyone Certificate | Rishvin Reddy",
+      "description": "Quantum Computing For Everyone certificate completed by Rishvin Reddy through Coursera. Covers quantum computing fundamentals, qubits, quantum gates, superposition, entanglement, quantum circuits, and quantum algorithms.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Quantum Computing For Everyone",
+        "quantum computing certificate",
+        "quantum computing certification",
+        "quantum computing fundamentals",
+        "qubits",
+        "quantum gates",
+        "quantum superposition",
+        "quantum entanglement",
+        "quantum circuits",
+        "quantum algorithms",
+        "quantum technology",
+        "quantum programming fundamentals",
+        "computer science quantum computing",
+        "Coursera quantum computing",
+        "quantum computing course",
+        "emerging technologies",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy quantum computing"
+      ],
+      "alt": "Rishvin Reddy Quantum Computing For Everyone certificate",
+      "slug": "quantum-computing-for-everyone-certificate"
+    }
   },
   {
     "title": "Nanotechnology and Nanosensors, Part 1",
     "issuer": "Coursera / Technion",
     "date": "2024",
     "image": "https://cdn-icons-png.flaticon.com/512/4149/4149643.png",
-    "description": "Fundamentals of nanotechnology, nanomaterial properties and nanosensor design principles.",
+    "description": "Completed Nanotechnology and Nanosensors, Part 1, covering nanotechnology fundamentals, nanomaterials, nanoscale properties, sensor concepts, and nanosensor design principles.",
     "tags": [
       "Nanotechnology",
+      "Nanosensors",
       "IoT",
-      "Sensors"
+      "Sensors",
+      "Nanomaterials"
     ],
-    "pdf": "data/Data for the certificates/Nanotechnology and Nanosensors, Part1.pdf"
+    "pdf": "data/Data for the certificates/Nanotechnology and Nanosensors, Part1.pdf",
+    "seo": {
+      "title": "Nanotechnology and Nanosensors Part 1 Certificate | Rishvin Reddy",
+      "description": "Nanotechnology and Nanosensors Part 1 certificate completed by Rishvin Reddy through Coursera and Technion. Covers nanotechnology, nanomaterials, nanoscale properties, nanosensors, sensor design, and emerging sensing technologies.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Nanotechnology and Nanosensors",
+        "Nanotechnology certificate",
+        "nanosensors certificate",
+        "nanotechnology course",
+        "nanosensor design",
+        "nanomaterials",
+        "nanotechnology sensors",
+        "sensor technology",
+        "IoT sensors",
+        "smart sensors",
+        "nanoscale technology",
+        "emerging technology",
+        "sensor engineering",
+        "Coursera nanotechnology",
+        "Technion nanotechnology",
+        "Internet of Things sensors",
+        "IoT technology",
+        "Woxsen University",
+        "Rishvin Reddy nanotechnology"
+      ],
+      "alt": "Rishvin Reddy Nanotechnology and Nanosensors Part 1 certificate",
+      "slug": "nanotechnology-nanosensors-part-1-certificate"
+    }
   },
   {
     "title": "Write Professional Emails in English",
     "issuer": "Coursera / Georgia Tech",
     "date": "2023",
     "image": "https://cdn-icons-png.flaticon.com/512/732/732200.png",
-    "description": "Best practices for clear, professional business communication in written English.",
+    "description": "Completed Write Professional Emails in English, developing professional written communication skills for clear, concise, structured, and effective workplace email communication.",
     "tags": [
       "Communication",
-      "Professional"
+      "Professional",
+      "Business Communication",
+      "Writing",
+      "Professional Emails"
     ],
-    "pdf": "data/Data for the certificates/Write Professional Emails in English.pdf"
+    "pdf": "data/Data for the certificates/Write Professional Emails in English.pdf",
+    "seo": {
+      "title": "Write Professional Emails in English Certificate | Rishvin Reddy",
+      "description": "Write Professional Emails in English certificate completed by Rishvin Reddy through Coursera and Georgia Tech. Covers professional email writing, business communication, clarity, concise writing, tone, and workplace communication.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Write Professional Emails in English",
+        "professional email certificate",
+        "professional email writing",
+        "business communication",
+        "professional communication",
+        "workplace communication",
+        "email writing skills",
+        "business writing",
+        "professional writing",
+        "English communication",
+        "technical communication",
+        "corporate communication",
+        "communication skills certificate",
+        "Coursera communication",
+        "Georgia Tech professional communication",
+        "professional emails",
+        "career communication skills",
+        "Woxsen University",
+        "Rishvin Reddy communication skills"
+      ],
+      "alt": "Rishvin Reddy Write Professional Emails in English certificate",
+      "slug": "write-professional-emails-in-english-certificate"
+    }
+  },
+  {
+    "title": "Understanding and Optimizing Campus Building Energy Consumption",
+    "issuer": "Woxsen University",
+    "date": "2025",
+    "image": "data/Data for the certificates/campus-energy-workshop.png",
+    "description": "Participated in a hands-on workshop focused on analyzing, understanding, and optimizing energy consumption in campus buildings through practical energy management and sustainability approaches.",
+    "tags": [
+      "Energy Optimization",
+      "Sustainability",
+      "Workshop",
+      "Energy Management",
+      "Smart Buildings"
+    ],
+    "pdf": "data/Data for the certificates/campus-energy-workshop.png",
+    "seo": {
+      "title": "Understanding and Optimizing Campus Building Energy Consumption | Rishvin Reddy",
+      "description": "Workshop participation certificate from Woxsen University for Understanding and Optimizing Campus Building Energy Consumption. Focused on energy analysis, optimization, sustainability, energy management, and smart building concepts.",
+      "keywords": [
+        "Rishvin Reddy",
+        "campus building energy consumption",
+        "energy consumption optimization",
+        "building energy optimization",
+        "energy management",
+        "energy efficiency",
+        "sustainability workshop",
+        "smart buildings",
+        "building energy analysis",
+        "sustainable buildings",
+        "energy conservation",
+        "energy optimization certificate",
+        "Woxsen University",
+        "Woxsen University workshop",
+        "sustainability certificate",
+        "energy management workshop",
+        "smart campus",
+        "sustainable technology",
+        "technology workshop",
+        "Rishvin Reddy Woxsen University"
+      ],
+      "alt": "Rishvin Reddy Understanding and Optimizing Campus Building Energy Consumption workshop certificate",
+      "slug": "campus-building-energy-consumption-optimization"
+    }
+  },
+  {
+    "title": "Website Design and Development Internship - Training",
+    "issuer": "Internship",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
+    "description": "Completed training associated with a Website Design and Development Internship, covering practical concepts related to website design, frontend development, web technologies, responsive interfaces, and development workflows.",
+    "tags": [
+      "Internship",
+      "Web Development",
+      "Website Design",
+      "Frontend Development",
+      "Training"
+    ],
+    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Training.pdf",
+    "seo": {
+      "title": "Website Design and Development Internship Training Certificate | Rishvin Reddy",
+      "description": "Website Design and Development Internship training certificate for Rishvin Reddy. Demonstrates training in website design, frontend development, responsive web interfaces, web technologies, and professional development workflows.",
+      "keywords": [
+        "Rishvin Reddy",
+        "website design training",
+        "website development training",
+        "web development internship training",
+        "web development certificate",
+        "website design certificate",
+        "frontend development training",
+        "frontend development",
+        "responsive web development",
+        "web technologies",
+        "website development skills",
+        "developer training",
+        "software development training",
+        "technology internship",
+        "internship training certificate",
+        "web development internship",
+        "Computer Science Engineering",
+        "Woxsen University",
+        "Rishvin Reddy web development"
+      ],
+      "alt": "Rishvin Reddy Website Design and Development Internship Training Certificate",
+      "slug": "website-design-development-internship-training"
+    }
+  },
+  {
+    "title": "Website Design and Development Internship - Offer Letter",
+    "issuer": "Internship",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/1005/1005141.png",
+    "description": "Offer letter associated with a Website Design and Development Internship, documenting the internship opportunity and professional experience in website design and web development.",
+    "tags": [
+      "Internship",
+      "Web Development",
+      "Website Design",
+      "Professional Experience"
+    ],
+    "pdf": "data/Data for the certificates/Rishvin Reddy - Website Design and Development Internship - Offer Letter.pdf",
+    "seo": {
+      "title": "Website Design and Development Internship Offer Letter | Rishvin Reddy",
+      "description": "Website Design and Development Internship offer letter for Rishvin Reddy, documenting an internship opportunity focused on website design, web development, frontend technologies, and practical software development experience.",
+      "keywords": [
+        "Rishvin Reddy",
+        "website development internship offer letter",
+        "web development internship",
+        "website design internship",
+        "web development experience",
+        "frontend development internship",
+        "software development internship",
+        "technology internship",
+        "internship offer letter",
+        "web developer internship",
+        "website development opportunity",
+        "professional internship",
+        "web development student",
+        "Computer Science Engineering student",
+        "Woxsen University",
+        "Rishvin Reddy internship",
+        "Rishvin Reddy web developer",
+        "frontend development experience"
+      ],
+      "alt": "Rishvin Reddy Website Design and Development Internship Offer Letter",
+      "slug": "website-design-development-internship-offer-letter"
+    }
   }
 ]

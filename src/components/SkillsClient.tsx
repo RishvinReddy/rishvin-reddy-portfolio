@@ -190,7 +190,7 @@ export default function SkillsClient() {
               >
                 <div className="h-48 bg-gray-100 dark:bg-black/30 p-8 flex items-center justify-center relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/5 dark:to-black/20" />
-                  <img src={cert.image.startsWith('data/') ? `/${cert.image}` : cert.image} alt={cert.title} className="max-h-full max-w-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-md" />
+                  <img src={cert.image.startsWith('data/') ? `/${cert.image}` : cert.image} alt={cert.seo?.alt || cert.title} className="max-h-full max-w-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 drop-shadow-md" />
                 </div>
                 
                 <div className="p-8 flex flex-col flex-grow">
