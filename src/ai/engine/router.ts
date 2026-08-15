@@ -11,6 +11,8 @@ export enum Intent {
   PATENT_INFO = "PATENT_INFO",
   EXPLAIN_CODE = "EXPLAIN_CODE",
   GENERAL = "GENERAL",
+  GREETING = "GREETING",
+  SYNTHESIS = "SYNTHESIS" // For multi-domain questions
 }
 
 export interface ParsedIntent {
@@ -18,10 +20,20 @@ export interface ParsedIntent {
   query: string;
   command?: string;
   args?: string[];
+  entities: string[];
 }
 
 // Training dataset for intents
 const intentTrainingData = [
+  // GREETING
+  { text: "hello", intent: Intent.GREETING },
+  { text: "hi", intent: Intent.GREETING },
+  { text: "hey", intent: Intent.GREETING },
+  { text: "good morning", intent: Intent.GREETING },
+  { text: "yo", intent: Intent.GREETING },
+  { text: "greetings", intent: Intent.GREETING },
+  { text: "how are you", intent: Intent.GREETING },
+
   // PROJECT_SEARCH
   { text: "show me your projects", intent: Intent.PROJECT_SEARCH },
   { text: "what have you built", intent: Intent.PROJECT_SEARCH },
@@ -80,6 +92,12 @@ const intentTrainingData = [
   { text: "explain the architecture", intent: Intent.SPECIFIC_PROJECT_INFO },
   { text: "what is the tech stack for this", intent: Intent.SPECIFIC_PROJECT_INFO },
   { text: "how was this built", intent: Intent.SPECIFIC_PROJECT_INFO },
+  { text: "what about its security", intent: Intent.SPECIFIC_PROJECT_INFO },
+
+  // SYNTHESIS
+  { text: "how does your cybersecurity background help you build projects", intent: Intent.SYNTHESIS },
+  { text: "what skills did you use in chainforensics", intent: Intent.SYNTHESIS },
+  { text: "how do your skills relate to your projects", intent: Intent.SYNTHESIS },
 ];
 
 const fuse = new Fuse(intentTrainingData, {
@@ -88,9 +106,22 @@ const fuse = new Fuse(intentTrainingData, {
   includeScore: true,
 });
 
+// A simple dictionary for entity extraction
+const KNOWN_ENTITIES = [
+  "react", "python", "javascript", "typescript", "node.js", "blockchain", "iot", "cybersecurity",
+  "chainforensics", "votesafe", "wob", "smart budget planner", "outing form management", "resume", "patent"
+];
+
+function extractEntities(query: string): string[] {
+  const lowerQuery = query.toLowerCase();
+  return KNOWN_ENTITIES.filter(entity => lowerQuery.includes(entity));
+}
+
 export function parseIntent(message: string, currentContextId?: string, isFileOpen?: boolean): ParsedIntent {
   const trimmed = message.trim();
   const lower = trimmed.toLowerCase();
+  
+  const entities = extractEntities(lower);
 
   // 1. Exact Commands
   if (trimmed.startsWith('/')) {
@@ -99,29 +130,42 @@ export function parseIntent(message: string, currentContextId?: string, isFileOp
     const args = parts.slice(1);
     
     if (cmd === 'explain' && isFileOpen) {
-      return { intent: Intent.EXPLAIN_CODE, query: trimmed, command: cmd, args };
+      return { intent: Intent.EXPLAIN_CODE, query: trimmed, command: cmd, args, entities };
     }
     
-    return { intent: Intent.COMMAND, query: trimmed, command: cmd, args };
+    return { intent: Intent.COMMAND, query: trimmed, command: cmd, args, entities };
   }
 
-  // 2. Run NLP classification
-  const results = fuse.search(lower);
+  // 2. Coreference Resolution heuristics
+  let resolvedQuery = lower;
+  if ((lower.includes(" it ") || lower.includes(" this ") || lower.includes(" its ")) && currentContextId) {
+    resolvedQuery += ` ${currentContextId}`;
+  }
+
+  // 3. Run NLP classification
+  const results = fuse.search(resolvedQuery);
   
   if (results.length > 0) {
     const bestMatch = results[0];
-    // If we match a specific project intent but no project context, fallback
-    if (bestMatch.item.intent === Intent.SPECIFIC_PROJECT_INFO && !currentContextId) {
-      // Fallback
-    } else {
-      return { intent: bestMatch.item.intent, query: trimmed };
+    
+    // Coreference Check: if it's a specific project info query but we don't know which project...
+    if (bestMatch.item.intent === Intent.SPECIFIC_PROJECT_INFO && !currentContextId && entities.length === 0) {
+      // It's probably just a general question that matched badly
+      return { intent: Intent.GENERAL, query: trimmed, entities };
     }
+    
+    // Multi-domain check
+    if (entities.length > 1 && bestMatch.item.intent === Intent.PROJECT_SEARCH && lower.includes("skills")) {
+      return { intent: Intent.SYNTHESIS, query: trimmed, entities };
+    }
+
+    return { intent: bestMatch.item.intent, query: trimmed, entities };
   }
 
   // Fallback heuristic for code explanation if they just typed "what is this" while a file is open
   if (isFileOpen && (lower.includes('what') || lower.includes('explain') || lower.includes('how')) && (lower.includes('this') || lower.includes('it') || lower.includes('file') || lower.includes('code'))) {
-    return { intent: Intent.EXPLAIN_CODE, query: trimmed };
+    return { intent: Intent.EXPLAIN_CODE, query: trimmed, entities };
   }
 
-  return { intent: Intent.GENERAL, query: trimmed };
+  return { intent: Intent.GENERAL, query: trimmed, entities };
 }

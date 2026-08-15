@@ -2,8 +2,32 @@ import { Context, ChatMessage } from './context';
 import { Intent, ParsedIntent } from './router';
 import { searchProjects, searchSkills, getResumeInfo, getProjectById, searchFAQ } from './retrieval';
 
+// Templates
+const GREETINGS = [
+  "Hello! I'm Rishvin's local AI assistant. How can I help you today?",
+  "Hi there! I run entirely in your browser. What would you like to know about Rishvin's work?",
+  "Hey! I'm an on-device AI built to answer questions about Rishvin's engineering portfolio. Ask me anything!"
+];
+
+const ACKNOWLEDGEMENTS = [
+  "Great question.",
+  "Here's what I found:",
+  "Let me break that down for you.",
+  "Sure thing!"
+];
+
+function getRandom(arr: string[]) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
 export function generateResponse(parsed: ParsedIntent, context: Context): { response: string, actions?: {label: string, action: string}[], newContext?: Context } {
-  const { intent, query, command, args } = parsed;
+  const { intent, query, command, args, entities } = parsed;
+
+  let newContext = { ...context };
+
+  if (intent === Intent.GREETING) {
+    return { response: getRandom(GREETINGS) };
+  }
 
   if (intent === Intent.COMMAND) {
     return handleCommand(command || '', args || [], context);
@@ -17,33 +41,49 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
     return { response: explanation };
   }
 
-  if (intent === Intent.SPECIFIC_PROJECT_INFO && context.activeProject) {
-    const proj = getProjectById(context.activeProject);
-    if (proj) {
-      if (query.toLowerCase().includes('architecture')) {
-        return { response: `**${proj.name} Architecture**:\n${proj.architecture}` };
+  if (intent === Intent.SPECIFIC_PROJECT_INFO) {
+    // Determine which project to talk about
+    let targetProjectId = context.activeTopic || context.activeProject;
+    
+    // Check if they mentioned a project explicitly
+    const mentionedProject = entities.find(e => ['chainforensics', 'votesafe', 'smart budget planner', 'outing form management'].includes(e));
+    if (mentionedProject) {
+      // Map entity to ID (hacky but works for demo)
+      targetProjectId = mentionedProject.replace(/ /g, '-');
+    }
+
+    if (targetProjectId) {
+      const proj = getProjectById(targetProjectId);
+      if (proj) {
+        newContext.activeTopic = proj.id;
+        if (query.toLowerCase().includes('architecture')) {
+          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**${proj.name} Architecture**:\n${proj.architecture}`, newContext };
+        }
+        if (query.toLowerCase().includes('security')) {
+          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Security Model**:\n${proj.security?.model || proj.securityModel || 'No specific security model detailed.'}`, newContext };
+        }
+        if (query.toLowerCase().includes('stack') || query.toLowerCase().includes('tech')) {
+          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Tech Stack**:\n${proj.stack.join(', ')}`, newContext };
+        }
+        return { response: `${proj.name} features:\n${proj.features.map(f => typeof f === 'string' ? `- ${f}` : `- **${f.name}**: ${f.description}`).join('\n')}`, newContext };
       }
-      if (query.toLowerCase().includes('security')) {
-        return { response: `**Security Model**:\n${proj.securityModel || 'No specific security model detailed.'}` };
-      }
-      if (query.toLowerCase().includes('stack') || query.toLowerCase().includes('tech')) {
-        return { response: `**Tech Stack**:\n${proj.stack.join(', ')}` };
-      }
-      return { response: `${proj.name} features:\n${proj.features.map(f => `- ${f}`).join('\n')}` };
     }
   }
 
   if (intent === Intent.PROJECT_SEARCH) {
-    const projects = searchProjects(query.replace(/projects?|built|made|portfolio/gi, '').trim());
+    const searchTarget = entities.length > 0 ? entities[0] : query.replace(/projects?|built|made|portfolio/gi, '').trim();
+    const projects = searchProjects(searchTarget);
+    
     if (projects.length === 1) {
       const proj = projects[0];
+      newContext.activeTopic = proj.id;
       return {
-        response: `**${proj.name}**\n${proj.description}\n\nStack: ${proj.stack.join(', ')}`,
+        response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**${proj.name}**\n${proj.description}\n\nStack: ${proj.stack.join(', ')}`,
         actions: [
           { label: 'Architecture', action: `/architecture ${proj.id}` },
           { label: 'Tech Stack', action: `/stack ${proj.id}` }
         ],
-        newContext: { ...context, activeProject: proj.id }
+        newContext
       };
     } else if (projects.length > 1) {
       const list = projects.map(p => `- **${p.name}**: ${p.shortDescription}`).join('\n');
@@ -53,15 +93,21 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
     }
   }
 
+  if (intent === Intent.SYNTHESIS) {
+    return {
+      response: `That's a great question crossing multiple domains.\n\nRishvin frequently combines his deep knowledge of **Cybersecurity** and **IoT** to build secure systems like **ChainForensics**. Rather than just using a framework, he applies threat modeling and secure-by-design principles (from his Cybersecurity skills) to the architecture (e.g., IoT data collection).`
+    };
+  }
+
   if (intent === Intent.SKILLS_INFO) {
     const results = searchSkills(query.replace(/skills?|tech|stack/gi, '').trim());
     const list = results.map(r => `**${r.category}**: ${r.skills.join(', ')}`).join('\n\n');
-    return { response: `Here is Rishvin's relevant tech stack:\n\n${list}` };
+    return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n${list}` };
   }
 
   if (intent === Intent.RESUME_INFO) {
     const info = getResumeInfo();
-    const ed = info.education.map(e => `**${e.institution}**\n${e.degree} (${e.duration})\n${e.details.map(d=>`- ${d}`).join('\n')}`).join('\n\n');
+    const ed = info.education.map(e => `**${e.institution}**\n${e.degree} (${e.duration})\n${e.details?.map(d=>`- ${d}`).join('\n')}`).join('\n\n');
     const certs = info.certifications.map(c => `- ${c.name} (${c.issuer})`).join('\n');
     return { response: `**Profile**: ${info.profile.name} | CGPA: ${info.profile.cgpa} | ${info.profile.availability}\n\n**Education**\n${ed}\n\n**Certifications**\n${certs}` };
   }
@@ -75,8 +121,10 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
 
   if (intent === Intent.PATENT_INFO) {
     const info = getResumeInfo();
+    if (!info.patent || info.patent.length === 0) return { response: "I couldn't find any patent information." };
+    const pat = info.patent[0]; // Assuming array
     return {
-      response: `**Patent Information**\n\n- **Title**: ${info.patent.title}\n- **Number**: ${info.patent.number}\n- **Role**: ${info.patent.role}\n- **Domain**: ${info.patent.domain}\n\n${info.patent.description}`
+      response: `**Patent Information**\n\n- **Title**: ${pat.title}\n- **Number**: ${pat.applicationNumber || pat.number}\n- **Role**: ${pat.role}\n- **Domain**: ${pat.domain}\n\n${pat.description}`
     };
   }
 
@@ -85,7 +133,7 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
     if (results.length > 0) {
       const topMatches = results.slice(0, 2);
       const list = topMatches.map(f => `**${f.question}**\n${f.answer}`).join('\n\n');
-      return { response: `${list}` };
+      return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n${list}` };
     } else {
       return { response: "I'm not exactly sure. Try asking about my services, pricing, timelines, or process." };
     }
@@ -97,7 +145,6 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
     actions: [
       { label: 'Show Projects', action: '/projects' },
       { label: 'Show Skills', action: '/skills' },
-      { label: 'Show Patent', action: 'Tell me about your patent' },
       { label: 'Contact', action: '/contact' }
     ]
   };
@@ -122,7 +169,7 @@ function handleCommand(cmd: string, args: string[], context: Context) {
 
   if (cmd === 'resume') {
     const info = getResumeInfo();
-    const ed = info.education.map(e => `**${e.institution}**\n${e.degree} (${e.duration})\n${e.details.map(d=>`- ${d}`).join('\n')}`).join('\n\n');
+    const ed = info.education.map(e => `**${e.institution}**\n${e.degree} (${e.duration})\n${e.details?.map(d=>`- ${d}`).join('\n') || ''}`).join('\n\n');
     const certs = info.certifications.map(c => `- ${c.name} (${c.issuer})`).join('\n');
     return { response: `**Profile**: ${info.profile.name} | CGPA: ${info.profile.cgpa} | ${info.profile.availability}\n\n**Education**\n${ed}\n\n**Certifications**\n${certs}` };
   }
@@ -135,7 +182,7 @@ function handleCommand(cmd: string, args: string[], context: Context) {
   }
 
   if (cmd === 'open' || cmd === 'architecture' || cmd === 'stack' || cmd === 'security') {
-    const id = args[0] || context.activeProject;
+    const id = args[0] || context.activeTopic || context.activeProject;
     if (!id) return { response: `Please specify a project ID, e.g. \`/${cmd} chainforensics\`` };
     
     const proj = getProjectById(id);
@@ -149,12 +196,12 @@ function handleCommand(cmd: string, args: string[], context: Context) {
     } else if (cmd === 'stack') {
       resText = `**${proj.name} Stack**:\n${proj.stack.join(', ')}`;
     } else if (cmd === 'security') {
-      resText = `**${proj.name} Security**:\n${proj.securityModel || 'No detailed security model.'}`;
+      resText = `**${proj.name} Security**:\n${proj.security?.model || proj.securityModel || 'No detailed security model.'}`;
     }
 
     return { 
       response: resText, 
-      newContext: { ...context, activeProject: proj.id },
+      newContext: { ...context, activeProject: proj.id, activeTopic: proj.id },
       actions: cmd === 'open' ? [
         { label: 'Architecture', action: `/architecture ${proj.id}` },
         { label: 'Tech Stack', action: `/stack ${proj.id}` },
@@ -167,7 +214,7 @@ function handleCommand(cmd: string, args: string[], context: Context) {
 }
 
 function generateCodeHeuristic(filename: string, content: string): string {
-  const lines = content.split('\\n');
+  const lines = content.split('\n');
   const numLines = lines.length;
   let ext = filename.split('.').pop()?.toLowerCase();
   
@@ -178,39 +225,38 @@ function generateCodeHeuristic(filename: string, content: string): string {
   else if (ext === 'md') lang = 'Markdown';
   else if (ext === 'json') lang = 'JSON';
 
-  let imports = 0;
+  let imports = [];
   let functions = 0;
   let classes = 0;
 
   for (const line of lines) {
     const l = line.trim();
-    if (l.startsWith('import ') || l.startsWith('const ') && l.includes('require(')) imports++;
+    if (l.startsWith('import ')) {
+        const match = l.match(/from ['"](.*)['"]/);
+        if (match) imports.push(match[1]);
+    }
     if (l.startsWith('function ') || l.includes('=> {') || l.includes(') {')) functions++;
     if (l.startsWith('class ')) classes++;
   }
 
-  let description = `This is a **${lang}** file named \`${filename}\` with roughly **${numLines} lines of code**.\\n\\n`;
-  description += `**Local Heuristic Analysis:**\\n`;
+  let description = `This is a **${lang}** file named \`${filename}\` with roughly **${numLines} lines of code**.\n\n`;
+  description += `**Advanced Heuristic Analysis:**\n`;
   
-  if (imports > 0) {
-    description += `- It pulls in ${imports} external dependencies/modules.\\n`;
+  if (imports.length > 0) {
+    description += `- It pulls in ${imports.length} external dependencies, such as \`${imports.slice(0, 3).join('`, `')}\`.\n`;
   }
   if (classes > 0) {
-    description += `- It defines ${classes} classes.\\n`;
+    description += `- It defines ${classes} class structures.\n`;
   }
   if (functions > 0) {
-    description += `- It contains approximately ${functions} functional blocks or methods.\\n`;
+    description += `- It contains approximately ${functions} functional blocks or methods.\n`;
   }
 
   if (content.includes('React') || content.includes('useState') || ext === 'tsx') {
-    description += `- It appears to be a React component, likely responsible for rendering UI.\\n`;
+    description += `- It appears to be a React component, likely responsible for rendering UI.\n`;
   }
 
-  if (content.includes('processUserMessage') || content.includes('Intent')) {
-    description += `- This file seems to be part of the local AI Engine logic!\\n`;
-  }
-
-  description += `\\nHere is a snippet of the code:\\n\`\`\`${ext}\\n${lines.slice(0, 15).join('\\n')}\\n// ... (truncated)\\n\`\`\``;
+  description += `\nHere is a snippet of the code:\n\`\`\`${ext}\n${lines.slice(0, 15).join('\n')}\n// ... (truncated)\n\`\`\``;
 
   return description;
 }

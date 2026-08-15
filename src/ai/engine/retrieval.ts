@@ -57,3 +57,8 @@ export function getResumeInfo() {
     professionalInterests: professionalInterestsKnowledge
   };
 }
+
+export function getProjectsBySkill(skill: string): ProjectKnowledge[] {
+  const lowerSkill = skill.toLowerCase();
+  return projectsKnowledge.filter(p => p.stack.some(s => s.toLowerCase() === lowerSkill));
+}

@@ -73,7 +73,7 @@ export function ChatWidget() {
           isOpen ? 'scale-100 opacity-100 mb-4' : 'scale-90 opacity-0 pointer-events-none mb-0 absolute bottom-16'
         }`}
       >
-        <div className="w-[350px] sm:w-[400px] h-[500px] max-h-[70vh] flex flex-col glass-panel border border-white/10 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-xl bg-black/60">
+        <div className="w-[90vw] sm:w-[650px] h-[600px] max-h-[85vh] flex flex-col glass-panel border border-white/10 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-xl bg-black/60">
           
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-white/5">

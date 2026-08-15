@@ -4,6 +4,11 @@ export interface Context {
   activeFile?: string; // path of the file currently opened
   activeFileContent?: string; // raw content of the file
   activeLanguage?: string;
+  
+  // NEW V2 FEATURES
+  activeTopic?: string; // can be project id, skill category, or general domain
+  conversationHistory?: { intent: string, query: string, entities: string[] }[]; // Memory of intents
+  sentiment?: 'GREETING' | 'QUESTION' | 'STATEMENT' | 'NEUTRAL';
 }
 
 export interface ChatMessage {
