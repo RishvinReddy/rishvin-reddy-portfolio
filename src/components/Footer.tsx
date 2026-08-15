@@ -14,8 +14,6 @@ export function Footer() {
 
   const circumference = 163.4;
 
-  if (pathname === '/ide') return null;
-
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setYear(new Date().getFullYear().toString());
@@ -64,6 +62,8 @@ export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  if (pathname === '/ide') return null;
 
   return (
     <>

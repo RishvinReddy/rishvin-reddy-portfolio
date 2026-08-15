@@ -1,7 +1,6 @@
 'use client';
 import Link from "next/link";
 import { useEffect } from "react";
-import Script from "next/script";
 
 export default function UniversePage() {
   useEffect(() => {
@@ -162,7 +161,7 @@ export default function UniversePage() {
   <div className="absolute top-0 left-0 w-full p-6 flex justify-between items-start pointer-events-none z-30">
     <div className="flex flex-col gap-4">
       <div className="pointer-events-auto group">
-        <a href="/"
+        <Link href="/"
           className="inline-flex items-center gap-3 px-5 py-3 rounded-none glass-panel hud-border hover:bg-white/10 transition-all text-sm font-bold tracking-widest uppercase text-white overflow-hidden">
           <div
             className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent -translate-x-full group-hover:translate-x-0 transition-transform duration-500">
@@ -172,7 +171,7 @@ export default function UniversePage() {
             </path>
           </svg>
           <span className="relative z-10 text-glow">Disengage</span>
-        </a>
+        </Link>
       </div>
 
       {/* Audio Toggle */}

@@ -10,7 +10,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [time, setTime] = useState("");
 
-  if (pathname === '/ide') return null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +29,8 @@ export function Header() {
       clearInterval(timer);
     };
   }, []);
+
+  if (pathname === '/ide') return null;
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { Context, ChatMessage } from './context';
+import { Context } from './context';
 import { Intent, ParsedIntent } from './router';
 import { searchProjects, searchSkills, getResumeInfo, getProjectById, searchFAQ } from './retrieval';
 
@@ -23,7 +23,7 @@ function getRandom(arr: string[]) {
 export function generateResponse(parsed: ParsedIntent, context: Context): { response: string, actions?: {label: string, action: string}[], newContext?: Context } {
   const { intent, query, command, args, entities } = parsed;
 
-  let newContext = { ...context };
+  const newContext = { ...context };
 
   if (intent === Intent.GREETING) {
     return { response: getRandom(GREETINGS) };
@@ -57,10 +57,10 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
       if (proj) {
         newContext.activeTopic = proj.id;
         if (query.toLowerCase().includes('architecture')) {
-          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**${proj.name} Architecture**:\n${proj.architecture}`, newContext };
+          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**${proj.name} Architecture**:\n${proj.architecture.overview}`, newContext };
         }
         if (query.toLowerCase().includes('security')) {
-          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Security Model**:\n${proj.security?.model || proj.securityModel || 'No specific security model detailed.'}`, newContext };
+          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Security Model**:\n${proj.security?.overview || 'No specific security model detailed.'}`, newContext };
         }
         if (query.toLowerCase().includes('stack') || query.toLowerCase().includes('tech')) {
           return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Tech Stack**:\n${proj.stack.join(', ')}`, newContext };
@@ -121,10 +121,11 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
 
   if (intent === Intent.PATENT_INFO) {
     const info = getResumeInfo();
-    if (!info.patent || info.patent.length === 0) return { response: "I couldn't find any patent information." };
-    const pat = info.patent[0]; // Assuming array
+    if (!info.patent) return { response: "I couldn't find any patent information." };
+    const pat = info.patent;
     return {
-      response: `**Patent Information**\n\n- **Title**: ${pat.title}\n- **Number**: ${pat.applicationNumber || pat.number}\n- **Role**: ${pat.role}\n- **Domain**: ${pat.domain}\n\n${pat.description}`
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      response: `**Patent Information**\n\n- **Title**: ${pat.title}\n- **Number**: ${(pat as any).applicationNumber || pat.number}\n- **Role**: ${pat.role}\n- **Domain**: ${pat.domain}\n\n${pat.description}`
     };
   }
 
@@ -192,11 +193,11 @@ function handleCommand(cmd: string, args: string[], context: Context) {
     if (cmd === 'open') {
       resText = `Loaded context for **${proj.name}**.\n\n${proj.description}`;
     } else if (cmd === 'architecture') {
-      resText = `**${proj.name} Architecture**:\n${proj.architecture}`;
+      resText = `**${proj.name} Architecture**:\n${proj.architecture.overview}`;
     } else if (cmd === 'stack') {
       resText = `**${proj.name} Stack**:\n${proj.stack.join(', ')}`;
     } else if (cmd === 'security') {
-      resText = `**${proj.name} Security**:\n${proj.security?.model || proj.securityModel || 'No detailed security model.'}`;
+      resText = `**${proj.name} Security**:\n${proj.security?.overview || 'No detailed security model.'}`;
     }
 
     return { 
@@ -216,7 +217,7 @@ function handleCommand(cmd: string, args: string[], context: Context) {
 function generateCodeHeuristic(filename: string, content: string): string {
   const lines = content.split('\n');
   const numLines = lines.length;
-  let ext = filename.split('.').pop()?.toLowerCase();
+  const ext = filename.split('.').pop()?.toLowerCase();
   
   let lang = ext;
   if (ext === 'ts' || ext === 'tsx') lang = 'TypeScript';
@@ -225,7 +226,7 @@ function generateCodeHeuristic(filename: string, content: string): string {
   else if (ext === 'md') lang = 'Markdown';
   else if (ext === 'json') lang = 'JSON';
 
-  let imports = [];
+  const imports: string[] = [];
   let functions = 0;
   let classes = 0;
 

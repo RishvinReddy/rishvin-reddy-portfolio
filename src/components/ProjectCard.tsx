@@ -211,7 +211,7 @@ async function postProcessReadme(
 
 import { useRouter } from "next/navigation";
 
-export default function ProjectCard({ project, index }: ProjectCardProps & { index?: number }) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [readme, setReadme] = useState<string | null>(null);

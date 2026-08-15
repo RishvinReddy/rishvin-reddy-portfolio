@@ -68,7 +68,8 @@ export interface ProjectFeature {
     | "UX"
     | "Infrastructure"
     | "Analytics"
-    | "Automation";
+    | "Automation"
+    | "Workflow";
 
   technologies?: string[];
 }

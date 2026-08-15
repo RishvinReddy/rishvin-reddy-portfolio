@@ -42,8 +42,8 @@ export function ChatWidget() {
 
     // Construct mock context for the global widget (no active file)
     const context: Context = {
-      activeProject: null,
-      activeFileContent: null,
+      activeProject: undefined,
+      activeFileContent: undefined,
     };
 
     // Process via local AI engine

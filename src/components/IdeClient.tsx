@@ -33,6 +33,7 @@ const TypewriterText = ({ text }: { text: string }) => {
 
   useEffect(() => {
     let i = 0;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDisplayedText('');
     const timer = setInterval(() => {
       setDisplayedText(text.substring(0, i));
@@ -472,7 +473,7 @@ export default function IdeClient() {
                          <div className="animate-pulse h-4 bg-slate-200 rounded w-full"></div>
                       ) : (
                         <div className="flex flex-col gap-3">
-                          {Object.entries(languageCounts).sort((a,b) => b[1] - a[1]).slice(0, 5).map(([lang, count], i) => (
+                          {Object.entries(languageCounts).sort((a,b) => b[1] - a[1]).slice(0, 5).map(([lang, count]) => (
                             <div key={lang}>
                               <div className="flex justify-between text-sm mb-1">
                                 <span className="text-slate-700 font-medium">{lang}</span>
