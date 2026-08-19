@@ -158,10 +158,10 @@ export default async function Home() {
           <section id="home" className="relative w-full">
 
             {/* ── Hero Card ── */}
-            <div className="relative w-full rounded-[2rem] border-2 border-slate-900 bg-white shadow-xl shadow-slate-200/60 overflow-hidden px-8 sm:px-10 lg:px-14 py-8 lg:py-10">
+            <div id="heroPrimaryCard" className="hero-sketchy-card relative overflow-hidden w-full shadow-xl shadow-slate-200/60 px-8 sm:px-10 lg:px-14 py-8 lg:py-10">
 
               {/* Subtle radial gradient inside card */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-stone-50/80 via-white to-slate-50/60 -z-0 rounded-[2rem]"></div>
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-stone-50/80 via-white to-slate-50/60 -z-0"></div>
 
             <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-[clamp(30px,4vw,60px)] items-center relative z-10 w-full">
 

@@ -130,3 +130,14 @@
     @apply font-sans;
   }
 }
+
+@layer components {
+  .hero-sketchy-card {
+    border-style: solid;
+    border-width: 25px;
+    border-image-source: url("/sketchy-border.svg");
+    border-image-slice: 30 stretch;
+    background-color: white;
+    border-radius: 0;
+  }
+}
