@@ -139,5 +139,6 @@
     border-image-slice: 30 stretch;
     background-color: white;
     border-radius: 0;
+    filter: drop-shadow(0 30px 40px rgba(15, 23, 42, 0.25)) drop-shadow(0 15px 20px rgba(15, 23, 42, 0.15));
   }
 }
