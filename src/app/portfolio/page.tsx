@@ -238,7 +238,7 @@ export default async function Portfolio() {
               className="hero-blob-3 absolute -bottom-32 left-1/3 w-[400px] h-[400px] rounded-full bg-indigo-300/20 blur-[70px]">
             </div>
           </div>
-          <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 text-center reveal">
+          <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 text-center reveal">
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-6">
               <span className="relative flex h-2 w-2"><span
@@ -256,7 +256,7 @@ export default async function Portfolio() {
               &middot; <a className="text-primary hover:underline" href="https://github.com/RishvinReddy" target="_blank"
                 rel="noopener">GitHub ↗</a></p>
             {/*  Stats Bar  */}
-            <div id="githubStatsBar" className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-7xl mx-auto stagger">
+            <div id="githubStatsBar" className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-[90rem] mx-auto stagger">
               <div className="gh-stat rounded-2xl px-5 py-4 text-center backdrop-blur-sm shadow-sm">
                 <p id="statRepos" className="text-4xl font-black text-slate-900 stat-num">{rawRepos.length || 0}</p>
                 <p className="text-sm font-semibold text-slate-500 mt-1 uppercase tracking-wider">Repositories</p>
@@ -283,7 +283,7 @@ export default async function Portfolio() {
 
 
         {/*  ── Intellectual Property Spotlight ──  */}
-        <section className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 mt-2 mb-10 reveal">
+        <section className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 mt-2 mb-10 reveal">
           <div className="relative overflow-hidden rounded-3xl bg-white border border-yellow-400/40 p-8 shadow-2xl shadow-yellow-500/10 flex flex-col md:flex-row items-center justify-between gap-8 group">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent pointer-events-none"></div>
             <div className="absolute -right-10 -bottom-20 w-80 h-80 bg-yellow-400/15 rounded-full blur-[80px] pointer-events-none group-hover:bg-yellow-400/25 transition-all duration-700"></div>
@@ -349,7 +349,7 @@ export default async function Portfolio() {
              bg-indigo-100/25 rounded-full blur-3xl"
     ></div>
   </div>
-  <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 relative z-10">
+  <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 relative z-10">
     {/*  =====================================================
          SECTION HEADER
     ======================================================  */}
@@ -1042,7 +1042,7 @@ export default async function Portfolio() {
       </div>
     </div>
 
-    <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 relative z-10">
       {/*  Section Header  */}
       <div className="mx-auto max-w-3xl flex flex-col items-center text-center mb-16 scroll-reveal">
         {/*  Badge  */}
@@ -1073,7 +1073,7 @@ export default async function Portfolio() {
         </p>
       </div>
 
-      <div className="mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 relative">
+      <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 relative">
         {/*  Continuous vertical line  */}
         <div
           className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-slate-200 to-transparent -translate-x-1/2">
@@ -1084,7 +1084,7 @@ export default async function Portfolio() {
         </div>
       </div>
 
-      <div className="mt-16 text-center mx-auto w-full max-w-[105rem] px-4 sm:px-6 lg:px-8 scroll-reveal relative z-20">
+      <div className="mt-16 text-center mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 scroll-reveal relative z-20">
         <h3 className="text-xl font-bold text-slate-900 mb-6">GitHub Activity Chart</h3>
         <div
           className="bg-white/60 backdrop-blur-md rounded-2xl p-6 border border-slate-200 premium-layered-shadow overflow-x-auto">

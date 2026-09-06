@@ -179,7 +179,7 @@ export default function Services() {
      Accessible, spacious, and includes accurate SVG icons for each service.
      ===========================  */}
     <main className="flex-1">
-      <div className="mx-auto max-w-[95rem] px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
+      <div className="mx-auto max-w-[120rem] px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
         {/*  Header  */}
         <div className="text-center max-w-3xl mx-auto scroll-reveal">
           <h1

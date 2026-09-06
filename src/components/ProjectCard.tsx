@@ -476,7 +476,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" onClick={() => setOpen(false)} />
 
           {/* Panel */}
-          <div className="relative z-10 w-full max-w-7xl max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden mt-4">
+          <div className="relative z-10 w-full max-w-[90rem] max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden mt-4">
 
             {/* Modal Header */}
             <div className="bg-[#0d1117] px-6 sm:px-8 py-5 flex items-center gap-4 shrink-0">

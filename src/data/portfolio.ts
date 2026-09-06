@@ -17,19 +17,6 @@ export interface Education {
   relevantCoursework: string[];
 }
 
-export interface Experience {
-  company: string;
-  role: string;
-  location: string;
-  type: string;
-  duration: string;
-  description: string;
-  bullets?: string[];
-  skills?: string[];
-  theme: string;
-  icon: string;
-}
-
 export interface SkillItem {
   name: string;
   color: string;
@@ -124,77 +111,6 @@ export const EDUCATION: Education[] = [
       "Computer Networks",
       "Web Development"
     ]
-  }
-];
-
-export const EXPERIENCE: Experience[] = [
-  {
-    company: "Rishvin Labs",
-    role: "FOUNDER & SOFTWARE ENGINEER",
-    location: "Hyderabad, India",
-    type: "Hybrid",
-    duration: "Apr 2026 – Present",
-    description: "Building and operating a technology studio focused on software engineering, cybersecurity, IoT, automation, and digital product development.",
-    bullets: [
-      "Build full-stack web applications, APIs & automation systems.",
-      "Develop cybersecurity tools and automated vulnerability scanners.",
-      "Engineer solutions across modern stacks and cloud platforms.",
-      "Architect IoT prototypes with scalable web backends."
-    ],
-    skills: ["Next.js", "TypeScript", "Node.js", "Python", "IoT", "Cybersecurity", "+ more"],
-    theme: "violet",
-    icon: ">_"
-  },
-  {
-    company: "Pegasystems",
-    role: "PEGA PLATFORM INTERN",
-    location: "Remote",
-    type: "Internship",
-    duration: "May 2026 – Jul 2026",
-    description: "Selected for the Pegasystems National Internship Program 2026 in collaboration with SmartBridge. Working on enterprise-grade workflow automation and low-code solutions.",
-    bullets: [
-      "Learn and build on Pega Platform for BPM and workflow automation.",
-      "Explore AI and automation capabilities within business processes.",
-      "Work with low-code development and enterprise integrations.",
-      "Contribute to internship capstone project solving real-world problems."
-    ],
-    skills: ["Pega Platform", "BPM", "Workflow Automation", "Low-Code", "Integration", "AI"],
-    theme: "blue",
-    icon: "P"
-  },
-  {
-    company: "Fiverr",
-    role: "FREELANCE FULL-STACK DEVELOPER",
-    location: "Remote",
-    type: "Freelance",
-    duration: "Jul 2026 – Present",
-    description: "Helping clients build, debug, and scale web applications and automation solutions across diverse domains.",
-    bullets: [
-      "Develop full-stack web applications and RESTful APIs.",
-      "Build automation workflows and integrate third-party services.",
-      "Debug issues and deliver optimized and scalable solutions.",
-      "Deliver client-focused solutions with quality and reliability."
-    ],
-    skills: ["React", "Node.js", "Express.js", "TypeScript", "MongoDB", "APIs", "+ more"],
-    theme: "emerald",
-    icon: "fi"
-  },
-  {
-    company: "IoT Connectivity Device",
-    role: "CO-INVENTOR",
-    location: "Government of India",
-    type: "Design Patent Office",
-    duration: "PATENT NO. 470097-001",
-    description: "Co-inventor of an IoT connectivity device. Design officially registered with the Government of India Design Patent Office.",
-    bullets: [
-      "Contributed to the design and development of IoT hardware interfaces.",
-      "Worked on practical innovation to solve real-world connectivity challenges.",
-      "Focused on connectivity, embedded systems, and device-to-cloud communication.",
-      "Design granted and officially registered in India."
-    ],
-    skills: ["IoT", "Embedded Systems", "Hardware Design", "Connectivity", "Patent"],
-    theme: "indigo",
-    icon: "💡"
   }
 ];
 

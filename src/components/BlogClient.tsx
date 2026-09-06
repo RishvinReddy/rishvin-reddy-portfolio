@@ -27,9 +27,9 @@ export default function BlogClient() {
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/10 dark:bg-emerald-500/20 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[120px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[105rem] mx-auto px-6 py-24 sm:py-32">
+      <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 py-24 sm:py-32">
         {/* Header Section */}
-        <div className="text-center mb-16 max-w-7xl mx-auto">
+        <div className="text-center mb-16 max-w-[90rem] mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
