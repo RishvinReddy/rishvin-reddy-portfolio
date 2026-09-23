@@ -13,22 +13,6 @@ export interface Experience {
 
 export const EXPERIENCE: Experience[] = [
   {
-    company: "Pegasystems",
-    role: "PEGA PLATFORM INTERN",
-    location: "Remote",
-    type: "Internship",
-    duration: "Aug 2026 – Present",
-    description: "Selected for the Pegasystems National Internship Program 2026 in collaboration with SmartBridge.",
-    bullets: [
-      "Learning enterprise application development using the Pega Platform, low-code development, and workflow automation.",
-      "Exploring GenAI, Agentic AI, BPM, case management, reporting, dashboards, and enterprise integrations.",
-      "Participating in instructor-led training, masterclasses, hands-on labs, and an enterprise automation capstone project."
-    ],
-    skills: ["Pega Platform", "BPM", "Workflow Automation", "Low-Code", "Integration", "AI"],
-    theme: "blue",
-    icon: "P"
-  },
-  {
     company: "Data Lake Solutions",
     role: "TECHNOLOGY INTERN – CYBER SECURITY",
     location: "India · Remote",
@@ -36,12 +20,13 @@ export const EXPERIENCE: Experience[] = [
     duration: "Aug 2026 – Present",
     description: "Working within the Technology Solutions and Innovation function.",
     bullets: [
-      "Supporting cybersecurity research, security assessments, vulnerability analysis, and risk identification.",
-      "Researching cybersecurity frameworks, standards, and industry best practices.",
-      "Contributing to threat intelligence, security-tool evaluation, security awareness, and incident-analysis initiatives.",
-      "Supporting software development, testing, QA, requirements gathering, Agile discussions, and technical documentation."
+      "Supporting cybersecurity research, security assessments, vulnerability analysis, and risk identification activities.",
+      "Researching and documenting cybersecurity frameworks, standards, and industry best practices.",
+      "Contributing to security tool evaluation, threat intelligence, security awareness, and incident analysis initiatives.",
+      "Supporting software design, development, testing, QA, requirements gathering, and technical documentation activities.",
+      "Participating in Agile project discussions, knowledge-sharing sessions, technology workshops, and internal research and innovation initiatives."
     ],
-    skills: ["Cybersecurity", "Research", "Vulnerability Analysis", "Testing", "QA", "Documentation"],
+    skills: ["Cybersecurity", "Security Research", "Vulnerability Analysis", "Threat Intelligence", "Security Assessment", "Testing", "QA", "Technical Documentation"],
     theme: "emerald",
     icon: "DL"
   },
@@ -51,14 +36,15 @@ export const EXPERIENCE: Experience[] = [
     location: "Remote",
     type: "Freelance",
     duration: "Jul 2026 – Present",
-    description: "Designing and developing responsive full-stack web applications.",
+    description: "Providing software development and technical consulting services for clients worldwide.",
     bullets: [
-      "Building solutions using React, Node.js, Express.js, TypeScript, and REST APIs.",
+      "Designing and developing responsive full-stack web applications using React, Node.js, Express.js, TypeScript, and REST APIs.",
       "Developing automation workflows, API integrations, and custom software tools.",
       "Debugging applications, optimizing performance, and improving user experience.",
-      "Managing requirements, communication, Git workflows, and delivery for clients worldwide."
+      "Managing requirements, client communication, Git workflows, and project delivery.",
+      "Following software engineering practices focused on maintainable, scalable, and production-ready solutions."
     ],
-    skills: ["React", "Node.js", "Express.js", "TypeScript", "REST APIs", "Automation"],
+    skills: ["Full-Stack Development", "React", "Node.js", "Express.js", "TypeScript", "REST APIs", "Automation"],
     theme: "indigo",
     icon: "fi"
   },
@@ -68,16 +54,35 @@ export const EXPERIENCE: Experience[] = [
     location: "Hyderabad, India",
     type: "Hybrid",
     duration: "Apr 2026 – Present",
-    description: "Building an independent technology venture focused on software engineering, cybersecurity, IoT, automation, and digital products.",
+    description: "Rishvin Labs is my independent software engineering and technology venture focused on building innovative products, client solutions, and research-driven projects.",
     bullets: [
-      "Designing full-stack applications, APIs, developer tools, automation workflows, and cloud-ready systems.",
-      "Building cybersecurity, IoT, blockchain, and AI-powered solutions.",
-      "Managing the complete software development lifecycle from architecture and development through testing, deployment, and documentation.",
-      "Publishing open-source engineering work and researching emerging technologies."
+      "Designing and developing full-stack applications, APIs, developer tools, automation workflows, and cloud-ready systems.",
+      "Building solutions across cybersecurity, IoT, blockchain, AI, and software engineering for real-world applications.",
+      "Developing AI-powered workflows, productivity systems, and technical tools.",
+      "Managing the complete software development lifecycle, including architecture, development, testing, deployment, documentation, and maintenance.",
+      "Publishing open-source engineering work and maintaining technical documentation and portfolio websites.",
+      "Continuously researching emerging technologies and applying them to practical engineering solutions."
     ],
-    skills: ["Full-Stack", "Cybersecurity", "IoT", "Automation", "Cloud", "AI"],
+    skills: ["Full-Stack Development", "Software Engineering", "Cybersecurity", "IoT", "Blockchain", "Automation", "Cloud", "AI"],
     theme: "violet",
     icon: ">_"
+  },
+  {
+    company: "Pegasystems",
+    role: "PEGA PLATFORM INTERN",
+    location: "Remote",
+    type: "Internship",
+    duration: "Aug 2026 – Sep 2026",
+    description: "Selected for the Pegasystems National Internship Program 2026 in collaboration with SmartBridge.",
+    bullets: [
+      "Completed 60 hours of industry-integrated learning with practical exposure to enterprise application development using the Pega Platform, low-code development, workflow automation, and AI-powered business process solutions.",
+      "Gained hands-on experience through instructor-led training, masterclasses, labs, and an enterprise automation capstone project, with exposure to case management, BPM, GenAI, Agentic AI, reporting, dashboards, and enterprise integrations.",
+      "Participated in a national virtual internship program involving students from 1,100+ colleges.",
+      "Certificate ID: PEGA-SW-NIP-2026-586 · Program Period: 4 Aug 2026 – 3 Sep 2026"
+    ],
+    skills: ["Pega Platform", "Low-Code Development", "BPM", "Workflow Automation", "GenAI", "Agentic AI", "Enterprise Integration"],
+    theme: "blue",
+    icon: "P"
   },
   {
     company: "Internship Studio",
@@ -85,13 +90,13 @@ export const EXPERIENCE: Experience[] = [
     location: "Pune, Maharashtra, India · Remote",
     type: "Internship",
     duration: "May 2026 – Jun 2026",
-    description: "Completed structured training in website design and development.",
+    description: "Completed a structured Website Design and Development Internship focused on practical web-development skills and project-based learning.",
     bullets: [
-      "Strengthened practical frontend and web-development skills through project-based learning.",
-      "Applied the training to a final project and completed the required submission.",
-      "Successfully completed the internship and received an official Internship Certificate."
+      "Strengthened practical skills through structured training and hands-on development activities.",
+      "Applied the acquired knowledge to a final project and completed the required submission.",
+      "Successfully completed the internship and received official internship documentation."
     ],
-    skills: ["Web Design", "Frontend", "Web Development", "HTML", "CSS", "JavaScript"],
+    skills: ["Web Design", "Frontend Development", "Web Development", "HTML", "CSS", "JavaScript"],
     theme: "teal",
     icon: "IS"
   }

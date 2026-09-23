@@ -768,5 +768,325 @@
       "alt": "Rishvin Reddy Website Design and Development Internship Offer Letter",
       "slug": "website-design-development-internship-offer-letter"
     }
+  },
+  {
+    "title": "Pega Platform Internship — Certificate of Completion",
+    "issuer": "Pegasystems / SmartBridge",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/5968/5968705.png",
+    "description": "Certificate of Completion for successfully completing the Pegasystems National Internship Program 2026 in collaboration with SmartBridge. Completed 60 hours of industry-integrated learning covering enterprise application development on the Pega Platform, low-code development, workflow automation, BPM, GenAI, Agentic AI, case management, dashboards, and enterprise integrations. Certificate ID: PEGA-SW-NIP-2026-586.",
+    "tags": [
+      "Pega Platform",
+      "Low-Code Development",
+      "BPM",
+      "Workflow Automation",
+      "GenAI",
+      "Agentic AI",
+      "Enterprise Integration",
+      "Internship"
+    ],
+    "pdf": "data/Data for the certificates/Pega Systems Internship Completion Certificate.pdf",
+    "seo": {
+      "title": "Pegasystems National Internship Program Certificate | Rishvin Reddy",
+      "description": "Pega Platform Internship Certificate of Completion for Rishvin Reddy. Completed the Pegasystems National Internship Program 2026 with SmartBridge — 60 hours of Pega Platform, low-code development, BPM, workflow automation, GenAI, Agentic AI, and enterprise integration training.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Pegasystems internship certificate",
+        "Pega Platform certificate",
+        "Pega Platform intern",
+        "Pegasystems National Internship Program",
+        "SmartBridge Pega internship",
+        "low-code development",
+        "BPM certificate",
+        "workflow automation",
+        "Agentic AI",
+        "GenAI",
+        "enterprise application development",
+        "Pega CSA",
+        "case management",
+        "enterprise integration",
+        "PEGA-SW-NIP-2026-586",
+        "Woxsen University",
+        "Rishvin Reddy Pega"
+      ],
+      "alt": "Rishvin Reddy Pegasystems National Internship Program Certificate of Completion",
+      "slug": "pegasystems-national-internship-program-certificate"
+    }
+  },
+  {
+    "title": "Amazon Security Lake — Getting Started",
+    "issuer": "AWS / Amazon Web Services",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/5968/5968299.png",
+    "description": "Completed the Amazon Security Lake Getting Started course, covering the fundamentals of centralizing security data across AWS accounts and regions, configuring data sources, querying security logs, and understanding the OCSF (Open Cybersecurity Schema Framework).",
+    "tags": [
+      "AWS",
+      "Security",
+      "Amazon Security Lake",
+      "OCSF",
+      "Cloud Security",
+      "Cybersecurity"
+    ],
+    "pdf": "data/Data for the certificates/Amazon Security Lake Getting Started.pdf",
+    "seo": {
+      "title": "Amazon Security Lake Getting Started Certificate | Rishvin Reddy",
+      "description": "Amazon Security Lake Getting Started certificate completed by Rishvin Reddy through AWS. Covers centralized security data management, OCSF, AWS security log analysis, and cloud security fundamentals.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Amazon Security Lake",
+        "Amazon Security Lake certificate",
+        "AWS security certificate",
+        "cloud security",
+        "OCSF",
+        "Open Cybersecurity Schema Framework",
+        "AWS log analysis",
+        "security data lake",
+        "AWS Security",
+        "cybersecurity certificate",
+        "AWS Skill Builder",
+        "Woxsen University",
+        "Rishvin Reddy AWS"
+      ],
+      "alt": "Rishvin Reddy Amazon Security Lake Getting Started certificate",
+      "slug": "amazon-security-lake-getting-started-certificate"
+    }
+  },
+  {
+    "title": "Automate CI/CD Troubleshooting with AWS DevOps Agent and GitHub",
+    "issuer": "AWS / Amazon Web Services",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/5968/5968299.png",
+    "description": "Completed the AWS course on automating CI/CD troubleshooting using the AWS DevOps Agent and GitHub, covering automated pipeline diagnostics, DevOps workflow optimization, GitHub Actions integration with AWS, and AI-assisted development operations.",
+    "tags": [
+      "AWS",
+      "CI/CD",
+      "DevOps",
+      "GitHub",
+      "Automation",
+      "Cloud"
+    ],
+    "pdf": "data/Data for the certificates/Automate CI:CD troubleshooting with AWS DevOps Agent and GitHub.pdf",
+    "seo": {
+      "title": "Automate CI/CD Troubleshooting with AWS DevOps Agent and GitHub | Rishvin Reddy",
+      "description": "AWS CI/CD troubleshooting certificate completed by Rishvin Reddy. Covers automated CI/CD pipeline diagnostics using AWS DevOps Agent and GitHub, DevOps automation, and cloud-native development workflows.",
+      "keywords": [
+        "Rishvin Reddy",
+        "AWS DevOps Agent",
+        "CI/CD troubleshooting",
+        "AWS CI CD certificate",
+        "GitHub Actions AWS",
+        "DevOps automation",
+        "pipeline automation",
+        "cloud DevOps",
+        "AWS DevOps certificate",
+        "continuous integration AWS",
+        "continuous delivery AWS",
+        "AWS Skill Builder",
+        "DevOps certificate",
+        "Woxsen University",
+        "Rishvin Reddy DevOps"
+      ],
+      "alt": "Rishvin Reddy Automate CI/CD Troubleshooting with AWS DevOps Agent and GitHub certificate",
+      "slug": "automate-cicd-aws-devops-agent-github-certificate"
+    }
+  },
+  {
+    "title": "Introduction to AWS Capabilities by Region",
+    "issuer": "AWS / Amazon Web Services",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/5968/5968299.png",
+    "description": "Completed Introduction to AWS Capabilities by Region, covering AWS global infrastructure, regional service availability, choosing AWS regions for compliance and latency, and understanding the geographic distribution of AWS cloud services.",
+    "tags": [
+      "AWS",
+      "Cloud",
+      "Cloud Infrastructure",
+      "AWS Regions",
+      "Global Cloud"
+    ],
+    "pdf": "data/Data for the certificates/Introduction to AWS Capabilities by Region.pdf",
+    "seo": {
+      "title": "Introduction to AWS Capabilities by Region Certificate | Rishvin Reddy",
+      "description": "Introduction to AWS Capabilities by Region certificate completed by Rishvin Reddy through AWS. Covers AWS global infrastructure, regional service availability, compliance, latency, and geographic cloud service distribution.",
+      "keywords": [
+        "Rishvin Reddy",
+        "AWS Capabilities by Region",
+        "AWS regions certificate",
+        "AWS global infrastructure",
+        "cloud infrastructure certificate",
+        "AWS region selection",
+        "AWS availability zones",
+        "cloud services by region",
+        "AWS cloud certificate",
+        "AWS Skill Builder",
+        "cloud computing",
+        "Woxsen University",
+        "Rishvin Reddy AWS cloud"
+      ],
+      "alt": "Rishvin Reddy Introduction to AWS Capabilities by Region certificate",
+      "slug": "introduction-aws-capabilities-by-region-certificate"
+    }
+  },
+  {
+    "title": "Introduction to Serverless Development",
+    "issuer": "AWS / Amazon Web Services",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/5968/5968299.png",
+    "description": "Completed Introduction to Serverless Development, covering AWS Lambda, event-driven architectures, serverless application patterns, API Gateway, and the fundamentals of building and deploying serverless solutions on AWS.",
+    "tags": [
+      "AWS",
+      "Serverless",
+      "AWS Lambda",
+      "Cloud",
+      "Event-Driven",
+      "API Gateway"
+    ],
+    "pdf": "data/Data for the certificates/Introduction to Serverless Development.pdf",
+    "seo": {
+      "title": "Introduction to Serverless Development Certificate | AWS Lambda | Rishvin Reddy",
+      "description": "Introduction to Serverless Development certificate completed by Rishvin Reddy through AWS. Covers AWS Lambda, serverless architecture, event-driven development, API Gateway, and serverless application design patterns.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Introduction to Serverless Development",
+        "serverless certificate",
+        "AWS Lambda certificate",
+        "serverless development",
+        "AWS serverless",
+        "event-driven architecture",
+        "API Gateway AWS",
+        "serverless architecture",
+        "cloud development certificate",
+        "AWS functions",
+        "FaaS",
+        "AWS Skill Builder",
+        "cloud computing",
+        "Woxsen University",
+        "Rishvin Reddy serverless"
+      ],
+      "alt": "Rishvin Reddy Introduction to Serverless Development certificate",
+      "slug": "introduction-to-serverless-development-certificate"
+    }
+  },
+  {
+    "title": "Managing AWS IoT Devices at Scale",
+    "issuer": "AWS / Amazon Web Services",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/5968/5968299.png",
+    "description": "Completed Managing AWS IoT Devices at Scale, covering AWS IoT Core, device provisioning, fleet management, over-the-air (OTA) updates, device shadow, IoT policies, and strategies for managing large-scale IoT deployments on AWS.",
+    "tags": [
+      "AWS IoT",
+      "IoT",
+      "Cloud",
+      "AWS",
+      "Device Management",
+      "Fleet Management"
+    ],
+    "pdf": "data/Data for the certificates/Managing AWS IOT DEvices at Scale.pdf",
+    "seo": {
+      "title": "Managing AWS IoT Devices at Scale Certificate | Rishvin Reddy",
+      "description": "Managing AWS IoT Devices at Scale certificate completed by Rishvin Reddy through AWS. Covers AWS IoT Core, large-scale device provisioning, fleet management, OTA updates, device shadow, and IoT security policies.",
+      "keywords": [
+        "Rishvin Reddy",
+        "Managing AWS IoT Devices at Scale",
+        "AWS IoT certificate",
+        "AWS IoT Core",
+        "IoT device management",
+        "fleet management IoT",
+        "OTA updates AWS",
+        "device provisioning AWS",
+        "AWS IoT at scale",
+        "Internet of Things AWS",
+        "IoT cloud certificate",
+        "AWS Skill Builder",
+        "cloud IoT",
+        "Woxsen University",
+        "Rishvin Reddy IoT AWS"
+      ],
+      "alt": "Rishvin Reddy Managing AWS IoT Devices at Scale certificate",
+      "slug": "managing-aws-iot-devices-at-scale-certificate"
+    }
+  },
+  {
+    "title": "TechSphere — Certificate of Achievement",
+    "issuer": "TechSphere",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/3176/3176366.png",
+    "description": "Received a Certificate of Achievement from TechSphere, recognising participation and performance in a technology event, competition, or programme.",
+    "tags": [
+      "Technology",
+      "Achievement",
+      "Certificate",
+      "Competition",
+      "Event"
+    ],
+    "pdf": "data/Data for the certificates/TechSphere_Certificate_EROLLA RISHVIN REDDY.pdf",
+    "seo": {
+      "title": "TechSphere Certificate of Achievement | Erolla Rishvin Reddy",
+      "description": "TechSphere Certificate of Achievement awarded to Erolla Rishvin Reddy, recognising participation and performance in a technology event or programme.",
+      "keywords": [
+        "Erolla Rishvin Reddy",
+        "TechSphere certificate",
+        "TechSphere achievement",
+        "technology certificate",
+        "tech competition",
+        "achievement certificate",
+        "technology event",
+        "Woxsen University",
+        "Rishvin Reddy TechSphere"
+      ],
+      "alt": "Erolla Rishvin Reddy TechSphere Certificate of Achievement",
+      "slug": "techsphere-certificate-of-achievement"
+    }
+  },
+  {
+    "title": "Certificate of Completion (Aug 2026 — I)",
+    "issuer": "Online Learning Platform",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/1697/1697968.png",
+    "description": "Certificate of Completion from an online learning platform, completed in August 2026. Full course title to be updated.",
+    "tags": [
+      "Certificate",
+      "Online Learning",
+      "Completion"
+    ],
+    "pdf": "data/Data for the certificates/certificate-cveuo7tv27qr-1786735447.pdf",
+    "seo": {
+      "title": "Certificate of Completion August 2026 | Rishvin Reddy",
+      "description": "Certificate of Completion completed by Rishvin Reddy in August 2026 through an online learning platform.",
+      "keywords": [
+        "Rishvin Reddy",
+        "certificate of completion",
+        "online learning certificate",
+        "Rishvin Reddy certificates",
+        "Woxsen University"
+      ],
+      "alt": "Rishvin Reddy Certificate of Completion August 2026",
+      "slug": "certificate-of-completion-aug-2026-1"
+    }
+  },
+  {
+    "title": "Certificate of Completion (Aug 2026 — II)",
+    "issuer": "Online Learning Platform",
+    "date": "2026",
+    "image": "https://cdn-icons-png.flaticon.com/512/1697/1697968.png",
+    "description": "Certificate of Completion from an online learning platform, completed in August 2026. Full course title to be updated.",
+    "tags": [
+      "Certificate",
+      "Online Learning",
+      "Completion"
+    ],
+    "pdf": "data/Data for the certificates/certificate-mkiy46zr4j7c-1786736246.pdf",
+    "seo": {
+      "title": "Certificate of Completion August 2026 II | Rishvin Reddy",
+      "description": "Certificate of Completion completed by Rishvin Reddy in August 2026 through an online learning platform.",
+      "keywords": [
+        "Rishvin Reddy",
+        "certificate of completion",
+        "online learning certificate",
+        "Rishvin Reddy certificates",
+        "Woxsen University"
+      ],
+      "alt": "Rishvin Reddy Certificate of Completion August 2026 II",
+      "slug": "certificate-of-completion-aug-2026-2"
+    }
   }
 ]

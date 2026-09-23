@@ -1,6 +1,7 @@
 import KnowledgeGraph from "@/components/KnowledgeGraph";
 import HomeProjectGallery from "@/components/HomeProjectGallery";
 import ExperienceSection from "@/components/ExperienceSection";
+import RecommendationsSection from "@/components/RecommendationsSection";
 import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
 import { TECH_STACK, SERVICES, FEATURED_PROJECTS } from '../data/portfolio';
 import React from 'react';
@@ -14,17 +15,95 @@ export const metadata: Metadata = {
   description: "Official portfolio of Erolla Rishvin Reddy, a B.Tech Computer Science student at Woxsen University. Founder of Rishvin Labs, Pegasystems Intern, and Co-Inventor of a Government of India IoT Design Patent. Expertise in Cybersecurity, IoT, Blockchain, and Full-Stack Engineering.",
   keywords: [
     "Rishvin Reddy", "Erolla Rishvin Reddy", "Rishvin Reddy Portfolio",
-    "Founder Rishvin Labs", "Rishvin Labs Founder",
+    "Founder Rishvin Labs", "Rishvin Labs Founder", "Software Engineer India",
     "Pega Platform Intern", "Pegasystems Internship", "BPM", "Workflow Automation", "Low-Code Development",
     "IoT Connectivity Device Patent", "Government of India Design Patent", "Co-Inventor IoT Patent",
     "Freelance Full-Stack Developer", "Fiverr Developer",
-    "Software Engineer", "Cybersecurity Analyst", "IoT Engineer", "Blockchain Developer",
+    "Cybersecurity Analyst", "IoT Engineer", "Blockchain Developer",
     "Woxsen University", "B.Tech CSE Student India",
+    "Professional Recommendations Rishvin Reddy", "Rishvin Reddy Endorsements", "Software Engineering Mentorship",
     "Smart Irrigation System IoT", "VoteSafe Biometric Voting System",
     "AI Security Guardian", "Cyber Defense Matrix",
     "Next.js Developer", "React.js", "Node.js", "Python", "Embedded Systems",
     "Solidity", "Smart Contracts", "Web3",
-    "Student Founder India", "Engineering Innovator", "Technical Portfolio"
+    "Student Founder India", "Engineering Innovator", "Technical Portfolio",
+    "TechSphere Achievement", "AWS Skill Builder", "Cybersecurity Research",
+    "Top B.Tech Student Woxsen University",
+    "Hyderabad Tech Entrepreneur",
+    "Software Engineering Portfolio Examples",
+    "Hire Rishvin Reddy",
+    "Rishvin Reddy Github",
+    "Rishvin Reddy LinkedIn",
+    "Best Computer Science Portfolios India",
+    "Internet of Things Architecture",
+    "Next.js 14 Developer Hyderabad",
+    "TypeScript React Expert India",
+    "Blockchain Developer Woxsen",
+    "Smart Contract Auditor",
+    "Web3 DApp Developer India",
+    "Cybersecurity Analyst Portfolio",
+    "Junior Security Researcher",
+    "Penetration Testing Intern",
+    "Vulnerability Management Engineer",
+    "Data Lake Solutions Intern",
+    "Pegasystems Internship Experience",
+    "Pega CSA Certified",
+    "BPM Developer India",
+    "Low Code Automation Specialist",
+    "AI Security Solutions",
+    "Machine Learning Security",
+    "IoT Patent Holder India",
+    "Government of India Patent Creator",
+    "Hardware Design Engineer",
+    "Embedded C Developer",
+    "Arduino ESP32 Raspberry Pi Developer",
+    "Freelance Web Developer Fiverr",
+    "Full Stack Web Developer Remote",
+    "Rishvin Labs Projects",
+    "Tech Startups Hyderabad",
+    "Student Founder India 2026",
+    "React Native Mobile App Developer",
+    "MERN Stack Developer India",
+    "Tailwind CSS Frontend Engineer",
+    "Responsive UI UX Developer",
+    "Node.js Backend Developer",
+    "Express.js API Developer",
+    "PostgreSQL MongoDB Database Admin",
+    "Cloud Architecture Practitioner",
+    "AWS Solutions Architect intern",
+    "DevOps CI/CD GitHub Actions",
+    "TechSphere Hackathon Winner",
+    "Woxsen AI Research Centre",
+    "Cyber Defense Matrix Developer",
+    "VoteSafe Biometric Voting Developer",
+    "Smart Irrigation System IoT Developer",
+    "ChainForensics Blockchain Analyzer",
+    "NetInspect Security Tool",
+    "Software Engineering Internship India",
+    "Top Engineering Talent Hyderabad",
+    "Future Tech Leaders India",
+    "Who is Rishvin Reddy",
+    "Rishvin",
+    "Erolla",
+    "Rishvin Reddy Erolla",
+    "E. Rishvin Reddy",
+    "Erolla Rishvin",
+    "Contact Rishvin Reddy",
+    "Rishvin Reddy Biography",
+    "Rishvin Reddy About Me",
+    "Rishvin Reddy Developer Profile",
+    "Rishvin Reddy Woxsen",
+    "Rishvin Reddy India",
+    "Rishvin Reddy Hyderabad",
+    "Rishvin Reddy Email",
+    "Rishvin Reddy Projects",
+    "Rishvin Reddy Resume",
+    "Erolla Rishvin Reddy Software Engineer",
+    "Rishvin Reddy Cybersecurity",
+    "Rishvin Reddy Blog",
+    "Rishvin Reddy Personal Website",
+    "Rishvin Reddy Official Website",
+    "Learn about Rishvin Reddy"
   ],
   openGraph: {
     title: "Erolla Rishvin Reddy | Software Engineer & Founder of Rishvin Labs",
@@ -119,19 +198,57 @@ export default async function Home() {
               "knowsAbout": [
                 "Cybersecurity", "Internet of Things (IoT)", "Blockchain", "Full-Stack Development",
                 "BPM", "Workflow Automation", "Low-Code Development", "Embedded Systems", "Hardware Design",
-                "React.js", "Node.js", "Python", "Solidity"
+                "Software Engineering"
+              ],
+              "review": [
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Dr. Hemachandran K",
+                    "jobTitle": "Director - AI Research Centre, Woxsen University"
+                  },
+                  "reviewBody": "Rishvin is a standout student known for his high engagement and inquisitiveness. He consistently scores top marks, demonstrates a strong work ethic, and effectively leads his peers. His discipline, empathy, and excellent communication skills make him a valuable asset to any academic or professional setting."
+                },
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Dr. Meher CP",
+                    "jobTitle": "Professor, Woxsen University"
+                  },
+                  "reviewBody": "Rishvin is exceptionally proactive and dedicated, particularly in organizing workshops and leading technical sessions for school children. His clear communication and deep understanding of the subject matter are impressive. He takes initiative and executes tasks responsibly, showcasing strong leadership and commitment."
+                },
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Bhanu Prakash",
+                    "jobTitle": "Assistant Professor, Woxsen University"
+                  },
+                  "reviewBody": "I highly recommend Erolla Rishvin Reddy for his exceptional dedication and strong work ethic. His problem-solving abilities and willingness to help others make him a true asset. His proactive approach and commitment to learning are truly commendable."
+                },
+                {
+                  "@type": "Review",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Sandeep Kumar",
+                    "jobTitle": "Associate Vice President (AVP), Woxsen University"
+                  },
+                  "reviewBody": "Rishvin consistently brings innovative and practical ideas to the table, showing a deep commitment to excellence in every task he undertakes. His leadership qualities and problem-solving mindset make him stand out, and I am confident he will achieve remarkable success in his future endeavors."
+                }
               ]
             },
             {
-              "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Rishvin Reddy Portfolio",
+              "@id": "https://rishvinreddy.vercel.app/#website",
               "url": "https://rishvinreddy.vercel.app/",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://rishvinreddy.vercel.app/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
+              "name": "Rishvin Reddy Portfolio",
+              "description": "Software Engineering, Cybersecurity, IoT & Blockchain Portfolio",
+              "publisher": {
+                "@id": "https://rishvinreddy.vercel.app/#person"
+              },
+              "inLanguage": "en-US"
             }
           ])
         }}
@@ -1066,7 +1183,14 @@ export default async function Home() {
         </div>
       </section>
 
+      {/*  ─ Section Divider ─  */}
+      <div className="section-divider" aria-hidden="true"><span className="divider-gem"></span></div>
 
+      {/*  Professional Recommendations  */}
+      <RecommendationsSection />
+
+      {/*  ─ Section Divider ─  */}
+      <div className="section-divider" aria-hidden="true"><span className="divider-gem"></span></div>
 
       {/* GitHub Knowledge Graph Section */}
       <section className="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200" id="github-knowledge-graph">

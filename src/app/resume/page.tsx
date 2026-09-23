@@ -24,7 +24,53 @@ export const metadata: Metadata = {
     "Next.js", "TypeScript", "Python", "Solidity", "MongoDB", "Express.js", "REST APIs",
     "Vulnerability Assessment", "Penetration Testing", "Security Operations", "Threat Detection",
     "Network Security", "Cloud Security", "DevSecOps", "Smart Contracts", "Decentralized Applications",
-    "Student Developer India", "Engineering Student India", "Software Developer Hyderabad", "IoT Engineer India"
+    "Student Developer India", "Engineering Student India", "Software Developer Hyderabad", "IoT Engineer India",
+    "Hire Cybersecurity Intern India",
+    "Freelance Full Stack Developer Resume",
+    "Pega Platform Certified System Architect Resume",
+    "BPM Workflow Automation Expert",
+    "Low-Code Platform Developer Resume",
+    "IoT Connectivity Device Patent Holder",
+    "Woxsen University CSE Graduate 2026",
+    "Rishvin Labs Founder CEO Resume",
+    "Data Lake Solutions Cyber Security Intern",
+    "Penetration Tester Resume",
+    "Threat Intelligence Analyst Resume",
+    "Vulnerability Assessment Intern",
+    "React Next.js Developer Resume",
+    "Node.js Backend Engineer Resume",
+    "TypeScript Frontend Developer Resume",
+    "Python Automation Scripter Resume",
+    "Embedded Systems Engineer Resume",
+    "Blockchain Smart Contract Developer Resume",
+    "Solidity Web3 Developer Resume",
+    "AWS Cloud Practitioner Resume",
+    "Fiverr Top Rated Web Developer",
+    "Agile Software Development Intern",
+    "Technical Documentation Writer",
+    "Hardware Architecture Designer Resume",
+    "Network Security Engineer Resume",
+    "Information Security Analyst Resume",
+    "Cyber Defense Strategy Intern",
+    "Open Source Contributor Resume",
+    "Tech Internship Candidate Hyderabad",
+    "Software Engineering Fresher India",
+    "Pre-final Year B.Tech CSE Resume",
+    "Woxsen University Top Alumni",
+    "Research Assistant AI Lab",
+    "Academic Recommendations Tech",
+    "High Performing Engineering Student",
+    "Mentored by Dr. Hemachandran K",
+    "Innovative Hardware Solutions Developer",
+    "Rishvin Reddy CV",
+    "Erolla Rishvin Reddy Curriculum Vitae",
+    "Rishvin Reddy Work Experience",
+    "Rishvin Reddy Internships",
+    "Rishvin Reddy Education",
+    "Erolla Rishvin Reddy Qualifications",
+    "Hire Rishvin",
+    "Rishvin Reddy Contact Info",
+    "Rishvin Reddy PDF Resume"
   ],
   authors: [{ name: "Erolla Rishvin Reddy", url: "https://rishvinreddy.vercel.app" }],
   creator: "Erolla Rishvin Reddy",
@@ -123,7 +169,7 @@ export default function Resume() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(
-        {
+{
           "@context": "https://schema.org",
           "@graph": [
             {
@@ -136,22 +182,76 @@ export default function Resume() {
                 "https://github.com/RishvinReddy",
                 "https://www.linkedin.com/in/rishvin-reddy/"
               ],
-              "jobTitle": "Software Engineer, Cybersecurity Analyst, IoT Developer, Full-Stack Developer",
+              "jobTitle": [
+                "Software Engineer",
+                "Cybersecurity Analyst",
+                "IoT Developer",
+                "Full-Stack Developer",
+                "Founder"
+              ],
+              "hasOccupation": [
+                {
+                  "@type": "Occupation",
+                  "name": "Technology Intern – Cyber Security",
+                  "occupationLocation": { "@type": "Place", "name": "India (Remote)" }
+                },
+                {
+                  "@type": "Occupation",
+                  "name": "Freelance Full-Stack Developer",
+                  "occupationLocation": { "@type": "Place", "name": "Remote" }
+                },
+                {
+                  "@type": "Occupation",
+                  "name": "Founder & Software Engineer",
+                  "occupationLocation": { "@type": "Place", "name": "Hyderabad, India" }
+                },
+                {
+                  "@type": "Occupation",
+                  "name": "Pega Platform Intern",
+                  "occupationLocation": { "@type": "Place", "name": "Remote" }
+                }
+              ],
               "worksFor": [
                 {
-                  "@type": "Organization",
-                  "name": "Rishvin Labs",
-                  "description": "Founder & Software Engineer"
+                  "@type": "EmployeeRole",
+                  "roleName": "Technology Intern – Cyber Security",
+                  "startDate": "2026-08",
+                  "description": "Cybersecurity research, security assessments, vulnerability analysis, and risk identification.",
+                  "worksFor": {
+                    "@type": "Organization",
+                    "name": "Data Lake Solutions"
+                  }
                 },
                 {
-                  "@type": "Organization",
-                  "name": "Pegasystems",
-                  "description": "Pega Platform Intern"
+                  "@type": "EmployeeRole",
+                  "roleName": "Freelance Full-Stack Developer",
+                  "startDate": "2026-07",
+                  "description": "Designing and developing responsive full-stack web applications using React, Node.js, Express.js, TypeScript.",
+                  "worksFor": {
+                    "@type": "Organization",
+                    "name": "Fiverr"
+                  }
                 },
                 {
-                  "@type": "Organization",
-                  "name": "Fiverr",
-                  "description": "Freelance Full-Stack Developer"
+                  "@type": "EmployeeRole",
+                  "roleName": "Founder & Software Engineer",
+                  "startDate": "2026-04",
+                  "description": "Independent software engineering venture focused on innovative products in cybersecurity, IoT, blockchain.",
+                  "worksFor": {
+                    "@type": "Organization",
+                    "name": "Rishvin Labs"
+                  }
+                },
+                {
+                  "@type": "EmployeeRole",
+                  "roleName": "Pega Platform Intern",
+                  "startDate": "2026-08",
+                  "endDate": "2026-09",
+                  "description": "Selected for Pegasystems National Internship Program. 60 hours of industry-integrated learning.",
+                  "worksFor": {
+                    "@type": "Organization",
+                    "name": "Pegasystems"
+                  }
                 }
               ],
               "alumniOf": {
@@ -161,7 +261,17 @@ export default function Resume() {
               },
               "knowsAbout": [
                 "Cybersecurity", "Internet of Things (IoT)", "Blockchain", "Full-Stack Development",
-                "BPM", "Workflow Automation", "Low-Code Development", "Embedded Systems", "Hardware Design"
+                "BPM", "Workflow Automation", "Low-Code Development", "Embedded Systems", "Hardware Design",
+                "React", "Node.js", "TypeScript", "Python", "Solidity", "Security Research", "Vulnerability Analysis",
+                "Threat Intelligence", "Security Assessment", "Pega Platform", "GenAI", "Agentic AI"
+              ],
+              "hasCredential": [
+                {
+                  "@type": "EducationalOccupationalCredential",
+                  "credentialCategory": "Patent",
+                  "name": "IoT Connectivity Device Design Patent",
+                  "description": "Co-Inventor of a Government of India Design Patent for an IoT Connectivity Device."
+                }
               ]
             },
             {
