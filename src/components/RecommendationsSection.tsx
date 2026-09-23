@@ -177,7 +177,7 @@ function RecommendationModal({ rec, onClose }: { rec: Recommendation; onClose: (
             aria-hidden="true"
             className="select-none pointer-events-none leading-none -mb-6 -ml-1"
             style={{ fontSize: '7rem', fontFamily: 'Georgia,serif', color: '#f20d46', opacity: 0.09 }}
-          >"</div>
+          >&quot;</div>
 
           <div id="rec-modal-heading" className="space-y-5 text-[15px] leading-[1.9] text-slate-600">
             {rec.fullText.split('\n\n').map((para, i) => (
@@ -271,7 +271,7 @@ function RecommendationCard({
           aria-hidden="true"
           className="select-none leading-none mb-4"
           style={{ fontSize: '3.75rem', fontFamily: 'Georgia,serif', color: '#f20d46', opacity: 0.2, lineHeight: 1 }}
-        >"</div>
+        >&quot;</div>
 
         {/* Excerpt — fixed 5 lines, flex-1 pushes footer to bottom */}
         <blockquote
