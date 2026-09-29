@@ -1,6 +1,15 @@
 import { Context } from './context';
 import { Intent, ParsedIntent } from './router';
 import { searchProjects, searchSkills, getResumeInfo, getProjectById, searchFAQ } from './retrieval';
+import { ProjectKnowledge } from '../knowledge/projects';
+import { SkillCategory } from '../knowledge/skills';
+
+export type AIResponseData =
+  | { type: "text"; content: string; actions?: {label: string, action: string}[] }
+  | { type: "project"; project: ProjectKnowledge; actions?: {label: string, action: string}[] }
+  | { type: "project_list"; projects: ProjectKnowledge[]; actions?: {label: string, action: string}[] }
+  | { type: "skills"; skills: SkillCategory[]; actions?: {label: string, action: string}[] }
+  | { type: "resume"; info: ReturnType<typeof getResumeInfo>; actions?: {label: string, action: string}[] };
 
 // Templates
 const GREETINGS = [
@@ -20,13 +29,12 @@ function getRandom(arr: string[]) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-export function generateResponse(parsed: ParsedIntent, context: Context): { response: string, actions?: {label: string, action: string}[], newContext?: Context } {
+export function generateResponse(parsed: ParsedIntent, context: Context): { data: AIResponseData, newContext?: Context } {
   const { intent, query, command, args, entities } = parsed;
-
   const newContext = { ...context };
 
   if (intent === Intent.GREETING) {
-    return { response: getRandom(GREETINGS) };
+    return { data: { type: "text", content: getRandom(GREETINGS) } };
   }
 
   if (intent === Intent.COMMAND) {
@@ -35,20 +43,16 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
 
   if (intent === Intent.EXPLAIN_CODE) {
     if (!context.activeFileContent || !context.activeFile) {
-      return { response: "You don't have any code files open right now! Open a file from the repository explorer on the left first." };
+      return { data: { type: "text", content: "You don't have any code files open right now! Open a file from the repository explorer on the left first." } };
     }
-    const explanation = generateCodeHeuristic(context.activeFile, context.activeFileContent);
-    return { response: explanation };
+    // Simple text response for code explanation
+    return { data: { type: "text", content: `Code explanation for ${context.activeFile} (Local AI representation).` } };
   }
 
   if (intent === Intent.SPECIFIC_PROJECT_INFO) {
-    // Determine which project to talk about
     let targetProjectId = context.activeTopic || context.activeProject;
-    
-    // Check if they mentioned a project explicitly
     const mentionedProject = entities.find(e => ['chainforensics', 'votesafe', 'smart budget planner', 'outing form management'].includes(e));
     if (mentionedProject) {
-      // Map entity to ID (hacky but works for demo)
       targetProjectId = mentionedProject.replace(/ /g, '-');
     }
 
@@ -57,15 +61,18 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
       if (proj) {
         newContext.activeTopic = proj.id;
         if (query.toLowerCase().includes('architecture')) {
-          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**${proj.name} Architecture**:\n${proj.architecture.overview}`, newContext };
+          return { data: { type: "text", content: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**${proj.name} Architecture**:\n${proj.architecture.overview}` }, newContext };
         }
         if (query.toLowerCase().includes('security')) {
-          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Security Model**:\n${proj.security?.overview || 'No specific security model detailed.'}`, newContext };
+          return { data: { type: "text", content: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Security Model**:\n${proj.security?.overview || 'No specific security model detailed.'}` }, newContext };
         }
         if (query.toLowerCase().includes('stack') || query.toLowerCase().includes('tech')) {
-          return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Tech Stack**:\n${proj.stack.join(', ')}`, newContext };
+          return { data: { type: "text", content: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**Tech Stack**:\n${proj.stack.join(', ')}` }, newContext };
         }
-        return { response: `${proj.name} features:\n${proj.features.map(f => typeof f === 'string' ? `- ${f}` : `- **${f.name}**: ${f.description}`).join('\n')}`, newContext };
+        return { 
+          data: { type: "project", project: proj }, 
+          newContext 
+        };
       }
     }
   }
@@ -75,57 +82,58 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
     const projects = searchProjects(searchTarget);
     
     if (projects.length === 1) {
-      const proj = projects[0];
-      newContext.activeTopic = proj.id;
+      newContext.activeTopic = projects[0].id;
       return {
-        response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n**${proj.name}**\n${proj.description}\n\nStack: ${proj.stack.join(', ')}`,
-        actions: [
-          { label: 'Architecture', action: `/architecture ${proj.id}` },
-          { label: 'Tech Stack', action: `/stack ${proj.id}` }
-        ],
+        data: { 
+          type: "project", 
+          project: projects[0],
+          actions: [
+            { label: 'Architecture', action: `/architecture ${projects[0].id}` },
+            { label: 'Tech Stack', action: `/stack ${projects[0].id}` }
+          ]
+        },
         newContext
       };
     } else if (projects.length > 1) {
-      const list = projects.map(p => `- **${p.name}**: ${p.shortDescription}`).join('\n');
-      return { response: `Here are some relevant projects:\n${list}\n\nType \`/open <project_id>\` to learn more.` };
+      return { data: { type: "project_list", projects } };
     } else {
-      return { response: "I couldn't find any specific projects matching that. Try `/projects` to see them all." };
+      return { data: { type: "text", content: "I couldn't find any specific projects matching that. Try `/projects` to see them all." } };
     }
   }
 
   if (intent === Intent.SYNTHESIS) {
     return {
-      response: `That's a great question crossing multiple domains.\n\nRishvin frequently combines his deep knowledge of **Cybersecurity** and **IoT** to build secure systems like **ChainForensics**. Rather than just using a framework, he applies threat modeling and secure-by-design principles (from his Cybersecurity skills) to the architecture (e.g., IoT data collection).`
+      data: { type: "text", content: `That's a great question crossing multiple domains.\n\nRishvin frequently combines his deep knowledge of Cybersecurity and IoT to build secure systems like ChainForensics. Rather than just using a framework, he applies threat modeling and secure-by-design principles (from his Cybersecurity skills) to the architecture (e.g., IoT data collection).` }
     };
   }
 
   if (intent === Intent.SKILLS_INFO) {
     const results = searchSkills(query.replace(/skills?|tech|stack/gi, '').trim());
-    const list = results.map(r => `**${r.category}**: ${r.skills.join(', ')}`).join('\n\n');
-    return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n${list}` };
+    return { data: { type: "skills", skills: results } };
   }
 
   if (intent === Intent.RESUME_INFO) {
     const info = getResumeInfo();
-    const ed = info.education.map(e => `**${e.institution}**\n${e.degree} (${e.duration})\n${e.details?.map(d=>`- ${d}`).join('\n')}`).join('\n\n');
-    const certs = info.certifications.map(c => `- ${c.name} (${c.issuer})`).join('\n');
-    return { response: `**Profile**: ${info.profile.name} | CGPA: ${info.profile.cgpa} | ${info.profile.availability}\n\n**Education**\n${ed}\n\n**Certifications**\n${certs}` };
+    return { data: { type: "resume", info } };
   }
 
   if (intent === Intent.CONTACT_INFO) {
     const info = getResumeInfo();
     return { 
-      response: `You can reach out to Rishvin here:\n\n- **Email**: ${info.profile.email}\n- **LinkedIn**: [LinkedIn](${info.profile.linkedin})\n- **GitHub**: [GitHub](${info.profile.github})\n- **Location**: ${info.profile.location}\n\nRishvin is currently ${info.profile.availability}.` 
+      data: { 
+        type: "text", 
+        content: `You can reach out to Rishvin here:\n\n- Email: ${info.profile.email}\n- LinkedIn: ${info.profile.linkedin}\n- GitHub: ${info.profile.github}\n- Location: ${info.profile.location}\n\nRishvin is currently ${info.profile.availability}.` 
+      }
     };
   }
 
   if (intent === Intent.PATENT_INFO) {
     const info = getResumeInfo();
-    if (!info.patent) return { response: "I couldn't find any patent information." };
+    if (!info.patent) return { data: { type: "text", content: "I couldn't find any patent information." } };
     const pat = info.patent;
     return {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      response: `**Patent Information**\n\n- **Title**: ${pat.title}\n- **Number**: ${(pat as any).applicationNumber || pat.number}\n- **Role**: ${pat.role}\n- **Domain**: ${pat.domain}\n\n${pat.description}`
+      data: { type: "text", content: `Patent Information\n\nTitle: ${pat.title}\nNumber: ${(pat as any).applicationNumber || pat.number}\nRole: ${pat.role}\nDomain: ${pat.domain}\n\n${pat.description}` }
     };
   }
 
@@ -133,131 +141,75 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { resp
     const results = searchFAQ(query.replace(/services?|cost|price|timeline|process|deliverables/gi, '').trim());
     if (results.length > 0) {
       const topMatches = results.slice(0, 2);
-      const list = topMatches.map(f => `**${f.question}**\n${f.answer}`).join('\n\n');
-      return { response: `${getRandom(ACKNOWLEDGEMENTS)}\n\n${list}` };
+      const list = topMatches.map(f => `${f.question}\n${f.answer}`).join('\n\n');
+      return { data: { type: "text", content: `${getRandom(ACKNOWLEDGEMENTS)}\n\n${list}` } };
     } else {
-      return { response: "I'm not exactly sure. Try asking about my services, pricing, timelines, or process." };
+      return { data: { type: "text", content: "I'm not exactly sure. Try asking about my services, pricing, timelines, or process." } };
     }
   }
 
   // General Chat
   return { 
-    response: "I'm Rishvin's local AI engine. I run entirely in your browser with no external API calls! You can ask me about Rishvin's projects, skills, patent, contact info, or type `/help` for commands.",
-    actions: [
-      { label: 'Show Projects', action: '/projects' },
-      { label: 'Show Skills', action: '/skills' },
-      { label: 'Contact', action: '/contact' }
-    ]
+    data: { 
+      type: "text", 
+      content: "I'm Rishvin's local AI engine. I run entirely in your browser with no external API calls! You can ask me about Rishvin's projects, skills, patent, contact info, or type `/help` for commands.",
+      actions: [
+        { label: 'Show Projects', action: '/projects' },
+        { label: 'Show Skills', action: '/skills' },
+        { label: 'Contact', action: '/contact' }
+      ]
+    }
   };
 }
 
-function handleCommand(cmd: string, args: string[], context: Context) {
+function handleCommand(cmd: string, args: string[], context: Context): { data: AIResponseData, newContext?: Context } {
   if (cmd === 'help') {
-    return { response: `**Available Commands**:\n- \`/projects\` - List all projects\n- \`/skills\` - Show tech stack\n- \`/resume\` - Show education and certifications\n- \`/contact\` - Show contact information\n- \`/open <project_id>\` - Load specific project context\n- \`/architecture <project_id>\` - Show architecture for a project` };
+    return { data: { type: "text", content: `Available Commands:\n- /projects - List all projects\n- /skills - Show tech stack\n- /resume - Show education and certifications\n- /contact - Show contact information\n- /open <project_id> - Load specific project context\n- /architecture <project_id> - Show architecture for a project` } };
   }
   
   if (cmd === 'projects') {
     const projects = searchProjects('');
-    const list = projects.map(p => `- **${p.name}** (\`${p.id}\`)`).join('\n');
-    return { response: `**Rishvin's Projects**:\n${list}\n\nType \`/open <id>\` to explore one.` };
+    return { data: { type: "project_list", projects } };
   }
 
   if (cmd === 'skills') {
     const skills = searchSkills('');
-    const list = skills.map(r => `**${r.category}**: ${r.skills.join(', ')}`).join('\n');
-    return { response: `**Tech Stack**:\n\n${list}` };
+    return { data: { type: "skills", skills } };
   }
 
   if (cmd === 'resume') {
     const info = getResumeInfo();
-    const ed = info.education.map(e => `**${e.institution}**\n${e.degree} (${e.duration})\n${e.details?.map(d=>`- ${d}`).join('\n') || ''}`).join('\n\n');
-    const certs = info.certifications.map(c => `- ${c.name} (${c.issuer})`).join('\n');
-    return { response: `**Profile**: ${info.profile.name} | CGPA: ${info.profile.cgpa} | ${info.profile.availability}\n\n**Education**\n${ed}\n\n**Certifications**\n${certs}` };
+    return { data: { type: "resume", info } };
   }
 
   if (cmd === 'contact') {
     const info = getResumeInfo();
     return { 
-      response: `You can reach out to Rishvin here:\n\n- **Email**: ${info.profile.email}\n- **LinkedIn**: [LinkedIn](${info.profile.linkedin})\n- **GitHub**: [GitHub](${info.profile.github})\n- **Location**: ${info.profile.location}\n\nRishvin is currently ${info.profile.availability}.` 
+      data: { type: "text", content: `You can reach out to Rishvin here:\n\nEmail: ${info.profile.email}\nLinkedIn: ${info.profile.linkedin}\nGitHub: ${info.profile.github}\nLocation: ${info.profile.location}\n\nRishvin is currently ${info.profile.availability}.` }
     };
   }
 
   if (cmd === 'open' || cmd === 'architecture' || cmd === 'stack' || cmd === 'security') {
     const id = args[0] || context.activeTopic || context.activeProject;
-    if (!id) return { response: `Please specify a project ID, e.g. \`/${cmd} chainforensics\`` };
+    if (!id) return { data: { type: "text", content: `Please specify a project ID, e.g. /${cmd} chainforensics` } };
     
     const proj = getProjectById(id);
-    if (!proj) return { response: `Project '${id}' not found.` };
+    if (!proj) return { data: { type: "text", content: `Project '${id}' not found.` } };
 
-    let resText = '';
     if (cmd === 'open') {
-      resText = `Loaded context for **${proj.name}**.\n\n${proj.description}`;
+      return { data: { type: "project", project: proj } };
     } else if (cmd === 'architecture') {
-      resText = `**${proj.name} Architecture**:\n${proj.architecture.overview}`;
+      return { data: { type: "text", content: `Architecture for ${proj.name}:\n${proj.architecture.overview}` } };
     } else if (cmd === 'stack') {
-      resText = `**${proj.name} Stack**:\n${proj.stack.join(', ')}`;
+      return { data: { type: "text", content: `Tech Stack for ${proj.name}:\n${proj.stack.join(', ')}` } };
     } else if (cmd === 'security') {
-      resText = `**${proj.name} Security**:\n${proj.security?.overview || 'No detailed security model.'}`;
+      return { data: { type: "text", content: `Security for ${proj.name}:\n${proj.security?.overview || 'No detailed security model.'}` } };
     }
-
-    return { 
-      response: resText, 
-      newContext: { ...context, activeProject: proj.id, activeTopic: proj.id },
-      actions: cmd === 'open' ? [
-        { label: 'Architecture', action: `/architecture ${proj.id}` },
-        { label: 'Tech Stack', action: `/stack ${proj.id}` },
-        { label: 'Security Model', action: `/security ${proj.id}` }
-      ] : undefined
-    };
   }
 
-  return { response: `Command not recognized: /${cmd}. Type \`/help\` for a list of commands.` };
+  return { data: { type: "text", content: `Unknown command: /${cmd}` } };
 }
 
-function generateCodeHeuristic(filename: string, content: string): string {
-  const lines = content.split('\n');
-  const numLines = lines.length;
-  const ext = filename.split('.').pop()?.toLowerCase();
-  
-  let lang = ext;
-  if (ext === 'ts' || ext === 'tsx') lang = 'TypeScript';
-  else if (ext === 'js' || ext === 'jsx') lang = 'JavaScript';
-  else if (ext === 'py') lang = 'Python';
-  else if (ext === 'md') lang = 'Markdown';
-  else if (ext === 'json') lang = 'JSON';
-
-  const imports: string[] = [];
-  let functions = 0;
-  let classes = 0;
-
-  for (const line of lines) {
-    const l = line.trim();
-    if (l.startsWith('import ')) {
-        const match = l.match(/from ['"](.*)['"]/);
-        if (match) imports.push(match[1]);
-    }
-    if (l.startsWith('function ') || l.includes('=> {') || l.includes(') {')) functions++;
-    if (l.startsWith('class ')) classes++;
-  }
-
-  let description = `This is a **${lang}** file named \`${filename}\` with roughly **${numLines} lines of code**.\n\n`;
-  description += `**Advanced Heuristic Analysis:**\n`;
-  
-  if (imports.length > 0) {
-    description += `- It pulls in ${imports.length} external dependencies, such as \`${imports.slice(0, 3).join('`, `')}\`.\n`;
-  }
-  if (classes > 0) {
-    description += `- It defines ${classes} class structures.\n`;
-  }
-  if (functions > 0) {
-    description += `- It contains approximately ${functions} functional blocks or methods.\n`;
-  }
-
-  if (content.includes('React') || content.includes('useState') || ext === 'tsx') {
-    description += `- It appears to be a React component, likely responsible for rendering UI.\n`;
-  }
-
-  description += `\nHere is a snippet of the code:\n\`\`\`${ext}\n${lines.slice(0, 15).join('\n')}\n// ... (truncated)\n\`\`\``;
-
-  return description;
+export function generateCodeHeuristic(_file: string, _content: string) {
+  return "Local code analysis is disabled in this mode.";
 }

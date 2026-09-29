@@ -269,11 +269,29 @@ export default function IdeClient() {
       setChatContext(prev => ({ ...prev, activeProject: result.newContext?.activeProject }));
     }
 
+    let responseText = '';
+    let actions = undefined;
+    const { data } = result;
+
+    if (data.type === 'text') {
+      responseText = data.content;
+      actions = data.actions;
+    } else if (data.type === 'project') {
+      responseText = `**${data.project.name}**\n${data.project.description}\n\nStack: ${data.project.stack.join(', ')}`;
+      actions = data.actions;
+    } else if (data.type === 'project_list') {
+      responseText = `Here are some projects:\n` + data.projects.map(p => `- **${p.name}**: ${p.shortDescription}`).join('\n');
+    } else if (data.type === 'skills') {
+      responseText = data.skills.map(c => `**${c.category}**: ${c.skills.join(', ')}`).join('\n\n');
+    } else if (data.type === 'resume') {
+      responseText = `**Profile**: ${data.info.profile.name}\n\n**Education**:\n${data.info.education.map(e => `- ${e.institution}`).join('\n')}`;
+    }
+
     setChatMessages(prev => [...prev, { 
       id: `a-${Date.now()}`, 
       role: 'assistant', 
-      text: result.response,
-      actions: result.actions 
+      text: responseText,
+      actions: actions 
     }]);
   };
 
