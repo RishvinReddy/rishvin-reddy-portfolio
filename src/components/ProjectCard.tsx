@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import DOMPurify from "dompurify";
 import { Project } from "@/data/portfolio";
 
 interface ProjectCardProps {
@@ -93,8 +94,9 @@ async function postProcessReadme(
         const { svg } = await mermaid.render(id, code);
         const wrapper = document.createElement("div");
         wrapper.className = "my-5 p-4 bg-white border border-slate-200 rounded-xl overflow-x-auto shadow-md mermaid-rendered";
+        const sanitizedSvg = DOMPurify.sanitize(svg, { USE_PROFILES: { svg: true, svgFilters: true } });
         const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+        const svgDoc = parser.parseFromString(sanitizedSvg, "image/svg+xml");
         wrapper.appendChild(svgDoc.documentElement);
         const toReplace = block.closest("pre") || block;
         toReplace.replaceWith(wrapper);
@@ -121,8 +123,9 @@ async function postProcessReadme(
           const { svg } = await mermaid.render(id, code);
           const wrapper = document.createElement("div");
           wrapper.className = "p-4 bg-white border border-slate-200 rounded-xl overflow-x-auto shadow-md";
+          const sanitizedSvg = DOMPurify.sanitize(svg, { USE_PROFILES: { svg: true, svgFilters: true } });
           const parser = new DOMParser();
-          const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+          const svgDoc = parser.parseFromString(sanitizedSvg, "image/svg+xml");
           wrapper.appendChild(svgDoc.documentElement);
           section.appendChild(wrapper);
         } catch (err) {
@@ -164,11 +167,16 @@ async function postProcessReadme(
         const allowedHosts = new Set(["lucid.app", "app.lucidchart.com", "www.lucidchart.com"]);
         if (parsed.protocol !== "https:" || !allowedHosts.has(parsed.hostname)) continue;
         
-        if (url.includes("lucidchart.com") && !url.includes("/embedded/")) {
-          embedUrl = url.replace("/documents/view/", "/documents/embeddedchart/")
-                        .replace("/documents/edit/", "/documents/embeddedchart/");
+        if (
+          (parsed.hostname === "app.lucidchart.com" || parsed.hostname === "www.lucidchart.com") &&
+          !parsed.pathname.includes("/embedded/")
+        ) {
+          parsed.pathname = parsed.pathname
+            .replace("/documents/view/", "/documents/embeddedchart/")
+            .replace("/documents/edit/", "/documents/embeddedchart/");
         }
         
+        embedUrl = parsed.toString();
         const parsedEmbed = new URL(embedUrl);
         if (parsedEmbed.protocol !== "https:" || !allowedHosts.has(parsedEmbed.hostname)) continue;
       } catch (e) {
