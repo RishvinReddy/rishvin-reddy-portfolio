@@ -19,7 +19,13 @@ window.logToTerminal = function(message, type = "info") {
 
   const logEl = document.createElement('div');
   logEl.className = `mb-1 ${colorClass} text-[13px] opacity-90`;
-  logEl.innerHTML = `<span class="text-slate-400 opacity-50 mr-2">[${timestamp}]</span> ${message}`;
+  
+  const timeSpan = document.createElement('span');
+  timeSpan.className = "text-slate-400 opacity-50 mr-2";
+  timeSpan.textContent = `[${timestamp}]`;
+  
+  logEl.appendChild(timeSpan);
+  logEl.appendChild(document.createTextNode(` ${message}`));
   
   // Insert before the input line if it exists
   const inputLine = terminalOutput.lastElementChild;
@@ -74,7 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Echo command with prompt styling
       const cmdEl = document.createElement('div');
       cmdEl.className = 'mb-1 text-slate-800 ';
-      cmdEl.innerHTML = `<span class="text-emerald-500">➜</span> <span class="text-blue-400 font-bold">portfolio</span> <span class="text-slate-400">git:(</span><span class="text-rose-400 font-bold">main</span><span class="text-slate-400">)</span> ${command}`;
+      cmdEl.innerHTML = `<span class="text-emerald-500">➜</span> <span class="text-blue-400 font-bold">portfolio</span> <span class="text-slate-400">git:(</span><span class="text-rose-400 font-bold">main</span><span class="text-slate-400">)</span> `;
+      cmdEl.appendChild(document.createTextNode(command));
       terminalOutput.insertBefore(cmdEl, terminalOutput.lastElementChild);
 
       processCommand(command);

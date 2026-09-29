@@ -93,7 +93,9 @@ async function postProcessReadme(
         const { svg } = await mermaid.render(id, code);
         const wrapper = document.createElement("div");
         wrapper.className = "my-5 p-4 bg-white border border-slate-200 rounded-xl overflow-x-auto shadow-md mermaid-rendered";
-        wrapper.innerHTML = svg;
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+        wrapper.appendChild(svgDoc.documentElement);
         const toReplace = block.closest("pre") || block;
         toReplace.replaceWith(wrapper);
       } catch (err) {
@@ -119,7 +121,9 @@ async function postProcessReadme(
           const { svg } = await mermaid.render(id, code);
           const wrapper = document.createElement("div");
           wrapper.className = "p-4 bg-white border border-slate-200 rounded-xl overflow-x-auto shadow-md";
-          wrapper.innerHTML = svg;
+          const parser = new DOMParser();
+          const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+          wrapper.appendChild(svgDoc.documentElement);
           section.appendChild(wrapper);
         } catch (err) {
           const fallback = document.createElement("pre");
@@ -155,9 +159,20 @@ async function postProcessReadme(
 
       // Convert view URL to embed URL for lucidchart
       let embedUrl = url;
-      if (url.includes("lucidchart.com") && !url.includes("/embedded/")) {
-        embedUrl = url.replace("/documents/view/", "/documents/embeddedchart/")
-                      .replace("/documents/edit/", "/documents/embeddedchart/");
+      try {
+        const parsed = new URL(url);
+        const allowedHosts = new Set(["lucid.app", "app.lucidchart.com", "www.lucidchart.com"]);
+        if (parsed.protocol !== "https:" || !allowedHosts.has(parsed.hostname)) continue;
+        
+        if (url.includes("lucidchart.com") && !url.includes("/embedded/")) {
+          embedUrl = url.replace("/documents/view/", "/documents/embeddedchart/")
+                        .replace("/documents/edit/", "/documents/embeddedchart/");
+        }
+        
+        const parsedEmbed = new URL(embedUrl);
+        if (parsedEmbed.protocol !== "https:" || !allowedHosts.has(parsedEmbed.hostname)) continue;
+      } catch (e) {
+        continue;
       }
 
       const iframeWrap = document.createElement("div");

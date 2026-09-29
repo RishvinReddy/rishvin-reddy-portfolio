@@ -193,7 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (labelEl && searchQuery) {
               const original = b.getAttribute('data-repo') || '';
               const regex = new RegExp(`(${searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-              labelEl.innerHTML = original.replace(regex, '<mark class="bg-primary/30 text-primary rounded px-0.5">$1</mark>');
+              labelEl.textContent = '';
+              const parts = original.split(regex);
+              parts.forEach(part => {
+                if (part.toLowerCase() === searchQuery.toLowerCase()) {
+                  const mark = document.createElement('mark');
+                  mark.className = 'bg-primary/30 text-primary rounded px-0.5';
+                  mark.textContent = part;
+                  labelEl.appendChild(mark);
+                } else if (part) {
+                  labelEl.appendChild(document.createTextNode(part));
+                }
+              });
             } else if (labelEl) {
               labelEl.textContent = b.getAttribute('data-repo') || '';
             }
