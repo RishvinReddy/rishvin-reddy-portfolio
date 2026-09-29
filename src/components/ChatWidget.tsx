@@ -179,7 +179,7 @@ export function ChatWidget() {
                   <button 
                     key={i} 
                     onClick={() => handleSend(act.action)}
-                    className="text-[10px] px-3 py-1.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-white transition-colors uppercase tracking-widest"
+                    className="text-[10px] px-3 py-1.5 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white transition-colors uppercase tracking-widest"
                   >
                     {act.label} ↗
                   </button>
@@ -228,7 +228,7 @@ export function ChatWidget() {
                 >
                   <div>
                     <div className="text-sm font-bold text-slate-200 group-hover:text-primary transition-colors">{String(i + 1).padStart(2, '0')} {p.name}</div>
-                    <div className="text-xs text-slate-500 truncate max-w-[200px] sm:max-w-[300px] mt-0.5">{p.shortDescription}</div>
+                    <div className="text-xs text-slate-400 truncate max-w-[200px] sm:max-w-[300px] mt-1">{p.shortDescription}</div>
                   </div>
                   <span className="text-slate-500 group-hover:text-primary">↗</span>
                 </button>
@@ -284,10 +284,10 @@ export function ChatWidget() {
           isOpen ? 'scale-100 opacity-100 mb-6' : 'scale-90 opacity-0 pointer-events-none mb-0 absolute bottom-16'
         }`}
       >
-        <div className={`w-[95vw] sm:w-[700px] h-[650px] max-h-[85vh] flex flex-col glass-panel border border-white/10 rounded-2xl overflow-hidden shadow-2xl relative transition-colors duration-300 ${viewMode === 'terminal' ? 'bg-black/95 backdrop-blur-none' : 'bg-black/80 backdrop-blur-2xl'}`}>
+        <div className={`w-[95vw] sm:w-[700px] h-[650px] max-h-[85vh] flex flex-col border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative transition-colors duration-300 ${viewMode === 'terminal' ? 'bg-[#0a0a0a]' : 'bg-[#111111]/90 backdrop-blur-3xl'}`}>
           
           {/* Header */}
-          <div className="relative flex items-center justify-between px-6 py-4 border-b border-white/10 bg-black/40 backdrop-blur-md z-10 shrink-0">
+          <div className="relative flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#0a0a0a]/60 backdrop-blur-md z-10 shrink-0">
             <div className="flex items-center gap-4">
               <div className="relative flex items-center justify-center">
                 <div className={`w-2 h-2 rounded-full ${isProcessing ? 'bg-amber-400' : 'bg-green-400'} shadow-[0_0_10px_rgba(255,255,255,0.2)]`}></div>
@@ -302,16 +302,16 @@ export function ChatWidget() {
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex border border-white/10 rounded-lg p-0.5 bg-black">
+              <div className="hidden sm:flex border border-white/10 rounded-lg p-0.5 bg-white/[0.02]">
                 <button 
                   onClick={() => setViewMode('visual')}
-                  className={`text-[9px] uppercase tracking-widest px-2 py-1 rounded transition-colors ${viewMode === 'visual' ? 'bg-white/10 text-white' : 'text-slate-500 hover:text-slate-300'}`}
+                  className={`text-[9px] uppercase tracking-widest px-3 py-1.5 rounded transition-colors ${viewMode === 'visual' ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-slate-200'}`}
                 >
                   Visual
                 </button>
                 <button 
                   onClick={() => setViewMode('terminal')}
-                  className={`text-[9px] uppercase tracking-widest px-2 py-1 rounded transition-colors ${viewMode === 'terminal' ? 'bg-white/10 text-white' : 'text-slate-500 hover:text-slate-300'}`}
+                  className={`text-[9px] uppercase tracking-widest px-3 py-1.5 rounded transition-colors ${viewMode === 'terminal' ? 'bg-white/10 text-white font-bold' : 'text-slate-400 hover:text-slate-200'}`}
                 >
                   Terminal
                 </button>
@@ -320,7 +320,7 @@ export function ChatWidget() {
               <span className="text-[9px] text-slate-400 uppercase tracking-widest hidden sm:inline-block">
                 {isProcessing ? 'Thinking...' : 'Local • Ready'}
               </span>
-              <kbd className="hidden sm:inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-white/5 rounded border border-white/10">⌘K</kbd>
+              <kbd className="hidden sm:inline-flex items-center justify-center px-1.5 py-0.5 text-[10px] font-mono text-slate-300 bg-white/10 rounded border border-white/20">⌘K</kbd>
               <button 
                 onClick={() => setIsOpen(false)}
                 className="text-slate-400 hover:text-white transition-colors ml-2"
@@ -394,9 +394,9 @@ export function ChatWidget() {
                           <span className="text-[9px] font-bold tracking-widest uppercase text-slate-500 mb-2 ml-1 font-serif">Rishvin AI</span>
                         )}
                         <div 
-                          className={`px-5 py-4 shadow-sm ${
+                          className={`${
                             msg.sender === 'user' 
-                              ? 'bg-white/10 border border-white/10 text-white rounded-2xl rounded-br-sm backdrop-blur-md text-sm' 
+                              ? 'px-4 py-2 bg-white/10 border border-white/10 text-white rounded-2xl rounded-br-sm backdrop-blur-md text-sm shadow-sm' 
                               : 'w-full text-slate-300'
                           }`}
                         >
@@ -428,15 +428,15 @@ export function ChatWidget() {
           </div>
 
           {/* Input Area */}
-          <div className="p-5 border-t border-white/10 bg-black/80 backdrop-blur-xl z-10 shrink-0">
+          <div className="p-5 border-t border-white/10 bg-[#0a0a0a]/90 backdrop-blur-xl z-10 shrink-0">
             <div className="relative flex items-center group">
               {viewMode === 'terminal' ? (
-                <span className="absolute left-4 text-primary font-mono text-sm group-focus-within:text-primary-light transition-colors">
+                <span className="absolute left-4 text-primary font-mono text-sm group-focus-within:text-primary-light transition-colors z-10">
                   $
                 </span>
               ) : (
-                <span className="absolute left-4 text-slate-500 group-focus-within:text-primary transition-colors">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="absolute left-4 text-primary group-focus-within:text-primary-light transition-colors z-10">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </span>
@@ -448,13 +448,13 @@ export function ChatWidget() {
                 onKeyDown={handleKeyDown}
                 placeholder={viewMode === 'terminal' ? "Enter command (e.g., /projects, /skills)..." : "Search projects, skills, experience..."}
                 disabled={isProcessing}
-                className={`w-full bg-black border border-white/10 rounded-xl pl-11 pr-14 py-3.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-white/30 transition-all resize-none h-[52px] min-h-[52px] max-h-[120px] custom-scrollbar shadow-inner disabled:opacity-50 ${viewMode === 'terminal' ? 'font-mono' : ''}`}
+                className={`w-full bg-[#111111] border border-white/10 rounded-xl pl-12 pr-14 py-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-white/30 transition-all resize-none h-[56px] min-h-[56px] max-h-[120px] custom-scrollbar shadow-inner disabled:opacity-50 relative ${viewMode === 'terminal' ? 'font-mono' : ''}`}
                 rows={1}
               />
               <button 
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isProcessing}
-                className="absolute right-2 w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:hover:bg-white/5 transition-all focus:outline-none focus:ring-1 focus:ring-white/30"
+                className="absolute right-2 w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-white disabled:opacity-30 disabled:hover:bg-white/5 transition-all focus:outline-none focus:ring-1 focus:ring-white/30 z-10"
               >
                 <svg className="w-4 h-4 transform group-focus-within:translate-x-0.5 group-focus-within:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7-7 7" />
