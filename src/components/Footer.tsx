@@ -195,6 +195,15 @@ export function Footer() {
                   <a href="https://www.linkedin.com/in/rishvinreddy" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-slate-800/80 border border-slate-600/50 hover:border-[#0077b5] hover:text-white text-slate-200 transition-all hover:bg-[#0077b5]">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                   </a>
+                  <a href="https://hackindia.org/profile/rishvin_reddy" title="HackIndia Profile" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-slate-800/80 border border-slate-600/50 hover:border-purple-500 hover:text-white text-slate-200 transition-all hover:bg-purple-500">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                  </a>
+                  <a href="https://www.wemakedevs.org/rishvinreddy" title="WeMakeDevs Profile" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-slate-800/80 border border-slate-600/50 hover:border-blue-500 hover:text-white text-slate-200 transition-all hover:bg-blue-500">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                  </a>
+                  <a href="https://youtube.com/@rishvinreddy" title="YouTube — Rishvin Reddy" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full bg-slate-800/80 border border-slate-600/50 hover:border-[#FF0000] hover:text-white text-slate-200 transition-all hover:bg-[#FF0000]">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  </a>
                   <a href="mailto:rishvinreddy@gmail.com" className="p-2.5 rounded-full bg-slate-800/80 border border-slate-600/50 hover:border-rose-500 hover:text-white text-slate-200 transition-all hover:bg-rose-500">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                   </a>

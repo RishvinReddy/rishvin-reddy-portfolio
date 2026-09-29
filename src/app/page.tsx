@@ -170,7 +170,10 @@ export default async function Home() {
               "image": "https://rishvinreddy.vercel.app/icon.png",
               "sameAs": [
                 "https://github.com/RishvinReddy",
-                "https://www.linkedin.com/in/rishvin-reddy/"
+                "https://www.linkedin.com/in/rishvin-reddy/",
+                "https://hackindia.org/profile/rishvin_reddy",
+                "https://www.wemakedevs.org/rishvinreddy",
+                "https://youtube.com/@rishvinreddy"
               ],
               "jobTitle": "Software Engineer, Cybersecurity Analyst, IoT Developer",
               "worksFor": [

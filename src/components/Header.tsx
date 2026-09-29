@@ -121,6 +121,14 @@ export function Header() {
             </svg>
           </a>
 
+          {/*  YouTube  */}
+          <a className="hidden sm:flex w-7 h-7 items-center justify-center rounded-full bg-white/5 text-white transition-all duration-200 hover:bg-[#FF0000]/20 hover:text-[#FF0000] hover:scale-105"
+            href="https://youtube.com/@rishvinreddy" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+
           {/*  Divider  */}
           <span className="hidden xl:block w-px h-4 bg-white/10 mx-1.5"></span>
 
