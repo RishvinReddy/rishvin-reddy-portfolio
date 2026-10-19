@@ -1,5 +1,13 @@
 import React from 'react';
 import { Metadata, Viewport } from "next";
+import {
+  HandUnderline,
+  HandDrawnArrow,
+  HandCircle,
+  HandwrittenNote,
+  EngineeringDoodle,
+  RishvinSignature,
+} from '@/components/handwritten';
 
 export const metadata: Metadata = {
   title: "About | Erolla Rishvin Reddy | Founder, Rishvin Labs",
@@ -207,18 +215,27 @@ export default function About() {
   <section className="min-h-[92vh] flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200/50 via-slate-50 to-transparent -z-10 opacity-70">
     </div>
-    <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-slate-200 text-slate-700 text-xs font-bold tracking-widest uppercase shadow-lg animate-fade-in-up">
+    <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-xl border border-slate-200 text-slate-700 text-xs font-bold tracking-widest uppercase shadow-lg animate-fade-in-up">
       <span className="relative flex h-2 w-2">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
       </span>
       Engineering · Security · Connected Systems
     </div>
+    <div className="flex justify-center mb-4">
+      <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-right" className="hidden sm:inline-flex">
+        from first principles
+      </HandwrittenNote>
+    </div>
     <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter text-slate-900 mb-8 leading-[0.98] animate-fade-in-up">
       I engineer systems where
       <br className="hidden md:block" />
+      <span className="relative inline-block font-editorial italic font-normal text-slate-900 mr-3">
+        software
+        <HandUnderline variant="scribble" color="#2563eb" className="hidden sm:inline-block" />
+      </span>
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-rose-500 to-indigo-600">
-        software meets the real world.
+        meets the real world.
       </span>
     </h1>
     <p className="text-lg md:text-2xl text-slate-500 font-medium max-w-4xl mx-auto leading-relaxed animate-fade-in-up">
@@ -247,25 +264,32 @@ export default function About() {
   <section className="px-6 pb-24">
     <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 rounded-[2rem] overflow-hidden border border-slate-200 shadow-xl shadow-slate-200/30">
-        <div className="bg-white p-8 text-center">
-          <p className="text-3xl md:text-4xl font-black text-slate-900">9.01</p>
+        <div className="bg-white p-8 text-center flex flex-col items-center justify-center">
+          <div className="relative inline-flex items-center justify-center">
+            <HandCircle color="#2563eb" className="scale-90">
+              <span className="text-3xl md:text-4xl font-black text-slate-900">9.01</span>
+            </HandCircle>
+          </div>
           <p className="mt-2 text-xs font-bold uppercase tracking-widest text-slate-400">
             CGPA / 10
           </p>
         </div>
-        <div className="bg-white p-8 text-center">
+        <div className="bg-white p-8 text-center flex flex-col items-center justify-center">
           <p className="text-3xl md:text-4xl font-black text-slate-900">2028</p>
           <p className="mt-2 text-xs font-bold uppercase tracking-widest text-slate-400">
             Expected Graduation
           </p>
         </div>
-        <div className="bg-white p-8 text-center">
+        <div className="bg-white p-8 text-center flex flex-col items-center justify-center relative">
           <p className="text-3xl md:text-4xl font-black text-slate-900">01</p>
           <p className="mt-2 text-xs font-bold uppercase tracking-widest text-slate-400">
             Design Patent Milestone
           </p>
+          <HandwrittenNote rotation={2} color="amber" className="text-xs mt-1.5 hidden sm:inline-flex">
+            Design No. 470097-001
+          </HandwrittenNote>
         </div>
-        <div className="bg-white p-8 text-center">
+        <div className="bg-white p-8 text-center flex flex-col items-center justify-center">
           <p className="text-3xl md:text-4xl font-black text-slate-900">04+</p>
           <p className="mt-2 text-xs font-bold uppercase tracking-widest text-slate-400">
             Core Engineering Domains
@@ -278,13 +302,21 @@ export default function About() {
   {/*  4. The Story  */}
   <section className="py-32 mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 relative scroll-reveal">
     <div className="sticky top-32 mb-16 md:mb-0 md:absolute md:w-[40%] z-10">
-      <span className="text-primary font-extrabold tracking-widest uppercase text-sm mb-3 block">
-        My Journey
-      </span>
+      <div className="flex items-center gap-3 mb-3">
+        <span className="text-primary font-extrabold tracking-widest uppercase text-sm">
+          My Journey
+        </span>
+        <HandwrittenNote rotation={-2} color="accent" className="hidden sm:inline-flex text-xs">
+          an engineer&apos;s sketchbook
+        </HandwrittenNote>
+      </div>
       <h2 className="text-5xl md:text-7xl font-black text-slate-900 leading-[1.05] tracking-tight">
         From curiosity
         <br />
-        to systems.
+        <span className="relative inline-block">
+          to systems.
+          <HandUnderline variant="single" color="#2563eb" />
+        </span>
       </h2>
       <p className="mt-6 text-slate-500 max-w-sm leading-relaxed">
         A progression from learning how technology works to engineering how
@@ -324,6 +356,7 @@ export default function About() {
         </p>
       </article>
       <article className="scroll-reveal p-10 bg-white/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.07)] border border-white/60 rounded-3xl relative overflow-hidden">
+        <EngineeringDoodle type="sensor-node" color="#6366f1" className="w-20 h-20 absolute -bottom-3 -right-3 opacity-15 rotate-12 pointer-events-none" />
         <span className="inline-flex items-center gap-2 px-3 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-widest rounded-full mb-6 border border-indigo-100">
           Intellectual Property Milestone
         </span>
@@ -352,7 +385,11 @@ export default function About() {
         <div className="mt-8 p-7 border-l-4 border-primary bg-primary/5 rounded-r-2xl">
           <p className="text-xl font-black text-slate-900 leading-relaxed">
             I am not trying to collect technologies.
-            I am learning how to combine them into systems that work.
+            I am learning how to combine them into{' '}
+            <span className="relative inline-block font-editorial italic font-normal text-slate-900">
+              systems that work
+              <HandUnderline variant="double" color="#2563eb" />
+            </span>.
           </p>
         </div>
       </article>
@@ -380,12 +417,18 @@ export default function About() {
           </p>
         </div>
         <div className="scroll-reveal bg-slate-900 text-white rounded-[2rem] p-10 shadow-2xl relative overflow-hidden">
+          <EngineeringDoodle type="circuit" color="#38bdf8" className="w-24 h-24 absolute -bottom-4 -right-4 opacity-20 pointer-events-none" />
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 blur-[100px] rounded-full">
           </div>
           <div className="relative z-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
-              2024 — 2028
-            </p>
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400">
+                2024 — 2028
+              </p>
+              <HandwrittenNote rotation={2} color="blue" className="hidden sm:inline-flex text-xs">
+                Active coursework & experiments
+              </HandwrittenNote>
+            </div>
             <h3 className="text-3xl font-black mt-4">
               B.Tech in Computer Science and Engineering
             </h3>
@@ -419,9 +462,14 @@ export default function About() {
     </div>
     <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-4xl mb-20 scroll-reveal">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-xs mb-6">
-          Engineering Domains
-        </span>
+        <div className="flex items-center gap-3 mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-xs">
+            Engineering Domains
+          </span>
+          <HandwrittenNote rotation={-2} color="emerald" className="hidden sm:inline-flex text-xs">
+            Hardware · Software · Security
+          </HandwrittenNote>
+        </div>
         <h2 className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05]">
           I work where systems
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
@@ -435,65 +483,69 @@ export default function About() {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-primary flex items-center justify-center mb-7">
+        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group relative overflow-hidden">
+          <EngineeringDoodle type="shield" color="#f43f5e" className="w-16 h-16 absolute top-6 right-6 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none" />
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-primary flex items-center justify-center mb-7 relative z-10">
             <i className="fa-solid fa-shield-halved text-white text-xl"></i>
           </div>
-          <p className="text-xs uppercase tracking-widest text-rose-300 font-bold">
+          <p className="text-xs uppercase tracking-widest text-rose-300 font-bold relative z-10">
             Security
           </p>
-          <h3 className="text-2xl font-black mt-3 mb-4">
+          <h3 className="text-2xl font-black mt-3 mb-4 relative z-10">
             Cybersecurity Engineering
           </h3>
-          <p className="text-slate-400 leading-relaxed">
+          <p className="text-slate-400 leading-relaxed relative z-10">
             Exploring secure authentication, attack-surface visibility,
             vulnerability workflows, web security, digital forensics,
             threat intelligence, and security automation.
           </p>
         </article>
-        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center mb-7">
+        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group relative overflow-hidden">
+          <EngineeringDoodle type="circuit" color="#f59e0b" className="w-16 h-16 absolute top-6 right-6 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none" />
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center mb-7 relative z-10">
             <i className="fa-solid fa-microchip text-white text-xl"></i>
           </div>
-          <p className="text-xs uppercase tracking-widest text-orange-300 font-bold">
+          <p className="text-xs uppercase tracking-widest text-orange-300 font-bold relative z-10">
             Connected Systems
           </p>
-          <h3 className="text-2xl font-black mt-3 mb-4">
+          <h3 className="text-2xl font-black mt-3 mb-4 relative z-10">
             IoT & Embedded Prototyping
           </h3>
-          <p className="text-slate-400 leading-relaxed">
+          <p className="text-slate-400 leading-relaxed relative z-10">
             Building sensor-driven systems that connect physical devices,
             control logic, communication layers, dashboards, and
             real-world operational workflows.
           </p>
         </article>
-        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center mb-7">
+        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group relative overflow-hidden">
+          <EngineeringDoodle type="code-brackets" color="#3b82f6" className="w-16 h-16 absolute top-6 right-6 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none" />
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center mb-7 relative z-10">
             <i className="fa-solid fa-code text-white text-xl"></i>
           </div>
-          <p className="text-xs uppercase tracking-widest text-blue-300 font-bold">
+          <p className="text-xs uppercase tracking-widest text-blue-300 font-bold relative z-10">
             Software
           </p>
-          <h3 className="text-2xl font-black mt-3 mb-4">
+          <h3 className="text-2xl font-black mt-3 mb-4 relative z-10">
             Full-Stack Systems
           </h3>
-          <p className="text-slate-400 leading-relaxed">
+          <p className="text-slate-400 leading-relaxed relative z-10">
             Designing applications across frontend interfaces,
             backend services, APIs, databases, authentication,
             deployment, and operational concerns.
           </p>
         </article>
-        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center mb-7">
+        <article className="bg-white/5 border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-all duration-300 group relative overflow-hidden">
+          <EngineeringDoodle type="linked-blocks" color="#a855f7" className="w-16 h-16 absolute top-6 right-6 opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none" />
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center mb-7 relative z-10">
             <i className="fa-solid fa-cubes text-white text-xl"></i>
           </div>
-          <p className="text-xs uppercase tracking-widest text-violet-300 font-bold">
+          <p className="text-xs uppercase tracking-widest text-violet-300 font-bold relative z-10">
             Decentralized Systems
           </p>
-          <h3 className="text-2xl font-black mt-3 mb-4">
+          <h3 className="text-2xl font-black mt-3 mb-4 relative z-10">
             Blockchain Engineering
           </h3>
-          <p className="text-slate-400 leading-relaxed">
+          <p className="text-slate-400 leading-relaxed relative z-10">
             Studying decentralized architectures, smart-contract systems,
             trust models, blockchain-backed applications, and where
             distributed ledgers create genuine technical value.
@@ -528,8 +580,9 @@ export default function About() {
           </a>
         </div>
         <div className="space-y-4">
-          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all">
-            <div className="flex gap-5">
+          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all relative overflow-hidden">
+            <EngineeringDoodle type="terminal" color="#2563eb" className="w-10 h-10 absolute bottom-4 right-4 opacity-15 pointer-events-none" />
+            <div className="flex gap-5 relative z-10">
               <span className="font-mono text-xs text-primary pt-1">
                 01
               </span>
@@ -545,8 +598,9 @@ export default function About() {
               </div>
             </div>
           </article>
-          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all">
-            <div className="flex gap-5">
+          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all relative overflow-hidden">
+            <EngineeringDoodle type="sensor-node" color="#10b981" className="w-10 h-10 absolute bottom-4 right-4 opacity-15 pointer-events-none" />
+            <div className="flex gap-5 relative z-10">
               <span className="font-mono text-xs text-primary pt-1">
                 02
               </span>
@@ -562,8 +616,9 @@ export default function About() {
               </div>
             </div>
           </article>
-          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all">
-            <div className="flex gap-5">
+          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all relative overflow-hidden">
+            <EngineeringDoodle type="fingerprint" color="#f59e0b" className="w-10 h-10 absolute bottom-4 right-4 opacity-15 pointer-events-none" />
+            <div className="flex gap-5 relative z-10">
               <span className="font-mono text-xs text-primary pt-1">
                 03
               </span>
@@ -579,8 +634,9 @@ export default function About() {
               </div>
             </div>
           </article>
-          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all">
-            <div className="flex gap-5">
+          <article className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-primary/30 hover:shadow-xl transition-all relative overflow-hidden">
+            <EngineeringDoodle type="data-stream" color="#8b5cf6" className="w-10 h-10 absolute bottom-4 right-4 opacity-15 pointer-events-none" />
+            <div className="flex gap-5 relative z-10">
               <span className="font-mono text-xs text-primary pt-1">
                 04
               </span>
@@ -611,8 +667,16 @@ export default function About() {
         <h2 className="text-4xl md:text-7xl font-black text-slate-900 leading-[1.05]">
           How I approach
           <br />
-          technical problems.
+          <span className="relative inline-block">
+            technical problems.
+            <HandUnderline variant="scribble" color="#2563eb" />
+          </span>
         </h2>
+        <div className="mt-4 flex justify-center">
+          <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-right" className="hidden sm:inline-flex text-xs">
+            non-negotiable standards
+          </HandwrittenNote>
+        </div>
         <p className="mt-7 text-lg text-slate-600 leading-relaxed">
           I am developing an engineering philosophy centered on reliability,
           explicit trade-offs, security, and systems that remain understandable
@@ -686,12 +750,19 @@ export default function About() {
     <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8">
       <div className="grid lg:grid-cols-2 gap-14 items-center bg-white border border-slate-200 rounded-[3rem] p-8 md:p-14 shadow-xl shadow-slate-200/30">
         <div>
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
-            Founder Perspective
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Founder Perspective
+            </span>
+            <HandwrittenNote rotation={2} color="emerald" className="hidden sm:inline-flex text-xs">
+              Venture & Sandbox
+            </HandwrittenNote>
+          </div>
           <h2 className="text-4xl md:text-6xl font-black text-slate-900 mt-5 leading-[1.05]">
-            Rishvin Labs is where
-            ideas become systems.
+            Rishvin Labs is where{' '}
+            <span className="font-editorial italic font-normal text-slate-900">
+              ideas become systems.
+            </span>
           </h2>
           <p className="mt-7 text-lg text-slate-600 leading-relaxed">
             I created Rishvin Labs as an engineering identity for exploring,
@@ -828,6 +899,14 @@ export default function About() {
         first principles to architecture, from architecture to implementation,
         and from implementation to systems people can actually depend on.
       </p>
+
+      {/* Personal Editorial Signature Sign-off */}
+      <div className="mt-12 flex flex-col items-center justify-center">
+        <RishvinSignature className="w-56 sm:w-72 h-auto text-slate-900 dark:text-white opacity-85 hover:opacity-100 transition-opacity -rotate-1" />
+        <span className="mt-3 text-xs font-mono uppercase tracking-[0.25em] text-slate-400">
+          Personal Sign-off · Founder & Systems Engineer
+        </span>
+      </div>
     </div>
   </section>
 

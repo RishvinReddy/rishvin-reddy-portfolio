@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from 'next/navigation';
+import { RishvinSignature } from "@/components/handwritten";
 
 export function Footer() {
   const pathname = usePathname();
@@ -168,7 +169,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="md:col-span-4 flex flex-col space-y-8 pt-2">
+            <div className="md:col-span-4 flex flex-col space-y-6 pt-2">
               <div>
                 <h3 className="text-xs font-semibold uppercase tracking-widest text-white mb-6 flex items-center">
                   <span className="w-4 h-[1px] bg-purple-400 mr-2"></span> Get Updates
@@ -186,6 +187,10 @@ export function Footer() {
                 </form>
               </div>
 
+              {/* Signature Below Get Updates */}
+              <div className="pt-4 flex flex-col items-start">
+                <RishvinSignature className="w-64 sm:w-80 md:w-[22rem] max-w-full h-auto text-slate-300 hover:text-white opacity-90 hover:opacity-100 transition-all duration-300 -rotate-2" />
+              </div>
             </div>
           </div>
 

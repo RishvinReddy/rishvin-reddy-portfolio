@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { EXPERIENCE } from '@/data/experience';
+import { HandwrittenNote, HandCircle } from '@/components/handwritten';
 
 const getThemeClasses = (theme: string) => {
   switch (theme) {
@@ -56,13 +57,18 @@ export default function ExperienceSection() {
                   <path d="M12 0L13.5 8.5L22 10L13.5 11.5L12 20L10.5 11.5L2 10L10.5 8.5L12 0Z" />
                 </svg>
                 
-                <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 font-display leading-[1.05] mb-6">
+                <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 font-display leading-[1.05] mb-3">
                   Engineering
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-blue-500 to-teal-400">
                     Experience
                   </span>
                 </h2>
+                <div className="mb-6 flex items-center justify-center lg:justify-start">
+                  <HandwrittenNote rotation={-2} color="accent" arrowDirection="curved-down-right" arrowPosition="left">
+                    A work in progress.
+                  </HandwrittenNote>
+                </div>
               </div>
               
               <div className="h-px w-24 bg-gradient-to-r from-slate-200 to-transparent mx-auto lg:mx-0 mb-6" />
@@ -104,7 +110,9 @@ export default function ExperienceSection() {
                   </svg>
                 </div>
                 <div className="text-3xl font-black text-slate-900 mb-1">1</div>
-                <div className="text-xs font-bold text-slate-500 tracking-wide">Patent Granted</div>
+                <div className="text-xs font-bold text-slate-500 tracking-wide">
+                  <HandCircle color="#f59e0b" strokeWidth={1.8}>Patent Granted</HandCircle>
+                </div>
                 <div className="absolute bottom-0 left-6 right-6 h-[3px] bg-indigo-400 rounded-t-full" />
               </div>
               {/* Stat 4 */}

@@ -4,6 +4,7 @@ import ProjectCard from './ProjectCard';
 import { Project } from '@/data/portfolio';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { HandUnderline, HandwrittenNote } from '@/components/handwritten';
 
 export default function HomeProjectGallery({ initialProjects }: { initialProjects: Project[] }) {
   const [filter, setFilter] = useState('all');
@@ -27,12 +28,20 @@ export default function HomeProjectGallery({ initialProjects }: { initialProject
     <div className="w-full flex flex-col items-center">
       {/* Header Section */}
       <div className="text-center max-w-2xl mx-auto mb-10 scroll-reveal">
-        <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-950 font-display leading-[1.05] mb-5">
-          Featured{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-violet-500 to-teal-400">
-            Projects
-          </span>
-        </h2>
+        <div className="inline-block relative">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-950 font-display leading-[1.05] mb-2">
+            Featured{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-violet-500 to-teal-400">
+              Projects
+            </span>
+          </h2>
+          <HandUnderline className="w-full h-3.5 -mt-1 text-indigo-500/70" strokeWidth={2.6} />
+        </div>
+        <div className="mt-2.5 mb-5 flex items-center justify-center">
+          <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-right" arrowPosition="left">
+            Built, tested, documented.
+          </HandwrittenNote>
+        </div>
         <p className="text-lg text-slate-600 font-medium leading-relaxed mb-8">
           A selection of engineering challenges solved with <strong className="text-emerald-600 font-semibold">IoT</strong>, <strong className="text-violet-600 font-semibold">Blockchain</strong>, and <strong className="text-slate-800 font-semibold">Secure Systems</strong>.
         </p>

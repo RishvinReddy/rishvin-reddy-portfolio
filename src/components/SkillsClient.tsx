@@ -5,12 +5,26 @@ import { motion } from "framer-motion";
 import { ExternalLink, Code2, Cpu, Shield, Database, Layout, Box, ShieldCheck, Download } from "lucide-react";
 import certificationsData from "../../public/data/certifications.json";
 import skillsData from "../../public/data/skills.json";
+import {
+  HandUnderline,
+  HandCircle,
+  HandwrittenNote,
+  EngineeringDoodle,
+  type DoodleType,
+} from '@/components/handwritten';
 
 const iconMap: Record<string, React.ReactNode> = {
   Layout: <Layout className="w-6 h-6" />,
   Database: <Database className="w-6 h-6" />,
   Cpu: <Cpu className="w-6 h-6" />,
   Shield: <Shield className="w-6 h-6" />
+};
+
+const doodleMap: Record<string, DoodleType> = {
+  Layout: 'code-brackets',
+  Database: 'data-stream',
+  Cpu: 'circuit',
+  Shield: 'shield',
 };
 
 export default function SkillsClient() {
@@ -46,10 +60,17 @@ export default function SkillsClient() {
             className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8"
           >
             Tools, Frameworks &<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 dark:from-blue-400 dark:via-purple-400 dark:to-emerald-400">
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 dark:from-blue-400 dark:via-purple-400 dark:to-emerald-400">
               Core Expertise.
+              <HandUnderline variant="single" color="#2563eb" className="hidden sm:inline-block" />
             </span>
           </motion.h1>
+
+          <div className="flex justify-center mb-6">
+            <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-right" className="hidden sm:inline-flex">
+              production-tested stack
+            </HandwrittenNote>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -71,10 +92,16 @@ export default function SkillsClient() {
         >
           <div className="relative overflow-hidden isolate transform-gpu rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-500/10 dark:to-orange-500/10 border border-yellow-200 dark:border-yellow-500/20 p-8 md:p-12 shadow-xl shadow-yellow-500/5 group flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="absolute -right-20 -bottom-20 w-[500px] h-[500px] bg-yellow-400/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-yellow-400/30 transition-all duration-700 transform-gpu" />
+            <EngineeringDoodle type="sensor-node" color="#eab308" className="w-48 h-48 absolute -bottom-6 -right-6 opacity-10 pointer-events-none rotate-12" />
             
             <div className="relative z-10 max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-100 dark:bg-yellow-500/20 border border-yellow-300 dark:border-yellow-500/30 text-yellow-800 dark:text-yellow-300 text-xs font-black uppercase tracking-widest rounded-full mb-6">
-                🏅 Registered Patent
+              <div className="flex items-center gap-3 mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-100 dark:bg-yellow-500/20 border border-yellow-300 dark:border-yellow-500/30 text-yellow-800 dark:text-yellow-300 text-xs font-black uppercase tracking-widest rounded-full">
+                  🏅 Registered Patent
+                </span>
+                <HandwrittenNote rotation={2} color="amber" className="hidden sm:inline-flex text-xs">
+                  Gazette of India Registered
+                </HandwrittenNote>
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight leading-tight mb-6">
                 Govt. of India Design Patent
@@ -151,14 +178,19 @@ export default function SkillsClient() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
               {skillsData.categories.map((cat, idx) => (
-                <div key={idx} className="bg-white dark:bg-black/20 rounded-2xl p-6 border border-gray-100 dark:border-white/5 shadow-sm">
-                  <div className="flex items-center gap-3 mb-4">
+                <div key={idx} className="bg-white dark:bg-black/20 rounded-2xl p-6 border border-gray-100 dark:border-white/5 shadow-sm relative overflow-hidden group">
+                  <EngineeringDoodle 
+                    type={doodleMap[cat.iconType] || 'code-brackets'} 
+                    color="currentColor" 
+                    className="w-16 h-16 absolute -bottom-2 -right-2 opacity-5 dark:opacity-10 group-hover:opacity-15 transition-opacity pointer-events-none" 
+                  />
+                  <div className="flex items-center gap-3 mb-4 relative z-10">
                     <div className={`p-2 bg-gray-50 dark:bg-white/5 rounded-lg ${cat.iconColor}`}>
                       {iconMap[cat.iconType]}
                     </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white text-lg">{cat.title}</h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 relative z-10">
                     {cat.skills.map((skill, sIdx) => (
                       <span key={sIdx} className="px-3 py-1 bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300 text-sm rounded-full">
                         {skill}
@@ -174,7 +206,12 @@ export default function SkillsClient() {
         {/* Certificates Grid (Ultra Wide) */}
         <section className="mb-24 w-full">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Certifications</h2>
+              <HandwrittenNote rotation={-1} color="emerald" className="hidden sm:inline-flex text-xs">
+                100% verified credentials
+              </HandwrittenNote>
+            </div>
             <p className="text-xl text-gray-600 dark:text-gray-400">Verified achievements & continuous learning.</p>
           </div>
 

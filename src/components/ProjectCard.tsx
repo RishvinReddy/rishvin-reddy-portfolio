@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import DOMPurify from "dompurify";
 import { Project } from "@/data/portfolio";
+import { EngineeringDoodle, HandwrittenNote } from "@/components/handwritten";
 
 interface ProjectCardProps {
   project: Project;
@@ -326,6 +327,28 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   const themeClasses = getThemePillClasses(project.theme);
 
+  const getDoodleInfo = () => {
+    const s = `${project.slug || ''} ${project.name || ''} ${project.title || ''}`.toLowerCase();
+    if (s.includes('chain') || s.includes('fabric')) {
+      return { type: 'connected-nodes' as const, color: 'text-indigo-500/80', note: 'Consortium Ledger' };
+    }
+    if (s.includes('vote') || s.includes('biometric')) {
+      return { type: 'fingerprint' as const, color: 'text-blue-500/80', note: 'Silicon Auth' };
+    }
+    if (s.includes('irrigation') || s.includes('soil')) {
+      return { type: 'sensor-node' as const, color: 'text-emerald-500/80', note: 'Telemetry' };
+    }
+    if (s.includes('inspect') || s.includes('packet')) {
+      return { type: 'shield' as const, color: 'text-cyan-600/80', note: 'Packet Sniffer' };
+    }
+    if (s.includes('vault') || s.includes('finvault')) {
+      return { type: 'lock' as const, color: 'text-amber-500/80', note: 'Encrypted' };
+    }
+    return null;
+  };
+
+  const doodleInfo = getDoodleInfo();
+
   return (
     <>
       {/* ─── Card ─── */}
@@ -339,20 +362,38 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       >
         <div className="flex-1 flex flex-col p-6 sm:p-7 relative z-10">
           
-          {/* Top Row: Category Label & Bookmark */}
+          {/* Top Row: Category Label & Doodle / Bookmark */}
           <div className="flex items-start justify-between gap-4 mb-5">
-            <span className="text-[10px] font-black tracking-widest text-slate-500 uppercase">
-              {project.categoryLabel || "PROJECT"}
-            </span>
-            <button 
-              className="w-8 h-8 -mt-2 -mr-2 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors text-slate-400 hover:text-slate-600" 
-              onClick={(e) => { e.stopPropagation(); /* bookmark logic */ }}
-              title="Bookmark"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-              </svg>
-            </button>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-black tracking-widest text-slate-500 uppercase">
+                {project.categoryLabel || "PROJECT"}
+              </span>
+              {doodleInfo && (
+                <span className="hidden sm:inline-flex items-center gap-1 font-handwriting text-sm text-[#0A66C2] dark:text-blue-400 font-bold opacity-80">
+                  · {doodleInfo.note}
+                </span>
+              )}
+            </div>
+
+            <div className="flex items-center gap-1.5 -mt-2 -mr-2">
+              {doodleInfo && (
+                <div className="opacity-80 group-hover:opacity-100 transition-opacity">
+                  <EngineeringDoodle
+                    type={doodleInfo.type}
+                    className={`w-7 h-7 ${doodleInfo.color}`}
+                  />
+                </div>
+              )}
+              <button 
+                className="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center transition-colors text-slate-400 hover:text-slate-600" 
+                onClick={(e) => { e.stopPropagation(); /* bookmark logic */ }}
+                title="Bookmark"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Identity: Title & Full Name */}

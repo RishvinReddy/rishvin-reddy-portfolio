@@ -4,6 +4,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Trophy, Star, ShieldCheck, Medal, Sparkles, ChevronRight } from "lucide-react";
 import awardsDataRaw from "../../public/data/awards.json";
+import {
+  HandUnderline,
+  HandCircle,
+  HandwrittenNote,
+  EngineeringDoodle,
+} from '@/components/handwritten';
 
 const iconMap: Record<string, React.ReactNode> = {
   Trophy: <Trophy className="w-6 h-6" />,
@@ -40,8 +46,18 @@ export default function AwardsClient() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8"
           >
-            Awards & <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 dark:from-amber-400 dark:via-orange-400 dark:to-rose-400">Recognition</span>
+            Awards &{' '}
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 dark:from-amber-400 dark:via-orange-400 dark:to-rose-400">
+              Recognition
+              <HandUnderline variant="single" color="#f59e0b" className="hidden sm:inline-block" />
+            </span>
           </motion.h1>
+
+          <div className="flex justify-center mb-6">
+            <HandwrittenNote rotation={2} color="amber" arrowDirection="curved-down-right" className="hidden sm:inline-flex">
+              milestones & honors
+            </HandwrittenNote>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -63,10 +79,16 @@ export default function AwardsClient() {
         >
           <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border border-amber-200 dark:border-amber-500/20 p-8 md:p-12 shadow-2xl shadow-amber-500/5 group flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="absolute -right-20 -bottom-20 w-[500px] h-[500px] bg-amber-400/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-amber-400/30 transition-all duration-700" />
+            <EngineeringDoodle type="sensor-node" color="#f59e0b" className="w-56 h-56 absolute -bottom-8 -right-8 opacity-10 pointer-events-none rotate-12" />
             
             <div className="relative z-10 max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-100 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs font-black uppercase tracking-widest rounded-full mb-6">
-                🏅 Registered Design Patent
+              <div className="flex items-center gap-3 mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-100 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs font-black uppercase tracking-widest rounded-full">
+                  🏅 Registered Design Patent
+                </div>
+                <HandwrittenNote rotation={-2} color="amber" className="hidden sm:inline-flex text-xs">
+                  Indian Patent Office
+                </HandwrittenNote>
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight leading-tight mb-6">
                 Government of India Registration
@@ -152,11 +174,16 @@ export default function AwardsClient() {
           transition={{ duration: 0.6 }}
           className="w-full max-w-[90rem] mx-auto bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-xl backdrop-blur-xl"
         >
-          <div className="flex items-center gap-4 mb-10">
-            <div className="p-3 bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded-xl">
-              <Medal className="w-6 h-6" />
+          <div className="flex items-center justify-between gap-4 mb-10">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded-xl">
+                <Medal className="w-6 h-6" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Recognition Timeline</h2>
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Recognition Timeline</h2>
+            <HandwrittenNote rotation={-2} color="blue" className="hidden sm:inline-flex text-xs">
+              continuous track record
+            </HandwrittenNote>
           </div>
 
           <div className="space-y-8 pl-4 md:pl-8">

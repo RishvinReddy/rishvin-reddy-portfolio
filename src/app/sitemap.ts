@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/faq',
     '/ide',
     '/universe',
+    '/youtube',
+    '/linkedin',
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({

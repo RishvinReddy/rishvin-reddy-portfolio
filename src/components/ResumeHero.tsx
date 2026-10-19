@@ -1,6 +1,11 @@
 "use client";
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, Variants } from 'framer-motion';
+import {
+  HandUnderline,
+  HandwrittenNote,
+  EngineeringDoodle,
+} from '@/components/handwritten';
 
 export default function ResumeHero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -87,6 +92,8 @@ export default function ResumeHero() {
           style={{ transform: "translateZ(-20px)" }}
         ></motion.div>
 
+        <EngineeringDoodle type="circuit" color="#38bdf8" className="w-52 h-52 absolute -bottom-10 -right-10 opacity-10 pointer-events-none rotate-12" />
+
         <motion.div 
           style={{ x: translateX, y: translateY, transform: "translateZ(30px)" }}
           className="relative z-10 flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-8 md:gap-12"
@@ -105,8 +112,18 @@ export default function ResumeHero() {
 
           {/* Name & Identity */}
           <div className="flex-1 flex flex-col items-center md:items-start w-full">
+            <div className="flex items-center gap-3 mb-2">
+              <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-right" className="hidden sm:inline-flex text-xs">
+                curated for 2026 roles
+              </HandwrittenNote>
+            </div>
             <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-3">
-              <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight">Rishvin Reddy</h1>
+              <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight">
+                <span className="relative inline-block">
+                  Rishvin Reddy
+                  <HandUnderline variant="scribble" color="#38bdf8" className="hidden sm:inline-block" />
+                </span>
+              </h1>
               <span className="px-3.5 py-1 text-xs font-bold uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                 Available

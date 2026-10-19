@@ -2,6 +2,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import {
+  HandUnderline,
+  HandwrittenNote,
+  RishvinSignature,
+} from '@/components/handwritten';
 
 // Constants
 const INQUIRY_TYPES = [
@@ -185,8 +190,16 @@ export default function ContactFormClient() {
           </motion.div>
           <motion.h1 initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-7xl font-black tracking-tight text-slate-900 mb-8 font-display leading-tight">
             Let&apos;s Build the <br className="hidden md:block"/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-primary to-emerald-600">Next Big Thing.</span>
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-primary to-emerald-600">
+              Next Big Thing.
+              <HandUnderline variant="single" color="#2563eb" className="hidden sm:inline-block" />
+            </span>
           </motion.h1>
+          <div className="flex justify-center mb-6">
+            <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-right" className="hidden sm:inline-flex text-xs">
+              open for collaborations & 2026 roles
+            </HandwrittenNote>
+          </div>
           <motion.p initial={{ opacity:0, y:20 }} animate={{ opacity:1, y:0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             From startups to enterprise products, I help transform ambitious ideas into scalable software, secure systems, and intelligent IoT solutions.
           </motion.p>
@@ -199,7 +212,12 @@ export default function ContactFormClient() {
             
             {/* Live Stats Dashboard */}
             <div className="bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl p-6 shadow-2xl shadow-slate-200/50">
-              <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Executive Overview</h3>
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Executive Overview</h3>
+                <HandwrittenNote rotation={1} color="emerald" className="hidden sm:inline-flex text-[11px]">
+                  direct reply &lt; 12h
+                </HandwrittenNote>
+              </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Location</p>
@@ -221,10 +239,17 @@ export default function ContactFormClient() {
                 </div>
                 <div className="col-span-2 pt-4 mt-2 border-t border-slate-200/50">
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-3">Core Expertise</p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {['Software', 'IoT', 'Cybersecurity', 'Blockchain'].map(exp => (
                       <span key={exp} className="px-2 py-1 bg-slate-100 rounded text-[11px] font-medium text-slate-700">{exp}</span>
                     ))}
+                  </div>
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <div>
+                      <p className="text-[9px] text-slate-400 font-mono uppercase tracking-widest">Direct Signature</p>
+                      <p className="text-xs font-bold text-slate-800">Erolla Rishvin Reddy</p>
+                    </div>
+                    <RishvinSignature className="w-32 h-auto text-slate-900 opacity-80 -rotate-2" />
                   </div>
                 </div>
               </div>

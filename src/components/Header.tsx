@@ -351,6 +351,38 @@ export function Header() {
                   </div>
                 </Link>
 
+                {/*  YouTube  */}
+                <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
+                  href="/youtube">
+                  <span
+                    className="flex-shrink-0 w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-[#FF0000] group-hover/item:scale-110 transition-transform">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                      YouTube</p>
+                    <p className="text-[11px] text-white leading-tight">Engineering in Motion · @rishvinreddy</p>
+                  </div>
+                </Link>
+
+                {/*  LinkedIn  */}
+                <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
+                  href="/linkedin">
+                  <span
+                    className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-[#0A66C2] group-hover/item:scale-110 transition-transform">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-[#0A66C2] transition-colors">
+                      LinkedIn</p>
+                    <p className="text-[11px] text-white leading-tight">Professional profile · @rishvinreddy</p>
+                  </div>
+                </Link>
+
                 {/*  Bottom CTA strip  */}
                 <div className="mt-2 pt-2 border-t border-slate-100 px-1">
                   <Link href="/contact"
@@ -529,6 +561,20 @@ export function Header() {
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
             Recommendations
+          </Link>
+          <Link href="/youtube"
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-[#FF0000] transition-colors">
+            <svg className="w-3.5 h-3.5 text-[#FF0000]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            YouTube
+          </Link>
+          <Link href="/linkedin"
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-[#0A66C2] transition-colors">
+            <svg className="w-3.5 h-3.5 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
           </Link>
         </div>
 

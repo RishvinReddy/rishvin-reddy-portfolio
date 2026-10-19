@@ -1,8 +1,13 @@
 import React from 'react';
 import { Metadata, Viewport } from "next";
 import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
-
 import PortfolioProjectGallery from "@/components/PortfolioProjectGallery";
+import {
+  HandUnderline,
+  HandCircle,
+  HandwrittenNote,
+  EngineeringDoodle,
+} from '@/components/handwritten';
 
 export const metadata: Metadata = {
   title: "Projects & Portfolio | Erolla Rishvin Reddy | Rishvin Labs",
@@ -246,9 +251,19 @@ export default async function Portfolio() {
                   className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span>
               Live from GitHub
             </div>
+            <div className="flex justify-center mb-3">
+              <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-right" className="hidden sm:inline-flex text-xs">
+                production systems & prototypes
+              </HandwrittenNote>
+            </div>
             <h1
               className="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter hero-gradient-text leading-none mb-6">
-              Portfolio<br className="hidden sm:block" /> Projects</h1>
+              Portfolio<br className="hidden sm:block" />{' '}
+              <span className="relative inline-block">
+                Projects
+                <HandUnderline variant="scribble" color="#2563eb" className="hidden sm:inline-block" />
+              </span>
+            </h1>
             <p className="mx-auto text-xl text-slate-500 leading-relaxed mb-4 max-w-4xl">End-to-end highlights — hardware
               prototypes, web &amp; mobile apps, security and system design. Every card is fetched live from GitHub.</p>
             <p className="text-base text-slate-400">Erolla Rishvin Reddy &mdash; Hyderabad &middot; <a
@@ -287,10 +302,16 @@ export default async function Portfolio() {
           <div className="relative overflow-hidden rounded-3xl bg-white border border-yellow-400/40 p-8 shadow-2xl shadow-yellow-500/10 flex flex-col md:flex-row items-center justify-between gap-8 group">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent pointer-events-none"></div>
             <div className="absolute -right-10 -bottom-20 w-80 h-80 bg-yellow-400/15 rounded-full blur-[80px] pointer-events-none group-hover:bg-yellow-400/25 transition-all duration-700"></div>
+            <EngineeringDoodle type="sensor-node" color="#eab308" className="w-48 h-48 absolute -bottom-6 -right-6 opacity-10 pointer-events-none rotate-12" />
             
             <div className="relative z-10 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-50 border border-yellow-200 text-yellow-800 text-[10px] font-black uppercase tracking-widest rounded-full mb-4">
-                🏅 Design Patent
+              <div className="flex items-center gap-3 mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-50 border border-yellow-200 text-yellow-800 text-[10px] font-black uppercase tracking-widest rounded-full">
+                  🏅 Design Patent
+                </div>
+                <HandwrittenNote rotation={2} color="amber" className="hidden sm:inline-flex text-xs">
+                  Granted & Active
+                </HandwrittenNote>
               </div>
               <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-3">Government of India Registered Patent</h2>
               <p className="text-slate-600 text-sm leading-relaxed mb-4">

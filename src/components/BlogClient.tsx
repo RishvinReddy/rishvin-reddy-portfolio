@@ -5,8 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, ArrowRight, BookOpen, Clock, ChevronLeft, ChevronRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import blogData from "../../public/data/blog.json";
+import {
+  HandUnderline,
+  HandwrittenNote,
+  EngineeringDoodle,
+} from "@/components/handwritten";
 
 const categories = ["All", "UX", "IoT", "Blockchain", "Security", "Case Study", "Process"];
+
+function getBlogDoodle(tags: string[]) {
+  if (tags.some((t) => /security/i.test(t))) return 'shield' as const;
+  if (tags.some((t) => /iot/i.test(t))) return 'sensor-node' as const;
+  if (tags.some((t) => /blockchain/i.test(t))) return 'linked-blocks' as const;
+  if (tags.some((t) => /ux|product/i.test(t))) return 'circuit' as const;
+  return 'code-brackets' as const;
+}
 
 export default function BlogClient() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -29,16 +42,31 @@ export default function BlogClient() {
 
       <div className="relative z-10 w-full max-w-[120rem] mx-auto px-6 py-24 sm:py-32">
         {/* Header Section */}
-        <div className="text-center mb-16 max-w-[90rem] mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-widest uppercase mb-8 backdrop-blur-md"
-          >
-            <BookOpen className="w-4 h-4" />
-            Writing
-          </motion.div>
+        <div className="text-center mb-16 max-w-[90rem] mx-auto relative">
+          {/* Engineering Doodles Watermark */}
+          <div className="absolute top-0 right-12 opacity-10 dark:opacity-20 pointer-events-none hidden lg:block" aria-hidden="true">
+            <EngineeringDoodle type="code-brackets" className="w-28 h-28 text-blue-500" />
+          </div>
+          <div className="absolute -bottom-6 left-12 opacity-10 dark:opacity-20 pointer-events-none hidden lg:block" aria-hidden="true">
+            <EngineeringDoodle type="data-stream" className="w-24 h-24 text-emerald-500" />
+          </div>
+
+          <div className="relative inline-block mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm font-bold tracking-widest uppercase backdrop-blur-md"
+            >
+              <BookOpen className="w-4 h-4" />
+              Writing
+            </motion.div>
+            <div className="hidden md:block absolute -right-52 top-1/2 -translate-y-1/2 pointer-events-none">
+              <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-left">
+                field notes & blueprints
+              </HandwrittenNote>
+            </div>
+          </div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +74,11 @@ export default function BlogClient() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8"
           >
-            Articles & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-emerald-500 dark:from-blue-400 dark:to-emerald-400">Insights</span>
+            Articles &{' '}
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-emerald-500 dark:from-blue-400 dark:to-emerald-400 pb-1">
+              Insights
+              <HandUnderline variant="scribble" color="#3b82f6" className="-bottom-2" />
+            </span>
           </motion.h1>
 
           <motion.p
@@ -77,7 +109,7 @@ export default function BlogClient() {
             />
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center items-center gap-3">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -91,6 +123,11 @@ export default function BlogClient() {
                 {cat}
               </button>
             ))}
+            <div className="hidden md:inline-block ml-2">
+              <HandwrittenNote rotation={1} color="amber">
+                real case studies
+              </HandwrittenNote>
+            </div>
           </div>
         </motion.div>
 
@@ -105,8 +142,13 @@ export default function BlogClient() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group flex flex-col bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500"
+                className="group relative flex flex-col bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500"
               >
+                {/* Subtle Background Watermark Doodle */}
+                <div className="absolute -bottom-4 -right-4 w-28 h-28 opacity-[0.04] dark:opacity-[0.08] pointer-events-none group-hover:scale-110 transition-transform duration-500" aria-hidden="true">
+                  <EngineeringDoodle type={getBlogDoodle(post.tags)} className="w-full h-full text-blue-500" />
+                </div>
+
                 <Link href={post.link} className="relative block aspect-[16/10] overflow-hidden">
                   <img 
                     src={post.image} 

@@ -5,6 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, MessageCircle, Briefcase, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import faqs from "../../public/data/faq.json";
+import {
+  HandUnderline,
+  HandwrittenNote,
+  EngineeringDoodle,
+} from "@/components/handwritten";
 
 export default function FaqClient() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -23,14 +28,37 @@ export default function FaqClient() {
 
       <div className="relative z-10 max-w-[120rem] mx-auto px-6 py-24 sm:py-32">
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 relative max-w-4xl mx-auto">
+          {/* Engineering Doodles Watermark */}
+          <div className="absolute top-0 right-4 opacity-10 dark:opacity-20 pointer-events-none hidden lg:block" aria-hidden="true">
+            <EngineeringDoodle type="connected-nodes" className="w-28 h-28 text-purple-500" />
+          </div>
+          <div className="absolute -bottom-4 left-4 opacity-10 dark:opacity-20 pointer-events-none hidden lg:block" aria-hidden="true">
+            <EngineeringDoodle type="terminal" className="w-24 h-24 text-blue-500" />
+          </div>
+
+          <div className="relative inline-block mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 text-xs font-bold tracking-widest uppercase backdrop-blur-md">
+              Knowledge Base
+            </div>
+            <div className="hidden md:block absolute -right-48 top-1/2 -translate-y-1/2 pointer-events-none">
+              <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-left">
+                transparent answers
+              </HandwrittenNote>
+            </div>
+          </div>
+
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-6xl font-bold tracking-tight mb-6"
           >
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Questions</span>
+            Frequently Asked{' '}
+            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 pb-1">
+              Questions
+              <HandUnderline variant="scribble" color="#8b5cf6" className="-bottom-2" />
+            </span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -48,17 +76,20 @@ export default function FaqClient() {
             {
               icon: <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400" />,
               title: "Specialisations",
-              desc: "IoT, Blockchain, Cyber Security & Product Engineering"
+              desc: "IoT, Blockchain, Cyber Security & Product Engineering",
+              note: null
             },
             {
               icon: <Clock className="w-6 h-6 text-purple-600 dark:text-purple-400" />,
               title: "Typical Response",
-              desc: "I reply to new inquiries within 1–2 business days."
+              desc: "I reply to new inquiries within 1–2 business days.",
+              note: "typically < 12h"
             },
             {
               icon: <MessageCircle className="w-6 h-6 text-green-600 dark:text-green-400" />,
               title: "Ready to start?",
-              desc: "Share a brief on the contact page and I'll schedule a call."
+              desc: "Share a brief on the contact page and I'll schedule a call.",
+              note: null
             }
           ].map((card, idx) => (
             <motion.div
@@ -66,10 +97,17 @@ export default function FaqClient() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-              className="bg-gray-50/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md p-6 rounded-2xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-300 group shadow-sm dark:shadow-none"
+              className="relative bg-gray-50/80 dark:bg-white/5 border border-gray-200 dark:border-white/10 backdrop-blur-md p-6 rounded-2xl hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-300 group shadow-sm dark:shadow-none"
             >
-              <div className="bg-white dark:bg-white/5 w-12 h-12 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-sm dark:shadow-none">
-                {card.icon}
+              <div className="flex items-center justify-between mb-4">
+                <div className="bg-white dark:bg-white/5 w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 shadow-sm dark:shadow-none">
+                  {card.icon}
+                </div>
+                {card.note && (
+                  <HandwrittenNote rotation={1} color="emerald" className="text-xs">
+                    {card.note}
+                  </HandwrittenNote>
+                )}
               </div>
               <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{card.desc}</p>

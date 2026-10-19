@@ -1,5 +1,10 @@
 import React from 'react';
 import { Metadata, Viewport } from "next";
+import {
+  HandUnderline,
+  HandwrittenNote,
+  EngineeringDoodle,
+} from "@/components/handwritten";
 
 export const metadata: Metadata = {
   title: "Services | Rishvin Labs",
@@ -181,10 +186,27 @@ export default function Services() {
     <main className="flex-1">
       <div className="mx-auto max-w-[120rem] px-6 py-16 sm:px-8 lg:px-10 lg:py-24">
         {/*  Header  */}
-        <div className="text-center max-w-3xl mx-auto scroll-reveal">
+        <div className="text-center max-w-3xl mx-auto scroll-reveal relative">
+          <div className="absolute -top-8 right-0 opacity-10 pointer-events-none hidden md:block" aria-hidden="true">
+            <EngineeringDoodle type="circuit" className="w-24 h-24 text-primary" />
+          </div>
+          <div className="relative inline-block mb-4">
+            <span className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+              Engineering Engagements
+            </span>
+            <div className="hidden md:block absolute -right-44 top-1/2 -translate-y-1/2 pointer-events-none">
+              <HandwrittenNote rotation={-2} color="accent" arrowDirection="curved-down-left">
+                concept to production
+              </HandwrittenNote>
+            </div>
+          </div>
           <h1
             className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">
-            Services I Offer
+            Services{' '}
+            <span className="relative inline-block pb-1">
+              I Offer
+              <HandUnderline variant="scribble" color="#4f46e5" className="-bottom-2" />
+            </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
             I deliver end-to-end solutions across IoT, Blockchain, Cyber Security and Full-Stack Engineering — from
@@ -196,7 +218,10 @@ export default function Services() {
         <div className="scroll-reveal mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3" data-stagger-list>
           {/*  IoT & Embedded Systems  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="sensor-node" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  microcontroller + sensor svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -222,7 +247,10 @@ export default function Services() {
 
           {/*  Blockchain Development  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="linked-blocks" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  blockchain / chain svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -247,7 +275,10 @@ export default function Services() {
 
           {/*  Cyber Security & Auth  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="shield" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  lock / shield svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -270,7 +301,10 @@ export default function Services() {
 
           {/*  Full-Stack Development  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="terminal" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  backend / web svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -282,7 +316,7 @@ export default function Services() {
             <div className="flex flex-col gap-2">
               <h2 className="text-xl font-semibold text-slate-900">Full-Stack Development</h2>
               <p className="text-slate-600 text-sm">APIs (Flask), web frontends, realtime features, and database-backed
-                services for reliable product delivery.</p>
+              services for reliable product delivery.</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded">Python / Flask</span>
                 <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded">MySQL</span>
@@ -293,7 +327,10 @@ export default function Services() {
 
           {/*  System Architecture & DevOps  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="connected-nodes" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  architecture diagram svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -318,7 +355,10 @@ export default function Services() {
 
           {/*  Prototyping & Hardware Integration  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="circuit" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  prototype / wrench svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -341,7 +381,10 @@ export default function Services() {
 
           {/*  Data, AI & Vision  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="data-stream" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  AI / brain-eye svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
@@ -365,7 +408,10 @@ export default function Services() {
 
           {/*  UX, Product & Mentoring  */}
           <div
-            className="flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            className="relative overflow-hidden flex flex-col gap-4 rounded-3xl bg-white/60 backdrop-blur-xl border border-white/50 p-6 shadow-xl shadow-indigo-500/5 ring-1 ring-white/50 hover-float scroll-reveal">
+            <div className="absolute top-4 right-4 w-14 h-14 opacity-10 pointer-events-none" aria-hidden="true">
+              <EngineeringDoodle type="code-brackets" className="w-full h-full text-primary" />
+            </div>
             <div className="text-primary">
               {/*  user + chart svg  */}
               <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"

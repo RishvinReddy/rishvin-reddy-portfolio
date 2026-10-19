@@ -7,6 +7,13 @@ import { TECH_STACK, SERVICES, FEATURED_PROJECTS } from '../data/portfolio';
 import React from 'react';
 import ProfileModalController from '@/components/ProfileModalController';
 import { CodedIntro } from "@/components/CodedIntro";
+import {
+  HandUnderline,
+  HandCircle,
+  HandwrittenNote,
+  EngineeringDoodle,
+  RishvinSignature,
+} from '@/components/handwritten';
 
 import type { Metadata } from 'next';
 
@@ -298,11 +305,19 @@ export default async function Home() {
                 </div>
 
                 {/* Typography Hierarchy */}
-                <div className="flex flex-col gap-3 mb-7">
-                  <span className="text-xl sm:text-2xl lg:text-3xl font-medium text-slate-500 tracking-tight">Hi, I&apos;m</span>
-                  <h1 className="text-5xl sm:text-6xl lg:text-[clamp(3.5rem,5.5vw,5.5rem)] font-bold tracking-tight text-slate-900 leading-[1.05] font-serif">
-                    Erolla Rishvin Reddy
-                  </h1>
+                <div className="flex flex-col gap-2 mb-7">
+                  <div className="flex items-center justify-center lg:justify-start gap-3">
+                    <span className="text-xl sm:text-2xl lg:text-3xl font-medium text-slate-500 tracking-tight">Hi, I&apos;m</span>
+                    <HandwrittenNote rotation={-2} color="blue" className="hidden sm:inline-flex">
+                      Engineering with intent.
+                    </HandwrittenNote>
+                  </div>
+                  <div className="relative inline-block w-fit mx-auto lg:mx-0">
+                    <h1 className="text-5xl sm:text-6xl lg:text-[clamp(3.5rem,5.5vw,5.5rem)] font-bold tracking-tight text-slate-900 leading-[1.05] font-editorial">
+                      Erolla Rishvin Reddy
+                    </h1>
+                    <HandUnderline className="w-full h-3.5 -mt-1 text-[#f20d46]/75" strokeWidth={2.8} />
+                  </div>
                 </div>
 
                 {/* Credential Cards (Standardized) */}
@@ -433,20 +448,44 @@ export default async function Home() {
                   <div className="w-[120%] aspect-square bg-slate-200/30 rounded-full blur-[100px] opacity-60"></div>
                 </div>
 
-                {/* Clean Editorial Portrait Oval */}
-                <div className="relative z-10 w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[580px] xl:max-w-[650px] aspect-square rounded-full overflow-hidden border-2 border-slate-200/60 shadow-2xl bg-white group cursor-pointer" id="profileThumb" data-src="icon.png">
-                  <img loading="lazy" src="icon.png" className="w-full h-full object-cover mix-blend-multiply scale-[1.02] group-hover:scale-[1.05] transition-transform duration-700 ease-out" alt="Erolla Rishvin Reddy Software Developer and IoT Engineer" />
+                {/* Clean Editorial Portrait Oval with Handwritten Annotations */}
+                <div className="relative">
+                  {/* Handwritten Sketchbook Callout */}
+                  <div className="absolute -top-6 -right-2 sm:-top-8 sm:-right-4 z-20 pointer-events-none hidden sm:block">
+                    <HandwrittenNote
+                      rotation={4}
+                      color="blue"
+                      arrowDirection="curved-down-left"
+                      arrowPosition="right"
+                      arrowClassName="w-10 h-10 -ml-1 text-[#0A66C2]"
+                    >
+                      Ideas → Systems
+                    </HandwrittenNote>
+                  </div>
 
+                  <div className="relative z-10 w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[580px] xl:max-w-[650px] aspect-square rounded-full overflow-hidden border-2 border-slate-200/60 shadow-2xl bg-white group cursor-pointer" id="profileThumb" data-src="icon.png">
+                    <img loading="lazy" src="icon.png" className="w-full h-full object-cover mix-blend-multiply scale-[1.02] group-hover:scale-[1.05] transition-transform duration-700 ease-out" alt="Erolla Rishvin Reddy Software Developer and IoT Engineer" />
 
-                  {/* Refined Hover Overlay */}
-                  <div className="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-                    <span className="flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full text-slate-900 text-sm font-semibold shadow-2xl">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      View Full Profile
-                    </span>
+                    {/* Refined Hover Overlay */}
+                    <div className="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                      <span className="flex items-center gap-2 px-4 py-2 bg-white/90 rounded-full text-slate-900 text-sm font-semibold shadow-2xl">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        View Full Profile
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Subtle Engineering Sketch Doodle */}
+                  <div className="absolute -bottom-4 -left-2 sm:-bottom-5 sm:-left-3 z-20 pointer-events-none hidden sm:block opacity-75">
+                    <EngineeringDoodle type="circuit" className="w-12 h-12 text-indigo-500/80" />
+                  </div>
+
+                  {/* Authentic Personal Signature Stamp */}
+                  <div className="absolute -bottom-6 right-0 sm:-bottom-8 sm:-right-4 z-20 pointer-events-none flex flex-col items-end">
+                    <RishvinSignature className="w-32 sm:w-44 h-auto text-slate-800/85 hover:text-slate-900 -rotate-3 transition-colors drop-shadow-sm" />
                   </div>
                 </div>
               </div>
@@ -854,15 +893,18 @@ export default async function Home() {
             {/*  Headline  */}
             <h2
               className="text-5xl md:text-6xl xl:text-7xl font-black text-slate-900 tracking-tight font-display leading-[1.02]">
-              Patent &amp;
+              Patent &amp;{' '}
               <span className="relative inline-block">
                 <span
                   className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-400 to-yellow-500">Innovation</span>
-                {/*  Underline accent  */}
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full opacity-40"
-                  style={{ background: "linear-gradient(90deg, #f59e0b, #fbbf24)" }}></span>
+                <HandUnderline className="w-full h-3.5 -mt-1 text-amber-500/80" strokeWidth={2.5} />
               </span>
             </h2>
+            <div className="mt-2">
+              <HandwrittenNote rotation={2} color="amber">
+                Registered Design No. 470097-001
+              </HandwrittenNote>
+            </div>
           </div>
           <p className="text-slate-500 text-base sm:text-lg font-medium max-w-2xl leading-relaxed text-center mx-auto">
             One of the few undergrads with a <strong className="text-slate-900 font-extrabold">government-registered</strong>

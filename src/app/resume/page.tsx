@@ -2,6 +2,7 @@ import ResumeViewer from '@/components/ResumeViewer';
 import ResumeHero from '@/components/ResumeHero';
 import { Metadata, Viewport } from "next";
 import React from 'react';
+import { HandwrittenNote, RishvinSignature } from '@/components/handwritten';
 
 export const metadata: Metadata = {
   title: "Resume & Experience | Erolla Rishvin Reddy | Rishvin Labs",
@@ -342,13 +343,31 @@ export default function Resume() {
         <div className="card-premium p-6 md:p-8 flex flex-col gap-6 relative">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-100 pb-4 gap-4">
             <div>
-              <h2 className="text-xl font-bold text-slate-800">Official Resumes</h2>
+              <div className="flex items-center gap-3">
+                <h2 className="text-xl font-bold text-slate-800">Official Resumes</h2>
+                <HandwrittenNote rotation={2} color="emerald" className="hidden sm:inline-flex text-xs">
+                  role-specific PDFs
+                </HandwrittenNote>
+              </div>
               <p className="text-sm text-slate-500 mt-1">Select a resume to view or download instantly.</p>
             </div>
             {/*  Loading indicator placeholder (if needed)  */}
           </div>
           
           <ResumeViewer />
+
+          {/* Official Verification Sign-off */}
+          <div className="pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-xs font-mono text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                Official Engineering Credentials · Verified 2026
+              </span>
+            </div>
+            <div className="flex items-center">
+              <RishvinSignature className="w-40 sm:w-48 h-auto text-slate-900 dark:text-white opacity-90 -rotate-2" />
+            </div>
+          </div>
         </div>
       </section>
 
