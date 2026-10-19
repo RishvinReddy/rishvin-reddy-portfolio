@@ -75,6 +75,11 @@ import {
   type SkillCategory,
 } from '@/data/linkedin-content';
 import type { Experience } from '@/data/experience';
+import {
+  RECOMMENDATIONS,
+  LINKEDIN_RECOMMENDATIONS_SOURCE_URL,
+  type Recommendation,
+} from '@/data/recommendations';
 
 /* ─────────────────────────────────────────────
    CONSTANTS & CONFIG
@@ -180,6 +185,7 @@ const NAV_SECTIONS = [
   { id: 'certifications', label: 'Certifications' },
   { id: 'projects', label: 'Projects' },
   { id: 'posts', label: 'Posts & Feed' },
+  { id: 'recommendations', label: 'Recommendations' },
 ];
 
 /* ─────────────────────────────────────────────
@@ -1222,6 +1228,125 @@ export default function LinkedInClient() {
             </motion.div>
           )}
         </AnimatePresence>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          SECTION: RECOMMENDATIONS (4 VERIFIED)
+      ══════════════════════════════════════════ */}
+      <section id="recommendations" className="mx-auto max-w-6xl px-6 py-8 scroll-mt-28">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200/80 dark:border-blue-800 text-[11px] font-black uppercase tracking-widest text-[#0A66C2] dark:text-blue-400 mb-2.5">
+              <LinkedinIcon className="w-3.5 h-3.5 text-[#0A66C2]" />
+              Verified Endorsements · Received ({RECOMMENDATIONS.length})
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              Recommendations
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl leading-relaxed">
+              Third-party validation of technical capability, learning mindset, and engineering discipline from mentors, professors, and industry practitioners.
+            </p>
+          </div>
+
+          <a
+            href={LINKEDIN_RECOMMENDATIONS_SOURCE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-[#0A66C2] hover:text-[#004182] dark:text-blue-400 dark:hover:text-blue-300 bg-blue-50/70 dark:bg-blue-950/40 border border-blue-200/60 dark:border-blue-900 hover:border-[#0A66C2] transition-colors shrink-0"
+          >
+            <span>View All on LinkedIn</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {RECOMMENDATIONS.map((rec) => (
+            <motion.article
+              key={rec.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-white dark:bg-[#0c121e] border border-slate-200/90 dark:border-slate-800 rounded-3xl p-7 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 relative group overflow-hidden"
+            >
+              {/* Top Accent Strip */}
+              <div
+                className="absolute top-0 left-0 right-0 h-1 opacity-80 group-hover:opacity-100 transition-opacity"
+                style={{ background: 'linear-gradient(90deg, #0A66C2, #38bdf8)' }}
+              />
+
+              <div>
+                {/* Recommender Header */}
+                <div className="flex items-start justify-between gap-4 mb-5">
+                  <div className="flex items-center gap-3.5">
+                    <div
+                      className="w-12 h-12 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-sm text-white shadow-md"
+                      style={{
+                        background: 'linear-gradient(135deg, #0A66C2 0%, #004182 100%)',
+                      }}
+                    >
+                      {rec.initials}
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug">
+                        {rec.name}
+                      </h3>
+                      <p className="text-xs text-slate-600 dark:text-slate-400 font-medium leading-tight mt-0.5">
+                        {rec.title}
+                      </p>
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 font-mono mt-1">
+                        {rec.relationship} · {rec.date}
+                      </p>
+                    </div>
+                  </div>
+
+                  <a
+                    href={rec.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`View ${rec.name}'s profile on LinkedIn`}
+                    className="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:text-[#0A66C2] hover:border-[#0A66C2] transition-colors shrink-0"
+                  >
+                    <LinkedinIcon className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+
+                {/* Recommendation Quote (Verbatim) */}
+                <div className="relative mb-6">
+                  <span
+                    aria-hidden="true"
+                    className="select-none pointer-events-none leading-none -mb-3 block text-3xl font-serif text-[#0A66C2]/30"
+                  >
+                    &ldquo;
+                  </span>
+                  <div className="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
+                    {rec.fullText.split('\n\n').map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Card Footer Link */}
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                <span className="text-slate-400 dark:text-slate-500 text-[11px] font-mono flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  Verified on LinkedIn
+                </span>
+
+                <a
+                  href={rec.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#0A66C2] hover:text-[#004182] dark:hover:text-blue-300 inline-flex items-center gap-1 transition-colors"
+                >
+                  <span>Recommender Profile</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </motion.article>
+          ))}
+        </div>
       </section>
 
       {/* ══════════════════════════════════════════

@@ -1,73 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-
-/* ─────────────────────────────────────────────
-   DATA
-   URLs verified from LinkedIn recommendations
-   page pasted by the portfolio owner.
-───────────────────────────────────────────── */
-interface Recommendation {
-  id: string;
-  name: string;
-  initials: string;
-  title: string;
-  shortTitle: string;
-  relationship: string;
-  date: string;
-  dateShort: string;
-  excerpt: string;
-  fullText: string;
-  linkedinUrl: string;
-}
-
-const RECOMMENDATIONS: Recommendation[] = [
-  {
-    id: 'meher',
-    name: 'Meher Gayatri Devi Tiwari',
-    initials: 'MG',
-    title: 'Assistant Professor | PEGA Certified System Architect (CSA) | Cyber Security Zealot | Prompt Engineering Enthusiast',
-    shortTitle: 'Assistant Professor · PEGA Certified System Architect',
-    relationship: 'Mentor',
-    date: 'September 19, 2026',
-    dateShort: 'Sep 19, 2026',
-    excerpt:
-      'I am pleased to recommend Mr. Rishvin Reddy, whose initiative, technical curiosity, and interest in practical problem-solving have been evident through our interactions. Rishvin demonstrates a strong inclination toward exploring emerging technologies, automation, and the development of solutions that address real-world challenges.',
-    fullText:
-      'I am pleased to recommend Mr. Rishvin Reddy, whose initiative, technical curiosity, and interest in practical problem-solving have been evident through our interactions.\n\nRishvin demonstrates a strong inclination toward exploring emerging technologies, automation, and the development of solutions that address real-world challenges. Our discussions around workflow automation, customer relationship management systems, and the practical implementation of technology have reflected his willingness to think beyond conventional approaches and explore opportunities for innovation.\n\nWhat I particularly appreciate is his proactive attitude toward learning and improvement. He actively seeks feedback, discusses ideas, and looks for ways to enhance his projects and their potential applications. His interest in developing solutions that could support everyday university operations also reflects his focus on practical impact.\n\nI believe Rishvin\'s curiosity, initiative, and commitment to expanding his technical knowledge will support his continued professional growth. I wish him every success in his future academic and professional endeavors.',
-    linkedinUrl: 'https://www.linkedin.com/in/mehergayatridevi/',
-  },
-  {
-    id: 'bhanu',
-    name: 'Dr. S. Bhanu Prakash',
-    initials: 'BP',
-    title: 'Associate Professor, School of Technology, Woxsen University, Hyderabad | Power Electronics in Renewable Energy',
-    shortTitle: 'Associate Professor · Woxsen University',
-    relationship: 'Mentor',
-    date: 'September 10, 2026',
-    dateShort: 'Sep 10, 2026',
-    excerpt:
-      'I am pleased to recommend Rishvin Reddy, whom I had the opportunity to teach in the Engineering Concepts in IoT course. Rishvin is a sincere and enthusiastic student who has demonstrated a good understanding of engineering fundamentals and IoT concepts, showing a positive attitude toward learning and good analytical problem-solving abilities.',
-    fullText:
-      'I am pleased to recommend Rishvin Reddy, whom I had the opportunity to teach in the Engineering Concepts in IoT course. Rishvin is a sincere and enthusiastic student who has demonstrated a good understanding of engineering fundamentals and IoT concepts.\n\nDuring the course, he showed a positive attitude toward learning, good analytical and problem-solving abilities, and a willingness to understand the practical applications of emerging technologies. He was attentive to academic activities and demonstrated a genuine interest in developing his technical knowledge.\n\nI appreciate Rishvin\'s sincerity, discipline, and willingness to learn, and I am confident that he has the potential to grow further and achieve success in his academic and professional career. I wish him all the very best for his future endeavors.',
-    linkedinUrl: 'https://www.linkedin.com/in/dr-s-bhanu-prakash-3a5a6221/',
-  },
-  {
-    id: 'sandeep',
-    name: 'Dr. Sandeep Dasari',
-    initials: 'SD',
-    title: 'Assistant Professor at VIT-AP University',
-    shortTitle: 'Assistant Professor · VIT-AP University',
-    relationship: 'Mentor',
-    date: 'September 8, 2026',
-    dateShort: 'Sep 8, 2026',
-    excerpt:
-      'I had the opportunity to teach and mentor Rishvin at Woxsen University. He is a disciplined, sincere, and responsible student who approaches academic and project work with dedication and a strong sense of ownership. He demonstrates sound technical understanding, good problem-solving ability, and a consistent willingness to learn and improve.',
-    fullText:
-      'I had the opportunity to teach and mentor Rishvin at Woxsen University. He is a disciplined, sincere, and responsible student who approaches academic and project work with dedication and a strong sense of ownership. He demonstrates sound technical understanding, good problem-solving ability, and a consistent willingness to learn and improve.\n\nHis respectful attitude, reliability, and commitment to completing tasks with quality make him a promising candidate for both higher studies and professional opportunities. I am confident that he will continue to grow and contribute positively wherever he works or studies.',
-    linkedinUrl: 'https://www.linkedin.com/in/dr-sandeep-dasari-2681102a1/',
-  },
-];
+import {
+  type Recommendation,
+  RECOMMENDATIONS,
+  LINKEDIN_RECOMMENDATIONS_SOURCE_URL,
+} from '@/data/recommendations';
 
 /* ─────────────────────────────────────────────
    LINKEDIN ICON — official mark
@@ -191,18 +129,30 @@ function RecommendationModal({ rec, onClose }: { rec: Recommendation; onClose: (
               <p className="text-sm font-bold text-slate-900">{rec.name}</p>
               <p className="text-[12px] text-slate-500 mt-0.5 leading-snug">{rec.title}</p>
               <p className="text-[11px] text-slate-400 mt-1 font-medium">{rec.relationship} · {rec.date}</p>
-              <a
-                href={rec.linkedinUrl}
-                target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-3 px-4 py-2 text-[12px] font-bold rounded-xl transition-all group focus:outline-none focus:ring-2 focus:ring-[#0077b5] focus:ring-offset-2"
-                style={{ color: '#0077b5', background: 'rgba(0,119,181,0.06)', border: '1px solid rgba(0,119,181,0.2)' }}
-              >
-                <LinkedInIcon className="w-3.5 h-3.5" />
-                View on LinkedIn
-                <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path d="M7 17L17 7M17 7H7M17 7v10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
+              <div className="flex flex-wrap items-center gap-3 mt-3">
+                <a
+                  href={rec.linkedinUrl}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-[12px] font-bold rounded-xl transition-all group focus:outline-none focus:ring-2 focus:ring-[#0077b5] focus:ring-offset-2"
+                  style={{ color: '#0077b5', background: 'rgba(0,119,181,0.06)', border: '1px solid rgba(0,119,181,0.2)' }}
+                >
+                  <LinkedInIcon className="w-3.5 h-3.5" />
+                  View Recommender Profile
+                  <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 17L17 7M17 7H7M17 7v10" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+                <a
+                  href={LINKEDIN_RECOMMENDATIONS_SOURCE_URL}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 text-[11px] font-bold rounded-xl text-slate-500 hover:text-slate-800 bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors"
+                >
+                  <span>Verify on LinkedIn</span>
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -398,9 +348,9 @@ export default function RecommendationsSection() {
             </p>
           </div>
 
-          {/* ── Three Equal Cards ── */}
+          {/* ── Verified Cards Grid ── */}
           <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-20"
             style={{ gridAutoRows: '1fr' }}
           >
             {RECOMMENDATIONS.map((rec, i) => (
@@ -408,7 +358,7 @@ export default function RecommendationsSection() {
                 key={rec.id}
                 rec={rec}
                 onReadFull={() => openModal(rec)}
-                animDelay={i === 0 ? '' : i === 1 ? 'delay-1' : 'delay-2'}
+                animDelay={i === 0 ? '' : i === 1 ? 'delay-1' : i === 2 ? 'delay-2' : 'delay-3'}
               />
             ))}
           </div>

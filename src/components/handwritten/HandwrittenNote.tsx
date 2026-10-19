@@ -5,7 +5,7 @@ export interface HandwrittenNoteProps {
   children: React.ReactNode;
   className?: string;
   rotation?: number; // e.g. -3, 2, 0
-  color?: 'default' | 'blue' | 'accent' | 'amber' | 'emerald';
+  color?: 'default' | 'blue' | 'accent' | 'amber' | 'emerald' | 'purple';
   arrowDirection?: ArrowDirection;
   arrowPosition?: 'left' | 'right' | 'top' | 'bottom';
   arrowClassName?: string;
@@ -18,6 +18,7 @@ const INK_COLORS = {
   accent: 'text-[#f20d46] dark:text-[#fb7185]',
   amber: 'text-amber-700 dark:text-amber-300',
   emerald: 'text-emerald-700 dark:text-emerald-300',
+  purple: 'text-violet-700 dark:text-violet-300',
 };
 
 /**

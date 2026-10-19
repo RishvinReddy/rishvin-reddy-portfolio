@@ -3,7 +3,7 @@ import HomeProjectGallery from "@/components/HomeProjectGallery";
 import ExperienceSection from "@/components/ExperienceSection";
 import RecommendationsSection from "@/components/RecommendationsSection";
 import { getGithubProjects, getRawGithubRepos } from '@/lib/github';
-import { TECH_STACK, SERVICES, FEATURED_PROJECTS } from '../data/portfolio';
+import { TECH_STACK, FEATURED_PROJECTS } from '../data/portfolio';
 import React from 'react';
 import ProfileModalController from '@/components/ProfileModalController';
 import { CodedIntro } from "@/components/CodedIntro";
@@ -136,6 +136,151 @@ export const metadata: Metadata = {
     images: ["https://rishvinreddy.vercel.app/icon.png"],
   }
 };
+
+function StudioCircuitNetwork() {
+  return (
+    <svg
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.07] text-slate-200"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 600"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      <defs>
+        <pattern id="studio-circuit-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+          <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.25" />
+          <circle cx="0" cy="0" r="1" fill="currentColor" opacity="0.4" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#studio-circuit-grid)" />
+      <g fill="none" stroke="currentColor" strokeWidth="1" strokeOpacity="0.55">
+        <path d="M 40,96 H 320 L 368,144 H 820 L 868,96 H 1160" />
+        <path d="M 80,336 H 440 L 488,384 H 920 L 968,336 H 1120" />
+        <path d="M 368,144 V 240 L 416,288 H 620" />
+        <path d="M 820,144 V 240 L 772,288 H 680" />
+        <path d="M 220,96 V 192 L 268,240 H 368" />
+        <path d="M 980,96 V 216 L 932,264" />
+      </g>
+      <g fill="currentColor" opacity="0.75">
+        <circle cx="320" cy="96" r="2.5" />
+        <circle cx="368" cy="144" r="3" fill="#f20d46" />
+        <circle cx="820" cy="144" r="3" fill="#f20d46" />
+        <circle cx="868" cy="96" r="2.5" />
+        <circle cx="488" cy="384" r="3" fill="#f20d46" />
+        <circle cx="920" cy="384" r="2.5" />
+        <circle cx="416" cy="288" r="2.5" />
+        <circle cx="268" cy="240" r="2" />
+        <circle cx="772" cy="288" r="2" />
+      </g>
+      <g stroke="currentColor" strokeWidth="0.8" opacity="0.45">
+        <path d="M 120,91 V 101 M 115,96 H 125" />
+        <path d="M 600,139 V 149 M 595,144 H 605" />
+        <path d="M 1080,91 V 101 M 1075,96 H 1085" />
+        <path d="M 240,331 V 341 M 235,336 H 245" />
+        <path d="M 700,379 V 389 M 695,384 H 705" />
+      </g>
+    </svg>
+  );
+}
+
+interface StudioServiceItem {
+  number: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  capabilities: string[];
+  href: string;
+  colorClasses: {
+    number: string;
+    borderHover: string;
+    glow: string;
+    iconBox: string;
+    tag: string;
+  };
+  motifSvg: React.ReactNode;
+}
+
+const STUDIO_SERVICES: StudioServiceItem[] = [
+  {
+    number: "01",
+    eyebrow: "WEB ARCHITECTURE",
+    title: "Web & SaaS Development",
+    description: "Scalable SaaS platforms, high-performance cloud architectures, and production-grade full-stack web applications engineered for speed, modularity, and business growth.",
+    capabilities: ["Next.js / TypeScript", "Microservices & APIs", "Scalable Database Systems"],
+    href: "/services",
+    colorClasses: {
+      number: "text-blue-400/90 group-hover:text-blue-300",
+      borderHover: "hover:border-blue-500/40",
+      glow: "hover:shadow-[0_12px_36px_-10px_rgba(59,130,246,0.22)]",
+      iconBox: "bg-blue-500/10 border-blue-500/20 text-blue-400 group-hover:bg-blue-500/20 group-hover:border-blue-400/40 group-hover:text-blue-300",
+      tag: "bg-blue-500/10 text-blue-300/90 border-blue-500/20",
+    },
+    motifSvg: (
+      <svg className="w-5 h-5 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path className="transition-transform duration-300 group-hover:-translate-x-1 motion-reduce:group-hover:transform-none" d="M8 6L2 12L8 18" />
+        <path className="transition-transform duration-300 group-hover:translate-x-1 motion-reduce:group-hover:transform-none" d="M16 6L22 12L16 18" />
+        <path className="transition-colors duration-300 group-hover:stroke-primary" d="M14 4L10 20" strokeWidth="1.8" />
+      </svg>
+    ),
+  },
+  {
+    number: "02",
+    eyebrow: "DEFENSIVE SYSTEMS",
+    title: "Cybersecurity Solutions",
+    description: "Hardened system architectures, threat surface analysis, automated vulnerability assessments, and proactive defensive controls built to safeguard enterprise digital assets.",
+    capabilities: ["Vulnerability Assessments", "Zero-Trust Architecture", "Secure Auth & Crypto"],
+    href: "/services",
+    colorClasses: {
+      number: "text-emerald-400/90 group-hover:text-emerald-300",
+      borderHover: "hover:border-emerald-500/40",
+      glow: "hover:shadow-[0_12px_36px_-10px_rgba(16,185,129,0.22)]",
+      iconBox: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500/20 group-hover:border-emerald-400/40 group-hover:text-emerald-300",
+      tag: "bg-emerald-500/10 text-emerald-300/90 border-emerald-500/20",
+    },
+    motifSvg: (
+      <svg className="w-5 h-5 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M9 12l2 2 4-4" strokeWidth="2" className="text-emerald-300" />
+        <line
+          x1="4" y1="11" x2="20" y2="11"
+          stroke="#10b981"
+          strokeWidth="1.2"
+          strokeDasharray="2 2"
+          className="opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:translate-y-2 -translate-y-2 motion-reduce:group-hover:transform-none"
+        />
+      </svg>
+    ),
+  },
+  {
+    number: "03",
+    eyebrow: "EMBEDDED & EDGE",
+    title: "IoT & Automation",
+    description: "Custom microcontroller firmware, real-time edge sensor telemetry networks, and intelligent hardware-to-cloud automation pipelines bridging the physical and digital domains.",
+    capabilities: ["ESP32 / Microcontrollers", "MQTT & Edge Telemetry", "Industrial Automation"],
+    href: "/services",
+    colorClasses: {
+      number: "text-amber-400/90 group-hover:text-amber-300",
+      borderHover: "hover:border-amber-500/40",
+      glow: "hover:shadow-[0_12px_36px_-10px_rgba(245,158,11,0.22)]",
+      iconBox: "bg-amber-500/10 border-amber-500/20 text-amber-400 group-hover:bg-amber-500/20 group-hover:border-amber-400/40 group-hover:text-amber-300",
+      tag: "bg-amber-500/10 text-amber-300/90 border-amber-500/20",
+    },
+    motifSvg: (
+      <svg className="w-5 h-5 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="7" y="7" width="10" height="10" rx="2" className="transition-colors duration-300 group-hover:stroke-amber-300" />
+        <circle cx="3" cy="12" r="1.5" className="fill-amber-400/60 group-hover:fill-amber-300 transition-colors" />
+        <path d="M4.5 12H7" />
+        <circle cx="21" cy="12" r="1.5" className="fill-amber-400/60 group-hover:fill-amber-300 transition-colors" />
+        <path d="M17 12H19.5" />
+        <circle cx="12" cy="3" r="1.5" className="fill-amber-400/60 group-hover:fill-amber-300 transition-colors" />
+        <path d="M12 4.5V7" />
+        <circle cx="12" cy="21" r="1.5" className="fill-amber-400/60 group-hover:fill-amber-300 transition-colors" />
+        <path d="M12 17V19.5" />
+        <circle cx="12" cy="12" r="1.5" className="fill-primary" />
+      </svg>
+    ),
+  },
+];
 
 export default async function Home() {
   const dynamicProjects = await getGithubProjects();
@@ -280,20 +425,201 @@ export default async function Home() {
       <div className="noise-overlay pointer-events-none fixed inset-0 z-[9999] opacity-[0.03]"></div>
 
       {/*  ===== Hero / Home Section (Editorial Engineering Luxury) =====  */}
-      <div className="relative w-full bg-gradient-to-br from-blue-50/80 via-indigo-50/30 to-purple-50/80">
-        <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 flex-grow flex items-center pt-8 pb-12">
+      <div className="relative w-full bg-gradient-to-br from-blue-50/80 via-indigo-50/30 to-purple-50/80 overflow-hidden">
+        <div className="mx-auto w-full max-w-[104rem] 2xl:max-w-[116rem] 3xl:max-w-[120rem] px-4 sm:px-6 lg:px-8 flex-grow flex items-center pt-8 pb-14 sm:pt-10 sm:pb-16 lg:pt-12 lg:pb-20">
           <section id="home" className="relative w-full">
 
+            {/* ── Asymmetrical Architectural Underlay Plate (Directly Offset Behind Hero Card) ── */}
+            <div
+              className="absolute inset-0 translate-x-3 translate-y-3 sm:translate-x-5 sm:translate-y-5 lg:translate-x-6 lg:translate-y-6 rounded-3xl border-2 border-slate-900/20 bg-slate-900/[0.03] backdrop-blur-sm pointer-events-none -z-0 overflow-hidden"
+              aria-hidden="true"
+            >
+              {/* Blueprint Micro-Grid Pattern */}
+              <div className="absolute inset-0 opacity-[0.35] bg-[linear-gradient(to_right,#6366f125_1px,transparent_1px),linear-gradient(to_bottom,#6366f125_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+              {/* Architectural Registration Brackets & Labels Along Exposed Rim */}
+              <div className="absolute top-2.5 left-3 text-slate-500 font-mono text-[11px] select-none font-semibold">┌ ARCH_01 // SYSTEM_CANVAS</div>
+              <div className="absolute top-2.5 right-4 text-slate-500 font-mono text-[11px] select-none flex items-center gap-1.5 font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                <span>17.3850° N, 78.4867° E</span>
+                <span>┐</span>
+              </div>
+              <div className="absolute bottom-2.5 left-4 text-slate-500 font-mono text-[11px] select-none font-semibold">
+                └ CO-INVENTOR // PATENT № 418195-001
+              </div>
+              <div className="absolute bottom-2.5 right-4 text-slate-500 font-mono text-[11px] select-none flex items-center gap-2 font-semibold">
+                <span>SCALE 1:1 // PRODUCTION READY</span>
+                <span>┘</span>
+              </div>
+
+              {/* Diagonal Drafting Slash Hatching on bottom-right exposed margin */}
+              <div className="absolute right-0 bottom-0 w-48 h-20 opacity-40 pointer-events-none">
+                <svg viewBox="0 0 180 70" fill="none" className="w-full h-full text-slate-700">
+                  <line x1="0" y1="70" x2="70" y2="0" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="25" y1="70" x2="95" y2="0" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="50" y1="70" x2="120" y2="0" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="75" y1="70" x2="145" y2="0" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="100" y1="70" x2="170" y2="0" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="125" y1="70" x2="195" y2="0" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              </div>
+            </div>
+
+            {/* ── Geometric & Asymmetrical Architectural Canvas (Extending Beyond Hero Card) ── */}
+            <div className="absolute -inset-10 sm:-inset-16 lg:-inset-24 pointer-events-none -z-0 overflow-visible" aria-hidden="true">
+              {/* Asymmetrical Atmospheric Gradient Blooms */}
+              <div className="absolute -top-12 -right-12 w-[600px] h-[600px] bg-indigo-300/35 rounded-full blur-[110px] mix-blend-multiply opacity-80"></div>
+              <div className="absolute -bottom-12 -left-12 w-[520px] h-[520px] bg-rose-300/30 rounded-full blur-[100px] mix-blend-multiply opacity-75"></div>
+
+              {/* Prominent Asymmetrical Orbit & Caliper Geometry (Top-Right / Behind Portrait) */}
+              <div className="absolute -top-14 -right-12 sm:-top-20 sm:-right-20 lg:-top-28 lg:-right-28 w-[500px] sm:w-[650px] lg:w-[820px] h-[500px] sm:h-[650px] lg:h-[820px]">
+                <svg viewBox="0 0 800 800" fill="none" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="orbit-grad-indigo" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#4f46e5" stopOpacity="0.85" />
+                      <stop offset="100%" stopColor="#818cf8" stopOpacity="0.4" />
+                    </linearGradient>
+                    <linearGradient id="orbit-grad-rose" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#f20d46" stopOpacity="0.8" />
+                      <stop offset="100%" stopColor="#fb7185" stopOpacity="0.3" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Concentric Orbit Rings — Clearly Visible */}
+                  <circle cx="400" cy="400" r="380" stroke="url(#orbit-grad-indigo)" strokeWidth="1.8" strokeDasharray="8 8" />
+                  <circle cx="400" cy="400" r="310" stroke="#334155" strokeWidth="1.6" strokeOpacity="0.5" />
+                  <circle cx="400" cy="400" r="230" stroke="url(#orbit-grad-rose)" strokeWidth="1.6" strokeDasharray="5 7" />
+                  <circle cx="400" cy="400" r="150" stroke="#4f46e5" strokeWidth="1.4" strokeOpacity="0.6" />
+
+                  {/* 45° Faceted Diamond & Square Interlocking */}
+                  <rect x="220" y="220" width="360" height="360" stroke="#4f46e5" strokeWidth="1.6" strokeOpacity="0.45" transform="rotate(45 400 400)" />
+                  <rect x="260" y="260" width="280" height="280" stroke="#f20d46" strokeWidth="1.2" strokeDasharray="6 6" strokeOpacity="0.5" transform="rotate(45 400 400)" />
+
+                  {/* Radial Axis Rays Extending Outwards */}
+                  <line x1="10" y1="400" x2="790" y2="400" stroke="#475569" strokeWidth="1.4" strokeDasharray="5 5" strokeOpacity="0.5" />
+                  <line x1="400" y1="10" x2="400" y2="790" stroke="#475569" strokeWidth="1.4" strokeDasharray="5 5" strokeOpacity="0.5" />
+                  <line x1="124" y1="124" x2="676" y2="676" stroke="#6366f1" strokeWidth="1.2" strokeOpacity="0.45" />
+                  <line x1="676" y1="124" x2="124" y2="676" stroke="#6366f1" strokeWidth="1.2" strokeOpacity="0.45" />
+
+                  {/* Degree Calibration Callouts */}
+                  <g fill="#334155" className="font-mono text-[12px] font-bold" opacity="0.85">
+                    <text x="408" y="30">000° // NORTH</text>
+                    <text x="736" y="404">090°</text>
+                    <text x="380" y="778">180°</text>
+                    <text x="18" y="404">270°</text>
+                    <text x="630" y="150">045° // RADIAL_VECTOR</text>
+                    <text x="630" y="660">135° // TANGENT</text>
+                  </g>
+
+                  {/* Cardinal Calibration Nodes */}
+                  <circle cx="400" cy="90" r="5" fill="#f20d46" />
+                  <circle cx="710" cy="400" r="5" fill="#4f46e5" />
+                  <circle cx="400" cy="710" r="4.5" fill="#10b981" />
+                  <circle cx="90" cy="400" r="4.5" fill="#0284c7" />
+
+                  {/* Precision Caliper Ticks along Radius */}
+                  <line x1="400" y1="90" x2="415" y2="90" stroke="#f20d46" strokeWidth="2" />
+                  <line x1="710" y1="400" x2="710" y2="415" stroke="#4f46e5" strokeWidth="2" />
+                </svg>
+              </div>
+
+              {/* Prominent Asymmetrical Isometric 3D Wireframe (Bottom-Left Extension) */}
+              <div className="absolute -bottom-16 -left-12 sm:-bottom-20 sm:-left-16 lg:-bottom-24 lg:-left-20 w-80 sm:w-96 lg:w-[480px] h-80 sm:h-96 lg:h-[480px]">
+                <svg viewBox="0 0 460 460" fill="none" className="w-full h-full">
+                  <defs>
+                    <linearGradient id="iso-poly-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#4f46e5" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#6366f1" stopOpacity="0.05" />
+                    </linearGradient>
+                    <linearGradient id="iso-poly-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#f20d46" stopOpacity="0.18" />
+                      <stop offset="100%" stopColor="#fb7185" stopOpacity="0.04" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Isometric Guide Grid Rays */}
+                  <g stroke="#64748b" strokeWidth="1.2" strokeOpacity="0.45" strokeDasharray="5 5">
+                    <line x1="0" y1="360" x2="360" y2="0" />
+                    <line x1="50" y1="440" x2="440" y2="50" />
+                    <line x1="0" y1="180" x2="380" y2="380" />
+                    <line x1="0" y1="90" x2="440" y2="310" />
+                  </g>
+
+                  {/* Major Primary Isometric 3D Cube */}
+                  <g transform="translate(50, 90)">
+                    {/* Top face */}
+                    <path d="M120,20 L220,78 L120,136 L20,78 Z" fill="url(#iso-poly-grad-1)" stroke="#4f46e5" strokeWidth="2" strokeOpacity="0.85" />
+                    {/* Left face */}
+                    <path d="M20,78 L120,136 V252 L20,194 Z" fill="url(#iso-poly-grad-2)" stroke="#f20d46" strokeWidth="2" strokeOpacity="0.8" />
+                    {/* Right face */}
+                    <path d="M220,78 L120,136 V252 L220,194 Z" fill="rgba(30,41,59,0.08)" stroke="#334155" strokeWidth="2" strokeOpacity="0.85" />
+                    {/* Interior dashed wireframe axis */}
+                    <path d="M20,78 V194 L120,252" stroke="#4f46e5" strokeWidth="1.4" strokeDasharray="3 3" strokeOpacity="0.6" />
+                    <path d="M120,136 L220,78" stroke="#334155" strokeWidth="1.4" strokeOpacity="0.7" />
+                    {/* Vertex nodes */}
+                    <circle cx="120" cy="20" r="4" fill="#4f46e5" />
+                    <circle cx="220" cy="78" r="4" fill="#334155" />
+                    <circle cx="20" cy="78" r="4" fill="#f20d46" />
+                    <circle cx="120" cy="136" r="4.5" fill="#f20d46" />
+                    <circle cx="120" cy="252" r="4" fill="#10b981" />
+                  </g>
+
+                  {/* Secondary Nested Wireframe Cube */}
+                  <g transform="translate(190, 190)">
+                    <path d="M70,10 L130,45 L70,80 L10,45 Z" fill="rgba(99,102,241,0.1)" stroke="#4f46e5" strokeWidth="1.6" strokeOpacity="0.85" />
+                    <path d="M10,45 L70,80 V150 L10,115 Z" fill="rgba(242,13,70,0.08)" stroke="#f20d46" strokeWidth="1.6" strokeOpacity="0.8" />
+                    <path d="M130,45 L70,80 V150 L130,115 Z" fill="rgba(15,23,42,0.06)" stroke="#334155" strokeWidth="1.6" strokeOpacity="0.85" />
+                  </g>
+
+                  {/* Isometric Dimension Line with Arrowheads */}
+                  <g stroke="#334155" strokeWidth="1.4" opacity="0.85">
+                    <line x1="70" y1="380" x2="270" y2="380" />
+                    <line x1="70" y1="373" x2="70" y2="387" />
+                    <line x1="270" y1="373" x2="270" y2="387" />
+                  </g>
+                  <text x="105" y="400" fill="#1e293b" className="font-mono text-[12px] font-bold" opacity="0.9">
+                    DIM // 384px [ISO_X]
+                  </text>
+
+                  {/* 4x4 Coordinate Dot Matrix */}
+                  <g fill="#334155" opacity="0.75">
+                    {Array.from({ length: 4 }).map((_, r) =>
+                      Array.from({ length: 4 }).map((_, c) => (
+                        <circle key={`dot-${r}-${c}`} cx={35 + c * 22} cy={35 + r * 22} r="2.2" />
+                      ))
+                    )}
+                  </g>
+                  <text x="35" y="130" fill="#475569" className="font-mono text-[10px] font-semibold" opacity="0.85">
+                    [MATRIX 4×4 // 88DP]
+                  </text>
+                </svg>
+              </div>
+
+              {/* Architectural Registration Crosshairs in Canvas Margins */}
+              <div className="absolute top-2 left-4 font-mono text-[13px] font-bold text-slate-500/80 select-none flex items-center gap-1.5">
+                <span className="text-primary font-bold">⊕</span> POS: [0, 0] // ARCH_ORIGIN
+              </div>
+              <div className="absolute top-2 right-4 font-mono text-[13px] font-bold text-slate-500/80 select-none flex items-center gap-1.5">
+                <span className="text-indigo-600 font-bold">⊕</span> GRID: 32PX // NORTH
+              </div>
+              <div className="absolute bottom-2 left-4 font-mono text-[13px] font-bold text-slate-500/80 select-none flex items-center gap-1.5">
+                <span className="text-emerald-600 font-bold">⊕</span> DATUM: ZERO // WEST
+              </div>
+              <div className="absolute bottom-2 right-4 font-mono text-[13px] font-bold text-slate-500/80 select-none flex items-center gap-1.5">
+                <span className="text-primary font-bold">⊕</span> SCALE: 1:100 // EAST
+              </div>
+            </div>
+
             {/* ── Hero Card ── */}
-            <div id="heroPrimaryCard" className="relative bg-white border border-slate-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden w-full px-8 sm:px-10 lg:px-14 py-8 lg:py-10">
+            <div id="heroPrimaryCard" className="relative z-10 bg-white border border-slate-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] overflow-hidden w-full px-8 sm:px-12 lg:px-16 xl:px-20 py-8 lg:py-12">
 
               {/* Subtle radial gradient inside card */}
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-stone-50/80 via-white to-slate-50/60 -z-0"></div>
 
-            <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-[clamp(30px,4vw,60px)] items-center relative z-10 w-full">
+            <div className="grid lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 xl:gap-16 items-center relative z-10 w-full">
 
               {/*  Left: Hero Text */}
-              <div className="flex flex-col justify-center max-w-3xl mx-auto lg:mx-0 order-2 lg:order-1 text-center lg:text-left">
+              <div className="flex flex-col justify-center max-w-4xl xl:max-w-5xl mx-auto lg:mx-0 order-2 lg:order-1 text-center lg:text-left">
 
                 {/* Availability Badge */}
                 <div className="hidden sm:inline-flex w-fit mx-auto lg:mx-0 items-center gap-2 px-3 py-1 rounded-full border border-emerald-200/50 bg-emerald-50 text-emerald-600 mb-6 shadow-2xl">
@@ -355,7 +681,7 @@ export default async function Home() {
                 </div>
 
                 {/* Description */}
-                <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-7 font-normal">
+                <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed max-w-3xl xl:max-w-4xl mx-auto lg:mx-0 mb-7 font-normal">
                   <span className="font-bold text-slate-900">Software Engineer</span> specializing in
                   <span className="font-semibold text-slate-900 border-b border-slate-300 pb-0.5 mx-1">Cybersecurity</span>,
                   <span className="font-semibold text-slate-900 border-b border-slate-300 pb-0.5 mx-1">IoT</span>,
@@ -463,7 +789,7 @@ export default async function Home() {
                     </HandwrittenNote>
                   </div>
 
-                  <div className="relative z-10 w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[580px] xl:max-w-[650px] aspect-square rounded-full overflow-hidden border-2 border-slate-200/60 shadow-2xl bg-white group cursor-pointer" id="profileThumb" data-src="icon.png">
+                  <div className="relative z-10 w-full max-w-[400px] sm:max-w-[500px] lg:max-w-[580px] xl:max-w-[660px] 2xl:max-w-[700px] aspect-square rounded-full overflow-hidden border-2 border-slate-200/60 shadow-2xl bg-white group cursor-pointer" id="profileThumb" data-src="icon.png">
                     <img loading="lazy" src="icon.png" className="w-full h-full object-cover mix-blend-multiply scale-[1.02] group-hover:scale-[1.05] transition-transform duration-700 ease-out" alt="Erolla Rishvin Reddy Software Developer and IoT Engineer" />
 
                     {/* Refined Hover Overlay */}
@@ -555,22 +881,66 @@ export default async function Home() {
         <div className="mx-auto max-w-[120rem] px-6 lg:px-10 relative z-10">
 
           {/* ── Section Header ── */}
-          <div className="max-w-[90rem] mx-auto text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">
-              <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" />
-              About Me
-            </span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.02] mb-5">
+          <div className="max-w-[90rem] mx-auto text-center mb-16 relative">
+            {/* Flanking Sketchbook Engineering Doodles */}
+            <div className="absolute top-0 left-2 lg:left-12 hidden md:flex flex-col items-center pointer-events-none opacity-80" aria-hidden="true">
+              <EngineeringDoodle type="circuit" className="w-14 h-14 text-indigo-500/70" />
+              <HandwrittenNote rotation={-4} color="blue" className="text-xs -mt-1">
+                silicon &amp; sensors
+              </HandwrittenNote>
+            </div>
+
+            <div className="absolute top-0 right-2 lg:right-12 hidden md:flex flex-col items-center pointer-events-none opacity-80" aria-hidden="true">
+              <EngineeringDoodle type="linked-blocks" className="w-14 h-14 text-violet-500/70" />
+              <HandwrittenNote rotation={3} color="accent" className="text-xs -mt-1">
+                smart contracts
+              </HandwrittenNote>
+            </div>
+
+            {/* Badge with Handwritten Callout */}
+            <div className="inline-flex items-center justify-center gap-3 mb-6 relative">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-black uppercase tracking-widest shadow-sm">
+                <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" aria-hidden="true" />
+                About Me
+              </span>
+              <div className="hidden sm:inline-block pointer-events-none">
+                <HandwrittenNote rotation={-2} color="blue" arrowDirection="curved-down-left" arrowPosition="left" arrowClassName="w-5 h-5" className="text-xs sm:text-sm">
+                  the engineering philosophy
+                </HandwrittenNote>
+              </div>
+            </div>
+
+            {/* Headline with Organic HandUnderline */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.05] mb-5">
               Engineering the{" "}
-              <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(120deg, #6366f1 0%, #7c3aed 40%, #14b8a6 100%)" }}>
-                full stack
+              <span className="relative inline-block pb-1">
+                <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(120deg, #6366f1 0%, #7c3aed 40%, #14b8a6 100%)" }}>
+                  full stack
+                </span>
+                <span className="absolute -bottom-1 left-0 w-full block pointer-events-none" aria-hidden="true">
+                  <HandUnderline variant="scribble" color="#6366f1" className="w-full h-3" strokeWidth={2.4} />
+                </span>
               </span>{" "}
               of trust.
             </h2>
-            <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
-              From silicon to smart contracts — I build systems that are fast, secure, and production-ready.
-              Co-inventor of a <strong className="text-slate-700 font-extrabold">Government of India IoT Patent</strong>.
+
+            {/* Sub-paragraph with HandCircle and Patent Annotation */}
+            <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+              From silicon to smart contracts — I build systems that are fast, secure, and production-ready.{" "}
+              Co-inventor of a{" "}
+              <span className="relative inline-block font-bold text-slate-900">
+                <HandCircle color="#f59e0b" strokeWidth={2.2}>
+                  Government of India IoT Patent
+                </HandCircle>
+              </span>.
             </p>
+
+            {/* Handwritten Patent Callout Annotation */}
+            <div className="mt-3.5 hidden sm:flex items-center justify-center gap-2 pointer-events-none">
+              <HandwrittenNote rotation={2} color="amber" arrowDirection="curved-up-left" arrowPosition="left" arrowClassName="w-5 h-5" className="text-xs sm:text-sm">
+                Official Patent Grant № 418195-001
+              </HandwrittenNote>
+            </div>
           </div>
 
           {/* ── Stats Strip ── */}
@@ -589,6 +959,30 @@ export default async function Home() {
               return (
                 <div key={i} className={`group relative bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden ${i === 4 ? "sm:col-span-1 col-span-2" : ""}`}>
                   <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${bar[s.color]} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+
+                  {/* Handwritten Callout Stickers on key stat milestones */}
+                  {i === 0 && (
+                    <span className="absolute top-2.5 right-3 hidden sm:inline-block pointer-events-none z-10">
+                      <HandwrittenNote rotation={3} color="blue" className="text-[10px] font-bold">
+                        shipped &amp; live
+                      </HandwrittenNote>
+                    </span>
+                  )}
+                  {i === 2 && (
+                    <span className="absolute top-2.5 right-3 hidden sm:inline-block pointer-events-none z-10">
+                      <HandwrittenNote rotation={-3} color="amber" className="text-[10px] font-bold">
+                        certified grant
+                      </HandwrittenNote>
+                    </span>
+                  )}
+                  {i === 4 && (
+                    <span className="absolute top-2.5 right-3 hidden sm:inline-block pointer-events-none z-10">
+                      <HandwrittenNote rotation={2} color="accent" className="text-[10px] font-bold">
+                        verified
+                      </HandwrittenNote>
+                    </span>
+                  )}
+
                   <div className={`w-9 h-9 ${bg[s.color]} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
                     <svg className={`w-4 h-4 ${txt[s.color]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path d={s.icon} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -618,18 +1012,25 @@ export default async function Home() {
                 </div>
 
                 <div className="p-8 sm:p-10">
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-8 flex items-center gap-2">
-                    <span className="w-3 h-px bg-slate-300 inline-block" />
-                    Engineer&apos;s Narrative
-                  </p>
+                  <div className="flex items-center justify-between mb-8">
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] flex items-center gap-2">
+                      <span className="w-3 h-px bg-slate-300 inline-block" />
+                      Engineer&apos;s Narrative
+                    </p>
+                    <div className="hidden sm:inline-flex items-center gap-1.5 pointer-events-none">
+                      <HandwrittenNote rotation={-2} color="emerald" className="text-xs">
+                        from breadboard to production
+                      </HandwrittenNote>
+                    </div>
+                  </div>
 
                   {/* Journey timeline */}
                   <div className="space-y-6 mb-8">
                     {([
-                      { phase: "Phase 01 — Hardware", color: "indigo", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">My journey started with <span className="text-slate-900 font-bold">hardware mechanics</span> — understanding the pulse of machines, programming microcontrollers and building IoT connectivity devices from scratch.</p> },
-                      { phase: "Phase 02 — Software Logic", color: "violet", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">It evolved into <span className="text-slate-900 font-bold">full-stack engineering</span> — React, Node, Python, REST APIs — building smart interfaces that communicate with the physical world.</p> },
-                      { phase: "Phase 03 — Security Layer", color: "teal", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Today I secure that bridge. Integrating <strong className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">IoT sensors</strong> with <strong className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent font-black">Blockchain ledgers</strong> to create systems that are verifiable, impenetrable, and production-grade.</p> },
-                      { phase: "Phase 04 — Founder", color: "rose", content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Now building <strong className="bg-gradient-to-r from-rose-500 to-primary bg-clip-text text-transparent font-black"><a href="https://rishvin-labs.vercel.app" target="_blank" className="hover:underline">Rishvin Labs</a></strong>. Delivering digital solutions, full-stack web development, cybersecurity-focused systems, IoT automation, and product engineering.</p> },
+                      { phase: "Phase 01 — Hardware", color: "indigo", doodle: <EngineeringDoodle type="sensor-node" className="w-5 h-5 text-indigo-400 opacity-80 shrink-0 hidden sm:block" />, content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">My journey started with <span className="text-slate-900 font-bold">hardware mechanics</span> — understanding the pulse of machines, programming microcontrollers and building IoT connectivity devices from scratch.</p> },
+                      { phase: "Phase 02 — Software Logic", color: "violet", doodle: <EngineeringDoodle type="code-brackets" className="w-5 h-5 text-violet-400 opacity-80 shrink-0 hidden sm:block" />, content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">It evolved into <span className="text-slate-900 font-bold">full-stack engineering</span> — React, Node, Python, REST APIs — building smart interfaces that communicate with the physical world.</p> },
+                      { phase: "Phase 03 — Security Layer", color: "teal", doodle: <EngineeringDoodle type="shield" className="w-5 h-5 text-teal-400 opacity-80 shrink-0 hidden sm:block" />, content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Today I secure that bridge. Integrating <strong className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent font-black">IoT sensors</strong> with <strong className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent font-black">Blockchain ledgers</strong> to create systems that are verifiable, impenetrable, and production-grade.</p> },
+                      { phase: "Phase 04 — Founder", color: "rose", doodle: <EngineeringDoodle type="connected-nodes" className="w-5 h-5 text-rose-400 opacity-80 shrink-0 hidden sm:block" />, content: <p className="text-sm sm:text-base text-slate-600 leading-relaxed">Now building <strong className="bg-gradient-to-r from-rose-500 to-primary bg-clip-text text-transparent font-black"><a href="https://rishvin-labs.vercel.app" target="_blank" className="hover:underline">Rishvin Labs</a></strong>. Delivering digital solutions, full-stack web development, cybersecurity-focused systems, IoT automation, and product engineering.</p> },
                     ] as const).map((item, i, arr) => {
                       const dotColor: Record<string, string> = { indigo: "bg-indigo-500", violet: "bg-violet-500", teal: "bg-teal-500", rose: "bg-rose-500" };
                       const labelColor: Record<string, string> = { indigo: "text-indigo-500", violet: "text-violet-500", teal: "text-teal-500", rose: "text-rose-500" };
@@ -640,8 +1041,11 @@ export default async function Home() {
                             <div className={`w-2.5 h-2.5 rounded-full ${dotColor[item.color]} shadow-2xl`} />
                             {i < arr.length - 1 && <div className={`w-px flex-1 min-h-[40px] bg-gradient-to-b ${lineGrad[item.color]} mt-1`} />}
                           </div>
-                          <div className="pb-1">
-                            <div className={`text-[10px] font-black ${labelColor[item.color]} uppercase tracking-widest mb-1.5`}>{item.phase}</div>
+                          <div className="pb-1 flex-1">
+                            <div className="flex items-center justify-between mb-1.5">
+                              <div className={`text-[10px] font-black ${labelColor[item.color]} uppercase tracking-widest`}>{item.phase}</div>
+                              {item.doodle}
+                            </div>
                             {item.content}
                           </div>
                         </div>
@@ -649,7 +1053,13 @@ export default async function Home() {
                     })}
                   </div>
 
-                  {/* Skill pills */}
+                  {/* Skill pills with handwritten annotation */}
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Applied Competencies</span>
+                    <HandwrittenNote rotation={-1} color="blue" className="text-[11px] hidden sm:inline-block">
+                      tested in production
+                    </HandwrittenNote>
+                  </div>
                   <div className="flex flex-wrap gap-2 mb-8">
                     {([
                       { label: "IoT Systems", bg: "bg-indigo-50", text: "text-indigo-700", border: "border-indigo-200/70" },
@@ -677,6 +1087,15 @@ export default async function Home() {
                         <div className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">IoT · Blockchain · Full-Stack</div>
                       </div>
                     </div>
+
+                    {/* Authentic Personal Signature Stamp */}
+                    <div className="hidden md:flex flex-col items-center pointer-events-none -my-2">
+                      <RishvinSignature className="w-28 sm:w-32 h-auto text-slate-800 -rotate-2 opacity-90 drop-shadow-xs" />
+                      <HandwrittenNote rotation={1} color="accent" className="text-[10px] -mt-1">
+                        verified author
+                      </HandwrittenNote>
+                    </div>
+
                     <a href="/about"
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white text-sm font-bold hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 relative overflow-hidden"
                       style={{ background: "linear-gradient(135deg, #1e293b 0%, #6366f1 100%)" }}>
@@ -703,18 +1122,26 @@ export default async function Home() {
                     <span className="w-3 h-px bg-slate-300 inline-block" />
                     Live from GitHub
                   </p>
-                  <h3 className="text-xl font-black text-slate-900 tracking-tight">Technical Arsenal</h3>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-black text-slate-900 tracking-tight">Technical Arsenal</h3>
+                    <EngineeringDoodle type="terminal" className="w-5 h-5 text-indigo-500/80 shrink-0 hidden sm:block" />
+                  </div>
                 </div>
-                <a href="https://github.com/RishvinReddy" target="_blank" rel="noopener noreferrer"
-                  className="group/link inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors duration-200">
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                  </svg>
-                  @RishvinReddy
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
+                <div className="flex flex-col items-end gap-1">
+                  <HandwrittenNote rotation={-2} color="emerald" className="text-[10px] hidden sm:inline-block">
+                    live telemetry
+                  </HandwrittenNote>
+                  <a href="https://github.com/RishvinReddy" target="_blank" rel="noopener noreferrer"
+                    className="group/link inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors duration-200">
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                    @RishvinReddy
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
               </div>
 
               {/* Live/Fallback badges */}
@@ -732,7 +1159,12 @@ export default async function Home() {
               </div>
 
               {/* Main card */}
-              <div className="about-skills-card bg-white border border-slate-200/80 rounded-2xl shadow-2xl p-6 sm:p-8 flex-1">
+              <div className="about-skills-card relative overflow-hidden bg-white border border-slate-200/80 rounded-2xl shadow-2xl p-6 sm:p-8 flex-1">
+
+                {/* Subtle Sketchbook Data Stream Doodle */}
+                <div className="absolute -bottom-2 -right-2 pointer-events-none opacity-20 hidden sm:block" aria-hidden="true">
+                  <EngineeringDoodle type="data-stream" className="w-16 h-16 text-slate-500" />
+                </div>
 
                 {/* GitHub Stats Strip */}
                 <div id="gh-stats-strip" className="grid grid-cols-4 gap-2 mb-6">
@@ -757,6 +1189,9 @@ export default async function Home() {
                 {/* Language bars */}
                 <div className="mb-2 flex items-center justify-between">
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em]">Language Distribution</p>
+                  <HandwrittenNote rotation={-2} color="blue" className="text-[10px] hidden sm:inline-block">
+                    polyglot stack
+                  </HandwrittenNote>
                 </div>
                 <div className="space-y-4 mt-3" id="about-skill-bars">
                   {topLangs.map(([lang, count], i) => (
@@ -778,8 +1213,13 @@ export default async function Home() {
                 <div className="mt-7 mb-5 h-px bg-gradient-to-r from-slate-100 via-indigo-100/60 to-slate-100" />
 
                 {/* Top repos */}
-                <div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-3">Top Repositories</p>
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em]">Top Repositories</p>
+                    <HandwrittenNote rotation={2} color="amber" className="text-[10px] hidden sm:inline-block">
+                      open source code
+                    </HandwrittenNote>
+                  </div>
                   <div id="gh-top-repos" className="space-y-2">
                     {topRepos.map((repo, i) => (
                       <a key={i} href={repo.html_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 hover:bg-slate-100 hover:-translate-y-0.5 transition-all group">
@@ -1138,61 +1578,171 @@ export default async function Home() {
       {/*  ─ Section Divider ─  */}
       <div className="section-divider" aria-hidden="true"><span className="divider-gem"></span></div>
 
-      {/*  ── Rishvin Labs Featured Hub ──  */}
-      <section id="rishvin-labs-hub" className="py-24 sm:py-32 relative overflow-hidden bg-slate-900 border-t border-slate-800">
-        {/*  Dynamic Background Elements  */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] opacity-40 mix-blend-screen"></div>
-          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[600px] h-[600px] bg-indigo-500/20 rounded-full blur-[100px] opacity-30 mix-blend-screen"></div>
-          <div className="absolute inset-0 bg-[url(&apos;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=&apos;)] opacity-20 mask-image:linear-gradient(to_bottom,white,transparent)"></div>
+      {/*  ── Rishvin Labs Featured Hub (Founder-Led Tech Studio Showcase V2.0) ──  */}
+      <section id="rishvin-labs-hub" className="py-20 sm:py-24 lg:py-28 relative overflow-hidden bg-[#070b16] border-t border-slate-800/80">
+        {/*  Custom Technical Visual Layer (SVG Architectural Circuit Network)  */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+          <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/4 w-[650px] h-[650px] bg-primary/15 rounded-full blur-[140px] opacity-40 mix-blend-screen"></div>
+          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[550px] h-[550px] bg-indigo-600/15 rounded-full blur-[120px] opacity-35 mix-blend-screen"></div>
+          {/* Custom SVG Architecture Bus Network Layer */}
+          <StudioCircuitNetwork />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-[120rem]">
-          {/*  Header  */}
-          <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary font-bold text-sm tracking-wide mb-6 shadow-inner backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              Founder & Tech Studio
+          {/*  Studio Hero Header — Editorial Hierarchy  */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+            {/* Studio Compact Descriptor & Restrained Caveat Annotation */}
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-primary font-mono text-xs tracking-wider uppercase shadow-inner backdrop-blur-md">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true"></span>
+                Founder-Led Technology Studio
+              </div>
+              <span className="hidden sm:inline text-xs font-mono text-slate-500 uppercase tracking-widest">
+                HYD · IN · EST. 2024
+              </span>
+              <div className="hidden md:inline-block pointer-events-none">
+                <HandwrittenNote rotation={-2} color="accent" arrowDirection="curved-down-left" arrowPosition="left" arrowClassName="w-5 h-5" className="text-xs sm:text-sm">
+                  engineering studio
+                </HandwrittenNote>
+              </div>
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
-              Rishvin <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-rose-500">Labs</span>
+
+            {/* Dominant High-Contrast Editorial Serif Headline with Scribble Underline */}
+            <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.08] mb-5">
+              Rishvin{' '}
+              <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary via-rose-400 to-rose-500 font-bold pb-2">
+                Labs
+                <span className="absolute -bottom-1 left-0 w-full block pointer-events-none" aria-hidden="true">
+                  <HandUnderline variant="scribble" color="#f20d46" className="w-full h-3.5 sm:h-4" />
+                </span>
+              </span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-300 leading-relaxed font-medium">
-              Building modern software systems, websites, automation tools, cybersecurity solutions, IoT systems, and digital products.
+
+            {/* Tightened Outcome-Oriented Copy */}
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl mx-auto mb-8">
+              An independent engineering venture architecting scalable SaaS platforms, automated defensive cybersecurity tooling, and edge-connected IoT devices.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-rose-500 text-white font-bold shadow-[0_0_20px_rgba(242,13,70,0.4)] hover:shadow-[0_0_30px_rgba(242,13,70,0.6)] hover:scale-105 transition-all duration-300 flex items-center gap-2 group">
-                Visit Rishvin Labs
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+
+            {/* Studio Action Affordances */}
+            <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+              <a
+                href="https://rishvin-labs.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 sm:px-7 py-3 rounded-xl bg-gradient-to-r from-primary to-rose-600 text-white font-semibold text-sm sm:text-base shadow-[0_0_24px_rgba(242,13,70,0.35)] hover:shadow-[0_0_36px_rgba(242,13,70,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2 group"
+              >
+                <span>Visit Rishvin Labs</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </a>
-              <a href="https://rishvin-labs.vercel.app#services" target="_blank" rel="noopener noreferrer" className="px-6 py-3 rounded-xl bg-white/10 text-white font-bold border border-white/10 hover:bg-white/20 hover:scale-105 transition-all duration-300 backdrop-blur-md">
-                View Services
+              <a
+                href="/services"
+                className="px-6 sm:px-7 py-3 rounded-xl bg-white/[0.06] text-white font-semibold text-sm sm:text-base border border-white/10 hover:bg-white/[0.12] hover:border-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 backdrop-blur-md flex items-center gap-2 group"
+              >
+                <span>Explore Services</span>
+                <svg className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 9l-7 7-7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </a>
+            </div>
+
+            {/* Subtle Architectural Flow Indicator (Engineered Lifecycle Schematic) */}
+            <div className="mt-9 max-w-xl mx-auto hidden sm:flex items-center justify-between px-5 py-2 rounded-full bg-white/[0.02] border border-white/[0.06] text-[11px] font-mono text-slate-400" aria-hidden="true">
+              <span className="flex items-center gap-1.5 text-slate-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                01 Architecture
+              </span>
+              <span className="text-white/20">───→</span>
+              <span className="flex items-center gap-1.5 text-slate-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                02 Hardening
+              </span>
+              <span className="text-white/20">───→</span>
+              <span className="flex items-center gap-1.5 text-slate-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                03 Deployment
+              </span>
             </div>
           </div>
 
-          {/*  Stats/Cards Grid  */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Upgraded Studio Service Panels (01, 02, 03) — Aligned Equal Height Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {STUDIO_SERVICES.map((service) => (
+              <a
+                key={service.number}
+                href={service.href}
+                className={`group relative flex flex-col justify-between h-full rounded-2xl sm:rounded-3xl p-7 sm:p-8 bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 ${service.colorClasses.borderHover} ${service.colorClasses.glow} transition-all duration-300 hover:-translate-y-1.5 motion-reduce:hover:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary backdrop-blur-md overflow-hidden text-left`}
+              >
+                {/* Ambient hover wash */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
 
-            {SERVICES.map((service, index) => (
-              <div key={index} className={`group relative bg-white/5 rounded-3xl p-8 border border-white/10 ${service.colorClasses.borderHover} transition-all duration-500 hover:-translate-y-2 overflow-hidden backdrop-blur-md`}>
-                <div className={`absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                <div className="relative z-10 flex flex-col h-full">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.colorClasses.bgGradient} flex items-center justify-center shadow-xl mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                    <svg className={`w-7 h-7 ${service.colorClasses.iconText}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: service.iconPath }}></svg>
+                <div className="relative z-10 flex flex-col h-full justify-between">
+                  <div>
+                    {/* Top Eyebrow Row: Number + Interactive Motif Icon */}
+                    <div className="flex items-center justify-between gap-4 mb-6">
+                      <div className="flex items-center gap-2.5">
+                        <span className={`font-mono text-xs font-bold tracking-widest ${service.colorClasses.number}`}>
+                          {service.number}
+                        </span>
+                        <span className="w-1 h-1 rounded-full bg-slate-600" aria-hidden="true"></span>
+                        <span className="font-mono text-[11px] font-semibold tracking-wider text-slate-400 uppercase">
+                          {service.eyebrow}
+                        </span>
+                      </div>
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center border transition-all duration-300 ${service.colorClasses.iconBox}`}>
+                        {service.motifSvg}
+                      </div>
+                    </div>
+
+                    {/* Card Title */}
+                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3 transition-colors group-hover:text-white">
+                      {service.title}
+                    </h3>
+
+                    {/* Outcome-Oriented Description */}
+                    <p className="text-slate-300/90 text-sm leading-relaxed mb-6 font-normal">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className={`text-xl font-bold text-white mb-3 transition-colors ${service.colorClasses.groupHoverText}`}>{service.title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">{service.description}</p>
+
+                  <div>
+                    {/* Deliverables / Capabilities Tags */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {service.capabilities.map((cap) => (
+                        <span
+                          key={cap}
+                          className={`text-[11px] px-2.5 py-1 rounded-md border font-mono ${service.colorClasses.tag}`}
+                        >
+                          {cap}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Bottom-Aligned Navigation Affordance */}
+                    <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">
+                      <span>Explore service</span>
+                      <span className="flex items-center gap-1.5 text-primary group-hover:text-primary transition-transform duration-300 group-hover:translate-x-1.5">
+                        <span className="font-mono text-xs">VIEW</span>
+                        <span className="font-mono text-sm">→</span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
-          {/*  Bottom CTA row  */}
-          <div className="mt-12 text-center">
-            <a href="https://rishvin-labs.vercel.app#projects" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white group transition-colors">
-              Explore All Technical Services
-              <svg className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          {/* Bottom CTA row */}
+          <div className="mt-12 sm:mt-14 text-center">
+            <a
+              href="/services"
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-sm font-semibold text-slate-300 hover:text-white group transition-all duration-300 shadow-sm"
+            >
+              <span>Explore All Technical Services</span>
+              <svg className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </a>
           </div>
         </div>
@@ -1263,18 +1813,21 @@ export default async function Home() {
               <div className="flex-1 h-px bg-gradient-to-r from-purple-200/60 to-transparent max-w-[120px]"></div>
             </div>
             {/* Headline */}
-            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-6 font-display leading-[1.05]">
+            <h2 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-4 font-display leading-[1.05]">
               Developer<br className="sm:hidden" />
               <span className="relative inline-block mt-2 sm:mt-0">
                 <span className="text-transparent bg-clip-text"
                   style={{ backgroundImage: "linear-gradient(120deg, #6366f1 0%, #a855f7 100%)" }}>
                   Knowledge Graph
                 </span>
-                {/*  Underline accent  */}
-                <span className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full opacity-30"
-                  style={{ background: "linear-gradient(90deg, #6366f1, #a855f7)" }}></span>
+                <HandUnderline className="w-full h-3 -mt-0.5 text-indigo-400/80" strokeWidth={2.4} />
               </span>
             </h2>
+            <div className="mb-6 flex items-center justify-center gap-2">
+              <HandwrittenNote rotation={-2} color="purple">
+                6 core domains · live graph physics
+              </HandwrittenNote>
+            </div>
             <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
               An interactive network visualization of my engineering ecosystem — repositories, technologies, and domains
               connected in real-time.
