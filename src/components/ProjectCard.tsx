@@ -180,7 +180,7 @@ async function postProcessReadme(
         embedUrl = parsed.toString();
         const parsedEmbed = new URL(embedUrl);
         if (parsedEmbed.protocol !== "https:" || !allowedHosts.has(parsedEmbed.hostname)) continue;
-      } catch (e) {
+      } catch {
         continue;
       }
 
@@ -369,8 +369,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 {project.categoryLabel || "PROJECT"}
               </span>
               {doodleInfo && (
-                <span className="hidden sm:inline-flex items-center gap-1 font-handwriting text-sm text-[#0A66C2] dark:text-blue-400 font-bold opacity-80">
-                  · {doodleInfo.note}
+                <span className="hidden sm:inline-flex items-center">
+                  <HandwrittenNote
+                    rotation={-1.5}
+                    color="blue"
+                    className="text-xs sm:text-sm font-bold opacity-85"
+                  >
+                    · {doodleInfo.note}
+                  </HandwrittenNote>
                 </span>
               )}
             </div>

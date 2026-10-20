@@ -1,28 +1,46 @@
 import { Context } from './context';
 import { Intent, ParsedIntent } from './router';
-import { searchProjects, searchSkills, getResumeInfo, getProjectById, searchFAQ } from './retrieval';
+import {
+  searchProjects,
+  searchSkills,
+  getResumeInfo,
+  getProjectById,
+  searchFAQ,
+  getRecommendations,
+  getPatentInfo,
+  getRecruiterSummary,
+  RecruiterSummary,
+  findNavTarget,
+  NavTarget,
+  NAV_TARGETS,
+} from './retrieval';
 import { ProjectKnowledge } from '../knowledge/projects';
 import { SkillCategory } from '../knowledge/skills';
+import { Recommendation } from '@/data/recommendations';
 
 export type AIResponseData =
   | { type: "text"; content: string; actions?: {label: string, action: string}[] }
   | { type: "project"; project: ProjectKnowledge; actions?: {label: string, action: string}[] }
   | { type: "project_list"; projects: ProjectKnowledge[]; actions?: {label: string, action: string}[] }
   | { type: "skills"; skills: SkillCategory[]; actions?: {label: string, action: string}[] }
-  | { type: "resume"; info: ReturnType<typeof getResumeInfo>; actions?: {label: string, action: string}[] };
+  | { type: "resume"; info: ReturnType<typeof getResumeInfo>; actions?: {label: string, action: string}[] }
+  | { type: "recommendations"; recommendations: Recommendation[]; actions?: {label: string, action: string}[] }
+  | { type: "patent"; patent: ReturnType<typeof getPatentInfo>; actions?: {label: string, action: string}[] }
+  | { type: "recruiter"; recruiter: RecruiterSummary; actions?: {label: string, action: string}[] }
+  | { type: "navigate"; target: NavTarget; actions?: {label: string, action: string}[] };
 
 // Templates
 const GREETINGS = [
   "Hello! I'm Rishvin's local AI assistant. How can I help you today?",
-  "Hi there! I run entirely in your browser. What would you like to know about Rishvin's work?",
-  "Hey! I'm an on-device AI built to answer questions about Rishvin's engineering portfolio. Ask me anything!"
+  "Hi there! I run entirely in your browser with zero latency. What would you like to explore about Rishvin's engineering work?",
+  "Hey! I'm an on-device neural index built to answer questions about Rishvin's portfolio, IoT patent, skills, and endorsements. Ask me anything!"
 ];
 
 const ACKNOWLEDGEMENTS = [
   "Great question.",
-  "Here's what I found:",
+  "Here's what I found in the knowledge base:",
   "Let me break that down for you.",
-  "Sure thing!"
+  "Here are the details:"
 ];
 
 function getRandom(arr: string[]) {
@@ -34,7 +52,18 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { data
   const newContext = { ...context };
 
   if (intent === Intent.GREETING) {
-    return { data: { type: "text", content: getRandom(GREETINGS) } };
+    return {
+      data: {
+        type: "text",
+        content: getRandom(GREETINGS),
+        actions: [
+          { label: "IoT Patent 🛡️", action: "/patent" },
+          { label: "Recommendations ⭐", action: "/recommendations" },
+          { label: "Projects 🔍", action: "/projects" },
+          { label: "Skills ⚡", action: "/skills" },
+        ]
+      }
+    };
   }
 
   if (intent === Intent.COMMAND) {
@@ -45,8 +74,36 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { data
     if (!context.activeFileContent || !context.activeFile) {
       return { data: { type: "text", content: "You don't have any code files open right now! Open a file from the repository explorer on the left first." } };
     }
-    // Simple text response for code explanation
     return { data: { type: "text", content: `Code explanation for ${context.activeFile} (Local AI representation).` } };
+  }
+
+  if (intent === Intent.RECOMMENDATIONS_INFO) {
+    const recs = getRecommendations();
+    return {
+      data: {
+        type: "recommendations",
+        recommendations: recs,
+        actions: [
+          { label: "View on LinkedIn ↗", action: "/linkedin" },
+          { label: "Contact Rishvin", action: "/contact" }
+        ]
+      }
+    };
+  }
+
+  if (intent === Intent.PATENT_INFO) {
+    const pat = getPatentInfo();
+    return {
+      data: {
+        type: "patent",
+        patent: pat,
+        actions: [
+          { label: "IoT Projects", action: "iot" },
+          { label: "Technical Skills", action: "/skills" },
+          { label: "Contact", action: "/contact" }
+        ]
+      }
+    };
   }
 
   if (intent === Intent.SPECIFIC_PROJECT_INFO) {
@@ -103,7 +160,14 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { data
 
   if (intent === Intent.SYNTHESIS) {
     return {
-      data: { type: "text", content: `That's a great question crossing multiple domains.\n\nRishvin frequently combines his deep knowledge of Cybersecurity and IoT to build secure systems like ChainForensics. Rather than just using a framework, he applies threat modeling and secure-by-design principles (from his Cybersecurity skills) to the architecture (e.g., IoT data collection).` }
+      data: {
+        type: "text",
+        content: `Rishvin specializes in the intersection of Systems Engineering, Cybersecurity, and IoT.\n\nFor example, in **ChainForensics**, rather than building a standard analytics tool, he applied zero-trust cryptographic verification and blockchain heuristics. In his **IoT Connectivity Device Patent** (Indian Patent No. 470097-001), he designed secure telemetry and hardware authentication protocols.`,
+        actions: [
+          { label: "IoT Patent", action: "/patent" },
+          { label: "Explore Projects", action: "/projects" }
+        ]
+      }
     };
   }
 
@@ -122,18 +186,12 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { data
     return { 
       data: { 
         type: "text", 
-        content: `You can reach out to Rishvin here:\n\n- Email: ${info.profile.email}\n- LinkedIn: ${info.profile.linkedin}\n- GitHub: ${info.profile.github}\n- Location: ${info.profile.location}\n\nRishvin is currently ${info.profile.availability}.` 
+        content: `You can reach out to Rishvin directly:\n\n- **Email**: ${info.profile.email}\n- **LinkedIn**: [linkedin.com/in/rishvinreddy](${info.profile.linkedin})\n- **GitHub**: [github.com/RishvinReddy](${info.profile.github})\n- **Location**: ${info.profile.location}\n\nStatus: **${info.profile.availability}**`,
+        actions: [
+          { label: "Open Contact Form", action: "/contact" },
+          { label: "View Recommendations", action: "/recommendations" }
+        ]
       }
-    };
-  }
-
-  if (intent === Intent.PATENT_INFO) {
-    const info = getResumeInfo();
-    if (!info.patent) return { data: { type: "text", content: "I couldn't find any patent information." } };
-    const pat = info.patent;
-    return {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      data: { type: "text", content: `Patent Information\n\nTitle: ${pat.title}\nNumber: ${(pat as any).applicationNumber || pat.number}\nRole: ${pat.role}\nDomain: ${pat.domain}\n\n${pat.description}` }
     };
   }
 
@@ -141,22 +199,63 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { data
     const results = searchFAQ(query.replace(/services?|cost|price|timeline|process|deliverables/gi, '').trim());
     if (results.length > 0) {
       const topMatches = results.slice(0, 2);
-      const list = topMatches.map(f => `${f.question}\n${f.answer}`).join('\n\n');
+      const list = topMatches.map(f => `**${f.question}**\n${f.answer}`).join('\n\n');
       return { data: { type: "text", content: `${getRandom(ACKNOWLEDGEMENTS)}\n\n${list}` } };
     } else {
-      return { data: { type: "text", content: "I'm not exactly sure. Try asking about my services, pricing, timelines, or process." } };
+      return { data: { type: "text", content: "I'm not exactly sure about that specific detail. Try asking about services, pricing, timelines, patent, or recommendations!" } };
     }
   }
 
-  // General Chat
+  if (intent === Intent.RECRUITER_INFO) {
+    const recruiter = getRecruiterSummary();
+    return {
+      data: {
+        type: "recruiter",
+        recruiter,
+        actions: [
+          { label: "IoT Patent 🛡️", action: "/patent" },
+          { label: "Recommendations ⭐", action: "/recommendations" },
+          { label: "Featured Projects 🔍", action: "/projects" },
+          { label: "Contact Directly 📬", action: "/contact" }
+        ]
+      }
+    };
+  }
+
+  if (intent === Intent.NAVIGATE) {
+    const target = findNavTarget(query);
+    if (target) {
+      return {
+        data: {
+          type: "navigate",
+          target,
+          actions: [
+            { label: `Scroll to ${target.name}`, action: `/nav ${target.id}` },
+            { label: "Recruiter Summary 💼", action: "/recruiter" }
+          ]
+        }
+      };
+    }
+    return {
+      data: {
+        type: "text",
+        content: `Where would you like to navigate? Available sections:\n${NAV_TARGETS.map(t => `- **${t.name}** (\`/nav ${t.id}\`)`).join('\n')}`,
+        actions: NAV_TARGETS.slice(0, 4).map(t => ({ label: t.name, action: `/nav ${t.id}` }))
+      }
+    };
+  }
+
+  // General Chat Fallback
   return { 
     data: { 
       type: "text", 
-      content: "I'm Rishvin's local AI engine. I run entirely in your browser with no external API calls! You can ask me about Rishvin's projects, skills, patent, contact info, or type `/help` for commands.",
+      content: "I'm Rishvin's local AI engine running entirely in your browser with zero external API calls. Ask me about his IoT patent, verified LinkedIn recommendations, recruiter summary, projects, or say 'take me to projects' to navigate the page!",
       actions: [
-        { label: 'Show Projects', action: '/projects' },
-        { label: 'Show Skills', action: '/skills' },
-        { label: 'Contact', action: '/contact' }
+        { label: 'Recruiter Brief 💼', action: '/recruiter' },
+        { label: 'IoT Patent 🛡️', action: '/patent' },
+        { label: 'Recommendations ⭐', action: '/recommendations' },
+        { label: 'Featured Projects 🔍', action: '/projects' },
+        { label: 'Tech Stack ⚡', action: '/skills' }
       ]
     }
   };
@@ -164,7 +263,60 @@ export function generateResponse(parsed: ParsedIntent, context: Context): { data
 
 function handleCommand(cmd: string, args: string[], context: Context): { data: AIResponseData, newContext?: Context } {
   if (cmd === 'help') {
-    return { data: { type: "text", content: `Available Commands:\n- /projects - List all projects\n- /skills - Show tech stack\n- /resume - Show education and certifications\n- /contact - Show contact information\n- /open <project_id> - Load specific project context\n- /architecture <project_id> - Show architecture for a project` } };
+    return {
+      data: {
+        type: "text",
+        content: `**Available Commands & Features**:\n- \`/recruiter\` - Recruiter & Tech Interview brief\n- \`/nav <section>\` - Automatically scroll & highlight page sections\n- \`/patent\` - View Indian Design Patent details\n- \`/recommendations\` - View verified LinkedIn recommendations\n- \`/projects\` - List all engineering projects\n- \`/skills\` - Show technical stack & domains\n- \`/resume\` - Show education and credentials\n- \`/contact\` - Direct contact channels & email\n- \`/open <project_id>\` - Load specific project context\n- \`/architecture <project_id>\` - Show architecture breakdown\n- \`/clear\` - Clear conversation`
+      }
+    };
+  }
+
+  if (cmd === 'recruiter' || cmd === 'interview') {
+    const recruiter = getRecruiterSummary();
+    return {
+      data: {
+        type: "recruiter",
+        recruiter,
+        actions: [
+          { label: "IoT Patent 🛡️", action: "/patent" },
+          { label: "Recommendations ⭐", action: "/recommendations" },
+          { label: "Featured Projects 🔍", action: "/projects" },
+          { label: "Contact Directly 📬", action: "/contact" }
+        ]
+      }
+    };
+  }
+
+  if (cmd === 'nav' || cmd === 'goto' || cmd === 'scroll') {
+    const targetQuery = args.join(' ') || '';
+    const target = findNavTarget(targetQuery) || (args[0] ? NAV_TARGETS.find(t => t.id === args[0].toLowerCase()) : undefined);
+    if (target) {
+      return {
+        data: {
+          type: "navigate",
+          target,
+          actions: [
+            { label: `Jump to ${target.name}`, action: `/nav ${target.id}` }
+          ]
+        }
+      };
+    }
+    return {
+      data: {
+        type: "text",
+        content: `Please specify a valid section. Examples:\n${NAV_TARGETS.map(t => `- \`/nav ${t.id}\` (${t.name})`).join('\n')}`
+      }
+    };
+  }
+
+  if (cmd === 'patent') {
+    const pat = getPatentInfo();
+    return { data: { type: "patent", patent: pat } };
+  }
+
+  if (cmd === 'recommendations') {
+    const recs = getRecommendations();
+    return { data: { type: "recommendations", recommendations: recs } };
   }
   
   if (cmd === 'projects') {
@@ -185,7 +337,10 @@ function handleCommand(cmd: string, args: string[], context: Context): { data: A
   if (cmd === 'contact') {
     const info = getResumeInfo();
     return { 
-      data: { type: "text", content: `You can reach out to Rishvin here:\n\nEmail: ${info.profile.email}\nLinkedIn: ${info.profile.linkedin}\nGitHub: ${info.profile.github}\nLocation: ${info.profile.location}\n\nRishvin is currently ${info.profile.availability}.` }
+      data: {
+        type: "text",
+        content: `**Direct Contact Channels**:\n\n- **Email**: ${info.profile.email}\n- **LinkedIn**: ${info.profile.linkedin}\n- **GitHub**: ${info.profile.github}\n- **Location**: ${info.profile.location}\n\nStatus: **${info.profile.availability}**`
+      }
     };
   }
 
@@ -199,17 +354,17 @@ function handleCommand(cmd: string, args: string[], context: Context): { data: A
     if (cmd === 'open') {
       return { data: { type: "project", project: proj } };
     } else if (cmd === 'architecture') {
-      return { data: { type: "text", content: `Architecture for ${proj.name}:\n${proj.architecture.overview}` } };
+      return { data: { type: "text", content: `**Architecture for ${proj.name}**:\n${proj.architecture.overview}` } };
     } else if (cmd === 'stack') {
-      return { data: { type: "text", content: `Tech Stack for ${proj.name}:\n${proj.stack.join(', ')}` } };
+      return { data: { type: "text", content: `**Tech Stack for ${proj.name}**:\n${proj.stack.join(', ')}` } };
     } else if (cmd === 'security') {
-      return { data: { type: "text", content: `Security for ${proj.name}:\n${proj.security?.overview || 'No detailed security model.'}` } };
+      return { data: { type: "text", content: `**Security Model for ${proj.name}**:\n${proj.security?.overview || 'No detailed security model.'}` } };
     }
   }
 
-  return { data: { type: "text", content: `Unknown command: /${cmd}` } };
+  return { data: { type: "text", content: `Unknown command: /${cmd}. Type \`/help\` to see all commands.` } };
 }
 
-export function generateCodeHeuristic(_file: string, _content: string) {
+export function generateCodeHeuristic() {
   return "Local code analysis is disabled in this mode.";
 }

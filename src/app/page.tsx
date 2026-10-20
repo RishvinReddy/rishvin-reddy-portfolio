@@ -13,6 +13,7 @@ import {
   HandwrittenNote,
   EngineeringDoodle,
   RishvinSignature,
+  HandDrawnArrow,
 } from '@/components/handwritten';
 
 import type { Metadata } from 'next';
@@ -1940,142 +1941,385 @@ export default async function Home() {
       </div>
 
 
-      {/*  WHY CHOOSE ME — Premium Redesign  */}
-      <section className="relative py-20 sm:py-28 bg-white overflow-hidden">
+      {/*  WHY CHOOSE ME — Upgraded Engineering Showcase  */}
+      <section className="relative py-24 sm:py-32 bg-white overflow-hidden">
+
+        {/* Technical Sketchbook Micro-Grid Background */}
+        <div className="absolute inset-0 opacity-[0.25] pointer-events-none bg-[linear-gradient(to_right,#cbd5e135_1px,transparent_1px),linear-gradient(to_bottom,#cbd5e135_1px,transparent_1px)] bg-[size:36px_36px]" />
+
+        {/* Ambient Watercolor Corner Accents */}
+        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-indigo-500/5 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-cyan-500/5 blur-3xl pointer-events-none" />
+
+        {/* Faint Engineering Doodle Watermarks */}
+        <div className="absolute top-10 right-8 opacity-[0.08] pointer-events-none hidden lg:block -rotate-12">
+          <EngineeringDoodle type="circuit" className="w-48 h-48 text-indigo-900" strokeWidth={1.2} />
+        </div>
+        <div className="absolute bottom-16 left-6 opacity-[0.07] pointer-events-none hidden lg:block rotate-6">
+          <EngineeringDoodle type="connected-nodes" className="w-44 h-44 text-purple-900" strokeWidth={1.2} />
+        </div>
 
         {/* Subtle top border accent */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
         <div className="mx-auto max-w-[120rem] px-6 lg:px-12 relative z-10">
 
-          {/* Two-Column Header */}
-          <div className="grid lg:grid-cols-[1fr_1.8fr] gap-16 items-start mb-20">
+          {/* Two-Column Header & Cards Grid */}
+          <div className="grid lg:grid-cols-[1fr_1.9fr] gap-12 lg:gap-16 items-start mb-24">
 
-            {/* Left — sticky headline */}
-            <div className="lg:sticky lg:top-28">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest mb-6">
+            {/* Left — Sticky Headline, Hand-drawn Notes & Guarantee */}
+            <div className="lg:sticky lg:top-28 flex flex-col items-start">
+              
+              {/* Pillar Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/80 text-slate-700 text-[10px] font-black uppercase tracking-widest mb-6 shadow-xs">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse" />
-                Engineering Philosophy
-              </span>
-              <h2 className="text-5xl sm:text-6xl font-black text-slate-900 leading-[1.05] tracking-tight mb-6">
+                Engineering Philosophy &amp; Core Pillars
+              </div>
+
+              {/* Title with HandCircle & HandUnderline */}
+              <h2 className="text-5xl sm:text-6xl font-black text-slate-900 leading-[1.05] tracking-tight mb-4 font-display">
                 Why<br />
-                <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(120deg, #6366f1 0%, #38bdf8 100%)" }}>
-                  Choose
+                <span className="relative inline-block my-1.5">
+                  <HandCircle color="#6366f1" strokeWidth={2.4}>
+                    <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(120deg, #6366f1 0%, #38bdf8 100%)" }}>
+                      Choose
+                    </span>
+                  </HandCircle>
                 </span><br />
-                Me?
+                <span className="relative inline-block">
+                  Me?
+                  <HandUnderline className="w-full h-3.5 -mt-0.5 text-indigo-400" strokeWidth={2.4} />
+                </span>
               </h2>
-              <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-xs">
-                Bridging hardware, software, and security with a holistic, product-first mindset.
+
+              {/* Handwritten Note Accent */}
+              <div className="my-4">
+                <HandwrittenNote rotation={-2} color="purple">
+                  patent-backed · 0-to-1 builder
+                </HandwrittenNote>
+              </div>
+
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-sm font-medium">
+                Bridging low-level hardware firmware, distributed cloud systems, and defensive cybersecurity with a product-first, founder mindset.
               </p>
-              <div className="flex flex-col gap-3">
+
+              {/* 4 Quick Trust Badges */}
+              <div className="grid grid-cols-2 gap-3 w-full max-w-sm mb-8">
+                <div className="p-3.5 bg-slate-50/90 rounded-2xl border border-slate-200/90 shadow-xs">
+                  <div className="text-[10px] font-mono uppercase font-bold text-slate-500 mb-0.5">Govt. of India</div>
+                  <div className="text-sm font-black text-slate-900 flex items-center gap-1">
+                    <span>IoT Patent</span>
+                    <span className="text-xs text-emerald-600">✓</span>
+                  </div>
+                </div>
+                <div className="p-3.5 bg-slate-50/90 rounded-2xl border border-slate-200/90 shadow-xs">
+                  <div className="text-[10px] font-mono uppercase font-bold text-slate-500 mb-0.5">Venture</div>
+                  <div className="text-sm font-black text-slate-900">Rishvin Labs</div>
+                </div>
+                <div className="p-3.5 bg-slate-50/90 rounded-2xl border border-slate-200/90 shadow-xs">
+                  <div className="text-[10px] font-mono uppercase font-bold text-slate-500 mb-0.5">Enterprise</div>
+                  <div className="text-sm font-black text-indigo-600">Pega BPM Intern</div>
+                </div>
+                <div className="p-3.5 bg-slate-50/90 rounded-2xl border border-slate-200/90 shadow-xs">
+                  <div className="text-[10px] font-mono uppercase font-bold text-slate-500 mb-0.5">Open Source</div>
+                  <div className="text-sm font-black text-slate-900">50+ Repositories</div>
+                </div>
+              </div>
+
+              {/* CTA Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm mb-8">
                 <a href="#contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 text-white text-sm font-bold hover:bg-slate-700 hover:-translate-y-0.5 transition-all duration-200 shadow-xl shadow-slate-900/20">
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 text-white text-sm font-bold hover:bg-slate-800 hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-slate-900/15">
                   Work with me
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </a>
                 <a href="/resumes/SoftwareEngineering _ FullStack Resume/Software_Engineering_Full_Stack_Resume.pdf" target="_blank"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-200">
-                  Download Resume
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-slate-200 bg-white text-slate-700 text-sm font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-xs">
+                  Resume ↗
                 </a>
+              </div>
+
+              {/* Personal Signature Guarantee */}
+              <div className="pt-6 border-t border-slate-200/80 w-full max-w-sm flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-400 font-bold block mb-1">
+                    Personal Guarantee
+                  </span>
+                  <RishvinSignature className="w-36 h-auto text-slate-800 -rotate-2" />
+                </div>
+                <span className="text-[11px] font-mono text-emerald-600 font-bold bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                  100% Committed
+                </span>
               </div>
             </div>
 
-            {/* Right — 2x3 Feature Cards */}
-            <div className="grid sm:grid-cols-2 gap-5">
+            {/* Right — 6 Upgraded Feature Cards with Engineering Doodles */}
+            <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
 
-              <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-400 to-sky-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="w-11 h-11 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M4 20a8 8 0 0116 0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+              {/* 1. Hardware & IoT Telemetry (Co-Inventor Patent) */}
+              <div className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6 sm:p-7 flex flex-col justify-between">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 bg-emerald-50 rounded-2xl border border-emerald-100 flex items-center justify-center text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-100/70 transition-all duration-300 shadow-xs">
+                      <EngineeringDoodle type="circuit" className="w-7 h-7 text-emerald-600" strokeWidth={1.8} />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+                      Govt Patent Co-Inventor
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">Hardware &amp; IoT Telemetry</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    Co-inventor of an officially registered Indian Design Patent for IoT connectivity. Designing robust ESP32/ARM firmware, sensor buses, and edge-to-cloud streams.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">User-Centric Design</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Research-led UX and accessibility-first components to ensure adoption and delight.</p>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                  {['#ESP32', '#IoT-Patent', '#MQTT', '#C++'].map((tag, i) => (
+                    <span key={i} className="text-[10px] font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="w-11 h-11 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 2l7 3v5c0 5-3.58 9.74-7 11-3.42-1.26-7-6-7-11V5l7-3z" strokeWidth="2" />
-                  </svg>
+              {/* 2. Defensive Cybersecurity */}
+              <div className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6 sm:p-7 flex flex-col justify-between">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 bg-rose-50 rounded-2xl border border-rose-100 flex items-center justify-center text-rose-600 group-hover:scale-110 group-hover:bg-rose-100/70 transition-all duration-300 shadow-xs">
+                      <EngineeringDoodle type="shield" className="w-7 h-7 text-rose-600" strokeWidth={1.8} />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200/80">
+                      Zero-Trust
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">Defensive Cybersecurity</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    Threat-aware design baked into every layer: cryptographic hashing, packet capture analytics, secure authentication, and vulnerability remediation from day one.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">Security-First Mindset</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Secure authentication, encryption, and threat-aware architecture baked in from day one.</p>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                  {['#OWASP', '#PacketAnalysis', '#AES-256', '#Hardening'].map((tag, i) => (
+                    <span key={i} className="text-[10px] font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-violet-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="w-11 h-11 bg-violet-50 rounded-xl flex items-center justify-center text-violet-600 mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <rect x="3" y="3" width="7" height="7" rx="1.5" strokeWidth="2" />
-                    <rect x="14" y="3" width="7" height="7" rx="1.5" strokeWidth="2" />
-                    <rect x="3" y="14" width="7" height="7" rx="1.5" strokeWidth="2" />
-                    <rect x="14" y="14" width="7" height="7" rx="1.5" strokeWidth="2" />
-                  </svg>
+              {/* 3. Full-Stack Systems Architecture */}
+              <div className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6 sm:p-7 flex flex-col justify-between">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-sky-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 bg-indigo-50 rounded-2xl border border-indigo-100 flex items-center justify-center text-indigo-600 group-hover:scale-110 group-hover:bg-indigo-100/70 transition-all duration-300 shadow-xs">
+                      <EngineeringDoodle type="code-brackets" className="w-7 h-7 text-indigo-600" strokeWidth={1.8} />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200/80">
+                      High Performance
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">Full-Stack Architecture</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    Reactive, accessible user experiences backed by high-throughput APIs, clean microservices, and Turbopack-powered Next.js systems engineered for sub-second responses.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">Product Engineering</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Buildable, observable, and cost-effective solutions engineered for real teams.</p>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                  {['#NextJS', '#TypeScript', '#NodeJS', '#Tailwind'].map((tag, i) => (
+                    <span key={i} className="text-[10px] font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="w-11 h-11 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 3v18h18" strokeWidth="2" />
-                    <path d="M7 14v-4M12 14v-8M17 14v-2" strokeWidth="2" />
-                  </svg>
+              {/* 4. Enterprise Workflow Automation */}
+              <div className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6 sm:p-7 flex flex-col justify-between">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 bg-violet-50 rounded-2xl border border-violet-100 flex items-center justify-center text-violet-600 group-hover:scale-110 group-hover:bg-violet-100/70 transition-all duration-300 shadow-xs">
+                      <EngineeringDoodle type="linked-blocks" className="w-7 h-7 text-violet-600" strokeWidth={1.8} />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-200/80">
+                      Enterprise Scale
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">Enterprise Workflow BPM</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    Hands-on expertise with Pega Platform BPM, case management, and business logic automation from an enterprise internship at Pegasystems.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">Data-Driven Outcomes</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">KPIs, instrumentation, and user metrics continuously inform design decisions.</p>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                  {['#PegaSystems', '#BPM', '#Automation', '#Workflows'].map((tag, i) => (
+                    <span key={i} className="text-[10px] font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="w-11 h-11 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600 mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+              {/* 5. 0-to-1 Product Engineering (Rishvin Labs) */}
+              <div className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6 sm:p-7 flex flex-col justify-between">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 bg-amber-50 rounded-2xl border border-amber-100 flex items-center justify-center text-amber-600 group-hover:scale-110 group-hover:bg-amber-100/70 transition-all duration-300 shadow-xs">
+                      <EngineeringDoodle type="terminal" className="w-7 h-7 text-amber-600" strokeWidth={1.8} />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200/80">
+                      Founder Led
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">0-to-1 Product Engineering</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    Founder of Rishvin Labs. Proven ability to take fuzzy specs and napkin sketches to production-ready software with speed, discipline, and clean documentation.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">Collaborative Process</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Frequent demos, clear documentation, and tight alignment to reduce surprises.</p>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                  {['#RishvinLabs', '#0-to-1', '#ProductMindset', '#FastDelivery'].map((tag, i) => (
+                    <span key={i} className="text-[10px] font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-rose-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="w-11 h-11 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500 mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" strokeWidth="2" />
-                    <path d="M3 20a9 9 0 0118 0" strokeWidth="2" />
-                  </svg>
+              {/* 6. Real-Time Telemetry & Mesh Streams */}
+              <div className="group relative bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden p-6 sm:p-7 flex flex-col justify-between">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 bg-cyan-50 rounded-2xl border border-cyan-100 flex items-center justify-center text-cyan-600 group-hover:scale-110 group-hover:bg-cyan-100/70 transition-all duration-300 shadow-xs">
+                      <EngineeringDoodle type="connected-nodes" className="w-7 h-7 text-cyan-600" strokeWidth={1.8} />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-200/80">
+                      Live Telemetry
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">Real-Time Streams &amp; Mesh</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    Architecting live graph simulations, WebSocket pipelines, and distributed telemetry with real-time feedback loops and observable metrics.
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">Peer &amp; Team Mentoring</h3>
-                <p className="text-slate-500 text-sm leading-relaxed">Workshops and team coaching to lift the whole squad&apos;s technical capabilities.</p>
+
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100">
+                  {['#WebSockets', '#GraphPhysics', '#RealTime', '#Telemetry'].map((tag, i) => (
+                    <span key={i} className="text-[10px] font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/80 font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
             </div>
           </div>
 
-          {/* Process Timeline Strip */}
-          <div className="border-t border-slate-100 pt-12">
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] text-center mb-10">My Development Methodology</p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-              {([
-                { n: "01", label: "Discover", color: "from-indigo-500 to-sky-500" },
-                { n: "02", label: "Prototype", color: "from-violet-500 to-purple-500" },
-                { n: "03", label: "Validate", color: "from-emerald-500 to-teal-500" },
-                { n: "04", label: "Deliver", color: "from-amber-500 to-orange-500" },
-              ] as const).map((step, i) => (
-                <div key={i} className="group relative bg-white border border-slate-200/80 rounded-2xl p-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center overflow-hidden">
-                  <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                  <div className={`text-5xl font-black bg-clip-text text-transparent bg-gradient-to-br ${step.color} mb-2 opacity-[0.15] group-hover:opacity-70 transition-opacity duration-300`}>
-                    {step.n}
+          {/* Process Timeline Strip — Upgraded with Doodles & Connectors */}
+          <div className="border-t border-slate-200/80 pt-16">
+            
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
+              <div>
+                <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] block mb-1">
+                  Execution Framework
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 font-display">
+                  My Development Methodology
+                </h3>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <HandDrawnArrow direction="curved-down-right" className="w-10 h-7 text-indigo-400 hidden sm:block -mb-2" />
+                <HandwrittenNote rotation={1} color="blue">
+                  no guesswork · pure execution
+                </HandwrittenNote>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                {
+                  n: "01",
+                  title: "Discover & Blueprint",
+                  desc: "Threat modeling, system architecture mapping, and sensory telemetry specs.",
+                  doodleType: "terminal" as const,
+                  color: "from-indigo-500 to-sky-500",
+                  badge: "Architecture",
+                },
+                {
+                  n: "02",
+                  title: "Rapid Prototype",
+                  desc: "Interactive breadboards, firmware wiring, and end-to-end API integration.",
+                  doodleType: "circuit" as const,
+                  color: "from-violet-500 to-purple-500",
+                  badge: "Build",
+                },
+                {
+                  n: "03",
+                  title: "Harden & Validate",
+                  desc: "Security stress testing, latency profiling, and unit/integration coverage.",
+                  doodleType: "shield" as const,
+                  color: "from-emerald-500 to-teal-500",
+                  badge: "Verify",
+                },
+                {
+                  n: "04",
+                  title: "Deploy & Observe",
+                  desc: "Zero-downtime CI/CD release, real-time telemetry, and continuous tuning.",
+                  doodleType: "wireless" as const,
+                  color: "from-amber-500 to-orange-500",
+                  badge: "Live",
+                },
+              ].map((step, i) => (
+                <div key={i} className="group relative bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden">
+                  <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                  
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-700 group-hover:scale-110 transition-transform">
+                        <EngineeringDoodle type={step.doodleType} className="w-5 h-5 text-slate-800" strokeWidth={1.9} />
+                      </div>
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
+                        STEP {step.n}
+                      </span>
+                    </div>
+
+                    <h4 className="text-base font-bold text-slate-900 mb-1.5 font-display">
+                      {step.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                      {step.desc}
+                    </p>
                   </div>
-                  <div className="text-sm font-bold text-slate-900">{step.label}</div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50/80 px-2 py-0.5 rounded">
+                      {step.badge}
+                    </span>
+                    <span className="text-xs font-mono text-slate-300 font-bold group-hover:text-indigo-400 transition-colors">
+                      →
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>

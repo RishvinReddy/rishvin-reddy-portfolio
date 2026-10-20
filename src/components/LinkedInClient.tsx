@@ -1280,12 +1280,21 @@ export default function LinkedInClient() {
                 <div className="flex items-start justify-between gap-4 mb-5">
                   <div className="flex items-center gap-3.5">
                     <div
-                      className="w-12 h-12 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-sm text-white shadow-md"
+                      className="w-12 h-12 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-sm text-white shadow-md relative overflow-hidden"
                       style={{
                         background: 'linear-gradient(135deg, #0A66C2 0%, #004182 100%)',
                       }}
                     >
-                      {rec.initials}
+                      {rec.avatarUrl ? (
+                        <img
+                          src={rec.avatarUrl}
+                          alt={rec.name}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : (
+                        rec.initials
+                      )}
                     </div>
                     <div>
                       <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug">

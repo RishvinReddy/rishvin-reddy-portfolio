@@ -10,3 +10,4 @@ export function processUserMessage(message: string, currentContext: Context): { 
 
 export * from './context';
 export * from './response';
+export * from './retrieval';

@@ -9,6 +9,9 @@ export enum Intent {
   FAQ_INFO = "FAQ_INFO",
   CONTACT_INFO = "CONTACT_INFO",
   PATENT_INFO = "PATENT_INFO",
+  RECOMMENDATIONS_INFO = "RECOMMENDATIONS_INFO",
+  RECRUITER_INFO = "RECRUITER_INFO",
+  NAVIGATE = "NAVIGATE",
   EXPLAIN_CODE = "EXPLAIN_CODE",
   GENERAL = "GENERAL",
   GREETING = "GREETING",
@@ -57,6 +60,9 @@ const intentTrainingData = [
   { text: "what is your cgpa", intent: Intent.RESUME_INFO },
   { text: "where did you graduate from", intent: Intent.RESUME_INFO },
   { text: "what degree do you have", intent: Intent.RESUME_INFO },
+  { text: "what is your work experience", intent: Intent.RESUME_INFO },
+  { text: "where did you work", intent: Intent.RESUME_INFO },
+  { text: "pega internship", intent: Intent.RESUME_INFO },
   
   // FAQ_INFO
   { text: "how much do you charge", intent: Intent.FAQ_INFO },
@@ -79,7 +85,44 @@ const intentTrainingData = [
   { text: "what did you invent", intent: Intent.PATENT_INFO },
   { text: "tell me about your inventions", intent: Intent.PATENT_INFO },
   { text: "intellectual property", intent: Intent.PATENT_INFO },
+  { text: "iot patent", intent: Intent.PATENT_INFO },
+  { text: "iot connectivity device", intent: Intent.PATENT_INFO },
+  { text: "government of india patent", intent: Intent.PATENT_INFO },
   
+  // RECOMMENDATIONS_INFO
+  { text: "what do people say about rishvin", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "show me recommendations", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "what are your recommendations", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "testimonials", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "endorsements", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "what do mentors say about you", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "who recommended you", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "professors recommendations", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "pega mentor recommendation", intent: Intent.RECOMMENDATIONS_INFO },
+  { text: "sachith reddy recommendation", intent: Intent.RECOMMENDATIONS_INFO },
+  
+  // RECRUITER_INFO
+  { text: "why should we hire rishvin", intent: Intent.RECRUITER_INFO },
+  { text: "why hire you", intent: Intent.RECRUITER_INFO },
+  { text: "recruiter overview", intent: Intent.RECRUITER_INFO },
+  { text: "what are your core strengths", intent: Intent.RECRUITER_INFO },
+  { text: "what makes you stand out", intent: Intent.RECRUITER_INFO },
+  { text: "what roles are you looking for", intent: Intent.RECRUITER_INFO },
+  { text: "are you open to work", intent: Intent.RECRUITER_INFO },
+  { text: "availability for full time", intent: Intent.RECRUITER_INFO },
+  { text: "tell me about your leadership", intent: Intent.RECRUITER_INFO },
+  { text: "interview summary", intent: Intent.RECRUITER_INFO },
+
+  // NAVIGATE
+  { text: "take me to projects", intent: Intent.NAVIGATE },
+  { text: "scroll to recommendations", intent: Intent.NAVIGATE },
+  { text: "go to experience", intent: Intent.NAVIGATE },
+  { text: "show patent section", intent: Intent.NAVIGATE },
+  { text: "take me to about", intent: Intent.NAVIGATE },
+  { text: "jump to contact", intent: Intent.NAVIGATE },
+  { text: "scroll to labs", intent: Intent.NAVIGATE },
+  { text: "show knowledge graph", intent: Intent.NAVIGATE },
+
   // EXPLAIN_CODE
   { text: "explain this code", intent: Intent.EXPLAIN_CODE },
   { text: "what does this file do", intent: Intent.EXPLAIN_CODE },
@@ -102,14 +145,15 @@ const intentTrainingData = [
 
 const fuse = new Fuse(intentTrainingData, {
   keys: ['text'],
-  threshold: 0.4, // lower is more strict
+  threshold: 0.45,
   includeScore: true,
 });
 
 // A simple dictionary for entity extraction
 const KNOWN_ENTITIES = [
   "react", "python", "javascript", "typescript", "node.js", "blockchain", "iot", "cybersecurity",
-  "chainforensics", "votesafe", "wob", "smart budget planner", "outing form management", "resume", "patent"
+  "chainforensics", "votesafe", "wob", "smart budget planner", "outing form management", "resume", "patent",
+  "recommendations", "endorsements", "mentors", "pega", "recruiter", "interview", "navigate", "scroll"
 ];
 
 function extractEntities(query: string): string[] {
@@ -132,25 +176,63 @@ export function parseIntent(message: string, currentContextId?: string, isFileOp
     if (cmd === 'explain' && isFileOpen) {
       return { intent: Intent.EXPLAIN_CODE, query: trimmed, command: cmd, args, entities };
     }
+    if (cmd === 'recruiter' || cmd === 'interview') {
+      return { intent: Intent.RECRUITER_INFO, query: trimmed, command: cmd, args, entities };
+    }
+    if (cmd === 'nav' || cmd === 'goto' || cmd === 'scroll') {
+      return { intent: Intent.NAVIGATE, query: trimmed, command: cmd, args, entities };
+    }
     
     return { intent: Intent.COMMAND, query: trimmed, command: cmd, args, entities };
   }
 
-  // 2. Coreference Resolution heuristics
+  // 2. Direct heuristics for high-intent keywords
+  if (
+    lower.startsWith('take me to') ||
+    lower.startsWith('scroll to') ||
+    lower.startsWith('go to') ||
+    lower.startsWith('jump to') ||
+    lower.startsWith('navigate to') ||
+    lower.startsWith('show me the section') ||
+    lower.includes('scroll down to')
+  ) {
+    return { intent: Intent.NAVIGATE, query: trimmed, entities };
+  }
+
+  if (
+    lower.includes('why hire') ||
+    lower.includes('why should we hire') ||
+    lower.includes('recruiter') ||
+    lower.includes('interview') ||
+    lower.includes('stand out') ||
+    lower.includes('superpower') ||
+    lower.includes('hire rishvin')
+  ) {
+    return { intent: Intent.RECRUITER_INFO, query: trimmed, entities };
+  }
+
+  if (lower.includes('recommendation') || lower.includes('endorse') || lower.includes('testimonial') || lower.includes('mentor said') || lower.includes('professors said')) {
+    return { intent: Intent.RECOMMENDATIONS_INFO, query: trimmed, entities };
+  }
+
+  if (lower.includes('patent') || lower.includes('invent') || lower.includes('470097')) {
+    return { intent: Intent.PATENT_INFO, query: trimmed, entities };
+  }
+
+  // 3. Coreference Resolution heuristics
   let resolvedQuery = lower;
   if ((lower.includes(" it ") || lower.includes(" this ") || lower.includes(" its ")) && currentContextId) {
     resolvedQuery += ` ${currentContextId}`;
   }
 
-  // 3. Run NLP classification
+  // 4. Run NLP classification
   const results = fuse.search(resolvedQuery);
   
   if (results.length > 0) {
     const bestMatch = results[0];
     
-    // Coreference Check: if it's a specific project info query but we don't know which project...
+    // Coreference Check
     if (bestMatch.item.intent === Intent.SPECIFIC_PROJECT_INFO && !currentContextId && entities.length === 0) {
-      // It's probably just a general question that matched badly
       return { intent: Intent.GENERAL, query: trimmed, entities };
     }
     
@@ -162,7 +244,7 @@ export function parseIntent(message: string, currentContextId?: string, isFileOp
     return { intent: bestMatch.item.intent, query: trimmed, entities };
   }
 
-  // Fallback heuristic for code explanation if they just typed "what is this" while a file is open
+  // Fallback heuristic for code explanation
   if (isFileOpen && (lower.includes('what') || lower.includes('explain') || lower.includes('how')) && (lower.includes('this') || lower.includes('it') || lower.includes('file') || lower.includes('code'))) {
     return { intent: Intent.EXPLAIN_CODE, query: trimmed, entities };
   }

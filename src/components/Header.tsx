@@ -211,6 +211,18 @@ export function Header() {
                 className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </Link>
 
+            <Link className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group"
+              href="/hackathons" data-page="hackathons">
+              <span className="relative z-10 flex items-center gap-1">
+                <svg className="w-3 h-3 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Hackathons
+              </span>
+              <span
+                className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
+            </Link>
+
             <a className="nav-pill relative px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 hover:text-primary group flex items-center gap-1.5"
               href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer">
               <span className="relative z-10 font-bold bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent group-hover:from-primary group-hover:to-rose-500 transition-all duration-300">Rishvin Labs</span>
@@ -238,6 +250,21 @@ export function Header() {
                 {/*  Header label  */}
                 <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white mb-1">
                   Don&apos;t see what you need?</p>
+
+                <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
+                  href="/hackathons">
+                  <span
+                    className="flex-shrink-0 w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-500 group-hover/item:scale-110 transition-transform">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                      Hackathons</p>
+                    <p className="text-[11px] text-white leading-tight">Competitive sprints & AWS builds</p>
+                  </div>
+                </Link>
 
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
                   href="/resume">
@@ -481,6 +508,17 @@ export function Header() {
             </svg>
           </span>
           IDE
+        </Link>
+        <Link href="/hackathons"
+          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
+          data-page="hackathons">
+          <span
+            className="w-7 h-7 rounded-lg bg-rose-50 flex items-center justify-center text-rose-500 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </span>
+          Hackathons
         </Link>
 
         <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer"

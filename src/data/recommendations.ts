@@ -9,6 +9,7 @@ export interface Recommendation {
   id: string;
   name: string;
   initials: string;
+  avatarUrl?: string;
   title: string;
   shortTitle: string;
   relationship: string;
@@ -27,6 +28,7 @@ export const RECOMMENDATIONS: Recommendation[] = [
     id: 'sachith',
     name: 'Sachith Reddy Yerolla',
     initials: 'SY',
+    avatarUrl: '/images/recommendations/sachith-reddy.jpg',
     title: 'Senior Software Engineer at Adqura',
     shortTitle: 'Senior Software Engineer · Adqura',
     relationship: 'Mentor during Pega internship',
@@ -42,6 +44,7 @@ export const RECOMMENDATIONS: Recommendation[] = [
     id: 'meher',
     name: 'Meher Gayatri Devi Tiwari',
     initials: 'MG',
+    avatarUrl: '/images/recommendations/meher-gayatri.jpg',
     title:
       'Assistant Professor | PEGA Certified System Architect (CSA) | Cyber Security Zealot | Prompt Engineering Enthusiast',
     shortTitle: 'Assistant Professor · PEGA Certified System Architect',
@@ -58,6 +61,7 @@ export const RECOMMENDATIONS: Recommendation[] = [
     id: 'bhanu',
     name: 'Dr. S. Bhanu Prakash',
     initials: 'BP',
+    avatarUrl: '/images/recommendations/bhanu-prakash.jpg',
     title:
       'Associate Professor, School of Technology, Woxsen University, Hyderabad | Power Electronics in Renewable Energy',
     shortTitle: 'Associate Professor · Woxsen University',
@@ -74,6 +78,7 @@ export const RECOMMENDATIONS: Recommendation[] = [
     id: 'sandeep',
     name: 'Dr. Sandeep Dasari',
     initials: 'SD',
+    avatarUrl: '/images/recommendations/sandeep-dasari.jpg',
     title: 'Assistant Professor at VIT-AP University',
     shortTitle: 'Assistant Professor · VIT-AP University',
     relationship: 'Mentor',

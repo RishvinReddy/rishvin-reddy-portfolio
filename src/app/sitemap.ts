@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/about',
     '/portfolio',
+    '/hackathons',
     '/services',
     '/resume',
     '/contact',
@@ -26,8 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,
-    changeFrequency: route === '' || route === '/portfolio' || route === '/blog' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1.0 : route === '/portfolio' ? 0.9 : 0.8,
+    changeFrequency: route === '' || route === '/portfolio' || route === '/hackathons' || route === '/blog' ? 'weekly' : 'monthly',
+    priority: route === '' ? 1.0 : route === '/portfolio' || route === '/hackathons' ? 0.9 : 0.8,
   }));
 
   const projectRoutes: MetadataRoute.Sitemap = projects.map((project) => ({

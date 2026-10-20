@@ -46,7 +46,7 @@ export function CodedIntro() {
 
     if (currentIndex < greetings.length) {
       const isLast = currentIndex === greetings.length - 1;
-      const duration = isLast ? 1000 : 220;
+      const duration = isLast ? 1100 : 200;
 
       const timer = setTimeout(() => {
         if (!isLast) {
@@ -86,17 +86,56 @@ export function CodedIntro() {
           <div className="absolute w-[500px] h-[500px] rounded-full bg-cyan-500/5 blur-[120px] pointer-events-none -bottom-24 -right-24" />
 
           <div className="relative flex flex-col items-center justify-center w-full h-full px-4">
-            {/* Multilingual Greetings Box (fixed height to prevent layout shift) */}
-            <div className="relative w-full h-16 sm:h-20 flex items-center justify-center">
+            {/* 1. Rishvin Reddy Signature on TOP */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={isClient ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.4 }}
+              className="relative flex flex-col items-center justify-center"
+            >
+              {/* Soft ambient signature glow */}
+              <div className="absolute -inset-6 bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-cyan-500/10 blur-2xl rounded-full pointer-events-none" />
+
+              {/* Vector signature handwritten reveal: pens smoothly across 1.7s */}
+              <motion.div
+                initial={{ clipPath: "inset(0 100% 0 0)" }}
+                animate={isClient ? { clipPath: "inset(0 0% 0 0)" } : {}}
+                transition={{
+                  duration: 1.7,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  delay: 0.1,
+                }}
+                className="relative"
+              >
+                <RishvinSignature
+                  className="w-52 sm:w-64 md:w-80 h-auto text-white drop-shadow-[0_2px_16px_rgba(255,255,255,0.25)] -rotate-1"
+                />
+              </motion.div>
+
+              {/* Subscript seal: fades in right as signature finishes drawing */}
+              <motion.div
+                initial={{ opacity: 0, y: 4 }}
+                animate={isClient ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 1.75, duration: 0.35, ease: "easeOut" }}
+                className="flex items-center gap-2 mt-2 text-[10px] sm:text-xs font-mono uppercase tracking-[0.28em] text-slate-400/80"
+              >
+                <span className="w-5 h-[1px] bg-slate-700" />
+                <span>Rishvin Reddy</span>
+                <span className="w-5 h-[1px] bg-slate-700" />
+              </motion.div>
+            </motion.div>
+
+            {/* 2. Multilingual Greetings Box BELOW signature */}
+            <div className="relative w-full h-16 sm:h-20 flex items-center justify-center mt-6 sm:mt-8">
               <AnimatePresence mode="wait">
                 {isClient && (
                   <motion.h1
                     key={currentIndex}
-                    initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
+                    initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -12, filter: "blur(4px)" }}
-                    transition={{ duration: 0.18, ease: "easeInOut" }}
-                    className="text-4xl sm:text-5xl md:text-6xl font-medium text-white tracking-tight flex items-center justify-center"
+                    exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
+                    transition={{ duration: 0.16, ease: "easeInOut" }}
+                    className="text-3xl sm:text-4xl md:text-5xl font-medium text-white tracking-tight flex items-center justify-center"
                     style={{
                       fontFamily: greetings[currentIndex].lang === 'ar' ? 'Arial, sans-serif' : 'inherit'
                     }}
@@ -107,50 +146,12 @@ export function CodedIntro() {
                 )}
               </AnimatePresence>
             </div>
-
-            {/* Rishvin Reddy Signature with authentic handwritten pen stroke reveal */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="relative flex flex-col items-center justify-center mt-6 sm:mt-8"
-            >
-              {/* Soft ambient signature glow */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-cyan-500/10 blur-2xl rounded-full pointer-events-none" />
-
-              <motion.div
-                initial={{ clipPath: "inset(0 100% 0 0)" }}
-                animate={{ clipPath: "inset(0 0% 0 0)" }}
-                transition={{
-                  duration: 1.3,
-                  ease: [0.22, 1, 0.36, 1],
-                  delay: 0.25,
-                }}
-                className="relative"
-              >
-                <RishvinSignature
-                  className="w-48 sm:w-60 md:w-72 h-auto text-white/95 drop-shadow-[0_2px_14px_rgba(255,255,255,0.25)] -rotate-1"
-                />
-              </motion.div>
-
-              {/* Subscript seal */}
-              <motion.div
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.4 }}
-                className="flex items-center gap-2 mt-2 text-[10px] sm:text-xs font-mono uppercase tracking-[0.28em] text-slate-400/80"
-              >
-                <span className="w-5 h-[1px] bg-slate-700" />
-                <span>Rishvin Reddy</span>
-                <span className="w-5 h-[1px] bg-slate-700" />
-              </motion.div>
-            </motion.div>
           </div>
 
           {isClient && (
             <button
               onClick={finishIntro}
-              className="absolute bottom-8 right-8 z-[100000] px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition-all shadow-2xl"
+              className="absolute bottom-8 right-8 z-[100000] px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition-all shadow-2xl cursor-pointer"
             >
               Skip
             </button>
