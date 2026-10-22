@@ -7,9 +7,10 @@ import { usePathname } from 'next/navigation';
 export function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [time, setTime] = useState("");
-
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,25 @@ export function Header() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearInterval(timer);
+    };
+  }, []);
+
+  // Close menus on route change
+  useEffect(() => {
+    setMenuOpen(false);
+    setDropdownOpen(false);
+  }, [pathname]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -174,7 +194,7 @@ export function Header() {
           </Link>
 
           {/*  ── Desktop Navigation ──  */}
-          <nav className="hidden md:flex items-center gap-0.5" style={{ position: "relative" }}>
+          <nav className="hidden lg:flex items-center gap-0.5" style={{ position: "relative" }}>
             {/*  Gliding spotlight indicator — moved by JS  */}
             <div id="navSpotlight"
               className="absolute inset-y-0 rounded-full bg-primary/8 transition-all duration-200 ease-out pointer-events-none opacity-0">
@@ -232,27 +252,38 @@ export function Header() {
             </a>
 
             {/*  ── Mega Dropdown ──  */}
-            <div className="relative group ml-1">
+            <div ref={dropdownRef} className="relative group ml-1">
               <button
-                className="relative flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium text-white rounded-full hover:text-primary hover:bg-primary/5 transition-all duration-200">
+                type="button"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`relative flex items-center gap-1.5 px-3 py-1.5 text-[14px] font-medium text-white rounded-full transition-all duration-200 ${dropdownOpen ? 'bg-white/10 text-primary' : 'hover:text-primary hover:bg-primary/5'}`}
+                aria-expanded={dropdownOpen}
+                aria-haspopup="true">
                 More
                 {/*  Notification dot  */}
                 <span className="absolute top-1.5 right-2 w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                <svg className="w-3 h-3 group-hover:rotate-180 transition-transform duration-300 ml-0.5" fill="none"
+                <svg className={`w-3 h-3 transition-transform duration-300 ml-0.5 ${dropdownOpen ? 'rotate-180 text-primary' : 'group-hover:rotate-180'}`} fill="none"
                   stroke="currentColor" viewBox="0 0 24 24">
                   <path d="M19 9l-7 7-7-7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
 
+              {/* Invisible hover bridge to prevent premature closure when moving mouse */}
+              <div className="absolute left-0 right-0 top-full h-3 pointer-events-auto"></div>
+
               {/*  Mega dropdown panel  */}
               <div
-                className="absolute right-0 top-full mt-3 w-64 origin-top-right bg-white/97 backdrop-blur-2xl rounded-2xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] shadow-slate-300/20 border border-slate-100/80 p-2 invisible opacity-0 translate-y-2 scale-95 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 transition-all duration-250">
+                className={`absolute right-0 top-full mt-2 w-72 origin-top-right bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.25)] border border-slate-200/80 p-2 max-h-[calc(100vh-6rem)] overflow-y-auto transition-all duration-200 z-[70] ${
+                  dropdownOpen
+                    ? 'visible opacity-100 translate-y-0 scale-100 pointer-events-auto'
+                    : 'invisible opacity-0 translate-y-2 scale-95 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto'
+                }`}>
                 {/*  Header label  */}
-                <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-white mb-1">
+                <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
                   Don&apos;t see what you need?</p>
 
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/hackathons">
+                  href="/hackathons" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-500 group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -260,14 +291,14 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       Hackathons</p>
-                    <p className="text-[11px] text-white leading-tight">Competitive sprints & AWS builds</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Competitive sprints & AWS builds</p>
                   </div>
                 </Link>
 
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/resume">
+                  href="/resume" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-500 group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -277,13 +308,13 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       Resume</p>
-                    <p className="text-[11px] text-white leading-tight">Download CV & experience</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Download CV & experience</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/skills">
+                  href="/skills" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-500 group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -293,13 +324,13 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       Skills & Certs</p>
-                    <p className="text-[11px] text-white leading-tight">Tech stack & certifications</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Tech stack & certifications</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/awards">
+                  href="/awards" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-500 group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -309,13 +340,13 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       Awards</p>
-                    <p className="text-[11px] text-white leading-tight">Honours & achievements</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Honours & achievements</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/blog">
+                  href="/blog" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-pink-50 flex items-center justify-center text-pink-500 group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -325,13 +356,13 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       Blog</p>
-                    <p className="text-[11px] text-white leading-tight">Articles & insights</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Articles & insights</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/services">
+                  href="/services" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500 group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -340,13 +371,13 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       Services</p>
-                    <p className="text-[11px] text-white leading-tight">What I can do for you</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">What I can do for you</p>
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/faq">
+                  href="/faq" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-violet-50 flex items-center justify-center text-violet-500 group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -356,15 +387,15 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       FAQ</p>
-                    <p className="text-[11px] text-white leading-tight">Common questions answered</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Common questions answered</p>
                   </div>
                 </Link>
 
                 {/*  Recommendations  */}
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/#recommendations">
+                  href="/#recommendations" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-sky-50 flex items-center justify-center text-[#0077b5] group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
@@ -372,15 +403,15 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       Recommendations</p>
-                    <p className="text-[11px] text-white leading-tight">What mentors say about my work</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">What mentors say about my work</p>
                   </div>
                 </Link>
 
                 {/*  YouTube  */}
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/youtube">
+                  href="/youtube" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-[#FF0000] group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -388,15 +419,15 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
                       YouTube</p>
-                    <p className="text-[11px] text-white leading-tight">Engineering in Motion · @rishvinreddy</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Engineering in Motion · @rishvinreddy</p>
                   </div>
                 </Link>
 
                 {/*  LinkedIn  */}
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/linkedin">
+                  href="/linkedin" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-[#0A66C2] group-hover/item:scale-110 transition-transform">
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -404,15 +435,15 @@ export function Header() {
                     </svg>
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-700 group-hover/item:text-[#0A66C2] transition-colors">
+                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-[#0A66C2] transition-colors">
                       LinkedIn</p>
-                    <p className="text-[11px] text-white leading-tight">Professional profile · @rishvinreddy</p>
+                    <p className="text-[11px] text-slate-500 leading-tight">Professional profile · @rishvinreddy</p>
                   </div>
                 </Link>
 
                 {/*  Bottom CTA strip  */}
                 <div className="mt-2 pt-2 border-t border-slate-100 px-1">
-                  <Link href="/contact"
+                  <Link href="/contact" onClick={() => setDropdownOpen(false)}
                     className="flex items-center justify-center gap-2 w-full py-2 text-xs font-bold text-primary hover:bg-primary/5 rounded-xl transition-colors">
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -432,38 +463,44 @@ export function Header() {
 
             {/*  ── Refined "Let's Talk" CTA ──  */}
             <Link id="letsTalkBtn" href="/contact"
-              className="hidden md:inline-flex items-center gap-2 px-4 py-1.5 text-[13px] font-semibold text-white border border-slate-700 rounded-full hover:bg-slate-800 hover:border-slate-600 transition-all duration-200 group">
+              className="hidden lg:inline-flex items-center gap-2 px-4 py-1.5 text-[13px] font-semibold text-white border border-slate-700 rounded-full hover:bg-slate-800 hover:border-slate-600 transition-all duration-200 group">
               <span className="relative z-10 flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 Let&apos;s Talk
               </span>
             </Link>
 
-            {/*  Mobile hamburger toggle  */}
+            {/*  Mobile/Tablet hamburger toggle  */}
             <button id="mobileToggle"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-slate-800/50 text-white hover:bg-primary/10 hover:text-primary transition-colors duration-200"
-              aria-label="Open menu" aria-expanded="false">
-              <svg id="menuIcon" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-slate-800/80 text-white hover:bg-primary/20 hover:text-primary transition-colors duration-200 border border-slate-700/60"
+              aria-label="Toggle navigation menu" aria-expanded={menuOpen}>
+              {menuOpen ? (
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg id="menuIcon" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 6h16M4 12h16M4 18h16" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/*  ── Mobile Menu (staggered entrance) ──  */}
+      {/*  ── Mobile & Tablet Menu (staggered entrance) ──  */}
       <div id="mobileMenu"
-        className={`absolute top-full left-3 right-3 mt-2 p-4 bg-slate-900/95 backdrop-blur-2xl rounded-3xl shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] shadow-slate-900/50 border border-slate-700 flex flex-col gap-1 origin-top transition-all duration-300 ${menuOpen ? 'opacity-100 visible scale-100 translate-y-0' : 'opacity-0 invisible scale-95'}`}>
+        className={`lg:hidden absolute top-full left-3 right-3 mt-2 p-4 bg-slate-900/98 backdrop-blur-2xl rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border border-slate-700/80 flex flex-col gap-1 origin-top transition-all duration-300 max-h-[calc(100vh-5.5rem)] overflow-y-auto z-[80] ${menuOpen ? 'opacity-100 visible scale-100 translate-y-0 pointer-events-auto' : 'opacity-0 invisible scale-95 pointer-events-none'}`}>
 
-        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white mb-0.5">
+        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">
           Navigate</p>
 
-        <Link href="/"
-          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
+        <Link href="/" onClick={() => setMenuOpen(false)}
+          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/70 rounded-xl transition-all group"
           data-page="index">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-primary/20 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
@@ -472,11 +509,11 @@ export function Header() {
           </span>
           Home
         </Link>
-        <Link href="/about"
-          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
+        <Link href="/about" onClick={() => setMenuOpen(false)}
+          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/70 rounded-xl transition-all group"
           data-page="about">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-primary/20 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" strokeWidth="2"
                 strokeLinecap="round" strokeLinejoin="round" />
@@ -484,11 +521,11 @@ export function Header() {
           </span>
           About
         </Link>
-        <Link href="/portfolio"
-          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
+        <Link href="/portfolio" onClick={() => setMenuOpen(false)}
+          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/70 rounded-xl transition-all group"
           data-page="portfolio">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-primary/20 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
@@ -497,11 +534,11 @@ export function Header() {
           </span>
           Portfolio
         </Link>
-        <Link href="/ide"
-          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
+        <Link href="/ide" onClick={() => setMenuOpen(false)}
+          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/70 rounded-xl transition-all group"
           data-page="ide">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-white group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-primary/20 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeWidth="2" strokeLinecap="round"
                 strokeLinejoin="round" />
@@ -509,11 +546,11 @@ export function Header() {
           </span>
           IDE
         </Link>
-        <Link href="/hackathons"
-          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group"
+        <Link href="/hackathons" onClick={() => setMenuOpen(false)}
+          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/70 rounded-xl transition-all group"
           data-page="hackathons">
           <span
-            className="w-7 h-7 rounded-lg bg-rose-50 flex items-center justify-center text-rose-500 group-hover:bg-primary/10 group-hover:text-primary transition-all">
+            className="w-7 h-7 rounded-lg bg-rose-500/15 flex items-center justify-center text-rose-400 group-hover:bg-primary/20 group-hover:text-primary transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
@@ -521,94 +558,94 @@ export function Header() {
           Hackathons
         </Link>
 
-        <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer"
-          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 rounded-xl transition-all group">
+        <a href="https://rishvin-labs.vercel.app" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}
+          className="mobile-nav-link flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/70 rounded-xl transition-all group">
           <span
-            className="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center text-white group-hover:bg-primary group-hover:shadow-lg transition-all">
+            className="w-7 h-7 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 group-hover:bg-primary group-hover:shadow-lg transition-all">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
             </svg>
           </span>
           <span className="flex items-center gap-1.5">
             Rishvin Labs
-            <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <svg className="w-3 h-3 text-slate-400 group-hover:text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </span>
         </a>
 
-        <div className="border-t border-slate-100 my-1.5"></div>
-        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">More</p>
+        <div className="border-t border-slate-800 my-1.5"></div>
+        <p className="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">More</p>
 
         <div className="grid grid-cols-2 gap-1.5">
-          <Link href="/ide"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors col-span-2">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/ide" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors col-span-2">
+            <svg className="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeWidth="2" strokeLinecap="round"
                 strokeLinejoin="round" />
             </svg> Projects IDE
           </Link>
-          <Link href="/resume"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/resume" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
+            <svg className="w-3.5 h-3.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg> Resume
           </Link>
-          <Link href="/skills"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/skills" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
+            <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg> Skills
           </Link>
-          <Link href="/awards"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/awards" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
+            <svg className="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg> Awards
           </Link>
-          <Link href="/services"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/services" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
+            <svg className="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg> Services
           </Link>
-          <Link href="/blog"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/blog" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
+            <svg className="w-3.5 h-3.5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg> Blog
           </Link>
-          <Link href="/faq"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/faq" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
+            <svg className="w-3.5 h-3.5 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg> FAQ
           </Link>
-          <Link href="/#recommendations"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-primary transition-colors">
+          <Link href="/#recommendations" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
             <svg className="w-3.5 h-3.5 text-[#0077b5]" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
             Recommendations
           </Link>
-          <Link href="/youtube"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-[#FF0000] transition-colors">
+          <Link href="/youtube" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-[#FF0000] transition-colors">
             <svg className="w-3.5 h-3.5 text-[#FF0000]" fill="currentColor" viewBox="0 0 24 24">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
             YouTube
           </Link>
-          <Link href="/linkedin"
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-white bg-slate-50 rounded-xl hover:text-[#0A66C2] transition-colors">
+          <Link href="/linkedin" onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-[#0A66C2] transition-colors">
             <svg className="w-3.5 h-3.5 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
@@ -616,8 +653,8 @@ export function Header() {
           </Link>
         </div>
 
-        <div className="border-t border-slate-100 mt-1.5 pt-2">
-          <Link href="/contact"
+        <div className="border-t border-slate-800 mt-2 pt-2">
+          <Link href="/contact" onClick={() => setMenuOpen(false)}
             className="flex items-center justify-center gap-2 w-full py-3 text-sm font-bold text-white bg-gradient-to-r from-primary to-rose-500 rounded-2xl shadow-xl shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-200 relative overflow-hidden group">
             <span
               className="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
