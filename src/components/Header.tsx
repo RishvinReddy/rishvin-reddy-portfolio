@@ -31,11 +31,14 @@ export function Header() {
     };
   }, []);
 
-  // Close menus on route change
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  // Close menus on route change during render without cascading effects
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMenuOpen(false);
     setDropdownOpen(false);
-  }, [pathname]);
+  }
 
   // Close dropdown on outside click
   useEffect(() => {
