@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/portfolio',
     '/hackathons',
-    '/services',
     '/resume',
     '/contact',
     '/skills',

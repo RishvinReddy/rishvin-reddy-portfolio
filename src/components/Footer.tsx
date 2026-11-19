@@ -305,7 +305,6 @@ export function Footer() {
                     { href: "/portfolio", label: "Portfolio" },
                     { href: "/hackathons", label: "Hackathons", badge: "Archive" },
                     { href: "/ide", label: "Projects IDE", badge: "Live" },
-                    { href: "/services", label: "Services" },
                   ].map((item) => (
                     <li key={item.href}>
                       <Link

@@ -208,7 +208,7 @@ const STUDIO_SERVICES: StudioServiceItem[] = [
     title: "Web & SaaS Development",
     description: "Scalable SaaS platforms, high-performance cloud architectures, and production-grade full-stack web applications engineered for speed, modularity, and business growth.",
     capabilities: ["Next.js / TypeScript", "Microservices & APIs", "Scalable Database Systems"],
-    href: "/services",
+    href: "https://rishvin-labs.vercel.app",
     colorClasses: {
       number: "text-blue-400/90 group-hover:text-blue-300",
       borderHover: "hover:border-blue-500/40",
@@ -230,7 +230,7 @@ const STUDIO_SERVICES: StudioServiceItem[] = [
     title: "Cybersecurity Solutions",
     description: "Hardened system architectures, threat surface analysis, automated vulnerability assessments, and proactive defensive controls built to safeguard enterprise digital assets.",
     capabilities: ["Vulnerability Assessments", "Zero-Trust Architecture", "Secure Auth & Crypto"],
-    href: "/services",
+    href: "https://rishvin-labs.vercel.app",
     colorClasses: {
       number: "text-emerald-400/90 group-hover:text-emerald-300",
       borderHover: "hover:border-emerald-500/40",
@@ -258,7 +258,7 @@ const STUDIO_SERVICES: StudioServiceItem[] = [
     title: "IoT & Automation",
     description: "Custom microcontroller firmware, real-time edge sensor telemetry networks, and intelligent hardware-to-cloud automation pipelines bridging the physical and digital domains.",
     capabilities: ["ESP32 / Microcontrollers", "MQTT & Edge Telemetry", "Industrial Automation"],
-    href: "/services",
+    href: "https://rishvin-labs.vercel.app",
     colorClasses: {
       number: "text-amber-400/90 group-hover:text-amber-300",
       borderHover: "hover:border-amber-500/40",
@@ -1638,10 +1638,10 @@ export default async function Home() {
                 </svg>
               </a>
               <a
-                href="/services"
+                href="#projects"
                 className="px-6 sm:px-7 py-3 rounded-xl bg-white/[0.06] text-white font-semibold text-sm sm:text-base border border-white/10 hover:bg-white/[0.12] hover:border-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 backdrop-blur-md flex items-center gap-2 group"
               >
-                <span>Explore Services</span>
+                <span>Featured Projects</span>
                 <svg className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M19 9l-7 7-7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -1673,6 +1673,8 @@ export default async function Home() {
               <a
                 key={service.number}
                 href={service.href}
+                target={service.href.startsWith("http") ? "_blank" : undefined}
+                rel={service.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className={`group relative flex flex-col justify-between h-full rounded-2xl sm:rounded-3xl p-7 sm:p-8 bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 ${service.colorClasses.borderHover} ${service.colorClasses.glow} transition-all duration-300 hover:-translate-y-1.5 motion-reduce:hover:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary backdrop-blur-md overflow-hidden text-left`}
               >
                 {/* Ambient hover wash */}
@@ -1722,7 +1724,7 @@ export default async function Home() {
 
                     {/* Bottom-Aligned Navigation Affordance */}
                     <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">
-                      <span>Explore service</span>
+                      <span>Explore domain</span>
                       <span className="flex items-center gap-1.5 text-primary group-hover:text-primary transition-transform duration-300 group-hover:translate-x-1.5">
                         <span className="font-mono text-xs">VIEW</span>
                         <span className="font-mono text-sm">→</span>
@@ -1737,10 +1739,12 @@ export default async function Home() {
           {/* Bottom CTA row */}
           <div className="mt-12 sm:mt-14 text-center">
             <a
-              href="/services"
+              href="https://rishvin-labs.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 text-sm font-semibold text-slate-300 hover:text-white group transition-all duration-300 shadow-sm"
             >
-              <span>Explore All Technical Services</span>
+              <span>Explore Rishvin Labs Platform</span>
               <svg className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

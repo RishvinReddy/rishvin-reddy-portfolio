@@ -365,21 +365,6 @@ export function Header() {
                   </div>
                 </Link>
                 <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
-                  href="/services" onClick={() => setDropdownOpen(false)}>
-                  <span
-                    className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500 group-hover/item:scale-110 transition-transform">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold text-slate-800 group-hover/item:text-primary transition-colors">
-                      Services</p>
-                    <p className="text-[11px] text-slate-500 leading-tight">What I can do for you</p>
-                  </div>
-                </Link>
-                <Link className="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
                   href="/faq" onClick={() => setDropdownOpen(false)}>
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-lg bg-violet-50 flex items-center justify-center text-violet-500 group-hover/item:scale-110 transition-transform">
@@ -609,13 +594,6 @@ export function Header() {
                 d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg> Awards
-          </Link>
-          <Link href="/services" onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
-            <svg className="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg> Services
           </Link>
           <Link href="/blog" onClick={() => setMenuOpen(false)}
             className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-slate-200 bg-slate-800/60 hover:bg-slate-800 rounded-xl hover:text-primary transition-colors">
